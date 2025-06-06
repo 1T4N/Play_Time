@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cb7ub7sykaqrj"
-path="res://.godot/imported/MadimiOne-Regular.ttf-ffd5773cbe32f6f60ab0640288de67d5.fontdata"
+path="res://.godot/imported/MadimiOne-Regular.ttf-0bee9788e2fddfab3e260324cafd5d08.fontdata"
 
 [deps]
 
-source_file="res://Games/LetterTracing/Madimi_One/MadimiOne-Regular.ttf"
-dest_files=["res://.godot/imported/MadimiOne-Regular.ttf-ffd5773cbe32f6f60ab0640288de67d5.fontdata"]
+source_file="res://GAMES/LetterTracing/Madimi_One/MadimiOne-Regular.ttf"
+dest_files=["res://.godot/imported/MadimiOne-Regular.ttf-0bee9788e2fddfab3e260324cafd5d08.fontdata"]
 
 [params]
 

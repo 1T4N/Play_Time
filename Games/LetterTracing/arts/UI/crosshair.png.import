@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d18ignetpwfth"
-path="res://.godot/imported/crosshair.png-351398bc8c469ba0d90bfa927d19cc8d.ctex"
+path="res://.godot/imported/crosshair.png-baaf34d7fd1b5457fcc3b49049dbe1cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Games/LetterTracing/arts/UI/crosshair.png"
-dest_files=["res://.godot/imported/crosshair.png-351398bc8c469ba0d90bfa927d19cc8d.ctex"]
+source_file="res://GAMES/LetterTracing/arts/UI/crosshair.png"
+dest_files=["res://.godot/imported/crosshair.png-baaf34d7fd1b5457fcc3b49049dbe1cf.ctex"]
 
 [params]
 
