@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnvxeqc6wayep"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_633hj"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_46i76"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_sjosi"]
+
+[node name="Label" type="Label"]
+clip_children = 2
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_633hj")
+text = "k"
+script = ExtResource("2_46i76")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_sjosi")]
+layout_mode = 1
+offset_left = -75.5
+offset_top = -170.0
+offset_right = -39.5
+offset_bottom = 128.0
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_sjosi")]
+layout_mode = 1
+offset_left = -23.5
+offset_top = 38.0
+offset_right = 10.5
+offset_bottom = 194.0
+rotation = -2.3288
+orderID = 1
+
+[node name="vertical slider Component3" parent="." instance=ExtResource("2_sjosi")]
+layout_mode = 1
+offset_left = -45.5
+offset_top = 18.0
+offset_right = -11.5
+offset_bottom = 188.0
+rotation = -0.804813
+orderID = 2

@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cyx1ngbtbpcvo"]
+
+[ext_resource type="FontFile" uid="uid://blyknxd0lq7hn" path="res://Games/LetterTracing/arts/UI/Baloo_2/Baloo2-VariableFont_wght.ttf" id="1_5i266"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mf4mk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37kl0"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+Label/colors/font_color = Color(0.458824, 0.458824, 0.458824, 1)
+Label/font_sizes/font_size = 450
+Label/fonts/font = ExtResource("1_5i266")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_mf4mk")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_37kl0")

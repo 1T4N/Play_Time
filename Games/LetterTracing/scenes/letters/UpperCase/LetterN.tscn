@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw5j2dorgur80"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_qthmo"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_g6o4v"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_t4rhf"]
+
+[node name="LetterN" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -11.5
+offset_right = 6.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qthmo")
+text = "N"
+script = ExtResource("2_g6o4v")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_t4rhf")]
+layout_mode = 1
+offset_left = -138.5
+offset_top = -174.0
+offset_right = -70.5
+offset_bottom = 130.0
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_t4rhf")]
+layout_mode = 1
+offset_left = -123.5
+offset_top = -140.0
+offset_right = -54.5
+offset_bottom = 200.0
+rotation = -0.494266
+orderID = 1
+
+[node name="vertical slider Component3" parent="." instance=ExtResource("2_t4rhf")]
+layout_mode = 1
+offset_left = 140.5
+offset_top = 148.0
+offset_right = 209.5
+offset_bottom = 448.0
+rotation = -3.14159
+orderID = 2

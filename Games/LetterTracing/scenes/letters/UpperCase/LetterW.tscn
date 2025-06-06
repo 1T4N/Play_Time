@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://db383xic84wdq"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_re3so"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_dgtm5"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_ohsu5"]
+
+[node name="LetterW" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_re3so")
+text = "W"
+script = ExtResource("2_ohsu5")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_dgtm5")]
+layout_mode = 1
+offset_left = -199.0
+offset_top = -180.0
+offset_right = -130.0
+offset_bottom = 179.0
+rotation = -0.204464
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_dgtm5")]
+layout_mode = 1
+offset_left = -53.5
+offset_top = 165.0
+offset_right = -11.5
+offset_bottom = 425.0
+rotation = -2.87979
+orderID = 1
+
+[node name="vertical slider Component3" parent="." instance=ExtResource("2_dgtm5")]
+layout_mode = 1
+offset_left = -17.5
+offset_top = -110.0
+offset_right = 20.5
+offset_bottom = 149.0
+rotation = -0.284826
+orderID = 2
+
+[node name="vertical slider Component4" parent="." instance=ExtResource("2_dgtm5")]
+layout_mode = 1
+offset_left = 110.5
+offset_top = 159.0
+offset_right = 152.5
+offset_bottom = 473.0
+rotation = -2.95258
+orderID = 3

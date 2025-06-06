@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcuwhym3y5gr"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_ydbad"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_2r86d"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_pkom1"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="3_pkom1"]
+
+[node name="LetterU" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -11.5
+offset_right = 6.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ydbad")
+text = "U"
+script = ExtResource("2_pkom1")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_2r86d")]
+layout_mode = 1
+offset_left = -121.0
+offset_top = -218.0
+offset_right = -64.0
+offset_bottom = 47.0
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("3_pkom1")]
+layout_mode = 1
+offset_left = -116.0
+offset_top = 136.0
+offset_right = 90.0002
+offset_bottom = 370.999
+rotation = -1.5708
+orderID = 1
+debug = false
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_2r86d")]
+layout_mode = 1
+offset_left = 134.0
+offset_top = 63.0
+offset_right = 203.0
+offset_bottom = 278.0
+rotation = 3.14159
+orderID = 2

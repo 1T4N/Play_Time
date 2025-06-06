@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://iwoda01ab1rn"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_xto7x"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_hta8i"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_s7k00"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_s7k00"]
+
+[node name="LetterQ" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -11.5
+offset_right = 6.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xto7x")
+text = "Q"
+script = ExtResource("2_s7k00")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_hta8i")]
+layout_mode = 1
+offset_left = -52.0
+offset_top = -217.0
+offset_right = 241.0
+offset_bottom = 79.0
+rotation = 0.524525
+debug = false
+
+[node name="vertical slider Component" parent="." instance=ExtResource("3_s7k00")]
+layout_mode = 1
+offset_left = -23.0
+offset_top = 136.0
+offset_right = 46.0
+offset_bottom = 306.0
+rotation = -1.05451
+orderID = 1

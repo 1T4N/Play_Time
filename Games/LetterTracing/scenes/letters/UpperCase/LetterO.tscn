@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkpw3l1fc833c"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_k8pa4"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_0rh6n"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_inxd6"]
+
+[node name="LetterO" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -361.0
+offset_right = 155.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k8pa4")
+text = "O"
+script = ExtResource("2_0rh6n")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_inxd6")]
+layout_mode = 1
+offset_left = -36.0
+offset_top = -216.0
+offset_right = 254.0
+offset_bottom = 78.0
+rotation = 0.606136
+halfCircle = false
+debug = false

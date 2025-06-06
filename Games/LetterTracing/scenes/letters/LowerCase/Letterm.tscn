@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4woylww2vyrv"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_ch77u"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_c6o5h"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_t03tq"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="3_c6o5h"]
+
+[node name="Label" type="Label"]
+clip_children = 2
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_ch77u")
+text = "m"
+script = ExtResource("2_c6o5h")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_t03tq")]
+layout_mode = 1
+offset_left = -107.5
+offset_top = 127.0
+offset_right = -66.5
+offset_bottom = 301.0
+rotation = 3.13091
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("3_c6o5h")]
+layout_mode = 1
+offset_left = -153.5
+offset_top = 26.0
+offset_right = -34.5
+offset_bottom = 199.0
+rotation = -1.54059
+orderID = 1
+halfCircle = true
+reverse = false
+debug = false
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_t03tq")]
+layout_mode = 1
+offset_left = 23.5
+offset_top = 127.0
+offset_right = 70.5
+offset_bottom = 287.0
+rotation = -3.12893
+orderID = 2
+
+[node name="CircleSliderComponent2" parent="." instance=ExtResource("3_c6o5h")]
+layout_mode = 1
+offset_left = -19.5
+offset_top = 26.9999
+offset_right = 99.5
+offset_bottom = 200.0
+rotation = -1.54059
+orderID = 3
+halfCircle = true
+reverse = false
+debug = false
+
+[node name="vertical slider Component3" parent="." instance=ExtResource("2_t03tq")]
+layout_mode = 1
+offset_left = 154.5
+offset_top = 128.0
+offset_right = 198.5
+offset_bottom = 293.0
+rotation = -3.13726
+debug = false
+orderID = 4
