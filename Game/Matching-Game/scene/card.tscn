@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkbs6l6frvx1r"]
 
-[ext_resource type="Script" uid="uid://1osftkuf7ulf" path="res://Matching-Game/script/card.gd" id="1_7p64d"]
+[ext_resource type="Script" uid="uid://1osftkuf7ulf" path="res://Game/Matching-Game/script/card.gd" id="1_7p64d"]
 
 [node name="Card" type="Button"]
 custom_minimum_size = Vector2(200, 200)
