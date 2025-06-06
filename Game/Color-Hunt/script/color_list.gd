@@ -1,8 +1,8 @@
 extends Control
 
-
-@onready var color_rect = $Panel/MarginContainer2/VBoxContainer/ColorRect
-@onready var color_label = $Panel/MarginContainer2/VBoxContainer/ColorRect/Label
+@onready var menu = $MenuComponent
+@onready var color_rect = $Panel/MarginContainer2/ColorRect
+@onready var color_label = $Panel/MarginContainer2/ColorRect/Label
 @onready var countdown_label = $Panel/MarginContainer2/Timer/CountdownLabel
 @onready var exit_button: Button = $Panel/MarginContainer2/ExitButton
 @onready var next_button: Button = $Panel/MarginContainer2/NextButton
@@ -59,3 +59,8 @@ func _on_next_button_pressed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()  # Close the game
+
+
+func _on_menu_pressed() -> void:
+	print("press")
+	menu.show()

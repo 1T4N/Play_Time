@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="1_348ot"]
 [ext_resource type="Script" uid="uid://brqiah76kcg2e" path="res://script/start_screen.gd" id="1_slrr1"]
-[ext_resource type="Texture2D" uid="uid://bmnb2mthqtrsp" path="res://BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="2_sblqn"]
+[ext_resource type="Texture2D" uid="uid://db0ewn84m15mm" path="res://BG/2.jpg" id="2_sblqn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kslvq"]
 texture = ExtResource("2_sblqn")
