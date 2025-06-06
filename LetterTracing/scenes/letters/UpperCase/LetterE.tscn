@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://du5bj1no6i835"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_qh2s2"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_iuq4y"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_piefu"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="3_piefu"]
+
+[node name="LetterE" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -361.0
+offset_right = 119.5
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qh2s2")
+text = "E"
+script = ExtResource("2_piefu")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_iuq4y")]
+layout_mode = 1
+offset_left = -109.5
+offset_top = -186.0
+offset_right = -41.5
+offset_bottom = 173.0
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("3_piefu")]
+layout_mode = 1
+offset_left = -46.5
+offset_top = -154.0
+offset_right = 95.5
+offset_bottom = -106.0
+orderID = 1
+
+[node name="horizontal Slider Component2" parent="." instance=ExtResource("3_piefu")]
+layout_mode = 1
+offset_left = -45.5
+offset_top = -39.0
+offset_right = 82.5
+offset_bottom = 9.0
+orderID = 2
+
+[node name="horizontal Slider Component3" parent="." instance=ExtResource("3_piefu")]
+layout_mode = 1
+offset_left = -46.5
+offset_top = 86.0
+offset_right = 98.5
+offset_bottom = 134.0
+orderID = 3

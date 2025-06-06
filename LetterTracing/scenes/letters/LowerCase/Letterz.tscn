@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://coh6uh5tq6xa8"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_wjjwp"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_3mckk"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="2_85fig"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_3mckk"]
+
+[node name="Letterz" type="Label"]
+clip_children = 2
+theme = ExtResource("1_wjjwp")
+text = "z"
+script = ExtResource("2_3mckk")
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("2_85fig")]
+layout_mode = 1
+offset_left = -119.5
+offset_top = -100.0
+offset_right = 83.5
+offset_bottom = -53.0
+
+[node name="vertical slider Component" parent="." instance=ExtResource("3_3mckk")]
+layout_mode = 1
+offset_left = 93.5
+offset_top = -123.0
+offset_right = 130.5
+offset_bottom = 178.0
+rotation = 0.690551
+orderID = 1
+
+[node name="horizontal Slider Component2" parent="." instance=ExtResource("2_85fig")]
+layout_mode = 1
+offset_left = -64.5
+offset_top = 95.0
+offset_right = 86.5
+offset_bottom = 126.0
+orderID = 2

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl1xs1ywvaif2"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_q43eg"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_gmahs"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_p3ja5"]
+
+[node name="Letters" type="Label"]
+clip_children = 2
+theme = ExtResource("1_q43eg")
+text = "s"
+script = ExtResource("2_gmahs")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_p3ja5")]
+layout_mode = 1
+offset_left = 90.5
+offset_top = -90.9999
+offset_right = 212.5
+offset_bottom = 85.0001
+rotation = 1.5694
+restart = false
+debug = false
+
+[node name="CircleSliderComponent2" parent="." instance=ExtResource("2_p3ja5")]
+layout_mode = 1
+offset_top = 0.0
+offset_right = 93.5
+offset_bottom = 133.0
+orderID = 1
+restart = false
+reverse = false
+debug = false

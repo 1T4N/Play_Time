@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://djyko53qml8yo"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_olb24"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_cb3t4"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_p5jje"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="3_p5jje"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="4_3byc0"]
+
+[node name="LetterB" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -314.0
+offset_right = 153.0
+offset_bottom = 299.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_olb24")
+text = "B"
+script = ExtResource("2_p5jje")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_cb3t4")]
+layout_mode = 1
+offset_left = -72.5
+offset_top = -158.0
+offset_right = 85.5
+offset_bottom = -1.0
+orderID = 2
+reverse = false
+debug = false
+
+[node name="CircleSliderComponent2" parent="." instance=ExtResource("2_cb3t4")]
+layout_mode = 1
+offset_left = -84.5
+offset_top = -30.5
+offset_right = 99.5
+offset_bottom = 128.5
+orderID = 4
+reverse = false
+debug = false
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("3_p5jje")]
+layout_mode = 1
+offset_left = -72.5
+offset_top = -156.5
+offset_right = 18.5
+offset_bottom = -111.5
+orderID = 1
+
+[node name="horizontal Slider Component2" parent="." instance=ExtResource("3_p5jje")]
+layout_mode = 1
+offset_left = 10.5
+offset_top = 3.0
+offset_right = 93.5
+offset_bottom = 42.0
+rotation = -3.14159
+orderID = 3
+
+[node name="horizontal Slider Component3" parent="." instance=ExtResource("3_p5jje")]
+layout_mode = 1
+offset_left = 12.5
+offset_top = 142.0
+offset_right = 100.5
+offset_bottom = 199.0
+rotation = -3.14159
+orderID = 5
+
+[node name="vertical slider Component" parent="." instance=ExtResource("4_3byc0")]
+layout_mode = 1
+offset_left = -141.5
+offset_top = -160.0
+offset_right = -72.5
+offset_bottom = 134.0

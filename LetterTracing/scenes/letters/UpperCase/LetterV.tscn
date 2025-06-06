@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bor7pfgegh10a"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_u5l67"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_qpe4a"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_xoibj"]
+
+[node name="LetterV" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u5l67")
+text = "V"
+script = ExtResource("2_xoibj")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_qpe4a")]
+layout_mode = 1
+offset_left = -150.0
+offset_top = -167.0
+offset_right = -81.0
+offset_bottom = 163.0
+rotation = -0.307446
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_qpe4a")]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 163.0
+offset_right = 123.0
+offset_bottom = 481.0
+rotation = -2.87979
+orderID = 1

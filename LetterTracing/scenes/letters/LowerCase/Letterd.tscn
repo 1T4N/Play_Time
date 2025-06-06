@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv14k37bw1vee"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_2eirx"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_dmkjw"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_tua4m"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="3_dmkjw"]
+
+[node name="Letterd" type="Label"]
+clip_children = 2
+theme = ExtResource("1_2eirx")
+text = "d"
+script = ExtResource("2_dmkjw")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_tua4m")]
+layout_mode = 1
+offset_left = 52.0
+offset_top = -195.0
+offset_right = 122.0
+offset_bottom = 125.0
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("3_dmkjw")]
+layout_mode = 1
+offset_left = 258.0
+offset_top = 139.0
+offset_right = 669.0
+offset_bottom = 374.0
+rotation = 3.14159
+orderID = 1
+restart = false
+debug = false

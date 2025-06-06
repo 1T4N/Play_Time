@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjs8hjebieulb"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_gfekl"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_bt0jf"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_o2qt6"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_bt0jf"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="4_5kasc"]
+
+[node name="LetterG" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -361.0
+offset_right = 144.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gfekl")
+text = "G"
+script = ExtResource("2_bt0jf")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_o2qt6")]
+layout_mode = 1
+offset_left = -150.0
+offset_top = -175.0
+offset_right = 354.0
+offset_bottom = 155.0
+debug = false
+
+[node name="vertical slider Component" parent="." instance=ExtResource("3_bt0jf")]
+layout_mode = 1
+offset_left = 144.0
+offset_top = 148.0
+offset_right = 213.0
+offset_bottom = 325.0
+rotation = 3.14159
+orderID = 1
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("4_5kasc")]
+layout_mode = 1
+offset_left = 126.0
+offset_top = 10.0
+offset_right = 250.0
+offset_bottom = 58.0
+rotation = 3.14159
+orderID = 2

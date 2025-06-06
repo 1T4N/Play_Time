@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5aji4m6788l3"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://GAMES/LetterTracing/alphabet.tres" id="1_36jr4"]
+
+[sub_resource type="GDScript" id="GDScript_8uh7m"]
+script/source = "extends ProgressBar
+@onready var timer: Timer = $Timer
+@export var debug:bool = true
+@export var orderID:int = 0
+
+@export var startThreshold:float = 0.5
+var startPoint:bool = false
+
+var finished:bool = false
+
+func _process(delta: float) -> void:
+	if not debug:
+		theme = load(\"res://GAMES/LetterTracing/alphabet.tres\")
+	elif debug:
+		theme.clear()
+
+
+func _gui_input(event):
+	#takes the posistion of mouse, relative to the origin of node itself
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		set_value_from_mouse(event.position.x)
+	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
+		set_value_from_mouse(event.position.x)
+
+func set_value_from_mouse(mouse_x):
+	#print(\"size x: \", size.x)
+	#print(\"mouse x: \", mouse_y)
+	#print(\"divided x: \", mouse_y/ size.y)
+	
+	#so think of X or Y values only. they are on the cartesian plane. when you divide it, it returns 
+	#the ratio on where the progress is? i cant explain it properly. Then clamping is basicaly so it wont
+	#overflow the progress bar.
+	#we use the size so it can adjust progressively
+#region checks if the pointer started at the starting location
+	var ratio = clamp(mouse_x / size.x, 0, 1)
+	#print(\"ratio: \", clamp(mouse_y / size.y, 0, 1))
+	if Input.is_action_just_pressed(\"click\") and ratio < startThreshold:
+		startPoint = true
+	else:
+		if Input.is_action_just_pressed(\"click\"):
+			startPoint = false
+	
+	if not startPoint:
+		return
+#endregion
+	
+	#so now we know where is the mouse located base on the ratio
+	#we calculated, we now need to put the value in the progress bar
+	#by subtracting the max to min, we can know the exact lenght of the value
+	#multiplying the difference to ratio we have, it will produce the exact value on 
+	#where its supposed to be
+	value = ratio * (max_value - min_value)
+	timer.start(1)
+
+
+
+
+
+func _on_timer_timeout() -> void:
+	var tween = create_tween()
+	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SPRING)
+
+func _on_value_changed(value: float) -> void:
+	if value == max_value:
+		finished = true
+		
+"
+
+[node name="horizontal Slider Component" type="ProgressBar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = 3.00003
+offset_right = 54.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00233638
+theme = ExtResource("1_36jr4")
+show_percentage = false
+script = SubResource("GDScript_8uh7m")
+debug = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

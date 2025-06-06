@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cto0f6dq10l6d"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_2qaxc"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_l76dh"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_y7qgw"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="3_l76dh"]
+
+[node name="Lettert" type="Label"]
+clip_children = 2
+theme = ExtResource("1_2qaxc")
+text = "t"
+script = ExtResource("2_l76dh")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_y7qgw")]
+layout_mode = 1
+offset_left = -80.5
+offset_top = -167.0
+offset_right = -12.5
+offset_bottom = 130.0
+
+[node name="horizontal Slider Component2" parent="." instance=ExtResource("3_l76dh")]
+layout_mode = 1
+offset_left = -27.5
+offset_top = 78.0
+offset_right = 66.5
+offset_bottom = 133.0
+orderID = 1
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("3_l76dh")]
+layout_mode = 1
+offset_left = -30.5
+offset_top = -80.0
+offset_right = 66.5
+offset_bottom = -48.0
+orderID = 2

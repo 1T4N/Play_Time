@@ -1,0 +1,131 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfreaefkqqael"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_v227s"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_5vdin"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="2_mr0m7"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_5vdin"]
+
+[sub_resource type="GDScript" id="GDScript_mf4mk"]
+script/source = "extends ProgressBar
+@onready var timer: Timer = $Timer
+#const orderID:int = 1
+@export var orderID:int = 0
+var finished:bool = false
+
+func _gui_input(event):
+	#gui input - takes the posistion of mouse, relative to the origin of node itself
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		set_value_from_mouse(event.position.y)
+	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
+		set_value_from_mouse(event.position.y)
+
+func set_value_from_mouse(mouse_y):
+	#print(\"size x: \", size.x)
+	#print(\"mouse x: \", mouse_y)
+	#print(\"divided x: \", mouse_y/ size.y)
+	
+	#so think of X or Y values only. they are on the cartesian plane. when you divide it, it returns 
+	#the ratio on where the progress is? i cant explain it properly. Then clamping is basicaly so it wont
+	#overflow the progress bar.
+	#we use the size so it can adjust progressively
+	var ratio = clamp(mouse_y / size.y, 0, 1)
+	#print(\"ratio: \", clamp(mouse_y / size.y, 0, 1))
+	
+	#so now we know where is the mouse located base on the ratio
+	#we calculated, we now need to put the value in the progress bar
+	#by subtracting the max to min, we can know the exact lenght of the value
+	#multiplying the difference to ratio we have, it will produce the exact value on 
+	#where its supposed to be
+	value = ratio * (max_value - min_value)
+	timer.start(1)
+
+
+
+
+
+func _on_timer_timeout() -> void:
+	#returns back the progress to start
+	var tween = create_tween()
+	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SPRING)
+
+
+func _on_value_changed(value: float) -> void:
+	#stays the progress in the 100 if completed
+	if value == max_value:
+		finished = true
+"
+
+[node name="Letter A" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -361.0
+offset_right = 165.5
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00078536
+theme = ExtResource("1_v227s")
+theme_override_font_sizes/font_size = 450
+text = "A"
+script = ExtResource("2_5vdin")
+
+[node name="horizontal" parent="." instance=ExtResource("2_mr0m7")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 57.2086
+offset_top = 371.045
+offset_right = 196.209
+offset_bottom = 419.045
+grow_horizontal = 1
+grow_vertical = 1
+orderID = 2
+
+[node name="vertical2" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.1398
+offset_top = -182.911
+offset_right = 16.8602
+offset_bottom = 176.089
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328461
+pivot_offset = Vector2(19.5, 0)
+theme = ExtResource("1_v227s")
+fill_mode = 2
+show_percentage = false
+script = SubResource("GDScript_mf4mk")
+orderID = 1
+
+[node name="Timer" type="Timer" parent="vertical2"]
+
+[node name="vertical" parent="." instance=ExtResource("3_5vdin")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 81.0
+offset_top = 185.0
+offset_right = 148.0
+offset_bottom = 492.0
+grow_horizontal = 1
+grow_vertical = 1
+rotation = 0.330494
+
+[connection signal="value_changed" from="vertical2" to="vertical2" method="_on_value_changed"]
+[connection signal="timeout" from="vertical2/Timer" to="vertical2" method="_on_timer_timeout"]

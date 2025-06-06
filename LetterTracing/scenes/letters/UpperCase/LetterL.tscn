@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://0jv8t3sg1a3q"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_sdcbb"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_8rj0d"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_lq3w6"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="3_8rj0d"]
+
+[node name="LetterL" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.5
+offset_top = -11.5
+offset_right = 4.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sdcbb")
+text = "L"
+script = ExtResource("2_8rj0d")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_lq3w6")]
+layout_mode = 1
+offset_left = -102.5
+offset_top = -231.0
+offset_right = -33.5
+offset_bottom = 126.0
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("3_8rj0d")]
+layout_mode = 1
+offset_left = -70.5
+offset_top = 88.0
+offset_right = 100.5
+offset_bottom = 136.0
+orderID = 1

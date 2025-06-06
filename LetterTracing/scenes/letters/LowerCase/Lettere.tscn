@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://2q373ja1annt"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_eg42o"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_1iim7"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_gykph"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="3_gykph"]
+
+[node name="LetterE" type="Label"]
+clip_children = 2
+theme = ExtResource("1_eg42o")
+text = "e"
+script = ExtResource("2_gykph")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_1iim7")]
+layout_mode = 1
+offset_left = 133.0
+offset_top = -84.0
+offset_right = 363.0
+offset_bottom = 151.0
+rotation = 1.63373
+orderID = 1
+restart = false
+debug = false
+
+[node name="horizontal Slider Component" parent="." instance=ExtResource("3_gykph")]
+layout_mode = 1
+offset_left = -61.0
+offset_top = 11.0
+offset_right = 68.0
+offset_bottom = 42.0
+rotation = -0.113756

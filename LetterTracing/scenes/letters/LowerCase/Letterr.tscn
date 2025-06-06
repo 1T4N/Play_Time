@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu31jr4jq2gup"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_bqy6k"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_bqy6k"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_e4fmw"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_ecqve"]
+
+[node name="Letterr" type="Label"]
+clip_children = 2
+theme = ExtResource("1_bqy6k")
+text = "r"
+script = ExtResource("2_ecqve")
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_bqy6k")]
+layout_mode = 1
+offset_left = 136.0
+offset_top = -98.0
+offset_right = 295.0
+offset_bottom = 103.0
+rotation = 1.5708
+halfCircle = true
+debug = false
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_e4fmw")]
+layout_mode = 1
+offset_left = -85.0
+offset_top = -83.0
+offset_right = -16.0
+offset_bottom = 128.0
+orderID = 1

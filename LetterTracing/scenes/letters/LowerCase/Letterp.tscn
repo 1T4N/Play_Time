@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1fjf1t4woxi7"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_2l00v"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_811gd"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_gxfoj"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_811gd"]
+
+[node name="Label" type="Label"]
+clip_children = 2
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_2l00v")
+text = "p"
+script = ExtResource("2_gxfoj")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("3_811gd")]
+layout_mode = 1
+offset_left = -53.0
+offset_top = 208.0
+offset_right = -17.0
+offset_bottom = 515.0
+rotation = 3.14061
+
+[node name="CircleSliderComponent" parent="." instance=ExtResource("2_811gd")]
+layout_mode = 1
+offset_left = -227.0
+offset_top = -104.0
+offset_right = 116.0
+offset_bottom = 144.0
+rotation = 0.00550231
+orderID = 1
+halfCircle = true
+reverse = false
+debug = false

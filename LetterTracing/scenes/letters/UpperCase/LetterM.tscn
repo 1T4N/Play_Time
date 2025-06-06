@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://s6rgo0y4amoo"]
+
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_q6hd1"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_idsnw"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_miru8"]
+
+[node name="LetterM" type="Label"]
+clip_children = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -361.0
+offset_right = 175.5
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q6hd1")
+text = "M"
+script = ExtResource("2_idsnw")
+
+[node name="vertical slider Component" parent="." instance=ExtResource("2_miru8")]
+layout_mode = 1
+offset_left = -91.5
+offset_top = 175.0
+offset_right = -22.5
+offset_bottom = 502.0
+rotation = -3.14159
+
+[node name="vertical slider Component2" parent="." instance=ExtResource("2_miru8")]
+layout_mode = 1
+offset_left = -122.5
+offset_top = -188.0
+offset_right = -81.5
+offset_bottom = 96.0
+rotation = -0.362936
+orderID = 1
+
+[node name="vertical slider Component3" parent="." instance=ExtResource("2_miru8")]
+layout_mode = 1
+offset_left = 38.5
+offset_top = 93.0
+offset_right = 94.5
+offset_bottom = 345.0
+rotation = -2.87979
+orderID = 2
+
+[node name="vertical slider Component4" parent="." instance=ExtResource("2_miru8")]
+layout_mode = 1
+offset_left = 91.5
+offset_top = -170.0
+offset_right = 160.5
+offset_bottom = 134.0
+orderID = 3
