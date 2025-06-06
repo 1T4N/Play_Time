@@ -1,6 +1,6 @@
 extends Control
 
-@onready var grid = $GridContainer                        
+@onready var grid = $Panel/MarginContainer/GridContainer                
 @onready var help_popup = $PopUp/HelpPopup                
 @onready var win_popup = $PopUp/WinPopUp                  
 
@@ -24,18 +24,18 @@ func _ready():
 # add more image here copy and paste the load code then input the location of the image
 func load_card_images():
 	return [
-		load("res://ui/chester.jpg"),
-		load("res://ui/justine.png"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg"),
-		load("res://ui/sandaga.jpeg")
+		load("res://Game/Matching-Game/ui/chester.jpg"),
+		load("res://Game/Matching-Game/ui/justine.png"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg"),
+		load("res://Game/Matching-Game/ui/sandaga.jpeg")
 	]
 
 # Called when a card is pressed

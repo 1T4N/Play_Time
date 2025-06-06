@@ -1,8 +1,8 @@
 [gd_scene load_steps=30 format=3 uid="uid://dx0klmv80ca8e"]
 
-[ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Color-Hunt/script/color_list.gd" id="1_jkuuy"]
-[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://GAMES/LetterTracing/alphabet.tres" id="2_3sg35"]
-[ext_resource type="FontFile" uid="uid://3uaootdnyxb7" path="res://Color-Hunt/Baloo_2/static/Baloo2-Bold.ttf" id="3_14o3a"]
+[ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/alphabet.tres" id="2_3sg35"]
+[ext_resource type="FontFile" uid="uid://3uaootdnyxb7" path="res://Game/Color-Hunt/Baloo_2/static/Baloo2-Bold.ttf" id="3_14o3a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14o3a"]
 bg_color = Color(0.658824, 0.854902, 0.862745, 1)
