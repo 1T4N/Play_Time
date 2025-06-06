@@ -1,0 +1,221 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbxi8h1khjpx5"]
+
+[ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Matching-Game/script/card_flip.gd" id="1_0xm2m"]
+[ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Matching-Game/scene/card.tscn" id="2_h2yge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lquwl"]
+bg_color = Color(0.658824, 0.854902, 0.862745, 1)
+
+[sub_resource type="Theme" id="Theme_7mycd"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_0xm2m")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lquwl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_7mycd")
+theme_override_colors/font_color = Color(0.14902, 0.27451, 0.32549, 1)
+theme_override_fonts/font = ExtResource("2_1bvp3")
+theme_override_font_sizes/font_size = 100
+text = "MATCHING GAME 
+"
+
+[node name="Button" type="Button" parent="Panel/MarginContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "="
+
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 6
+
+[node name="Card" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card2" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card3" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card4" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card5" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card6" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card7" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card8" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card9" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card10" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card11" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card12" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card13" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card14" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card15" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card16" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card17" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Card18" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HelpButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -33.0
+offset_right = 46.0
+offset_bottom = -2.0
+grow_vertical = 0
+size_flags_horizontal = 0
+text = "Help"
+
+[node name="PopUp" type="Node" parent="."]
+
+[node name="HelpPopup" type="Popup" parent="PopUp"]
+size = Vector2i(259, 238)
+
+[node name="Label" type="Label" parent="PopUp/HelpPopup"]
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 259.0
+offset_bottom = 238.0
+text = "How to Play:
+
+- Flip two cards.
+- Match all pairs to win.
+
+
+Good luck!
+"
+
+[node name="WinPopUp" type="Popup" parent="PopUp"]
+size = Vector2i(100, 108)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUp/WinPopUp"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -29.0
+offset_right = 35.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PopUp/WinPopUp/VBoxContainer"]
+layout_mode = 2
+text = "You win!!"
+
+[node name="RestartButton" type="Button" parent="PopUp/WinPopUp/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="PopUp/WinPopUp/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="PopUp/WinPopUp/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PopUp/WinPopUp/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
