@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dvbvy2quf5alw"
-path="res://.godot/imported/Baloo2-Medium.ttf-fb50cba49132cf0d3098402a694db296.fontdata"
+path="res://.godot/imported/Baloo2-Medium.ttf-8f98d01ea5fb30c4982f10e301e55150.fontdata"
 
 [deps]
 
-source_file="res://GAMES/LetterTracing/arts/UI/Baloo_2/static/Baloo2-Medium.ttf"
-dest_files=["res://.godot/imported/Baloo2-Medium.ttf-fb50cba49132cf0d3098402a694db296.fontdata"]
+source_file="res://Games/LetterTracing/arts/UI/Baloo_2/static/Baloo2-Medium.ttf"
+dest_files=["res://.godot/imported/Baloo2-Medium.ttf-8f98d01ea5fb30c4982f10e301e55150.fontdata"]
 
 [params]
 
