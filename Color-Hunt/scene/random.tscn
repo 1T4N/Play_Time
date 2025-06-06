@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://crn1tnpomrl3b"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 14.0
-text = "hello!!"
