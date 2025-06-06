@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d0x272yn8hy2y"]
+
+[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="1_0v5sa"]
+
+[resource]
+Label/colors/font_color = Color(0.65098, 0.894118, 0.894118, 1)
+Label/font_sizes/font_size = 180
+Label/fonts/font = ExtResource("1_0v5sa")

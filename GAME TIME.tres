@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://br70tphagchtl"]
+
+[ext_resource type="FontFile" uid="uid://bwmptq32nie58" path="res://Asap_Condensed,Baloo_2,Madimi_One/Baloo_2/static/Baloo2-ExtraBold.ttf" id="1_or4v1"]
+
+[resource]
+default_font = ExtResource("1_or4v1")
+default_font_size = 20
+Label/colors/font_color = Color(0.65098, 0.894118, 0.894118, 1)
+Label/font_sizes/font_size = 150
+Label/fonts/font = ExtResource("1_or4v1")
+Label/styles/normal = null

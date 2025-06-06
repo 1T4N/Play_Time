@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjfksj458accm"]
+
+[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="1_348ot"]
+[ext_resource type="Script" uid="uid://brqiah76kcg2e" path="res://script/start_screen.gd" id="1_slrr1"]
+[ext_resource type="Texture2D" uid="uid://bmnb2mthqtrsp" path="res://BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="2_sblqn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kslvq"]
+texture = ExtResource("2_sblqn")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sblqn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kslvq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_slrr1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5oj5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sblqn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slrr1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kslvq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -120.5
+offset_right = 350.0
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -70
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_348ot")
+theme_override_colors/font_color = Color(0.14902, 0.27451, 0.32549, 1)
+text = "PLAY TIME"
+
+[node name="touch the screen" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sblqn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kslvq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_slrr1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_q5oj5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sblqn")
+
+[connection signal="pressed" from="Panel/touch the screen" to="." method="_on_touch_the_screen_pressed"]

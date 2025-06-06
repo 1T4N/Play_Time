@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx6r8abw4qg8"]
+
+[sub_resource type="Theme" id="Theme_s70hg"]
+Label/font_sizes/font_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gov4d"]
+bg_color = Color(0.658824, 0.854902, 0.862745, 1)
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s70hg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gov4d")
