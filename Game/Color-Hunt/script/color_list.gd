@@ -1,12 +1,11 @@
 extends Control
 
-@onready var menu = $MenuComponent
+
 @onready var color_rect = $Panel/MarginContainer2/ColorRect
 @onready var color_label = $Panel/MarginContainer2/ColorRect/Label
 @onready var countdown_label = $Panel/MarginContainer2/Timer/CountdownLabel
 @onready var exit_button: Button = $Panel/MarginContainer2/ExitButton
 @onready var next_button: Button = $Panel/MarginContainer2/NextButton
-
 # if you want to add more color add here
 var colors = [
 	{"name": "Red", "color": Color.RED},
@@ -17,7 +16,6 @@ var colors = [
 	{"name": "Pink", "color": Color(1, 0.75, 0.8)},
 	{"name": "Brown", "color": Color(0.6, 0.3, 0.1)},
 	{"name": "Orange", "color": Color(1, 0.5, 0)},
-	{"name": "White", "color": Color(1, 1, 1)},
 	{"name": "Black", "color": Color(0, 0, 0)}
 ]
 
@@ -59,8 +57,3 @@ func _on_next_button_pressed():
 
 func _on_exit_button_pressed():
 	get_tree().quit()  # Close the game
-
-
-func _on_menu_pressed() -> void:
-	print("press")
-	menu.show()
