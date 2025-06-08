@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfreaefkqqael"]
 
-[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_v227s"]
-[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_5vdin"]
-[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="2_mr0m7"]
-[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_5vdin"]
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_v227s"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_5vdin"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://Game/LetterTracing/scenes/components/horizontal slider Component.tscn" id="2_mr0m7"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="3_5vdin"]
 
 [sub_resource type="GDScript" id="GDScript_mf4mk"]
 script/source = "extends ProgressBar
