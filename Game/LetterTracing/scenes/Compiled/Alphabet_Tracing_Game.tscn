@@ -1,9 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=7 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="PackedScene" uid="uid://dfreaefkqqael" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterA.tscn" id="1_peu6l"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
 [ext_resource type="Texture2D" uid="uid://cxmcyjaqjvpc7" path="res://BG/494886829_1783485128896786_1194835669791044533_n.jpg" id="2_o6nc1"]
 [ext_resource type="PackedScene" uid="uid://eoarerine843" path="res://Game/LetterTracing/scenes/letters/LowerCase/Lettera.tscn" id="2_w2vhl"]
+
+[sub_resource type="GDScript" id="GDScript_fbvme"]
+script/source = "extends Label
+@onready var timer: Timer = $Timer
+
+func _ready() -> void:
+	timer.start(100)
+func _process(_delta: float) -> void:
+	text = str(int(timer.get_time_left()))
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -22,7 +32,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PanelContainer" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,6 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fbvme")
+theme_override_constants/margin_top = 10
 
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
@@ -67,15 +78,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -57.0
-offset_right = 57.0
-offset_bottom = 132.0
+offset_left = -62.5
+offset_right = 62.5
+offset_bottom = 147.0
 grow_horizontal = 2
 theme = ExtResource("2_fbvme")
 theme_override_font_sizes/font_size = 110
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = SubResource("GDScript_fbvme")
 
 [node name="Timer" type="Timer" parent="MarginContainer/Control/Header/Timer"]
 
@@ -85,7 +97,8 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -216.0
-offset_bottom = 132.0
+offset_right = -43.0
+offset_bottom = 106.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 80
 text = "1000"
