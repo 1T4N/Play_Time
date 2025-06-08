@@ -1,10 +1,13 @@
-[gd_scene load_steps=35 format=3 uid="uid://dx0klmv80ca8e"]
+[gd_scene load_steps=44 format=3 uid="uid://dx0klmv80ca8e"]
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
 [ext_resource type="Texture2D" uid="uid://db0ewn84m15mm" path="res://BG/2.jpg" id="2_66bfu"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="2_d8s1t"]
 [ext_resource type="FontFile" uid="uid://3uaootdnyxb7" path="res://Game/Color-Hunt/Baloo_2/static/Baloo2-Bold.ttf" id="3_14o3a"]
+[ext_resource type="Script" path="res://script/menu_component.gd" id="6_70skh"]
+[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_1218q"]
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://Main_Menu.tres" id="8_einxs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3p6ol"]
 texture = ExtResource("2_66bfu")
@@ -105,6 +108,43 @@ corner_radius_bottom_left = 50
 script/source = "extends Label
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_3mro0"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("7_1218q")
+Label/styles/normal = SubResource("StyleBoxFlat_2jusw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cvai"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [node name="Color Hunt" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -148,7 +188,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 0
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 0
 
 [node name="ExitButton" type="Button" parent="Panel/MarginContainer2"]
@@ -197,7 +237,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kr5xh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_h7hfj")
 text = "Next"
 
-[node name="Button" type="Button" parent="Panel/MarginContainer2"]
+[node name="MenuButton" type="Button" parent="Panel/MarginContainer2"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -258,5 +298,113 @@ theme_override_colors/font_color = Color(0.14902, 0.27451, 0.32549, 1)
 theme_override_font_sizes/font_size = 75
 script = SubResource("GDScript_vei67")
 
+[node name="ScoreLabel" type="Label" parent="Panel/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("2_d8s1t")
+text = "score: "
+
+[node name="Menu" type="Control" parent="."]
+custom_minimum_size = Vector2(600, 850)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -425.0
+offset_right = 275.0
+offset_bottom = 425.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d8s1t")
+script = ExtResource("6_70skh")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -380.0
+offset_right = 275.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+custom_minimum_size = Vector2(550, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_3mro0")
+theme_override_constants/separation = 25
+
+[node name="Resume" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_einxs")
+theme_override_fonts/font = ExtResource("7_1218q")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
+text = "Resume"
+
+[node name="Sound" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_einxs")
+theme_override_fonts/font = ExtResource("7_1218q")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
+text = "Sound"
+
+[node name="Music" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_einxs")
+theme_override_fonts/font = ExtResource("7_1218q")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
+text = "Music"
+
+[node name="Credits" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_einxs")
+theme_override_fonts/font = ExtResource("7_1218q")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
+text = "Credits"
+
+[node name="Back" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_einxs")
+theme_override_fonts/font = ExtResource("7_1218q")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
+text = "Back
+"
+
 [connection signal="pressed" from="Panel/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]

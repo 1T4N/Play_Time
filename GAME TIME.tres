@@ -5,6 +5,8 @@
 [resource]
 default_font = ExtResource("1_or4v1")
 default_font_size = 20
-Label/font_sizes/font_size = 150
+Label/colors/font_color = Color(0, 0.309035, 0.309637, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 90
 Label/fonts/font = ExtResource("1_or4v1")
 Label/styles/normal = null

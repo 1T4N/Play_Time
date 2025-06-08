@@ -58,6 +58,7 @@ layout_mode = 2
 theme = ExtResource("1_348ot")
 theme_override_colors/font_color = Color(0.14902, 0.27451, 0.32549, 1)
 text = "PLAY TIME"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
