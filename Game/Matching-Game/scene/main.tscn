@@ -1,15 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://cbxi8h1khjpx5"]
 
-<<<<<<< HEAD:Game/Matching-Game/main.tscn
-[ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
-[ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://bmnb2mthqtrsp" path="res://BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="2_1t1lt"]
-[ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
-=======
+
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_rbo5g"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_jx6xk"]
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="3_pbu4v"]
->>>>>>> 56ca9bd0b4a18717fd91df83e693fd077ddaa6ef:Game/Matching-Game/scene/main.tscn
+
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
 texture = ExtResource("2_1t1lt")
