@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b51n8hc074j0a"]
 
-[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_6vse1"]
-[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="2_4mvjr"]
-[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_l8k71"]
-[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="3_l8k71"]
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_6vse1"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="2_4mvjr"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_l8k71"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://Game/LetterTracing/scenes/components/horizontal slider Component.tscn" id="3_l8k71"]
 
 [node name="LetterF" type="Label"]
 clip_children = 2

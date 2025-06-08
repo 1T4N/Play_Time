@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dhfwwa0mf8842" path="res://script/BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="1_22y4c"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="1_dkfq3"]
-[ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
+[ext_resource type="Script" path="res://script/main_screen.gd" id="1_l0b2r"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]

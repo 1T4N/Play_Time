@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhsltkgg03pux"]
 
-[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://alphabet.tres" id="1_rwo2o"]
-[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://scenes/letters/letters.gd" id="2_cpjsp"]
-[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://scenes/components/Circle slider component.tscn" id="2_ycw4s"]
-[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://scenes/components/vertical slider Component.tscn" id="3_n8qmq"]
-[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://scenes/components/horizontal slider Component.tscn" id="4_y01xc"]
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_rwo2o"]
+[ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_cpjsp"]
+[ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://Game/LetterTracing/scenes/components/Circle slider component.tscn" id="2_ycw4s"]
+[ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="3_n8qmq"]
+[ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://Game/LetterTracing/scenes/components/horizontal slider Component.tscn" id="4_y01xc"]
 
 [node name="Letterf" type="Label"]
 clip_children = 2

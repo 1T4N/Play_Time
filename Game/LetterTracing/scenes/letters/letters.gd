@@ -13,7 +13,7 @@ func _ready() -> void:
 		if child.orderID == childPointer:
 			child.show()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#checks if part of the letter is already traced, then move to the next one to trace it
 	for child in childrens:
 		if child.orderID != childPointer:

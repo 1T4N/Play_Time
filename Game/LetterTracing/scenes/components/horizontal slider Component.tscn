@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5aji4m6788l3"]
 
-[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://GAMES/LetterTracing/alphabet.tres" id="1_36jr4"]
+[ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_36jr4"]
 
 [sub_resource type="GDScript" id="GDScript_8uh7m"]
 script/source = "extends ProgressBar
@@ -15,7 +15,7 @@ var finished:bool = false
 
 func _process(delta: float) -> void:
 	if not debug:
-		theme = load(\"res://GAMES/LetterTracing/alphabet.tres\")
+		theme = load(\"res://Game/LetterTracing/arts/UI/alphabet.tres\")
 	elif debug:
 		theme.clear()
 
