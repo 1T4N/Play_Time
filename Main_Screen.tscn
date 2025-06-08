@@ -200,6 +200,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 text = "Matching Game"
 
+[connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/HBoxContainer2/Alphabet" to="." method="_on_alphabet_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/HBoxContainer2/Color" to="." method="_on_color_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/HBoxContainer2/Matching" to="." method="_on_matching_pressed"]
