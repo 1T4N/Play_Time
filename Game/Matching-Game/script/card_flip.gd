@@ -4,6 +4,8 @@ extends Control
 @onready var help_popup = $PopUp/HelpPopup                
 @onready var win_popup = $PopUp/WinPopUp                  
 @onready var score_label: Label = $Panel/MarginContainer/ScoreLabel             # Label to display the score
+@onready var menu_button: Button = $Panel/MarginContainer/MenuButton
+@onready var margin_container: MarginContainer = $Menu/MarginContainer
 
 # Variables to keep track of selected cards and image resources
 var selected_cards = []                               
@@ -66,7 +68,7 @@ func check_match():
 		card2.is_matched = true
 
 		# New: Increase score and update display
-		score += 5
+		score += 100
 		score_label.text = "Score: " + str(score)
 		
 	# Flip them back over if no match
@@ -100,3 +102,8 @@ func _on_restart_button_pressed() -> void:
 # Exit the game
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = true
+	margin_container.visible = true

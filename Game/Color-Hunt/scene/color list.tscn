@@ -305,27 +305,12 @@ size_flags_vertical = 0
 theme = ExtResource("2_d8s1t")
 text = "score: "
 
-[node name="Menu" type="Control" parent="."]
-custom_minimum_size = Vector2(600, 850)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -425.0
-offset_right = 275.0
-offset_bottom = 425.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_d8s1t")
+[node name="Menu" type="Node" parent="."]
 script = ExtResource("6_70skh")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 process_mode = 3
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -404,7 +389,10 @@ text = "Back
 
 [connection signal="pressed" from="Panel/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
+<<<<<<< HEAD
+=======
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_pressed"]
+>>>>>>> 4a733c993cc04aa268f05ab13a926ed31bdd2f08
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
