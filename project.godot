@@ -15,6 +15,10 @@ run/main_scene="uid://bjfksj458accm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TracingData="*res://Game/LetterTracing/TracingData.gd"
+
 [display]
 
 window/size/viewport_width=1920
