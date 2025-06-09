@@ -67,8 +67,3 @@ func _on_next_button_pressed():
 
 func update_score_label():
 	score_label.text = "Score: " + str(score)
-
-
-func _on_menu_button_pressed() -> void:
-	get_tree().paused = true
-	margin_container.visible = true

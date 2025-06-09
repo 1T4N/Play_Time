@@ -1,13 +1,13 @@
-[gd_scene load_steps=44 format=3 uid="uid://dx0klmv80ca8e"]
+[gd_scene load_steps=45 format=3 uid="uid://dx0klmv80ca8e"]
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
 [ext_resource type="Texture2D" uid="uid://db0ewn84m15mm" path="res://BG/2.jpg" id="2_66bfu"]
-[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="2_d8s1t"]
+[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_d8s1t"]
 [ext_resource type="FontFile" uid="uid://3uaootdnyxb7" path="res://Game/Color-Hunt/Baloo_2/static/Baloo2-Bold.ttf" id="3_14o3a"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_70skh"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_1218q"]
-[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://Main_Menu.tres" id="8_einxs"]
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_einxs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3p6ol"]
 texture = ExtResource("2_66bfu")
@@ -101,6 +101,21 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+
+[sub_resource type="GDScript" id="GDScript_70skh"]
+script/source = "extends Button
+var menuComponent
+
+func _ready() -> void:
+	menuComponent = get_node_or_null(\"../../../Menu\")
+
+func _on_pressed() -> void:
+	if menuComponent == null:
+		return
+
+	menuComponent.show()
+	get_tree().paused = true
+"
 
 [sub_resource type="Theme" id="Theme_e0lox"]
 
@@ -251,6 +266,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_knuce")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ccykq")
 text = "☰
 "
+script = SubResource("GDScript_70skh")
 
 [node name="ColorRect" type="ColorRect" parent="Panel/MarginContainer2"]
 custom_minimum_size = Vector2(550, 650)
@@ -306,6 +322,7 @@ theme = ExtResource("2_d8s1t")
 text = "score: "
 
 [node name="Menu" type="Control" parent="."]
+process_mode = 3
 visible = false
 custom_minimum_size = Vector2(600, 850)
 layout_mode = 1
@@ -406,5 +423,6 @@ text = "Back
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="Panel/MarginContainer2/MenuButton" method="_on_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]

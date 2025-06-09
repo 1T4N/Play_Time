@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=11 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
 [ext_resource type="Texture2D" uid="uid://cxmcyjaqjvpc7" path="res://BG/494886829_1783485128896786_1194835669791044533_n.jpg" id="2_o6nc1"]
+[ext_resource type="PackedScene" uid="uid://hqrynq6ao2qm" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardD.tscn" id="3_e3qdd"]
 [ext_resource type="PackedScene" uid="uid://di3se3b4q1syc" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardA.tscn" id="3_fbvme"]
+[ext_resource type="PackedScene" uid="uid://dcb5k3ul7so62" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardC.tscn" id="3_hw8sg"]
 [ext_resource type="PackedScene" uid="uid://cljggix0nrk5l" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardB.tscn" id="3_v66mg"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
 
@@ -136,14 +138,24 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LetterCard2" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_v66mg")]
+[node name="LetterCardD" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_e3qdd")]
+layout_mode = 1
+
+[node name="LetterCardC" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_hw8sg")]
 layout_mode = 1
 offset_left = -400.0
 offset_top = -350.0
 offset_right = 400.0
 offset_bottom = 350.0
 
-[node name="LetterCard" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
+[node name="LetterCardB" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_v66mg")]
+layout_mode = 1
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+
+[node name="LetterCardA" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
 layout_mode = 1
 
 [node name="Menu" parent="." instance=ExtResource("5_o6nc1")]

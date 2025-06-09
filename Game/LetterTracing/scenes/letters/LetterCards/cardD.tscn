@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://di3se3b4q1syc"]
+[gd_scene load_steps=7 format=3 uid="uid://hqrynq6ao2qm"]
 
-[ext_resource type="PackedScene" uid="uid://dfreaefkqqael" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterA.tscn" id="1_usw5t"]
+[ext_resource type="PackedScene" uid="uid://cbw80coege2i2" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterD.tscn" id="1_330ok"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -135,7 +135,7 @@ _data = {
 &"letterCardFadeRight": SubResource("Animation_o6nc1")
 }
 
-[node name="LetterCardA" type="Panel"]
+[node name="LetterCardD" type="Panel"]
 custom_minimum_size = Vector2(800, 700)
 anchors_preset = 8
 anchor_left = 0.5
@@ -158,31 +158,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_hw8sg")
 }
 
-[node name="Letter A" parent="." instance=ExtResource("1_usw5t")]
+[node name="LetterD" parent="." instance=ExtResource("1_330ok")]
 layout_mode = 1
-offset_left = -207.0
-offset_top = -561.0
-offset_right = 207.0
-offset_bottom = 561.0
-theme_override_font_sizes/font_size = 700
 
-[node name="horizontal" parent="Letter A" index="0"]
-offset_left = 112.0
-offset_top = 594.0
-offset_right = 301.0
-offset_bottom = 644.0
-
-[node name="vertical2" parent="Letter A" index="1"]
-offset_left = -16.249
-offset_top = -243.85
-offset_right = 52.751
-offset_bottom = 230.15
-rotation = -0.326916
-
-[node name="vertical" parent="Letter A" index="2"]
-offset_left = 160.765
-offset_top = 299.126
-offset_right = 227.765
-offset_bottom = 782.126
-
-[editable path="Letter A"]
+[editable path="LetterD"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://pa1f3tcxi2qe"]
 
-[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="1_mx4kw"]
+[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_mx4kw"]
 [ext_resource type="Texture2D" uid="uid://c6vrvq1ttrbp6" path="res://BG/494886562_1956280465192611_6961312615067011836_n.jpg" id="2_37a8j"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_mx4kw"]
-[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://Main_Menu.tres" id="3_mx4kw"]
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="3_mx4kw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfvul"]
 texture = ExtResource("2_37a8j")
