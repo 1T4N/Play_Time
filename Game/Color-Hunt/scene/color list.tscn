@@ -306,6 +306,7 @@ theme = ExtResource("2_d8s1t")
 text = "score: "
 
 [node name="Menu" type="Control" parent="."]
+visible = false
 custom_minimum_size = Vector2(600, 850)
 layout_mode = 1
 anchors_preset = 8
@@ -324,7 +325,6 @@ script = ExtResource("6_70skh")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 process_mode = 3
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,9 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=9 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
 [ext_resource type="Texture2D" uid="uid://cxmcyjaqjvpc7" path="res://BG/494886829_1783485128896786_1194835669791044533_n.jpg" id="2_o6nc1"]
 [ext_resource type="PackedScene" uid="uid://di3se3b4q1syc" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardA.tscn" id="3_fbvme"]
 [ext_resource type="PackedScene" uid="uid://cljggix0nrk5l" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardB.tscn" id="3_v66mg"]
+[ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
+
+[sub_resource type="GDScript" id="GDScript_hw8sg"]
+script/source = "extends Button
+var menuComponent
+
+func _ready() -> void:
+	menuComponent = get_node_or_null(\"../../../../Menu\")
+
+func _on_pressed() -> void:
+	if menuComponent == null:
+		return
+
+	menuComponent.show()
+	get_tree().paused = true
+"
 
 [sub_resource type="GDScript" id="GDScript_fbvme"]
 script/source = "extends Label
@@ -71,6 +87,7 @@ theme = ExtResource("2_fbvme")
 theme_type_variation = &"menuButton"
 text = "☰
 "
+script = SubResource("GDScript_hw8sg")
 
 [node name="Timer" type="Label" parent="MarginContainer/Body/Header"]
 layout_mode = 1
@@ -125,8 +142,18 @@ offset_left = -400.0
 offset_top = -350.0
 offset_right = 400.0
 offset_bottom = 350.0
-script = null
 
 [node name="LetterCard" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
 layout_mode = 1
-script = null
+
+[node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
+process_mode = 3
+visible = false
+layout_mode = 1
+offset_left = -300.0
+offset_top = -520.0
+offset_right = 300.0
+offset_bottom = 520.0
+size_flags_horizontal = 4
+
+[connection signal="pressed" from="MarginContainer/Body/Header/MenuButton" to="MarginContainer/Body/Header/MenuButton" method="_on_pressed"]

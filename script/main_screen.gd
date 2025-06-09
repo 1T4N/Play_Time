@@ -1,5 +1,4 @@
 extends Control
-@onready var margin_container: MarginContainer = $Menu/MarginContainer
 
 
 func _on_alphabet_pressed() -> void:

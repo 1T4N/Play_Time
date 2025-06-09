@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cikkfswae2ji1"]
 
-[ext_resource type="Texture2D" uid="uid://dckgdeihkg34q" path="res://GAMES/LetterTracing/arts/UI/progress-bar-circle.png" id="1_b80oy"]
+[ext_resource type="Texture2D" uid="uid://dckgdeihkg34q" path="res://Game/LetterTracing/arts/UI/progress-bar-circle.png" id="1_b80oy"]
 
 [sub_resource type="GDScript" id="GDScript_lxpm3"]
 script/source = "extends TextureProgressBar
