@@ -65,10 +65,6 @@ func _on_next_button_pressed():
 	show_random_color()
 
 
-func _on_exit_button_pressed():
-	get_tree().quit()
-
-
 func update_score_label():
 	score_label.text = "Score: " + str(score)
 
