@@ -13,7 +13,7 @@ var startPoint:bool = false
 
 var finished:bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not debug:
 		theme = load(\"res://Game/LetterTracing/arts/UI/alphabet.tres\")
 	elif debug:
