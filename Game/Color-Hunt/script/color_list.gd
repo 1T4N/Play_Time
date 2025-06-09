@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 @onready var color_rect = $Panel/MarginContainer2/ColorRect
 @onready var color_label = $Panel/MarginContainer2/ColorRect/Label
@@ -60,7 +60,7 @@ func show_random_color():
 
 # When "Next" is pressed
 func _on_next_button_pressed():
-	score += 5  #Add 5 points for each correct by pressing NEXT 
+	score += 100  #Add 5 points for each correct by pressing NEXT 
 	update_score_label()
 	show_random_color()
 
