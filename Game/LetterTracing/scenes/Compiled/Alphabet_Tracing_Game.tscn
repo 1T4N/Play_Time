@@ -168,6 +168,7 @@ offset_bottom = 350.0
 
 [node name="LetterCard" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
 layout_mode = 1
+<<<<<<< HEAD
 
 [node name="Menu" type="Node" parent="."]
 script = ExtResource("5_e3qdd")
@@ -260,3 +261,5 @@ text = "Back
 
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
+=======
+>>>>>>> 4a733c993cc04aa268f05ab13a926ed31bdd2f08

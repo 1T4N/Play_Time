@@ -27,6 +27,7 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [resource]
+default_font_size = 0
 Label/font_sizes/font_size = 100
 Label/fonts/font = ExtResource("1_2xbgq")
 MarginContainer/constants/margin_bottom = 30
