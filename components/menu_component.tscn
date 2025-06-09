@@ -1,9 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu6qlm20xe5km"]
+[gd_scene load_steps=12 format=3 uid="uid://cu6qlm20xe5km"]
 
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="1_np6pp"]
-[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="1_sdpiv"]
+[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_sdpiv"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="1_ukuya"]
-[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://Main_Menu.tres" id="2_mwg2q"]
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="2_mwg2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdpiv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
 bg_color = Color(0.65098, 0.894118, 0.894118, 1)
@@ -76,6 +80,7 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="MarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sdpiv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
 custom_minimum_size = Vector2(550, 400)

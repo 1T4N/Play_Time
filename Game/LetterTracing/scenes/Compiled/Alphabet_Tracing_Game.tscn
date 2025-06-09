@@ -125,8 +125,6 @@ offset_left = -400.0
 offset_top = -350.0
 offset_right = 400.0
 offset_bottom = 350.0
-script = null
 
 [node name="LetterCard" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
 layout_mode = 1
-script = null
