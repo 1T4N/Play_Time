@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://btuehsrcekkv5"]
+[gd_scene load_steps=17 format=3 uid="uid://btuehsrcekkv5"]
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bmnb2mthqtrsp" path="res://BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="2_1t1lt"]
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
+[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GAME TIME.tres" id="5_u3sdp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
 texture = ExtResource("2_1t1lt")
@@ -88,9 +89,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer"]
+[node name="MatchingGame" type="Label" parent="Panel/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -285,6 +287,13 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
 theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
+
+[node name="ScoreLabel" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("5_u3sdp")
+text = "Score:"
 
 [node name="HelpButton" type="Button" parent="."]
 layout_mode = 1
