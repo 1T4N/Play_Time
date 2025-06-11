@@ -4,13 +4,18 @@ extends Node
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		margin_container.visible = true
-		get_tree().paused = true
+		if self.visible == true:
+			self.visible = false
+			get_tree().paused = false
+			pass
+		else:
+			get_tree().paused = true
+			self.visible = true
 
 func _on_resume_pressed() -> void:
-	margin_container.visible = false
 	get_tree().paused = false
+	self.visible = false
 
 func _on_back_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Main_Screen.tscn") #you can change the scene here if you pressed "Back_Button"
+	get_tree().change_scene_to_file("res://GameUI/scenes/Main_Screen.tscn") #you can change the scene here if you pressed "Back_Button"
