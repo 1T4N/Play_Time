@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=20 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Texture2D" uid="uid://beiounpj520i4" path="res://BG/BG_P2/background13.1.jpg" id="1_ti7av"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://di3se3b4q1syc" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardA.tscn" id="3_fbvme"]
 [ext_resource type="PackedScene" uid="uid://dcb5k3ul7so62" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardC.tscn" id="3_hw8sg"]
 [ext_resource type="PackedScene" uid="uid://cljggix0nrk5l" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardB.tscn" id="3_v66mg"]
+[ext_resource type="PackedScene" uid="uid://dy2ug6erfper2" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardF.tscn" id="4_4m6or"]
+[ext_resource type="PackedScene" uid="uid://d2hajv0b44728" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardE.tscn" id="4_hptry"]
+[ext_resource type="PackedScene" uid="uid://bsh5ejicdetdv" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardG.tscn" id="4_klref"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hptry"]
@@ -169,55 +172,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_v66mg")
 
-[node name="Node" type="Node" parent="MarginContainer/Body"]
+[node name="LetterCards" type="Node" parent="MarginContainer/Body"]
 
-[node name="LetterCardD" parent="MarginContainer/Body/Node" instance=ExtResource("3_e3qdd")]
+[node name="LetterCardG" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_klref")]
 
-[node name="LetterCardC" parent="MarginContainer/Body/Node" instance=ExtResource("3_hw8sg")]
+[node name="LetterCardF" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_4m6or")]
 
-[node name="LetterCardB" parent="MarginContainer/Body/Node" instance=ExtResource("3_v66mg")]
+[node name="LetterCardE" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_hptry")]
 
-[node name="LetterB" parent="MarginContainer/Body/Node/LetterCardB" index="1"]
-theme_override_font_sizes/font_size = 700
+[node name="LetterCardD" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_e3qdd")]
 
-[node name="CircleSliderComponent" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="0"]
-offset_left = -156.5
-offset_top = -245.0
-offset_right = 158.5
-offset_bottom = -8.0
+[node name="LetterCardC" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_hw8sg")]
 
-[node name="CircleSliderComponent2" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="1"]
-offset_left = -161.0
-offset_top = -51.0
-offset_right = 176.0
-offset_bottom = 207.0
+[node name="LetterCardB" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_v66mg")]
 
-[node name="horizontal Slider Component" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="2"]
-offset_left = -94.5
-offset_top = -241.0
-offset_right = 1.5
-offset_bottom = -186.0
-
-[node name="horizontal Slider Component2" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="3"]
-offset_left = 7.5
-offset_top = -3.0
-offset_right = 105.5
-offset_bottom = 49.0
-
-[node name="horizontal Slider Component3" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="4"]
-offset_left = 17.0
-offset_top = 204.0
-offset_right = 125.0
-offset_bottom = 261.0
-
-[node name="vertical slider Component" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="5"]
-offset_left = -149.5
-offset_top = -235.0
-offset_right = -90.5
-offset_bottom = 204.0
-
-[node name="LetterCardA" parent="MarginContainer/Body/Node" instance=ExtResource("3_fbvme")]
-visible = false
+[node name="LetterCardA" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
 
 [node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
 visible = false
@@ -229,8 +198,3 @@ offset_bottom = 520.0
 size_flags_horizontal = 4
 
 [connection signal="pressed" from="MarginContainer/Body/Header/MenuButton" to="MarginContainer/Body/Header/MenuButton" method="_on_pressed"]
-
-[editable path="MarginContainer/Body/Node/LetterCardB"]
-[editable path="MarginContainer/Body/Node/LetterCardB/LetterB"]
-[editable path="MarginContainer/Body/Node/LetterCardA"]
-[editable path="MarginContainer/Body/Node/LetterCardA/Letter A"]
