@@ -1,12 +1,13 @@
 [gd_scene load_steps=19 format=3 uid="uid://cg8rrhcc1s7nq"]
 
-[ext_resource type="Texture2D" uid="uid://dhfwwa0mf8842" path="res://script/BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="1_22y4c"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
+[ext_resource type="Texture2D" uid="uid://cmxw6dlf11vu4" path="res://BG/BG_P1/background1.jpg" id="2_m3lsn"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
-texture = ExtResource("1_22y4c")
+texture = ExtResource("2_m3lsn")
+modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfu86"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -107,10 +108,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 
 [node name="Button" type="Button" parent="Panel/MarginContainer1"]
+visible = false
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_horizontal = 0

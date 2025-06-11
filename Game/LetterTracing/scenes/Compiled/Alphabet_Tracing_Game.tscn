@@ -1,12 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=17 format=3 uid="uid://cpbmuhpms5prr"]
 
+[ext_resource type="Texture2D" uid="uid://beiounpj520i4" path="res://BG/BG_P2/background13.1.jpg" id="1_ti7av"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
-[ext_resource type="Texture2D" uid="uid://cxmcyjaqjvpc7" path="res://BG/494886829_1783485128896786_1194835669791044533_n.jpg" id="2_o6nc1"]
+[ext_resource type="Texture2D" uid="uid://cxmcyjaqjvpc7" path="res://BG/BG_P0/5.jpg" id="2_o6nc1"]
 [ext_resource type="PackedScene" uid="uid://hqrynq6ao2qm" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardD.tscn" id="3_e3qdd"]
 [ext_resource type="PackedScene" uid="uid://di3se3b4q1syc" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardA.tscn" id="3_fbvme"]
 [ext_resource type="PackedScene" uid="uid://dcb5k3ul7so62" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardC.tscn" id="3_hw8sg"]
 [ext_resource type="PackedScene" uid="uid://cljggix0nrk5l" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardB.tscn" id="3_v66mg"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hptry"]
+texture = ExtResource("1_ti7av")
+modulate_color = Color(0.864675, 0.864675, 0.864675, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qdd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ti7av"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptry"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m6or"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="GDScript" id="GDScript_hw8sg"]
 script/source = "extends Button
@@ -49,7 +78,18 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2202, 435)
+theme_override_styles/panel = SubResource("StyleBoxTexture_hptry")
+
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,7 +119,7 @@ grow_horizontal = 2
 
 [node name="MenuButton" type="Button" parent="MarginContainer/Body/Header"]
 clip_contents = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
 offset_right = 100.0
 offset_bottom = 100.0
@@ -87,6 +127,11 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("2_fbvme")
 theme_type_variation = &"menuButton"
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_e3qdd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ti7av")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hptry")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4m6or")
 text = "☰
 "
 script = SubResource("GDScript_hw8sg")
@@ -140,6 +185,10 @@ grow_vertical = 2
 
 [node name="LetterCardD" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_e3qdd")]
 layout_mode = 1
+offset_left = 540.0
+offset_top = 170.0
+offset_right = 1340.0
+offset_bottom = 870.0
 
 [node name="LetterCardC" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_hw8sg")]
 layout_mode = 1
