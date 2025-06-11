@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=29 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Texture2D" uid="uid://beiounpj520i4" path="res://BG/BG_P2/background13.1.jpg" id="1_ti7av"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
@@ -7,9 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://di3se3b4q1syc" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardA.tscn" id="3_fbvme"]
 [ext_resource type="PackedScene" uid="uid://dcb5k3ul7so62" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardC.tscn" id="3_hw8sg"]
 [ext_resource type="PackedScene" uid="uid://cljggix0nrk5l" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardB.tscn" id="3_v66mg"]
+[ext_resource type="PackedScene" uid="uid://dyc6dt7ubp7kk" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardK.tscn" id="4_3sue6"]
 [ext_resource type="PackedScene" uid="uid://dy2ug6erfper2" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardF.tscn" id="4_4m6or"]
+[ext_resource type="PackedScene" uid="uid://bh84fahdat1t3" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardN.tscn" id="4_8p8rp"]
+[ext_resource type="PackedScene" uid="uid://c7cegxn4efkqx" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardI.tscn" id="4_48jk6"]
+[ext_resource type="PackedScene" uid="uid://cnsqda3dj17ht" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardJ.tscn" id="4_eo08j"]
 [ext_resource type="PackedScene" uid="uid://d2hajv0b44728" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardE.tscn" id="4_hptry"]
+[ext_resource type="PackedScene" uid="uid://d37si2uiwafro" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardM.tscn" id="4_jvox4"]
 [ext_resource type="PackedScene" uid="uid://bsh5ejicdetdv" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardG.tscn" id="4_klref"]
+[ext_resource type="PackedScene" uid="uid://be8uajyyxnix" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardO.tscn" id="4_mqomt"]
+[ext_resource type="PackedScene" uid="uid://4f1e4u2e5ldb" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardH.tscn" id="4_ob2u7"]
+[ext_resource type="PackedScene" uid="uid://c1ljlyy3ysr14" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardP.tscn" id="4_oyvai"]
+[ext_resource type="PackedScene" uid="uid://dge52qandgtnd" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardL.tscn" id="4_r8eln"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hptry"]
@@ -173,6 +182,24 @@ vertical_alignment = 1
 script = SubResource("GDScript_v66mg")
 
 [node name="LetterCards" type="Node" parent="MarginContainer/Body"]
+
+[node name="LetterCardP" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_oyvai")]
+
+[node name="LetterCardO" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_mqomt")]
+
+[node name="LetterCardN" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_8p8rp")]
+
+[node name="LetterCardM" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_jvox4")]
+
+[node name="LetterCardL" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_r8eln")]
+
+[node name="LetterCardK" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_3sue6")]
+
+[node name="LetterCardJ" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_eo08j")]
+
+[node name="LetterCardI" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_48jk6")]
+
+[node name="LetterCardH" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_ob2u7")]
 
 [node name="LetterCardG" parent="MarginContainer/Body/LetterCards" instance=ExtResource("4_klref")]
 
