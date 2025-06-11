@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4yxhounmxx8v"]
 
-[ext_resource type="PackedScene" uid="uid://cgn033gu8f1wg" path="res://Game/LetterTracing/scenes/components/animationBarRetryColorComponent.tscn" id="1_216go"]
+[ext_resource type="PackedScene" uid="uid://d1v4xkx68ha5i" path="res://Game/LetterTracing/scenes/components/animationBarRetryColorComponent.tscn" id="1_216go"]
 
 [sub_resource type="GDScript" id="GDScript_mf4mk"]
 script/source = "extends ProgressBar
