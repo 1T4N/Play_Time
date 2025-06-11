@@ -26,15 +26,25 @@ func _ready() -> void:
 #endregion
 
 func _process(_delta: float) -> void:
+#region Checks if already traced or not
 	#checks if part of the letter is already traced, then move to the next one to trace it
 	for child in childrens:
 		if child.orderID != childPointer:
 			continue
+		if child.retry == true:
+			animation_player.play("shake")
+			Input.vibrate_handheld()
+			animation_player.set_speed_scale(2)
+			await animation_player.animation_finished
+			animation_player.set_speed_scale(1)
+			child.retry = false
+			
 		if child.finished == true:
 			print("Next")
 			child.set_process_mode(PROCESS_MODE_DISABLED)
 			childPointer = childPointer + 1
 			showNextTrace()
+#endregion
 
 func showNextTrace():
 #region Finished Tracing
