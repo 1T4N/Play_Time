@@ -5,16 +5,16 @@ extends Node
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if self.visible == true:
-			self.hide()
+			self.visible = false
 			get_tree().paused = false
 			pass
 		else:
 			get_tree().paused = true
-			self.show()
+			self.visible = true
 
 func _on_resume_pressed() -> void:
 	get_tree().paused = false
-	self.hide()
+	self.visible = false
 
 func _on_back_pressed() -> void:
 	get_tree().paused = false
