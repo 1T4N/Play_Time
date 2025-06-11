@@ -106,7 +106,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_fbvme")
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 20
 
 [node name="Body" type="Control" parent="MarginContainer"]
 layout_mode = 2
@@ -171,13 +171,50 @@ script = SubResource("GDScript_v66mg")
 
 [node name="Node" type="Node" parent="MarginContainer/Body"]
 
-[node name="LetterCardB" parent="MarginContainer/Body/Node" instance=ExtResource("3_v66mg")]
+[node name="LetterCardD" parent="MarginContainer/Body/Node" instance=ExtResource("3_e3qdd")]
 
 [node name="LetterCardC" parent="MarginContainer/Body/Node" instance=ExtResource("3_hw8sg")]
-visible = false
 
-[node name="LetterCardD" parent="MarginContainer/Body/Node" instance=ExtResource("3_e3qdd")]
-visible = false
+[node name="LetterCardB" parent="MarginContainer/Body/Node" instance=ExtResource("3_v66mg")]
+
+[node name="LetterB" parent="MarginContainer/Body/Node/LetterCardB" index="1"]
+theme_override_font_sizes/font_size = 700
+
+[node name="CircleSliderComponent" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="0"]
+offset_left = -156.5
+offset_top = -245.0
+offset_right = 158.5
+offset_bottom = -8.0
+
+[node name="CircleSliderComponent2" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="1"]
+offset_left = -161.0
+offset_top = -51.0
+offset_right = 176.0
+offset_bottom = 207.0
+
+[node name="horizontal Slider Component" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="2"]
+offset_left = -94.5
+offset_top = -241.0
+offset_right = 1.5
+offset_bottom = -186.0
+
+[node name="horizontal Slider Component2" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="3"]
+offset_left = 7.5
+offset_top = -3.0
+offset_right = 105.5
+offset_bottom = 49.0
+
+[node name="horizontal Slider Component3" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="4"]
+offset_left = 17.0
+offset_top = 204.0
+offset_right = 125.0
+offset_bottom = 261.0
+
+[node name="vertical slider Component" parent="MarginContainer/Body/Node/LetterCardB/LetterB" index="5"]
+offset_left = -149.5
+offset_top = -235.0
+offset_right = -90.5
+offset_bottom = 204.0
 
 [node name="LetterCardA" parent="MarginContainer/Body/Node" instance=ExtResource("3_fbvme")]
 visible = false
@@ -192,3 +229,8 @@ offset_bottom = 520.0
 size_flags_horizontal = 4
 
 [connection signal="pressed" from="MarginContainer/Body/Header/MenuButton" to="MarginContainer/Body/Header/MenuButton" method="_on_pressed"]
+
+[editable path="MarginContainer/Body/Node/LetterCardB"]
+[editable path="MarginContainer/Body/Node/LetterCardB/LetterB"]
+[editable path="MarginContainer/Body/Node/LetterCardA"]
+[editable path="MarginContainer/Body/Node/LetterCardA/Letter A"]
