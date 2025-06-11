@@ -172,6 +172,7 @@ script = SubResource("GDScript_v66mg")
 [node name="Node" type="Node" parent="MarginContainer/Body"]
 
 [node name="LetterCardB" parent="MarginContainer/Body/Node" instance=ExtResource("3_v66mg")]
+visible = false
 
 [node name="LetterCardC" parent="MarginContainer/Body/Node" instance=ExtResource("3_hw8sg")]
 visible = false
@@ -180,7 +181,6 @@ visible = false
 visible = false
 
 [node name="LetterCardA" parent="MarginContainer/Body/Node" instance=ExtResource("3_fbvme")]
-visible = false
 
 [node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
 visible = false
