@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4yxhounmxx8v"]
+[gd_scene load_steps=3 format=3 uid="uid://c4yxhounmxx8v"]
+
+[ext_resource type="PackedScene" uid="uid://cgn033gu8f1wg" path="res://Game/LetterTracing/scenes/components/animationBarRetryColorComponent.tscn" id="1_216go"]
 
 [sub_resource type="GDScript" id="GDScript_mf4mk"]
 script/source = "extends ProgressBar
@@ -11,6 +13,9 @@ script/source = "extends ProgressBar
 var startPoint:bool = false
 
 var finished:bool = false
+var retry:bool = false
+
+const retryTraceDelay = 0.4
 
 func _process(_delta: float) -> void:
 
@@ -26,6 +31,11 @@ func _gui_input(event):
 		set_value_from_mouse(event.position.y)
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		set_value_from_mouse(event.position.y)
+	
+	if Input.is_action_just_released(\"click\") and not finished:
+		print(\"Retry\")
+		retry = true
+	
 
 func set_value_from_mouse(mouse_y):
 	#print(\"size x: \", size.x)
@@ -38,7 +48,7 @@ func set_value_from_mouse(mouse_y):
 	#we use the size so it can adjust progressively
 	var ratio = clamp(mouse_y / size.y, 0, 1)
 	
-	
+	#this checks if we are in the starting threshold so it cannot progress immediaately at the end of the tracing
 	if Input.is_action_just_pressed(\"click\") and ratio < startThreshold:
 		startPoint = true
 	else:
@@ -64,8 +74,10 @@ func set_value_from_mouse(mouse_y):
 	if not startPoint:
 		return
 		
+
+	
 	value = ratio * (max_value - min_value)
-	timer.start(1)
+	timer.start(retryTraceDelay)
 	
 
 
@@ -101,6 +113,8 @@ show_percentage = false
 script = SubResource("GDScript_mf4mk")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="animationBarRetryColorComponent" parent="." instance=ExtResource("1_216go")]
 
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
