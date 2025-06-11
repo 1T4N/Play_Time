@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkdrqj4dkd5gc"]
+[gd_scene load_steps=5 format=3 uid="uid://dkdrqj4dkd5gc"]
 
 [sub_resource type="Animation" id="Animation_v66mg"]
 length = 0.001
@@ -131,28 +131,11 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_330ok"]
-resource_name = "shake"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-380, -330), Vector2(-390, -340), Vector2(-380, -330), Vector2(-370, -320), Vector2(-380, -330), Vector2(-390, -340), Vector2(-380, -330), Vector2(-370, -320), Vector2(-380, -330)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hw8sg"]
 _data = {
 &"RESET": SubResource("Animation_v66mg"),
 &"letterCardFadeLeft": SubResource("Animation_fbvme"),
-&"letterCardFadeRight": SubResource("Animation_o6nc1"),
-&"shake": SubResource("Animation_330ok")
+&"letterCardFadeRight": SubResource("Animation_o6nc1")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer"]
