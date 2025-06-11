@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cljggix0nrk5l"]
 
 [ext_resource type="PackedScene" uid="uid://djyko53qml8yo" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterB.tscn" id="1_a3sis"]
-[ext_resource type="PackedScene" uid="uid://dkdrqj4dkd5gc" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_v2rk6"]
+[ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_v2rk6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -38,5 +38,11 @@ offset_left = -148.5
 offset_top = -361.0
 offset_right = 148.5
 offset_bottom = 361.0
+
+[node name="CircleSliderComponent" parent="LetterB" index="0"]
+value = 0.0
+
+[node name="CircleSliderComponent2" parent="LetterB" index="1"]
+value = 0.0
 
 [editable path="LetterB"]

@@ -169,18 +169,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_v66mg")
 
-[node name="Node" type="Node" parent="MarginContainer/Body"]
+[node name="LetterCards" type="Node" parent="MarginContainer/Body"]
 
-[node name="LetterCardB" parent="MarginContainer/Body/Node" instance=ExtResource("3_v66mg")]
-visible = false
+[node name="LetterCardB" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_v66mg")]
 
-[node name="LetterCardC" parent="MarginContainer/Body/Node" instance=ExtResource("3_hw8sg")]
-visible = false
+[node name="LetterCardC" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_hw8sg")]
 
-[node name="LetterCardD" parent="MarginContainer/Body/Node" instance=ExtResource("3_e3qdd")]
-visible = false
+[node name="LetterCardD" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_e3qdd")]
 
-[node name="LetterCardA" parent="MarginContainer/Body/Node" instance=ExtResource("3_fbvme")]
+[node name="LetterCardA" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
 
 [node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
 visible = false
