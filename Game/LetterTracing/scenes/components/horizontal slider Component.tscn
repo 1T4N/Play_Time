@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5aji4m6788l3"]
+[gd_scene load_steps=4 format=3 uid="uid://b5aji4m6788l3"]
 
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_36jr4"]
+[ext_resource type="PackedScene" uid="uid://cgn033gu8f1wg" path="res://Game/LetterTracing/scenes/components/animationBarRetryColorComponent.tscn" id="2_hbfpe"]
 
 [sub_resource type="GDScript" id="GDScript_8uh7m"]
 script/source = "extends ProgressBar
@@ -12,6 +13,9 @@ script/source = "extends ProgressBar
 var startPoint:bool = false
 
 var finished:bool = false
+var retry:bool = false
+
+const retryTraceDelay = 0.4
 
 func _process(_delta: float) -> void:
 	if not debug:
@@ -26,6 +30,10 @@ func _gui_input(event):
 		set_value_from_mouse(event.position.x)
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		set_value_from_mouse(event.position.x)
+		
+	if Input.is_action_just_released(\"click\") and not finished:
+		print(\"Retry\")
+		retry = true
 
 func set_value_from_mouse(mouse_x):
 	#print(\"size x: \", size.x)
@@ -55,7 +63,7 @@ func set_value_from_mouse(mouse_x):
 	#multiplying the difference to ratio we have, it will produce the exact value on 
 	#where its supposed to be
 	value = ratio * (max_value - min_value)
-	timer.start(1)
+	timer.start(retryTraceDelay)
 
 
 
@@ -90,6 +98,8 @@ script = SubResource("GDScript_8uh7m")
 debug = false
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="animationBarRetryColorComponent" parent="." instance=ExtResource("2_hbfpe")]
 
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
