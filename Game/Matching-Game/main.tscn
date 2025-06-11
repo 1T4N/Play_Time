@@ -2,15 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://bmnb2mthqtrsp" path="res://BG/501339336_1067482861980329_5980058272742332163_n.jpg" id="2_1t1lt"]
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://otcq43f5trpr" path="res://BG/BG_P2/background13.2.jpg" id="2_uwrbs"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_u3sdp"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_uwrbs"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_3p24p"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_5fsx7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
-texture = ExtResource("2_1t1lt")
+texture = ExtResource("2_uwrbs")
+modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
 
 [sub_resource type="Theme" id="Theme_7mycd"]
 
@@ -118,6 +119,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(2034, 601)
 theme_override_styles/panel = SubResource("StyleBoxTexture_u3sdp")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
@@ -133,6 +135,7 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 0
 
 [node name="MatchingGame" type="Label" parent="Panel/MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0

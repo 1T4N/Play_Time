@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
-[ext_resource type="Texture2D" uid="uid://db0ewn84m15mm" path="res://BG/2.jpg" id="2_66bfu"]
+[ext_resource type="Texture2D" uid="uid://b45tyx4v2bd83" path="res://BG/BG_P2/background13.jpg" id="2_70skh"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_d8s1t"]
 [ext_resource type="FontFile" uid="uid://3uaootdnyxb7" path="res://Game/Color-Hunt/Baloo_2/static/Baloo2-Bold.ttf" id="3_14o3a"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_70skh"]
@@ -10,7 +10,8 @@
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_einxs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3p6ol"]
-texture = ExtResource("2_66bfu")
+texture = ExtResource("2_70skh")
+modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8kg6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -178,9 +179,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(2120, 635)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3p6ol")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Color Hunt Game" type="Label" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
