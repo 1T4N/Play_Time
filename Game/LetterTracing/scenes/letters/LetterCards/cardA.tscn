@@ -45,10 +45,10 @@ offset_right = 301.0
 offset_bottom = 644.0
 
 [node name="vertical slider Component" parent="Letter A" index="1"]
-offset_left = -15.0
-offset_top = -237.0
-offset_right = 54.0
-offset_bottom = 236.0
+offset_left = -22.0
+offset_top = -258.0
+offset_right = 47.0
+offset_bottom = 243.0
 
 [node name="vertical" parent="Letter A" index="2"]
 offset_left = 160.765
