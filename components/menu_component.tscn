@@ -47,6 +47,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [node name="Menu" type="Control"]
+process_mode = 3
 custom_minimum_size = Vector2(600, 850)
 layout_mode = 3
 anchors_preset = 8

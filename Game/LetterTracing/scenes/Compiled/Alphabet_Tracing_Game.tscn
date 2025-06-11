@@ -169,38 +169,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_v66mg")
 
-[node name="LetterCards" type="Control" parent="MarginContainer/Body"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Node" type="Node" parent="MarginContainer/Body"]
 
-[node name="LetterCardD" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_e3qdd")]
-layout_mode = 1
-offset_left = 540.0
-offset_top = 170.0
-offset_right = 1340.0
-offset_bottom = 870.0
+[node name="LetterCardB" parent="MarginContainer/Body/Node" instance=ExtResource("3_v66mg")]
 
-[node name="LetterCardC" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_hw8sg")]
-layout_mode = 1
+[node name="LetterCardC" parent="MarginContainer/Body/Node" instance=ExtResource("3_hw8sg")]
+visible = false
 
-[node name="LetterCardB" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_v66mg")]
-layout_mode = 1
+[node name="LetterCardD" parent="MarginContainer/Body/Node" instance=ExtResource("3_e3qdd")]
+visible = false
 
-[node name="LetterCardA" parent="MarginContainer/Body/LetterCards" instance=ExtResource("3_fbvme")]
-layout_mode = 1
+[node name="LetterCardA" parent="MarginContainer/Body/Node" instance=ExtResource("3_fbvme")]
+visible = false
 
 [node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
-process_mode = 3
 visible = false
 layout_mode = 1
 offset_left = -300.0
@@ -210,6 +192,3 @@ offset_bottom = 520.0
 size_flags_horizontal = 4
 
 [connection signal="pressed" from="MarginContainer/Body/Header/MenuButton" to="MarginContainer/Body/Header/MenuButton" method="_on_pressed"]
-
-[editable path="MarginContainer/Body/LetterCards/LetterCardA"]
-[editable path="MarginContainer/Body/LetterCards/LetterCardA/Letter A"]
