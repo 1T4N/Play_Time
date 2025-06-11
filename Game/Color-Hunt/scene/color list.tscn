@@ -179,7 +179,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(2120, 635)
+pivot_offset = Vector2(2182, 195)
 theme_override_styles/panel = SubResource("StyleBoxTexture_3p6ol")
 
 [node name="Color Hunt Game" type="Label" parent="Panel"]
