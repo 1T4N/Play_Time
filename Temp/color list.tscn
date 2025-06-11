@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dx0klmv80ca8e"]
+[gd_scene load_steps=45 format=3 uid="uid://bnvgdj3f0ycfb"]
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
