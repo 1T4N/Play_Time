@@ -1,3 +1,4 @@
 {
-    "discord.enabled": true
+    "discord.enabled": true,
+    "godotTools.editorPath.godot4": "d:\\programs\\Godot_v4.4.1-stable_win64.exe\\Godot_v4.4.1-stable_win64.exe"
 }

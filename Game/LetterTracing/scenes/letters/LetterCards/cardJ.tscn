@@ -45,9 +45,10 @@ offset_right = 80.5
 offset_bottom = 118.0
 
 [node name="CircleSliderComponent" parent="LetterJ" index="1"]
-offset_left = 83.5
-offset_top = -22.0
-offset_right = 330.5
-offset_bottom = 246.0
+offset_left = 12.5
+offset_top = -66.0
+offset_right = 262.5
+offset_bottom = 183.0
+rotation = 1.11871
 
 [editable path="LetterJ"]

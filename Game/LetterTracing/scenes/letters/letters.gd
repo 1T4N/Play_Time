@@ -10,7 +10,7 @@ var originalPos
 
 func _ready() -> void:
 	animation_player = get_node_or_null("../AnimationPlayer")
-	await get_tree().create_timer(0.1).timeout  # Waits 1 second
+	await get_tree().create_timer(0.5).timeout  # Waits 1 second
 	originalPos = get_parent().position
 	#print(originalPos)
 	
