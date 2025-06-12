@@ -67,11 +67,17 @@ func _on_pressed() -> void:
 [sub_resource type="GDScript" id="GDScript_fbvme"]
 script/source = "extends Label
 @onready var timer: Timer = $Timer
-
+@export var timeDeductionPerError = 5
 func _ready() -> void:
 	timer.start(100)
+	TracingData.retry.connect(deductTime)
+	
 func _process(_delta: float) -> void:
 	text = str(int(timer.get_time_left()))
+
+func deductTime():
+	timer.start(timer.get_time_left() - timeDeductionPerError) 
+	pass
 "
 
 [sub_resource type="GDScript" id="GDScript_v66mg"]
@@ -186,83 +192,115 @@ script = SubResource("GDScript_v66mg")
 
 [node name="LetterCardP" parent="MarginContainer/Body" instance=ExtResource("4_oyvai")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardO" parent="MarginContainer/Body" instance=ExtResource("4_mqomt")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardN" parent="MarginContainer/Body" instance=ExtResource("4_8p8rp")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardM" parent="MarginContainer/Body" instance=ExtResource("4_jvox4")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardL" parent="MarginContainer/Body" instance=ExtResource("4_r8eln")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardK" parent="MarginContainer/Body" instance=ExtResource("4_3sue6")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardJ" parent="MarginContainer/Body" instance=ExtResource("4_eo08j")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardI" parent="MarginContainer/Body" instance=ExtResource("4_48jk6")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardH" parent="MarginContainer/Body" instance=ExtResource("4_ob2u7")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardG" parent="MarginContainer/Body" instance=ExtResource("4_klref")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardF" parent="MarginContainer/Body" instance=ExtResource("4_4m6or")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardE" parent="MarginContainer/Body" instance=ExtResource("4_hptry")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardD" parent="MarginContainer/Body" instance=ExtResource("3_e3qdd")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardC" parent="MarginContainer/Body" instance=ExtResource("3_hw8sg")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardB" parent="MarginContainer/Body" instance=ExtResource("3_v66mg")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="LetterCardA" parent="MarginContainer/Body" instance=ExtResource("3_fbvme")]
 layout_mode = 1
-offset_top = -345.0
-offset_bottom = 355.0
+offset_left = -370.0
+offset_top = -325.0
+offset_right = 430.0
+offset_bottom = 375.0
 
 [node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
 visible = false
