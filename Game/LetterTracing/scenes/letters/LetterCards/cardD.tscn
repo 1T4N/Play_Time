@@ -32,8 +32,19 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_tau6c")
 
 [node name="LetterD" parent="." instance=ExtResource("1_330ok")]
 layout_mode = 1
+theme_override_font_sizes/font_size = 750
 
 [node name="CircleSliderComponent" parent="LetterD" index="0"]
+offset_left = -468.5
+offset_top = -305.0
+offset_right = 223.5
+offset_bottom = 279.0
 value = 0.0
+
+[node name="vertical slider Component" parent="LetterD" index="1"]
+offset_left = -177.5
+offset_top = -257.0
+offset_right = -115.5
+offset_bottom = 230.0
 
 [editable path="LetterD"]

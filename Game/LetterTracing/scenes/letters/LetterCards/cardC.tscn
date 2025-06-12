@@ -28,16 +28,22 @@ pivot_offset = Vector2(400, 700)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tau6c")
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("1_cbq01")]
 
 [node name="LetterC" parent="." instance=ExtResource("1_178q5")]
 layout_mode = 1
-offset_top = -361.0
-offset_bottom = 361.0
+offset_left = -220.5
+offset_top = -601.0
+offset_right = 220.5
+offset_bottom = 601.0
+theme_override_font_sizes/font_size = 750
 
 [node name="CircleSliderComponent" parent="LetterC" index="0"]
+offset_left = -218.5
+offset_top = -315.0
+offset_right = 588.5
+offset_bottom = 276.0
 value = 0.0
 
 [editable path="LetterC"]

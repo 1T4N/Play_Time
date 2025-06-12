@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsh5ejicdetdv"]
+
+[ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_js6rc"]
+[ext_resource type="PackedScene" uid="uid://bjs8hjebieulb" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterG.tscn" id="2_js6rc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="LetterCardG" type="Panel"]
+custom_minimum_size = Vector2(800, 700)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 700)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tau6c")
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("1_js6rc")]
+
+[node name="LetterG" parent="." instance=ExtResource("2_js6rc")]
+layout_mode = 1
+offset_left = -239.5
+offset_top = -601.0
+offset_right = 239.5
+offset_bottom = 601.0
+theme_override_font_sizes/font_size = 750
+
+[node name="CircleSliderComponent" parent="LetterG" index="0"]
+offset_left = -225.5
+offset_top = -321.0
+offset_right = 605.5
+offset_bottom = 311.0
+
+[node name="vertical slider Component" parent="LetterG" index="1"]
+offset_left = 194.5
+offset_top = 161.0
+offset_right = 263.5
+offset_bottom = 310.0
+
+[node name="horizontal Slider Component" parent="LetterG" index="2"]
+offset_left = 192.5
+offset_top = 15.0
+offset_right = 382.5
+offset_bottom = 68.0
+
+[editable path="LetterG"]
