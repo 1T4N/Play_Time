@@ -15,7 +15,8 @@ var startPoint:bool = false
 var finished:bool = false
 var retry:bool = false
 
-const retryTraceDelay = 0.4
+@export var retryTraceDelay:float = 0.4
+@export var endThreshold:int = 5
 
 func _process(_delta: float) -> void:
 	if not debug:
@@ -32,7 +33,8 @@ func _gui_input(event):
 		set_value_from_mouse(event.position.x)
 		
 	if Input.is_action_just_released(\"click\") and not finished:
-		print(\"Retry\")
+		if finished:
+			return
 		retry = true
 
 func set_value_from_mouse(mouse_x):
@@ -71,12 +73,15 @@ func set_value_from_mouse(mouse_x):
 
 func _on_timer_timeout() -> void:
 	var tween = create_tween()
-	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SINE)
 
 func _on_value_changed(value: float) -> void:
-	if value == max_value:
+	if value >= max_value - endThreshold:
+		retry = false
+		set_value(max_value)
+		#print(\"this is the value: \", value)
+		#print(\"this is the max value: \", max_value)
 		finished = true
-		
 "
 
 [node name="horizontal Slider Component" type="ProgressBar"]

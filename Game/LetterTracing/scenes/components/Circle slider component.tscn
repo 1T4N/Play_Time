@@ -20,13 +20,16 @@ var startPoint:bool = false
 var finished:bool = false
 var retry:bool = false
 
-const retryTraceDelay = 0.4
+@export var retryTraceDelay:float = 0.4
+
+@export var endThreshold:int = 2
 
 func _process(_delta: float) -> void:
 	if not debug:
 		set_tint_under(Color(0,0,0,0))
 	elif debug:
 		set_tint_under(Color(0,0,0,0.3))
+	
 
 
 func _gui_input(event):
@@ -39,6 +42,8 @@ func _gui_input(event):
 		set_value_from_mouse(event.position)
 	
 	if Input.is_action_just_released(\"click\") and not finished:
+		if finished:
+			return
 		print(\"Retry\")
 		retry = true
 
@@ -91,7 +96,7 @@ func set_value_from_mouse(mouse_pos):
 		set_fill_mode(FILL_CLOCKWISE)
 	
 	
-	print(fill_ratio)
+	#print(fill_ratio)
 	if Input.is_action_just_pressed(\"click\") and fill_ratio < startThreshold:
 		if halfCircle:
 			if fill_ratio < (startThreshold / 2):
@@ -130,16 +135,19 @@ func set_value_from_mouse(mouse_pos):
 func _on_timer_timeout() -> void:
 	#returns back the progress to start
 	var tween = create_tween()
-	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_LINEAR)
 
 
 func _on_value_changed(value: float) -> void:
 	#stays the progress in the 100 if completed
-	if halfCircle == true and value == max_value/2 :
-		value = max_value/2
+	if halfCircle == true and value == (max_value/2) - 5 :
+		retry = false
+		set_value(max_value/2)
 		finished = true
 		#self.set_process_mode(PROCESS_MODE_DISABLED)
-	elif value == max_value and halfCircle == false:
+	elif value == max_value - 5 and halfCircle == false:
+		retry = false
+		set_value(max_value)
 		finished = true
 		#self.set_process_mode(PROCESS_MODE_DISABLED)
 "
@@ -156,7 +164,6 @@ offset_right = 112.5
 offset_bottom = 117.5
 grow_horizontal = 2
 grow_vertical = 2
-value = 2.0
 fill_mode = 4
 nine_patch_stretch = true
 texture_under = ExtResource("1_b80oy")

@@ -15,13 +15,14 @@ var startPoint:bool = false
 var finished:bool = false
 var retry:bool = false
 
-const retryTraceDelay = 0.4
+@export var retryTraceDelay:float = 0.4
+@export var endThreshold:int = 5
 
 func _process(_delta: float) -> void:
 
 	
 	if not debug:
-		theme = load(\"res://GAMES/LetterTracing/alphabet.tres\")
+		theme = load(\"res://Game/LetterTracing/arts/UI/alphabet.tres\")
 	elif debug and not theme == null:
 		theme.clear()
 
@@ -33,6 +34,8 @@ func _gui_input(event):
 		set_value_from_mouse(event.position.y)
 	
 	if Input.is_action_just_released(\"click\") and not finished:
+		if finished:
+			return
 		print(\"Retry\")
 		retry = true
 	
@@ -77,6 +80,9 @@ func set_value_from_mouse(mouse_y):
 
 	
 	value = ratio * (max_value - min_value)
+	
+	if finished:
+		return
 	timer.start(retryTraceDelay)
 	
 
@@ -87,12 +93,16 @@ func set_value_from_mouse(mouse_y):
 func _on_timer_timeout() -> void:
 	#returns back the progress to start
 	var tween = create_tween()
-	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SPRING)
+	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SINE)
 
 
 func _on_value_changed(value: float) -> void:
 	#stays the progress in the 100 if completed
-	if value >= max_value - 2:
+	if value >= max_value - endThreshold:
+		retry = false
+		set_value(max_value)
+		#print(\"this is the value: \", value)
+		#print(\"this is the max value: \", max_value)
 		finished = true
 "
 

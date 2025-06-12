@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cg8rrhcc1s7nq"]
+[gd_scene load_steps=21 format=3 uid="uid://cg8rrhcc1s7nq"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
 [ext_resource type="Texture2D" uid="uid://cmxw6dlf11vu4" path="res://BG/BG_P1/background1.jpg" id="2_m3lsn"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
+[ext_resource type="Script" uid="uid://hxsi110jebf5" path="res://components/script/mainScreenTweenManager.gd" id="5_1bnt8"]
+[ext_resource type="Script" uid="uid://b7mcucfttj3xt" path="res://components/script/animationScalePopUp.gd" id="5_fvq50"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
 texture = ExtResource("2_m3lsn")
@@ -136,14 +138,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
+[node name="tweenManager" type="Node" parent="Panel/MarginContainer1/VBoxContainer"]
+script = ExtResource("5_1bnt8")
+
+[node name="featured" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_wbm3f")
 theme_override_constants/separation = 50
 
-[node name="Button" type="Button" parent="Panel/MarginContainer1/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1550, 350)
 layout_mode = 2
 theme = ExtResource("1_dkfq3")
@@ -154,14 +160,16 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3m5pj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_xxp3b")
 theme_override_styles/normal = SubResource("StyleBoxFlat_l0b2r")
 text = "Featured Game"
+script = ExtResource("5_fvq50")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
+[node name="gamesContainer1" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 
-[node name="Alphabet" type="Button" parent="Panel/MarginContainer1/VBoxContainer/HBoxContainer2"]
+[node name="Alphabet" type="Button" parent="Panel/MarginContainer1/VBoxContainer/gamesContainer1"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -174,8 +182,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 text = "Alphabet Tracing"
+script = ExtResource("5_fvq50")
 
-[node name="Color" type="Button" parent="Panel/MarginContainer1/VBoxContainer/HBoxContainer2"]
+[node name="Color" type="Button" parent="Panel/MarginContainer1/VBoxContainer/gamesContainer1"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -188,8 +198,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 text = "Color Hunt"
+script = ExtResource("5_fvq50")
 
-[node name="Matching" type="Button" parent="Panel/MarginContainer1/VBoxContainer/HBoxContainer2"]
+[node name="Matching" type="Button" parent="Panel/MarginContainer1/VBoxContainer/gamesContainer1"]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -202,8 +214,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 text = "Matching Game"
+script = ExtResource("5_fvq50")
 
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/HBoxContainer2/Alphabet" to="." method="_on_alphabet_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/HBoxContainer2/Color" to="." method="_on_color_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/HBoxContainer2/Matching" to="." method="_on_matching_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="." method="_on_alphabet_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Color" to="." method="_on_color_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Matching" to="." method="_on_matching_pressed"]

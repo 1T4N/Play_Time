@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1ljlyy3ysr14"]
+[gd_scene load_steps=4 format=3 uid="uid://dxf3n51ymmoui"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_k2ib4"]
 [ext_resource type="PackedScene" uid="uid://gj2mah63x8u1" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterP.tscn" id="2_k2ib4"]
