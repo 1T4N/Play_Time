@@ -60,7 +60,7 @@ func show_random_color():
 
 # When "Next" is pressed
 func _on_next_button_pressed():
-	score += 100  #Add 5 points for each correct by pressing NEXT 
+	score += 1000  #Add 5 points for each correct by pressing NEXT 
 	update_score_label()
 	show_random_color()
 
