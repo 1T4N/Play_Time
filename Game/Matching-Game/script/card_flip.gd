@@ -32,15 +32,15 @@ func _ready():
 # add more image here copy and paste the load code then input the location of the image
 func load_card_images():
 	return [
-		load("res://Game/Matching-Game/ui/Apple.jpg"),
-		load("res://Game/Matching-Game/ui/Banana.jpg"),
-		load("res://Game/Matching-Game/ui/Coconut.jpg"),
-		load("res://Game/Matching-Game/ui/Dalandan.jpg"),
-		load("res://Game/Matching-Game/ui/Kiwi.jpg"),
-		load("res://Game/Matching-Game/ui/Lemon.jpg"),
-		load("res://Game/Matching-Game/ui/Mango.jpg"),
-		load("res://Game/Matching-Game/ui/Melon.jpg"),
-		load("res://Game/Matching-Game/ui/Strawberry.jpg")
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Apple.jpg"),
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Banana.jpg"), 
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Coconut.jpg"),
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Dalandan.jpg"),
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Kiwi.jpg"),  
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Lemon.jpg"), 
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Mango.jpg"),
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Melon.jpg"),
+		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Strawberry.jpg")
 	]
 
 # Called when a card is pressed
