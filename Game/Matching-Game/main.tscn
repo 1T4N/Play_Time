@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://btuehsrcekkv5"]
+[gd_scene load_steps=29 format=3 uid="uid://btuehsrcekkv5"]
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://otcq43f5trpr" path="res://BG/BG_P2/background13.2.jpg" id="2_uwrbs"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_u3sdp"]
+[ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="6_3p24p"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_uwrbs"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_3p24p"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_5fsx7"]
@@ -62,7 +63,13 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8r4ip"]
+bg_color = Color(0.537011, 0.537011, 0.537011, 1)
+
 [sub_resource type="Theme" id="Theme_1t1lt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh2q6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
 bg_color = Color(0.65098, 0.894118, 0.894118, 1)
@@ -171,8 +178,6 @@ columns = 6
 
 [node name="Card" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -180,8 +185,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card2" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -189,8 +192,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card3" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -198,8 +199,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card4" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -207,8 +206,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card5" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -216,8 +213,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card6" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -225,8 +220,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card7" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -234,8 +227,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card8" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -243,8 +234,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card9" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -252,8 +241,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card10" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -261,8 +248,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card11" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -270,8 +255,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card12" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -279,8 +262,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card13" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -288,8 +269,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card14" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -297,8 +276,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card15" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -306,8 +283,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card16" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -315,8 +290,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card17" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -324,8 +297,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_uwrbs")
 
 [node name="Card18" parent="Panel/MarginContainer/GridContainer" instance=ExtResource("2_h2yge")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxFlat_3p24p")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5fsx7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wevum")
@@ -339,6 +310,7 @@ theme = ExtResource("5_u3sdp")
 text = "Score:"
 
 [node name="HelpButton" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -371,41 +343,69 @@ Good luck!
 "
 
 [node name="WinPopUp" type="Popup" parent="PopUp"]
-size = Vector2i(100, 116)
+transparent_bg = true
+size = Vector2i(500, 300)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopUp/WinPopUp"]
+[node name="Panel" type="Panel" parent="PopUp/WinPopUp"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_3p24p")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8r4ip")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopUp/WinPopUp/Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.5
-offset_top = -29.0
-offset_right = 35.5
-offset_bottom = 29.0
+offset_left = -202.0
+offset_top = -101.0
+offset_right = 202.0
+offset_bottom = 101.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme = SubResource("Theme_1t1lt")
 
-[node name="Label" type="Label" parent="PopUp/WinPopUp/VBoxContainer"]
+[node name="Label" type="Label" parent="PopUp/WinPopUp/Panel/VBoxContainer"]
 layout_mode = 2
 text = "You win!!"
 
-[node name="RestartButton" type="Button" parent="PopUp/WinPopUp/VBoxContainer"]
-layout_mode = 2
+[node name="RestartButton" type="Button" parent="PopUp/WinPopUp/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 185.0
+offset_right = 452.0
+offset_bottom = 216.0
 text = "Restart"
 
-[node name="ExitButton" type="Button" parent="PopUp/WinPopUp/VBoxContainer"]
-layout_mode = 2
-text = "Exit"
+[node name="MenuExitButton" type="Button" parent="PopUp/WinPopUp/Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 220.0
+offset_right = 452.0
+offset_bottom = 251.0
+text = "Menu"
 
-[node name="Menu" type="Node" parent="."]
+[node name="Menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("6_uwrbs")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 process_mode = 3
-visible = false
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -420,6 +420,7 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Menu/MarginContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh2q6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Panel"]
 custom_minimum_size = Vector2(550, 400)
@@ -492,7 +493,7 @@ text = "Back
 
 [connection signal="pressed" from="Panel/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="PopUp/WinPopUp/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="PopUp/WinPopUp/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="PopUp/WinPopUp/Panel/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PopUp/WinPopUp/Panel/MenuExitButton" to="." method="_on_menu_exit_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]

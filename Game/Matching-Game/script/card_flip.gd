@@ -1,21 +1,22 @@
-extends Control
+extends Control 
 
 @onready var grid = $Panel/MarginContainer/GridContainer                
 @onready var help_popup = $PopUp/HelpPopup                
 @onready var win_popup = $PopUp/WinPopUp                  
 @onready var score_label: Label = $Panel/MarginContainer/ScoreLabel             # Label to display the score
 @onready var menu_button: Button = $Panel/MarginContainer/MenuButton
-@onready var margin_container: MarginContainer = $Menu/MarginContainer
+@onready var menu: Control = $Menu
+@onready var menu_exit_button: Button = $PopUp/WinPopUp/VBoxContainer/MenuExitButton
 
 # Variables to keep track of selected cards and image resources
 var selected_cards = []                               
 var card_images = []                                      
-var score = 0                                             # New: Score variable
+var score = 0                                             #Score variable
 
 # Called when the scene is loaded
 func _ready():
-	score = 0                                              # New: Initialize score
-	score_label.text = "Score: 0"                          # New: Set initial score display
+	score = 0                                              #nitialize score
+	score_label.text = "Score: 0"                          #et initial score display
 
 	card_images = load_card_images()                       # Load the card images
 	var all_images = card_images.duplicate()               # Duplicate the images to make pairs
@@ -44,8 +45,8 @@ func load_card_images():
 
 # Called when a card is pressed
 func _on_card_pressed(card):
-	# Ignore the card if already flipped, matched, or two cards are already selected
-	if card.is_flipped or card.is_matched or selected_cards.size() >= 2:
+	# Ignore the card if already flipped, matched, flipping, or two cards are already selected
+	if card.is_flipped or card.is_matched or card.flipping or selected_cards.size() >= 2:  # New: prevent interrupting animation
 		return
 		
 	# Flip the card to show the image
@@ -67,7 +68,7 @@ func check_match():
 		card1.is_matched = true                  
 		card2.is_matched = true
 
-		# New: Increase score and update display
+		#Increase score and update display
 		score += 100
 		score_label.text = "Score: " + str(score)
 		
@@ -99,11 +100,12 @@ func _on_help_button_pressed() -> void:
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
-# Exit the game
-func _on_exit_button_pressed() -> void:
-	get_tree().quit()
-
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = true
-	margin_container.visible = true
+	menu.visible = true
+
+
+func _on_menu_exit_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://GameUI/scenes/Main_Screen.tscn")
