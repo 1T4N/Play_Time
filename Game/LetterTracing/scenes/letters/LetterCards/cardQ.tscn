@@ -39,15 +39,16 @@ offset_bottom = 601.0
 theme_override_font_sizes/font_size = 750
 
 [node name="CircleSliderComponent" parent="LetterQ" index="0"]
-offset_left = -84.0
-offset_top = -363.0
-offset_right = 410.0
-offset_bottom = 154.0
+offset_left = -97.0
+offset_top = -390.0
+offset_right = 416.0
+offset_bottom = 133.0
+halfCircle = false
 
 [node name="vertical slider Component" parent="LetterQ" index="1"]
-offset_left = 16.0
-offset_top = 242.0
-offset_right = 93.0
-offset_bottom = 471.0
+offset_left = -5.0
+offset_top = 230.0
+offset_right = 76.0
+offset_bottom = 483.0
 
 [editable path="LetterQ"]

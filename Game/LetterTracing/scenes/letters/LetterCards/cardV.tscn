@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://crrkwtr37dii0"]
+
+[ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_rxpgu"]
+[ext_resource type="PackedScene" uid="uid://bor7pfgegh10a" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterV.tscn" id="2_rxpgu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="LetterCardV" type="Panel"]
+custom_minimum_size = Vector2(800, 700)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 700)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_tau6c")
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("1_rxpgu")]
+
+[node name="LetterV" parent="." instance=ExtResource("2_rxpgu")]
+layout_mode = 1
+offset_left = -131.0
+offset_top = -361.0
+offset_right = 131.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 750
+
+[node name="vertical slider Component" parent="LetterV" index="0"]
+offset_left = -203.5
+offset_top = -244.0
+offset_right = -123.5
+offset_bottom = 260.0
+
+[node name="vertical slider Component2" parent="LetterV" index="1"]
+offset_left = 83.5
+offset_top = 226.0
+offset_right = 181.5
+offset_bottom = 711.0
+
+[editable path="LetterV"]
