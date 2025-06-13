@@ -1,6 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkbs6l6frvx1r"]
+[gd_scene load_steps=7 format=3 uid="uid://bkbs6l6frvx1r"]
 
 [ext_resource type="Script" uid="uid://1osftkuf7ulf" path="res://Game/Matching-Game/script/card.gd" id="1_7p64d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd6q0"]
+
+[sub_resource type="Animation" id="Animation_vd6q0"]
+resource_name = "Animation"
+
+[sub_resource type="Animation" id="Animation_ubx2l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_smhrj"]
+resource_name = "flip_card"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6kx4b"]
+_data = {
+&"Animation": SubResource("Animation_vd6q0"),
+&"RESET": SubResource("Animation_ubx2l"),
+&"flip_card": SubResource("Animation_smhrj")
+}
 
 [node name="Card" type="Button"]
 custom_minimum_size = Vector2(200, 200)
@@ -9,6 +52,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(111, 546)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_vd6q0")
 script = ExtResource("1_7p64d")
 
 [node name="FrontImage" type="TextureRect" parent="."]
@@ -21,3 +68,8 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 2
 stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6kx4b")
+}
