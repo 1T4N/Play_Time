@@ -1,6 +1,5 @@
-[gd_scene load_steps=39 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=37 format=3 uid="uid://cpbmuhpms5prr"]
 
-[ext_resource type="Texture2D" uid="uid://beiounpj520i4" path="res://BG/BG_P2/background13.1.jpg" id="1_ti7av"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_oyvai"]
 [ext_resource type="PackedScene" uid="uid://hqrynq6ao2qm" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardD.tscn" id="3_e3qdd"]
@@ -30,10 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://crrkwtr37dii0" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardV.tscn" id="4_whd0p"]
 [ext_resource type="PackedScene" uid="uid://bn7o47a6g1xpt" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardX.tscn" id="4_x1xr6"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hptry"]
-texture = ExtResource("1_ti7av")
-modulate_color = Color(0.864675, 0.864675, 0.864675, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qdd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -77,11 +72,26 @@ func _on_pressed() -> void:
 [sub_resource type="GDScript" id="GDScript_fbvme"]
 script/source = "extends Label
 @onready var timer: Timer = $Timer
+@onready var timeDeductNotif:PackedScene = preload(\"res://Game/LetterTracing/scenes/components/timeDeductionLabelComponent.tscn\")
+@onready var label_pos_spawn: Marker2D = $labelPosSpawn
 
+var timeDeductionPerError = TracingData.timeDeduction
 func _ready() -> void:
 	timer.start(100)
+	label_pos_spawn.position = get_size()/2
+	TracingData.retry.connect(deductTime)
+	
 func _process(_delta: float) -> void:
 	text = str(int(timer.get_time_left()))
+
+func deductTime():
+	timer.start(timer.get_time_left() - timeDeductionPerError) 
+	
+	var instance = timeDeductNotif.instantiate()
+	print(position)
+	instance.originalPos = label_pos_spawn.position
+	add_child(instance)
+	pass
 "
 
 [sub_resource type="GDScript" id="GDScript_v66mg"]
@@ -100,17 +110,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(2202, 435)
-theme_override_styles/panel = SubResource("StyleBoxTexture_hptry")
-
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -120,26 +119,97 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_oyvai")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="LetterCardZ" parent="." groups=["letterUpperCase"] instance=ExtResource("4_6clmv")]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_fbvme")
-theme_override_constants/margin_top = 20
 
-[node name="Body" type="Control" parent="MarginContainer"]
-layout_mode = 2
+[node name="LetterCardY" parent="." groups=["letterUpperCase"] instance=ExtResource("4_5s7d8")]
+layout_mode = 1
 
-[node name="Header" type="Control" parent="MarginContainer/Body"]
+[node name="LetterCardX" parent="." groups=["letterUpperCase"] instance=ExtResource("4_x1xr6")]
+layout_mode = 1
+
+[node name="LetterCardW" parent="." groups=["letterUpperCase"] instance=ExtResource("4_vbuyb")]
+layout_mode = 1
+
+[node name="LetterCardV" parent="." groups=["letterUpperCase"] instance=ExtResource("4_whd0p")]
+layout_mode = 1
+
+[node name="LetterCardU" parent="." groups=["letterUpperCase"] instance=ExtResource("4_luu5w")]
+layout_mode = 1
+
+[node name="LetterCardT" parent="." groups=["letterUpperCase"] instance=ExtResource("4_2y71p")]
+layout_mode = 1
+
+[node name="LetterCardS" parent="." groups=["letterUpperCase"] instance=ExtResource("4_j6cp2")]
+layout_mode = 1
+
+[node name="LetterCardR" parent="." groups=["letterUpperCase"] instance=ExtResource("4_cn0o3")]
+layout_mode = 1
+
+[node name="LetterCardQ" parent="." groups=["letterUpperCase"] instance=ExtResource("4_floem")]
+layout_mode = 1
+
+[node name="LetterCardP" parent="." groups=["letterUpperCase"] instance=ExtResource("4_oyvai")]
+layout_mode = 1
+
+[node name="LetterCardO" parent="." groups=["letterUpperCase"] instance=ExtResource("4_mqomt")]
+layout_mode = 1
+
+[node name="LetterCardN" parent="." groups=["letterUpperCase"] instance=ExtResource("4_8p8rp")]
+layout_mode = 1
+
+[node name="LetterCardM" parent="." groups=["letterUpperCase"] instance=ExtResource("4_jvox4")]
+layout_mode = 1
+
+[node name="LetterCardL" parent="." groups=["letterUpperCase"] instance=ExtResource("4_r8eln")]
+layout_mode = 1
+
+[node name="LetterCardK" parent="." groups=["letterUpperCase"] instance=ExtResource("4_3sue6")]
+layout_mode = 1
+
+[node name="LetterCardJ" parent="." groups=["letterUpperCase"] instance=ExtResource("4_eo08j")]
+layout_mode = 1
+
+[node name="LetterCardI" parent="." groups=["letterUpperCase"] instance=ExtResource("4_48jk6")]
+layout_mode = 1
+
+[node name="LetterCardH" parent="." groups=["letterUpperCase"] instance=ExtResource("4_ob2u7")]
+layout_mode = 1
+
+[node name="LetterCardG" parent="." groups=["letterUpperCase"] instance=ExtResource("4_klref")]
+layout_mode = 1
+
+[node name="LetterCardF" parent="." groups=["letterUpperCase"] instance=ExtResource("4_4m6or")]
+layout_mode = 1
+
+[node name="LetterCardE" parent="." groups=["letterUpperCase"] instance=ExtResource("4_hptry")]
+layout_mode = 1
+
+[node name="LetterCardD" parent="." groups=["letterUpperCase"] instance=ExtResource("3_e3qdd")]
+layout_mode = 1
+
+[node name="LetterCardC" parent="." groups=["letterUpperCase"] instance=ExtResource("3_hw8sg")]
+layout_mode = 1
+
+[node name="LetterCardB" parent="." groups=["letterUpperCase"] instance=ExtResource("3_v66mg")]
+layout_mode = 1
+
+[node name="LetterCardA" parent="." groups=["letterUpperCase"] instance=ExtResource("3_fbvme")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 50.0
 grow_horizontal = 2
+theme = ExtResource("2_fbvme")
+theme_override_constants/margin_top = 20
 
-[node name="MenuButton" type="Button" parent="MarginContainer/Body/Header"]
+[node name="Header" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="MarginContainer/Header"]
 clip_contents = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
@@ -158,13 +228,13 @@ text = "☰
 "
 script = SubResource("GDScript_hw8sg")
 
-[node name="Timer" type="Label" parent="MarginContainer/Body/Header"]
+[node name="Timer" type="Label" parent="MarginContainer/Header"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -62.5
-offset_right = 62.5
+offset_left = -100.0
+offset_right = 100.0
 offset_bottom = 147.0
 grow_horizontal = 2
 theme = ExtResource("2_fbvme")
@@ -175,9 +245,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_fbvme")
 
-[node name="Timer" type="Timer" parent="MarginContainer/Body/Header/Timer"]
+[node name="Timer" type="Timer" parent="MarginContainer/Header/Timer"]
 
-[node name="Score" type="Label" parent="MarginContainer/Body/Header"]
+[node name="labelPosSpawn" type="Marker2D" parent="MarginContainer/Header/Timer"]
+position = Vector2(65, 71)
+
+[node name="Score" type="Label" parent="MarginContainer/Header"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -194,205 +267,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_v66mg")
 
-[node name="LetterCardZ" parent="MarginContainer/Body" instance=ExtResource("4_6clmv")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardY" parent="MarginContainer/Body" instance=ExtResource("4_5s7d8")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardX" parent="MarginContainer/Body" instance=ExtResource("4_x1xr6")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardW" parent="MarginContainer/Body" instance=ExtResource("4_vbuyb")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardV" parent="MarginContainer/Body" instance=ExtResource("4_whd0p")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardU" parent="MarginContainer/Body" instance=ExtResource("4_luu5w")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardT" parent="MarginContainer/Body" instance=ExtResource("4_2y71p")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardS" parent="MarginContainer/Body" instance=ExtResource("4_j6cp2")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardR" parent="MarginContainer/Body" instance=ExtResource("4_cn0o3")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardQ" parent="MarginContainer/Body" instance=ExtResource("4_floem")]
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardP" parent="MarginContainer/Body" instance=ExtResource("4_oyvai")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardO" parent="MarginContainer/Body" instance=ExtResource("4_mqomt")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardN" parent="MarginContainer/Body" instance=ExtResource("4_8p8rp")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardM" parent="MarginContainer/Body" instance=ExtResource("4_jvox4")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardL" parent="MarginContainer/Body" instance=ExtResource("4_r8eln")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardK" parent="MarginContainer/Body" instance=ExtResource("4_3sue6")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardJ" parent="MarginContainer/Body" instance=ExtResource("4_eo08j")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardI" parent="MarginContainer/Body" instance=ExtResource("4_48jk6")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardH" parent="MarginContainer/Body" instance=ExtResource("4_ob2u7")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardG" parent="MarginContainer/Body" instance=ExtResource("4_klref")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardF" parent="MarginContainer/Body" instance=ExtResource("4_4m6or")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardE" parent="MarginContainer/Body" instance=ExtResource("4_hptry")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardD" parent="MarginContainer/Body" instance=ExtResource("3_e3qdd")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardC" parent="MarginContainer/Body" instance=ExtResource("3_hw8sg")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardB" parent="MarginContainer/Body" instance=ExtResource("3_v66mg")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="LetterCardA" parent="MarginContainer/Body" instance=ExtResource("3_fbvme")]
-visible = false
-layout_mode = 1
-offset_left = -370.0
-offset_top = -325.0
-offset_right = 430.0
-offset_bottom = 375.0
-
-[node name="Menu" parent="." instance=ExtResource("5_o6nc1")]
+[node name="MenuUI" parent="." instance=ExtResource("5_o6nc1")]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -402,4 +277,4 @@ offset_right = 300.0
 offset_bottom = 520.0
 size_flags_horizontal = 4
 
-[connection signal="pressed" from="MarginContainer/Body/Header/MenuButton" to="MarginContainer/Body/Header/MenuButton" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/Header/MenuButton" to="MarginContainer/Header/MenuButton" method="_on_pressed"]

@@ -33,10 +33,12 @@ func _gui_input(event):
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		set_value_from_mouse(event.position.y)
 	
+	#checks if the user made a mistake
 	if Input.is_action_just_released(\"click\") and not finished:
 		if finished:
 			return
 		print(\"Retry\")
+		TracingData.retry.emit()
 		retry = true
 	
 
