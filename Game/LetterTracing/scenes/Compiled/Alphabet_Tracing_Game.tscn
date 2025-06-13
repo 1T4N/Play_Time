@@ -141,6 +141,7 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="LetterCardS" parent="." groups=["letterUpperCase"] instance=ExtResource("4_j6cp2")]
+visible = false
 layout_mode = 1
 
 [node name="LetterCardR" parent="." groups=["letterUpperCase"] instance=ExtResource("4_cn0o3")]
