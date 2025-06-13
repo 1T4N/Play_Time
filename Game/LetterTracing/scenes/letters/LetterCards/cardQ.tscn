@@ -42,12 +42,13 @@ theme_override_font_sizes/font_size = 750
 offset_left = -97.0
 offset_top = -390.0
 offset_right = 416.0
-offset_bottom = 126.0
+offset_bottom = 133.0
+halfCircle = false
 
 [node name="vertical slider Component" parent="LetterQ" index="1"]
-offset_left = 4.0
-offset_top = 235.0
-offset_right = 81.0
-offset_bottom = 477.0
+offset_left = -5.0
+offset_top = 230.0
+offset_right = 76.0
+offset_bottom = 483.0
 
 [editable path="LetterQ"]
