@@ -69,6 +69,7 @@ func set_value_from_mouse(mouse_pos):
 	#timer.start(1)
 #endregion
 	
+#region This is the letter tracing system
 	var center = size / 2
 	#re align the mouse posistion to reference the center of the area so it points towards the mouse 
 	var rel_pos = mouse_pos - center
@@ -124,20 +125,21 @@ func set_value_from_mouse(mouse_pos):
 			value = min_value + fill_ratio * (max_value - min_value)
 		elif reverse and angle_deg >= 180:
 			value = min_value + fill_ratio * (max_value - min_value)
+#endregion
 		
-	
+	#returns back the progress to start
 	if restart:
 		timer.start(retryTraceDelay)
 
 
 
-
+#reverts the letter tracing from the start
 func _on_timer_timeout() -> void:
-	#returns back the progress to start
 	var tween = create_tween()
 	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_LINEAR)
 
 
+#checks if its already finished tracing 
 func _on_value_changed(value: float) -> void:
 	#stays the progress in the 100 if completed
 	if halfCircle == true and value == (max_value/2) - 5 :

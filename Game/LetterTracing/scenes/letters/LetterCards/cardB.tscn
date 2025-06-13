@@ -44,14 +44,12 @@ theme_override_font_sizes/font_size = 750
 offset_left = -189.5
 offset_top = -267.0
 offset_right = 171.5
-value = 0.0
 
 [node name="CircleSliderComponent2" parent="LetterB" index="1"]
 offset_left = -196.5
 offset_top = -61.0
 offset_right = 181.5
 offset_bottom = 228.0
-value = 0.0
 
 [node name="horizontal Slider Component" parent="LetterB" index="2"]
 offset_left = -102.5

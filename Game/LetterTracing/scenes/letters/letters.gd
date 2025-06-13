@@ -36,6 +36,8 @@ func _process(_delta: float) -> void:
 	for child in childrens:
 		if child.orderID != childPointer:
 			continue
+		
+		#this makes the lettercard Shake after failing the trace
 		if child.retry == true:
 			const speed = 0.015
 			const shakeOffset = 10
