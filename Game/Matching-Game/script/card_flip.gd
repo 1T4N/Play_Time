@@ -69,7 +69,7 @@ func check_match():
 		card2.is_matched = true
 
 		#Increase score and update display
-		score += 100
+		score += 1000
 		score_label.text = "Score: " + str(score)
 		
 	# Flip them back over if no match
@@ -91,6 +91,7 @@ func all_cards_matched() -> bool:
 		if not card.is_matched:
 			return false
 	return true
+	
 
 # Show help instructions popup
 func _on_help_button_pressed() -> void:
