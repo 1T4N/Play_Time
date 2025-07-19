@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7rln6a7hvsxt"]
+
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_41bku"]
+[ext_resource type="Script" uid="uid://cv1xaannghipl" path="res://GameUI/Saving/button.gd" id="2_rgrka"]
+[ext_resource type="PackedScene" uid="uid://cd6ix6qdhyq1w" path="res://GameUI/Saving/Component/datas_box_container.tscn" id="3_rgrka"]
+
+[sub_resource type="GDScript" id="GDScript_41bku"]
+script/source = "extends VBoxContainer
+@export var delayScaleAnimation:float = 0.2
+@export var debug:bool = false
+func _ready() -> void:
+	for child in get_children():
+		if not child.has_method(\"tweening\"):
+			continue
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(child,\"scale\",Vector2.ZERO, 0.0)
+	
+	if debug:
+		playAnimations()
+	
+func playAnimations() -> void:
+	for child in get_children():
+		#child.show()
+		if child.has_method(\"tweening\"):
+			child.tweening()
+			await get_tree().create_timer(delayScaleAnimation).timeout
+"
+
+[node name="profiler" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -113.5
+offset_right = 100.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_41bku")
+theme_override_constants/separation = 10
+script = SubResource("GDScript_41bku")
+debug = true
+
+[node name="profile1" type="Button" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Profile 1"
+script = ExtResource("2_rgrka")
+
+[node name="DatasBoxContainer" parent="." instance=ExtResource("3_rgrka")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="profile2" type="Button" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Profile 2"
+script = ExtResource("2_rgrka")
+profileID = 1
+
+[node name="profile3" type="Button" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Profile 3"
+script = ExtResource("2_rgrka")
+profileID = 2
+
+[connection signal="pressed" from="profile1" to="profile1" method="_on_pressed"]

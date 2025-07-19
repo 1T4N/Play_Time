@@ -6,7 +6,7 @@ extends Control
 @onready var score_label: Label = $Panel/MarginContainer/ScoreLabel             # Label to display the score
 @onready var menu_button: Button = $Panel/MarginContainer/MenuButton
 @onready var menu: Control = $Menu
-@onready var menu_exit_button: Button = $PopUp/WinPopUp/VBoxContainer/MenuExitButton
+#@onready var menu_exit_button: Button = $PopUp/WinPopUp/VBoxContainer/MenuExitButton
 
 # Variables to keep track of selected cards and image resources
 var selected_cards = []                               

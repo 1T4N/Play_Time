@@ -59,7 +59,7 @@ script/source = "extends Button
 var menuComponent
 
 func _ready() -> void:
-	menuComponent = get_node_or_null(\"../../../../Menu\")
+	menuComponent = get_node_or_null(\"../../../MenuUI\")
 
 func _on_pressed() -> void:
 	if menuComponent == null:

@@ -1,0 +1,116 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd6ix6qdhyq1w"]
+
+[sub_resource type="GDScript" id="GDScript_tihv1"]
+script/source = "extends VBoxContainer
+func _ready() -> void:
+	var origSize = get_size()
+	
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self,\"size\",Vector2.ZERO, 1)
+"
+
+[sub_resource type="GDScript" id="GDScript_5h1nf"]
+script/source = "extends Node2D
+func save():
+	var saveDictionary = {
+		\"data\": {
+			\"Time\": 234,
+			\"Score\": 12
+		}
+	}
+	return saveDictionary
+"
+
+[sub_resource type="GDScript" id="GDScript_2eq6d"]
+script/source = "extends GridContainer
+@onready var name_text_box: LineEdit = $nameTextBox
+@onready var age_text_box: LineEdit = $ageTextBox
+#@onready var profile: Control = $\"../..\"
+
+func save():
+	var saveDictionary = {
+		\"profile\": {
+			\"name\": name_text_box.text,
+			\"age\": age_text_box.text
+			#,
+			#\"profileID\": profile.profileID
+		}
+	}
+	return saveDictionary
+"
+
+[sub_resource type="GDScript" id="GDScript_eh4vp"]
+resource_name = "savingScript"
+script/source = "extends Button
+#@onready var profile: Control = $\"../..\"
+
+func save_game():
+	var save_file =  FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(profile.profileID) + \".json\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
+	if save_file == null:
+		print(FileAccess.get_open_error())
+		return
+	
+	var save_nodes = get_tree().get_nodes_in_group(\"Persist\")	
+	var mergedData:Dictionary
+	print(save_nodes)
+	for node in save_nodes:
+		## Check the node is an instanced scene so it can be instanced again during load.
+		#if node.scene_file_path.is_empty():
+			#print(\"persistent node '%s' is not an instanced scene, skipped\" % node.name)
+			#continue
+
+		# Check the node has a save function.
+		if !node.has_method(\"save\"):
+			print(\"persistent node '%s' is missing a save() function, skipped\" % node.name)
+			continue
+
+		# Call the node's save function.
+		var node_data = node.save()
+		#print(node_data)
+		mergedData.merge(node_data)
+
+	# JSON provides a static method to serialized JSON string.
+	var json_string = JSON.stringify(mergedData, \"\\t\")
+
+	# Store the save dictionary as a new line in the save file.
+	save_file.store_string(json_string)
+	print(json_string)
+		#save_file.close()
+"
+
+[node name="DatasBoxContainer" type="VBoxContainer"]
+offset_left = 576.0
+offset_top = 183.0
+offset_right = 695.0
+offset_bottom = 284.0
+script = SubResource("GDScript_tihv1")
+
+[node name="Node2D" type="Node2D" parent="." groups=["Persist"]]
+script = SubResource("GDScript_5h1nf")
+
+[node name="Datas" type="GridContainer" parent="." groups=["Persist"]]
+layout_mode = 2
+columns = 2
+script = SubResource("GDScript_2eq6d")
+
+[node name="Name" type="Label" parent="Datas"]
+layout_mode = 2
+text = "Name"
+
+[node name="nameTextBox" type="LineEdit" parent="Datas"]
+layout_mode = 2
+
+[node name="Age" type="Label" parent="Datas"]
+layout_mode = 2
+text = "Age"
+
+[node name="ageTextBox" type="LineEdit" parent="Datas"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Confirm"
+script = SubResource("GDScript_eh4vp")
+
+[connection signal="pressed" from="Button" to="Button" method="save_game"]
