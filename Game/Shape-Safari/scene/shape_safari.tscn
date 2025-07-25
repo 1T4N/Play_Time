@@ -1,0 +1,132 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0kq5wq3sj4h"]
+
+[ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
+[ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
+
+[node name="ShapeSafari" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y2sgv")
+
+[node name="InstructionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "You found the circle!"
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="narrator" type="AudioStreamPlayer2D" parent="."]
+visible = false
+
+[node name="Clapping" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("2_y2sgv")
+
+[node name="Shape" type="Node" parent="."]
+
+[node name="Shape1" type="Button" parent="Shape"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 70.0
+offset_top = -105.0
+offset_right = 275.0
+offset_bottom = 105.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeImage" type="TextureRect" parent="Shape/Shape1"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -105.0
+offset_right = 205.0
+offset_bottom = 103.0
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="Shape2" type="Button" parent="Shape"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -105.0
+offset_right = 102.5
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeImage" type="TextureRect" parent="Shape/Shape2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -105.0
+offset_right = 205.0
+offset_bottom = 103.0
+grow_vertical = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Shape3" type="Button" parent="Shape"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -105.0
+offset_right = -175.0
+offset_bottom = 105.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeImage" type="TextureRect" parent="Shape/Shape3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -105.0
+offset_right = 205.0
+offset_bottom = 103.0
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[connection signal="pressed" from="Shape/Shape1" to="." method="_on_shape_1_pressed"]
+[connection signal="pressed" from="Shape/Shape2" to="." method="_on_shape_2_pressed"]
+[connection signal="pressed" from="Shape/Shape3" to="." method="_on_shape_3_pressed"]
