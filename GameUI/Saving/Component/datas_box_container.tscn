@@ -1,14 +1,5 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd6ix6qdhyq1w"]
 
-[sub_resource type="GDScript" id="GDScript_tihv1"]
-script/source = "extends VBoxContainer
-func _ready() -> void:
-	var origSize = get_size()
-	
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(self,\"size\",Vector2.ZERO, 1)
-"
-
 [sub_resource type="GDScript" id="GDScript_5h1nf"]
 script/source = "extends Node2D
 func save():
@@ -25,7 +16,7 @@ func save():
 script/source = "extends GridContainer
 @onready var name_text_box: LineEdit = $nameTextBox
 @onready var age_text_box: LineEdit = $ageTextBox
-#@onready var profile: Control = $\"../..\"
+@onready var profile: Control = $\".\"
 
 func save():
 	var saveDictionary = {
@@ -39,10 +30,15 @@ func save():
 	return saveDictionary
 "
 
+[sub_resource type="Theme" id="Theme_tihv1"]
+
 [sub_resource type="GDScript" id="GDScript_eh4vp"]
 resource_name = "savingScript"
 script/source = "extends Button
-#@onready var profile: Control = $\"../..\"
+@onready var profile: VBoxContainer
+
+func _ready() -> void:
+	profile = get_parent().get_parent().get_parent().get_parent()
 
 func save_game():
 	var save_file =  FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(profile.profileID) + \".json\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
@@ -50,7 +46,12 @@ func save_game():
 		print(FileAccess.get_open_error())
 		return
 	
-	var save_nodes = get_tree().get_nodes_in_group(\"Persist\")	
+	var save_nodes:Array
+	for child in get_parent().get_children():
+		if child.is_in_group(\"Persist\"):
+			save_nodes.append(child)
+		
+	
 	var mergedData:Dictionary
 	print(save_nodes)
 	for node in save_nodes:
@@ -83,13 +84,13 @@ offset_left = 576.0
 offset_top = 183.0
 offset_right = 695.0
 offset_bottom = 284.0
-script = SubResource("GDScript_tihv1")
 
 [node name="Node2D" type="Node2D" parent="." groups=["Persist"]]
 script = SubResource("GDScript_5h1nf")
 
 [node name="Datas" type="GridContainer" parent="." groups=["Persist"]]
 layout_mode = 2
+theme_override_constants/h_separation = 15
 columns = 2
 script = SubResource("GDScript_2eq6d")
 
@@ -99,6 +100,7 @@ text = "Name"
 
 [node name="nameTextBox" type="LineEdit" parent="Datas"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Age" type="Label" parent="Datas"]
 layout_mode = 2
@@ -106,10 +108,11 @@ text = "Age"
 
 [node name="ageTextBox" type="LineEdit" parent="Datas"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
+theme = SubResource("Theme_tihv1")
 text = "Confirm"
 script = SubResource("GDScript_eh4vp")
 

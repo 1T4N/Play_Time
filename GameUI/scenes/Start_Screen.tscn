@@ -34,6 +34,7 @@ offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_slrr1")
+showProfileAnimSpeed = 0.3
 
 [node name="TitleScreen" type="Panel" parent="."]
 layout_mode = 1
@@ -135,12 +136,6 @@ bbcode_enabled = true
 text = "[wave]Select Profile[/wave]"
 fit_content = true
 autowrap_mode = 0
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme = ExtResource("5_r0aje")
-text = "Select Profile"
 
 [node name="profiler" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_7b615")]
 layout_mode = 2
