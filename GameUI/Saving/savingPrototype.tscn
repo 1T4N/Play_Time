@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://u0cpwr2swuu3"]
+
+[ext_resource type="PackedScene" uid="uid://cd6ix6qdhyq1w" path="res://GameUI/Saving/Component/datas_box_container.tscn" id="1_0fq0l"]
+[ext_resource type="PackedScene" uid="uid://c7rln6a7hvsxt" path="res://GameUI/Saving/Component/profiler.tscn" id="1_akthn"]
+
+[sub_resource type="GDScript" id="GDScript_3u26r"]
+script/source = "extends Control
+var profileID:int
+
+func selectProfile1():
+	profileID = 0
+	pass
+func selectProfile2():
+	profileID = 1
+	pass
+func selectProfile3():
+	profileID = 2
+	pass
+"
+
+[node name="Profile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_3u26r")
+
+[node name="DatasBoxContainer" parent="." instance=ExtResource("1_0fq0l")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 119.0
+offset_bottom = 101.0
+
+[node name="profiler" parent="." instance=ExtResource("1_akthn")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 227.0
+grow_horizontal = 1
+grow_vertical = 1

@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://475l58v4iqr8"]
+
+[ext_resource type="PackedScene" uid="uid://cd6ix6qdhyq1w" path="res://GameUI/Saving/Component/datas_box_container.tscn" id="1_s0edj"]
+
+[sub_resource type="GDScript" id="GDScript_rgrka"]
+script/source = "extends Panel
+#@onready var datas_box_container: VBoxContainer = $MarginContainer/DatasBoxContainer
+@onready var margin_container: MarginContainer = $MarginContainer
+
+@export_range(0,2,1) var profileID:int
+var origSize:Vector2
+var shown:bool = false
+
+var animSpeed:float = 0.2
+
+func _ready() -> void:
+	hide()
+	margin_container.modulate.a = 0
+	origSize = margin_container.get_size()
+	
+	
+func createProfAnim():
+	if not shown:
+		show()
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(self,\"custom_minimum_size\",origSize, animSpeed)
+		tween.tween_property(margin_container,\"modulate:a\",1, animSpeed)
+		await tween.finished
+		shown = true
+	else:
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(margin_container,\"modulate:a\",0, animSpeed)
+		tween.tween_property(self,\"custom_minimum_size\",Vector2.ZERO, animSpeed)
+		await tween.finished
+		shown = false
+		hide()
+		
+
+
+func _on_profile_pressed() -> void:
+	for child in get_parent().get_children():
+		if not child is Button:
+			continue
+		if not child.profileID == profileID:
+			continue
+		if child.IsCreateProfile == true:
+			createProfAnim()
+			return
+			
+		loadProfile()
+
+		
+func loadProfile():
+	#if this code runs, then the player have already chosen a save file, so I stored the necessary details as globals
+	var save_file = FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(profileID) + \".json\",FileAccess.READ,ProfileDataGlobals.securityKey)
+
+	#checks if save file exist, if not then it would display the text placeholder
+	if save_file == null:
+		print(\"Failed to open path: \", save_file)
+		return
+		
+	var contents = save_file.get_as_text()
+	var datas = JSON.parse_string(contents)
+	
+	ProfileDataGlobals.saveFile = save_file
+	ProfileDataGlobals.saveData = datas
+	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
+"
+
+[node name="createProfile" type="Panel"]
+script = SubResource("GDScript_rgrka")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DatasBoxContainer" parent="MarginContainer" instance=ExtResource("1_s0edj")]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1

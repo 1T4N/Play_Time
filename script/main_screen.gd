@@ -11,3 +11,7 @@ func _on_color_pressed() -> void:
 
 func _on_matching_pressed() -> void:
 	get_tree().change_scene_to_file("res://Game/Matching-Game/main.tscn")
+
+
+func _ready() -> void:
+	print(ProfileDataGlobals.saveData)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://7v67cilfgvb0"]
+
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="1_7w8go"]
+
+[node name="TestChamber" type="Node2D"]
+
+[node name="hintComponent" parent="." instance=ExtResource("1_7w8go")]
+position = Vector2(-1522.6, -262.583)
