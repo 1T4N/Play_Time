@@ -7,7 +7,6 @@ extends Control
 @onready var menu_button: Button = $Panel/MarginContainer/MenuButton
 @onready var menu: Control = $Menu
 
-
 # Variables to keep track of selected cards and image resources
 var selected_cards = []                               
 var card_images = []                                      

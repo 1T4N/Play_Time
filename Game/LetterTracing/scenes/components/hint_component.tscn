@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://fx0e5lxb6tv5"]
+
+[ext_resource type="Shader" uid="uid://dftef6qcnl0gl" path="res://Game/LetterTracing/prototype/hintLineShader.gdshader" id="1_o5epb"]
+[ext_resource type="Texture2D" uid="uid://dthcaui17vwbo" path="res://Game/LetterTracing/arts/dotted_line.png" id="2_5qn6t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32obx"]
+shader = ExtResource("1_o5epb")
+
+[node name="hintComponent" type="Line2D"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_32obx")
+scale = Vector2(2.62568, 2.49858)
+points = PackedVector2Array(175.954, 118.868, 409.418, 128.873)
+width = 20.0
+texture = ExtResource("2_5qn6t")
+texture_mode = 1

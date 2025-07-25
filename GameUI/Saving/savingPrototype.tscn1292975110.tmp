@@ -1,0 +1,150 @@
+[gd_scene load_steps=6 format=3 uid="uid://u0cpwr2swuu3"]
+
+[ext_resource type="Script" uid="uid://cv1xaannghipl" path="res://Saving/button.gd" id="1_d2m8j"]
+
+[sub_resource type="GDScript" id="GDScript_3u26r"]
+script/source = "extends Control
+var profileID:int
+
+func selectProfile1():
+	profileID = 1
+	pass
+func selectProfile2():
+	profileID = 2
+	pass
+func selectProfile3():
+	profileID = 3
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_5h1nf"]
+script/source = "extends Node2D
+func save():
+	var saveDictionary = {
+		\"Data\": {
+			\"Time\": 234,
+			\"Score\": 12
+		}
+	}
+	return saveDictionary
+"
+
+[sub_resource type="GDScript" id="GDScript_2eq6d"]
+script/source = "extends GridContainer
+@onready var name_text_box: LineEdit = $nameTextBox
+@onready var age_text_box: LineEdit = $ageTextBox
+
+func save():
+	var saveDictionary = {
+		\"profile\": {
+			\"name\": name_text_box.text,
+			\"age\": age_text_box.text
+		}
+	}
+	return saveDictionary
+"
+
+[sub_resource type="GDScript" id="GDScript_eh4vp"]
+resource_name = "savingScript"
+script/source = "extends Button
+@onready var profile: Control = $\"../..\"
+
+func save_game():
+	var save_file =  FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(profile.profileID) + \".save\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
+	var save_nodes = get_tree().get_nodes_in_group(\"Persist\")
+	print(save_nodes)
+	for node in save_nodes:
+		## Check the node is an instanced scene so it can be instanced again during load.
+		#if node.scene_file_path.is_empty():
+			#print(\"persistent node '%s' is not an instanced scene, skipped\" % node.name)
+			#continue
+
+		# Check the node has a save function.
+		if !node.has_method(\"save\"):
+			print(\"persistent node '%s' is missing a save() function, skipped\" % node.name)
+			continue
+
+		# Call the node's save function.
+		var node_data = node.call(\"save\")
+
+		# JSON provides a static method to serialized JSON string.
+		var json_string = JSON.stringify(node_data)
+
+		# Store the save dictionary as a new line in the save file.
+		save_file.store_line(json_string)
+		save_file.close()
+"
+
+[node name="Profile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_3u26r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 183.0
+offset_right = 695.0
+offset_bottom = 284.0
+
+[node name="Node2D" type="Node2D" parent="VBoxContainer" groups=["Persist"]]
+script = SubResource("GDScript_5h1nf")
+
+[node name="Datas" type="GridContainer" parent="VBoxContainer" groups=["Persist"]]
+layout_mode = 2
+columns = 2
+script = SubResource("GDScript_2eq6d")
+
+[node name="Name" type="Label" parent="VBoxContainer/Datas"]
+layout_mode = 2
+text = "Name"
+
+[node name="nameTextBox" type="LineEdit" parent="VBoxContainer/Datas"]
+layout_mode = 2
+
+[node name="Age" type="Label" parent="VBoxContainer/Datas"]
+layout_mode = 2
+text = "Age"
+
+[node name="ageTextBox" type="LineEdit" parent="VBoxContainer/Datas"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save"
+script = SubResource("GDScript_eh4vp")
+
+[node name="profiler" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 177.0
+offset_right = 408.0
+offset_bottom = 278.0
+
+[node name="profile1" type="Button" parent="profiler"]
+layout_mode = 2
+text = "Profile 1"
+script = ExtResource("1_d2m8j")
+
+[node name="profile2" type="Button" parent="profiler"]
+layout_mode = 2
+text = "Profile 2"
+script = ExtResource("1_d2m8j")
+profileID = 2
+
+[node name="profile3" type="Button" parent="profiler"]
+layout_mode = 2
+text = "Profile 3"
+script = ExtResource("1_d2m8j")
+profileID = 3
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="save_game"]
+[connection signal="pressed" from="profiler/profile1" to="." method="selectProfile1"]
+[connection signal="pressed" from="profiler/profile1" to="profiler/profile1" method="_on_pressed"]
+[connection signal="pressed" from="profiler/profile2" to="." method="selectProfile2"]
+[connection signal="pressed" from="profiler/profile3" to="." method="selectProfile3"]
