@@ -74,7 +74,7 @@ func set_value_from_mouse(mouse_x):
 
 func _on_timer_timeout() -> void:
 	var tween = create_tween()
-	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self,\"value\",0,0.3)
 
 func _on_value_changed(value: float) -> void:
 	if value >= max_value - endThreshold:

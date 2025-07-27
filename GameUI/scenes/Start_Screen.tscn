@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_348ot"]
 [ext_resource type="Script" uid="uid://brqiah76kcg2e" path="res://script/start_screen.gd" id="1_slrr1"]
 [ext_resource type="Texture2D" uid="uid://db0ewn84m15mm" path="res://BG/BG_P0/2.jpg" id="2_sblqn"]
-[ext_resource type="Shader" uid="uid://lilf7ggyuq2k" path="res://GameUI/scenes/Start_Screen_Fluctating.gdshader" id="4_hex6n"]
+[ext_resource type="Shader" path="res://GameUI/scenes/Start_Screen_Fluctating.gdshader" id="4_hex6n"]
 [ext_resource type="PackedScene" uid="uid://c7rln6a7hvsxt" path="res://GameUI/Saving/Component/profiler.tscn" id="5_7b615"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="5_r0aje"]
 
