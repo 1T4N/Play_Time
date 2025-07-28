@@ -114,7 +114,6 @@ func save():
 	var time = elapsed_msec / 1000.0
 	print(time)
 	print(TracingData.score)
-	
 	pass
 "
 
