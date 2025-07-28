@@ -76,7 +76,28 @@ func save_game():
 	# Store the save dictionary as a new line in the save file.
 	save_file.store_string(json_string)
 	print(json_string)
-		#save_file.close()
+	
+	#after saving, i need to load it then store it in globals
+	#redirect to the browse
+	#if youre going to load the data right after. close the file first.
+	save_file.close()
+	loadProfile()
+		
+func loadProfile():
+	#if this code runs, then the player have already chosen a save file, so I stored the necessary details as globals
+	#checks if save file exist, if not then it would display the text placeholder
+	var save_file =  FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(profile.profileID) + \".json\",FileAccess.READ,ProfileDataGlobals.securityKey)
+	
+	if save_file == null:
+		print(\"Failed to open path: \", save_file)
+		return
+		
+	var contents = save_file.get_as_text()
+	var datas = JSON.parse_string(contents)
+	
+	ProfileDataGlobals.saveFile = save_file
+	ProfileDataGlobals.saveData = datas
+	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
 
 [node name="DatasBoxContainer" type="VBoxContainer"]
