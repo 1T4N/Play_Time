@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cljggix0nrk5l"]
+[gd_scene load_steps=5 format=3 uid="uid://cljggix0nrk5l"]
 
 [ext_resource type="PackedScene" uid="uid://djyko53qml8yo" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterB.tscn" id="1_a3sis"]
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_v2rk6"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_c7es3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -45,34 +46,60 @@ offset_left = -189.5
 offset_top = -267.0
 offset_right = 171.5
 
+[node name="hintComponent" parent="LetterB/CircleSliderComponent" index="2" instance=ExtResource("3_c7es3")]
+points = PackedVector2Array(61.3174, 95.2541, 82.6453, 94.8539, 98.2603, 87.6498, 108.924, 81.2461, 114.637, 70.0398, 118.445, 58.8334, 118.445, 46.8266, 114.256, 32.4184, 105.116, 22.0125, 93.3092, 15.2086, 75.7899, 12.407, 62.0792, 12.8073)
+
 [node name="CircleSliderComponent2" parent="LetterB" index="1"]
+visible = false
 offset_left = -196.5
 offset_top = -61.0
 offset_right = 181.5
 offset_bottom = 228.0
 
+[node name="hintComponent" parent="LetterB/CircleSliderComponent2" index="2" instance=ExtResource("3_c7es3")]
+points = PackedVector2Array(63.9834, 99.6566, 94.8326, 97.6555, 108.543, 91.2518, 121.873, 78.0443, 128.348, 64.8368, 130.633, 57.6327, 129.109, 41.6236, 124.92, 32.0182, 117.303, 25.2143, 105.877, 16.4093, 94.0709, 13.6077, 76.9325, 10.4059, 62.8409, 10.8061)
+
 [node name="horizontal Slider Component" parent="LetterB" index="2"]
+visible = false
 offset_left = -102.5
 offset_top = -257.0
 offset_right = 21.5
 offset_bottom = -197.0
 
+[node name="hintComponent" parent="LetterB/horizontal Slider Component" index="2" instance=ExtResource("3_c7es3")]
+points = PackedVector2Array(52.9145, 10.9361, -2.31177, 12.0012)
+
 [node name="horizontal Slider Component2" parent="LetterB" index="3"]
+visible = false
 offset_left = -9.5
 offset_top = 0.0
 offset_right = 83.5
 offset_bottom = 58.0
 
+[node name="hintComponent" parent="LetterB/horizontal Slider Component2" index="2" instance=ExtResource("3_c7es3")]
+position = Vector2(220.002, 600.999)
+rotation = 3.14159
+points = PackedVector2Array(43.0365, 229.33, 100.165, 228.93)
+
 [node name="horizontal Slider Component3" parent="LetterB" index="4"]
+visible = false
 offset_left = -7.5
 offset_top = 220.0
 offset_right = 90.5
 offset_bottom = 284.0
 
+[node name="hintComponent" parent="LetterB/horizontal Slider Component3" index="2" instance=ExtResource("3_c7es3")]
+points = PackedVector2Array(63.9835, 12.8071, -14.0916, 12.4071)
+
 [node name="vertical slider Component" parent="LetterB" index="5"]
+visible = false
 offset_left = -164.5
 offset_top = -256.0
 offset_right = -101.5
 offset_bottom = 225.0
+
+[node name="hintComponent" parent="LetterB/vertical slider Component" index="2" instance=ExtResource("3_c7es3")]
+position = Vector2(12, 0)
+points = PackedVector2Array(6.85538, 192.109, 6.09366, -0.800461)
 
 [editable path="LetterB"]
