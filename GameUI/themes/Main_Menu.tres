@@ -1,13 +1,34 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7wcilstcy6ie"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://7wcilstcy6ie"]
+
+[ext_resource type="Texture2D" uid="uid://defpg8ecr7d68" path="res://icon.svg" id="1_mevjs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5a8k"]
+bg_color = Color(0.501961, 0.392157, 0.294118, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mevjs"]
+bg_color = Color(0.921569, 0.639216, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwpit"]
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
 
 [resource]
-Button/colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+Button/colors/font_color = Color(0.921569, 0.639216, 0.4, 1)
+Button/constants/h_separation = 10
 Button/font_sizes/font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_g5a8k")
 Button/styles/normal = SubResource("StyleBoxFlat_3mro0")
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mevjs")
+PanelContainerZ1/base_type = &"PanelContainer"
+PanelContainerZ1/styles/panel = SubResource("StyleBoxFlat_mwpit")
+buttonProfile/base_type = &"Button"
+buttonProfile/constants/h_separation = 10
+buttonProfile/icons/icon = ExtResource("1_mevjs")
+marginContainerProfile/base_type = &"MarginContainer"
+marginContainerProfile/constants/margin_right = 15

@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://c58x06nmajbxe"]
+
+[sub_resource type="GDScript" id="GDScript_rgrka"]
+resource_name = "animationUX"
+script/source = "extends Control
+
+func _ready() -> void:
+	#Sets the initials scale to zero since you cant do it if its not via tween
+	get_parent().set_pivot_offset(get_parent().get_size()/2)
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(get_parent(),\"scale\",Vector2.ZERO, 0.0)
+
+func popIn():
+	get_parent().set_pivot_offset(get_parent().get_size()/2)
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(get_parent(),\"scale\",Vector2(1, 1), 0.3)
+"
+
+[node name="animationUXComponent" type="Control" groups=["UX"]]
+layout_mode = 3
+anchors_preset = 0
+script = SubResource("GDScript_rgrka")

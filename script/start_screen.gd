@@ -3,7 +3,7 @@ extends Control
 @onready var title_screen: Panel = $TitleScreen
 @onready var labels: VBoxContainer = $TitleScreen/Labels
 
-@onready var profiler: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/profiler
+@onready var profiler: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/profiler
 @onready var panel_container: PanelContainer = $PanelContainer
 
 @export var showProfileAnimSpeed:float = 0.4

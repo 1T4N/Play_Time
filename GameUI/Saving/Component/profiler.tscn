@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7rln6a7hvsxt"]
+[gd_scene load_steps=6 format=3 uid="uid://c7rln6a7hvsxt"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_41bku"]
+[ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="2_67g6x"]
 [ext_resource type="Script" uid="uid://cv1xaannghipl" path="res://GameUI/Saving/button.gd" id="2_rgrka"]
 [ext_resource type="PackedScene" uid="uid://475l58v4iqr8" path="res://GameUI/Saving/Component/create_profile.tscn" id="3_rgrka"]
 
@@ -26,11 +27,9 @@ func _ready() -> void:
 
 	
 func playAnimations() -> void:
-	for child in get_children():
-		#child.show()
-		if child.has_method(\"tweening\"):
-			child.tweening()
-			await get_tree().create_timer(delayScaleAnimation).timeout
+	for child in get_tree().get_nodes_in_group(\"UX\"):
+		child.popIn()
+		await get_tree().create_timer(delayScaleAnimation).timeout
 
 
 func selectProfile1():
@@ -62,40 +61,75 @@ theme_override_constants/separation = 10
 script = SubResource("GDScript_41bku")
 debug = true
 
-[node name="profile1" type="Button" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="animationUXComponent" parent="PanelContainer" instance=ExtResource("2_67g6x")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"marginContainerProfile"
+
+[node name="profile1" type="Button" parent="PanelContainer/MarginContainer" groups=["profilerButton"]]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_type_variation = &"buttonProfile"
 text = "Create Profile"
 script = ExtResource("2_rgrka")
 
 [node name="createProfile" parent="." instance=ExtResource("3_rgrka")]
 layout_mode = 2
 
-[node name="profile2" type="Button" parent="."]
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="animationUXComponent" parent="PanelContainer2" instance=ExtResource("2_67g6x")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_type_variation = &"marginContainerProfile"
+
+[node name="profile2" type="Button" parent="PanelContainer2/MarginContainer" groups=["profilerButton"]]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_type_variation = &"buttonProfile"
 text = "Create Profile"
 script = ExtResource("2_rgrka")
 profileID = 1
 
 [node name="createProfile2" parent="." instance=ExtResource("3_rgrka")]
+visible = false
 layout_mode = 2
 profileID = 1
 
-[node name="profile3" type="Button" parent="."]
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="animationUXComponent" parent="PanelContainer3" instance=ExtResource("2_67g6x")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3"]
+layout_mode = 2
+theme_type_variation = &"marginContainerProfile"
+
+[node name="profile3" type="Button" parent="PanelContainer3/MarginContainer" groups=["profilerButton"]]
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme_type_variation = &"buttonProfile"
 text = "Create Profile"
 script = ExtResource("2_rgrka")
 profileID = 2
 
 [node name="createProfile3" parent="." instance=ExtResource("3_rgrka")]
+visible = false
 layout_mode = 2
 profileID = 2
 
-[connection signal="pressed" from="profile1" to="." method="selectProfile1"]
-[connection signal="pressed" from="profile1" to="createProfile" method="_on_profile_pressed"]
-[connection signal="pressed" from="profile2" to="." method="selectProfile2"]
-[connection signal="pressed" from="profile2" to="createProfile2" method="_on_profile_pressed"]
-[connection signal="pressed" from="profile3" to="." method="selectProfile3"]
-[connection signal="pressed" from="profile3" to="createProfile3" method="_on_profile_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/profile1" to="." method="selectProfile1"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/profile1" to="createProfile" method="_on_profile_pressed"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/profile2" to="." method="selectProfile2"]
+[connection signal="pressed" from="PanelContainer2/MarginContainer/profile2" to="createProfile2" method="_on_profile_pressed"]
+[connection signal="pressed" from="PanelContainer3/MarginContainer/profile3" to="." method="selectProfile3"]
+[connection signal="pressed" from="PanelContainer3/MarginContainer/profile3" to="createProfile3" method="_on_profile_pressed"]

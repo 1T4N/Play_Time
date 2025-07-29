@@ -14,6 +14,7 @@ var shown:bool = false
 var animSpeed:float = 0.2
 
 func _ready() -> void:
+	#show()
 	hide()
 	margin_container.modulate.a = 0
 	origSize = margin_container.get_size()
@@ -38,7 +39,8 @@ func createProfAnim():
 
 
 func _on_profile_pressed() -> void:
-	for child in get_parent().get_children():
+	#print(\"Test\")
+	for child in get_tree().get_nodes_in_group(\"profilerButton\"):
 		if not child is Button:
 			continue
 		if not child.profileID == profileID:
