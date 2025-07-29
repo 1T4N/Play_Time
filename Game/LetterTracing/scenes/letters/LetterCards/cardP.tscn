@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxf3n51ymmoui"]
+[gd_scene load_steps=5 format=3 uid="uid://dxf3n51ymmoui"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_k2ib4"]
 [ext_resource type="PackedScene" uid="uid://gj2mah63x8u1" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterP.tscn" id="2_k2ib4"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_lmtxp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -39,27 +40,43 @@ offset_bottom = 601.0
 theme_override_font_sizes/font_size = 750
 
 [node name="CircleSliderComponent" parent="LetterP" index="0"]
+visible = false
 offset_left = -133.5
 offset_top = -282.0
 offset_right = 195.5
 offset_bottom = 67.0
 
+[node name="hintComponent" parent="LetterP/CircleSliderComponent" index="2" instance=ExtResource("3_lmtxp")]
+points = PackedVector2Array(72.9335, 118.467, 85.5016, 114.465, 92.6296, 106.059, 99.5932, 96.4548, 104.163, 77.2439, 104.544, 54.4309, 94.6422, 38.0216, 87.0251, 28.0159, 73.3143, 22.4127)
+
 [node name="horizontal Slider Component" parent="LetterP" index="1"]
+visible = false
 offset_left = -84.5
 offset_top = -258.0
 offset_right = 57.5
 offset_bottom = -190.0
 
+[node name="hintComponent" parent="LetterP/horizontal Slider Component" index="2" instance=ExtResource("3_lmtxp")]
+points = PackedVector2Array(54.243, 12.9405, 26.8252, 11.2723, -2.12228, 12.4019)
+
 [node name="horizontal Slider Component2" parent="LetterP" index="2"]
+visible = false
 offset_left = 59.5
 offset_top = 47.0
 offset_right = 203.5
 offset_bottom = 112.0
 
+[node name="hintComponent" parent="LetterP/horizontal Slider Component2" index="2" instance=ExtResource("3_lmtxp")]
+points = PackedVector2Array(56.1759, 10.4061, -0.952148, 12.8073)
+
 [node name="vertical slider Component" parent="LetterP" index="3"]
+visible = false
 offset_left = -150.5
 offset_top = -253.0
 offset_right = -82.5
 offset_bottom = 214.0
+
+[node name="hintComponent" parent="LetterP/vertical slider Component" index="2" instance=ExtResource("3_lmtxp")]
+points = PackedVector2Array(13.5203, 187.707, 12.3777, 0.800461)
 
 [editable path="LetterP"]

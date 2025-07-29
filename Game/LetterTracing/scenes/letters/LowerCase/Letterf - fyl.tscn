@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhsltkgg03pux"]
+[gd_scene load_steps=7 format=3 uid="uid://bhsltkgg03pux"]
 
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_rwo2o"]
 [ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_cpjsp"]
 [ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://Game/LetterTracing/scenes/components/Circle slider component.tscn" id="2_ycw4s"]
 [ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="3_n8qmq"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="4_dc0oy"]
 [ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://Game/LetterTracing/scenes/components/horizontal slider Component.tscn" id="4_y01xc"]
 
 [node name="Letterf" type="Label"]
@@ -19,8 +20,10 @@ offset_top = -187.0
 offset_right = 278.0
 offset_bottom = -17.0
 rotation = 1.5708
-halfCircle = true
 debug = false
+
+[node name="hintComponent" parent="CircleSliderComponent" instance=ExtResource("4_dc0oy")]
+points = PackedVector2Array(44.9409, 62.8355, 27.4217, 58.8333, 11.0449, 49.2279, 10.8543, 1.60091)
 
 [node name="vertical slider Component" parent="." instance=ExtResource("3_n8qmq")]
 layout_mode = 1
@@ -30,6 +33,10 @@ offset_right = -19.0
 offset_bottom = 129.0
 orderID = 1
 
+[node name="hintComponent" parent="vertical slider Component" instance=ExtResource("4_dc0oy")]
+position = Vector2(21, 6)
+points = PackedVector2Array(11.6161, 186.906, 10.8543, 1.60091)
+
 [node name="horizontal Slider Component" parent="." instance=ExtResource("4_y01xc")]
 layout_mode = 1
 offset_left = -37.0
@@ -37,3 +44,7 @@ offset_top = -72.0
 offset_right = 74.0
 offset_bottom = -42.0
 orderID = 2
+
+[node name="hintComponent" parent="horizontal Slider Component" instance=ExtResource("4_dc0oy")]
+position = Vector2(-15.0233, 9.96493)
+points = PackedVector2Array(83.4032, 1.80569, 10.8543, 1.60091)

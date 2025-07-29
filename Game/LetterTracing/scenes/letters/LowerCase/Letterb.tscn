@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbsm7psjx0ooy"]
+[gd_scene load_steps=6 format=3 uid="uid://bbsm7psjx0ooy"]
 
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_1ff0h"]
 [ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="2_4cl32"]
 [ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_7o1am"]
 [ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://Game/LetterTracing/scenes/components/Circle slider component.tscn" id="3_7o1am"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="4_78jir"]
 
 [node name="Letterb" type="Label"]
 clip_children = 2
@@ -18,6 +19,9 @@ offset_top = -205.0
 offset_right = -52.5
 offset_bottom = 123.0
 
+[node name="hintComponent" parent="vertical slider Component" instance=ExtResource("4_78jir")]
+points = PackedVector2Array(6.85537, 154.088, 6.85537, 3.60205)
+
 [node name="CircleSliderComponent" parent="." instance=ExtResource("3_7o1am")]
 layout_mode = 1
 offset_left = -229.5
@@ -25,7 +29,9 @@ offset_top = -106.0
 offset_right = 124.5
 offset_bottom = 148.0
 orderID = 1
-halfCircle = true
 restart = false
 reverse = false
 debug = false
+
+[node name="hintComponent" parent="CircleSliderComponent" instance=ExtResource("4_78jir")]
+points = PackedVector2Array(64.7451, 84.8482, 89.1198, 89.2507, 106.639, 82.8471, 119.588, 60.0341, 117.303, 40.8232, 112.352, 22.0125, 95.2134, 12.4071, 67.0303, 18.0102)
