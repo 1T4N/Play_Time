@@ -9,12 +9,12 @@ func _ready() -> void:
 
 	
 func playAnim():
+	for child in games_container_1.get_children():
+		child.scaleUpAnimation()
+		await get_tree().create_timer(delayScaleAnimation).timeout
+		child.isFinishedInitializing = true
 	for child in featured.get_children():
 		child.scaleUpAnimation()
 		await get_tree().create_timer(delayScaleAnimation).timeout
 		child.isFinishedInitializing = true
 	
-	for child in games_container_1.get_children():
-		child.scaleUpAnimation()
-		await get_tree().create_timer(delayScaleAnimation).timeout
-		child.isFinishedInitializing = true

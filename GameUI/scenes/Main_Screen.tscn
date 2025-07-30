@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cg8rrhcc1s7nq"]
+[gd_scene load_steps=22 format=3 uid="uid://cg8rrhcc1s7nq"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
 [ext_resource type="Script" uid="uid://hxsi110jebf5" path="res://components/script/mainScreenTweenManager.gd" id="5_1bnt8"]
 [ext_resource type="Script" uid="uid://b7mcucfttj3xt" path="res://components/script/animationScalePopUp.gd" id="5_fvq50"]
+[ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="7_dnk5s"]
+[ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="8_gmdo5"]
+[ext_resource type="Texture2D" uid="uid://b22ku07lvs3ni" path="res://GameUI/assets/baby-face (1).png" id="9_himgm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
 texture = ExtResource("2_1bnt8")
@@ -35,8 +38,6 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="Theme" id="Theme_wbm3f"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd8qc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -60,6 +61,18 @@ corner_radius_top_left = 50
 corner_radius_top_right = 20
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_wbm3f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmdo5"]
+
+[sub_resource type="GDScript" id="GDScript_himgm"]
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
+"
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -117,45 +130,6 @@ theme_override_constants/separation = 50
 [node name="tweenManager" type="Node" parent="Panel/MarginContainer1/VBoxContainer"]
 script = ExtResource("5_1bnt8")
 
-[node name="featured" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_wbm3f")
-theme_override_constants/separation = 50
-
-[node name="Shape-Safari" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Shape-Safari"
-script = ExtResource("5_fvq50")
-
-[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Sound Hunt"
-script = ExtResource("5_fvq50")
-
 [node name="gamesContainer1" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -210,12 +184,116 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 text = "Matching Game"
 script = ExtResource("5_fvq50")
 
+[node name="featured" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_wbm3f")
+theme_override_constants/separation = 50
+
+[node name="Shape-Safari" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+text = "Shape-Safari"
+script = ExtResource("5_fvq50")
+
+[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+text = "Sound Hunt"
+script = ExtResource("5_fvq50")
+
+[node name="goBack" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 170.0
+offset_bottom = 170.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="Button" type="Button" parent="goBack"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 140
+theme_override_icons/icon = ExtResource("7_dnk5s")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gmdo5")
+script = SubResource("GDScript_himgm")
+
+[node name="animationUXComponent" parent="goBack/Button" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="toProfileDashboard" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 0
+
+[node name="Button" type="Button" parent="toProfileDashboard"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 140
+theme_override_icons/icon = ExtResource("9_himgm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gmdo5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gmdo5")
+script = SubResource("GDScript_himgm")
+
+[node name="animationUXComponent" parent="toProfileDashboard/Button" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" to="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" to="." method="_on_shape_safari_pressed"]
-[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" to="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" to="." method="_on_sound_hunt_pressed"]
 [connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="." method="_on_alphabet_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Color" to="." method="_on_color_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Matching" to="." method="_on_matching_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" to="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" to="." method="_on_shape_safari_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" to="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" to="." method="_on_sound_hunt_pressed"]
+[connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]
+[connection signal="pressed" from="toProfileDashboard/Button" to="toProfileDashboard/Button" method="_on_pressed"]

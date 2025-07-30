@@ -79,6 +79,9 @@ text = "Create Profile"
 alignment = 0
 script = ExtResource("2_rgrka")
 
+[node name="animationUXComponent" parent="PanelContainer/MarginContainer/profile1" instance=ExtResource("2_67g6x")]
+hoverAnimationScale = 1.05
+
 [node name="createProfile" parent="." instance=ExtResource("3_rgrka")]
 layout_mode = 2
 
@@ -100,6 +103,9 @@ text = "Create Profile"
 alignment = 0
 script = ExtResource("2_rgrka")
 profileID = 1
+
+[node name="animationUXComponent" parent="PanelContainer2/MarginContainer/profile2" instance=ExtResource("2_67g6x")]
+hoverAnimationScale = 1.05
 
 [node name="createProfile2" parent="." instance=ExtResource("3_rgrka")]
 visible = false
@@ -124,6 +130,9 @@ text = "Create Profile"
 alignment = 0
 script = ExtResource("2_rgrka")
 profileID = 2
+
+[node name="animationUXComponent" parent="PanelContainer3/MarginContainer/profile3" instance=ExtResource("2_67g6x")]
+hoverAnimationScale = 1.05
 
 [node name="createProfile3" parent="." instance=ExtResource("3_rgrka")]
 visible = false
