@@ -21,7 +21,7 @@ func _ready() -> void:
 	datas = JSON.parse_string(contents)
 	
 	#print(contents)
-	text = "Name: " + datas.profile.name + "\nAge: " + datas.profile.age
+	text = "Name: " + datas.profile.name + "\nAge: " + str(int(datas.profile.age)) 
 
 	##Sets the initials scale to zero since you cant do it if its not via tween
 	#var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
