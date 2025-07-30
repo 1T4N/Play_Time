@@ -1,13 +1,88 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7wcilstcy6ie"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://7wcilstcy6ie"]
+
+[ext_resource type="Texture2D" uid="uid://dsm3nj3rh621s" path="res://GameUI/assets/Plus Icon w_BG.jpg" id="1_mevjs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mevjs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5a8k"]
+bg_color = Color(0.501961, 0.392157, 0.294118, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktm1y"]
+bg_color = Color(0.921569, 0.639216, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mevjs"]
+bg_color = Color(0.921569, 0.639216, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwpit"]
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuyx4"]
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e203o"]
+bg_color = Color(0.501961, 0.392157, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8o28y"]
+bg_color = Color(0.945098, 0.686275, 0.529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht067"]
+bg_color = Color(0.631373, 0.411765, 0.156863, 1)
+border_width_left = 10
+border_width_right = 10
+border_color = Color(0.631373, 0.411765, 0.156863, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwpit"]
+atlas = ExtResource("1_mevjs")
+region = Rect2(38, 38, 206, 188)
 
 [resource]
-Button/colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-Button/font_sizes/font_size = 55
+Button/colors/font_color = Color(0.921569, 0.639216, 0.4, 1)
+Button/colors/font_focus_color = Color(0.921569, 0.639216, 0.4, 1)
+Button/colors/font_pressed_color = Color(0.921569, 0.639216, 0.4, 1)
+Button/constants/h_separation = 10
+Button/font_sizes/font_size = 50
+Button/styles/focus = SubResource("StyleBoxEmpty_mevjs")
+Button/styles/hover = SubResource("StyleBoxFlat_g5a8k")
 Button/styles/normal = SubResource("StyleBoxFlat_3mro0")
+Button/styles/pressed = SubResource("StyleBoxFlat_g5a8k")
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/font_sizes/font_size = 40
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+Panel/styles/panel = SubResource("StyleBoxFlat_ktm1y")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mevjs")
+PanelContainerZ1/base_type = &"PanelContainer"
+PanelContainerZ1/styles/panel = SubResource("StyleBoxFlat_mwpit")
+SpinBox/colors/down_hover_icon_modulate = Color(0.921569, 0.639216, 0.4, 1)
+SpinBox/colors/down_icon_modulate = Color(0.921569, 0.639216, 0.4, 1)
+SpinBox/colors/down_pressed_icon_modulate = Color(0.921569, 0.639216, 0.4, 1)
+SpinBox/colors/up_hover_icon_modulate = Color(0.921569, 0.639216, 0.4, 1)
+SpinBox/colors/up_icon_modulate = Color(0.921569, 0.639216, 0.4, 1)
+SpinBox/colors/up_pressed_icon_modulate = Color(0.921569, 0.639216, 0.4, 1)
+SpinBox/constants/buttons_vertical_separation = 5
+SpinBox/constants/buttons_width = 60
+SpinBox/styles/down_background = SubResource("StyleBoxFlat_xuyx4")
+SpinBox/styles/down_background_disabled = SubResource("StyleBoxFlat_xuyx4")
+SpinBox/styles/down_background_hovered = SubResource("StyleBoxFlat_e203o")
+SpinBox/styles/down_background_pressed = SubResource("StyleBoxFlat_e203o")
+SpinBox/styles/up_background = SubResource("StyleBoxFlat_xuyx4")
+SpinBox/styles/up_background_disabled = SubResource("StyleBoxFlat_xuyx4")
+SpinBox/styles/up_background_hovered = SubResource("StyleBoxFlat_e203o")
+SpinBox/styles/up_background_pressed = SubResource("StyleBoxFlat_e203o")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_8o28y")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_8o28y")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8o28y")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_ht067")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_ht067")
+buttonProfile/base_type = &"Button"
+buttonProfile/constants/h_separation = 10
+buttonProfile/icons/icon = SubResource("AtlasTexture_mwpit")
+labelH4/base_type = &"Label"
+labelH4/font_sizes/font_size = 40
+marginContainerProfile/base_type = &"MarginContainer"
+marginContainerProfile/constants/margin_right = 15

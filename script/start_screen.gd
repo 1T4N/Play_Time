@@ -3,18 +3,21 @@ extends Control
 @onready var title_screen: Panel = $TitleScreen
 @onready var labels: VBoxContainer = $TitleScreen/Labels
 
-@onready var profiler: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/profiler
-@onready var panel_container: PanelContainer = $PanelContainer
+@onready var profiler: VBoxContainer = %profiler
+@onready var panel_container: PanelContainer = $HBoxContainer/PanelContainer
 
 @export var showProfileAnimSpeed:float = 0.4
+@onready var h_box_container: HBoxContainer = $HBoxContainer
 
 func _ready() -> void:
-	panel_container.set_pivot_offset(panel_container.get_size()/2)
+	h_box_container.set_pivot_offset(h_box_container.get_size()/2)
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(panel_container,"scale",Vector2.ZERO, 0.0)
+	tween.tween_property(h_box_container,"scale",Vector2.ZERO, 0.0)
+	#h_box_container.hide()
 
 
 func _on_touch_the_screen_pressed() -> void:
+	
 	#this is only because there's a shader in the label, I couldve used BBCode but i didnt knew it at the time
 	var childrens = labels.get_children()
 	for child in childrens:
@@ -22,6 +25,7 @@ func _on_touch_the_screen_pressed() -> void:
 	
 	hideTitleScreenAnim()
 	#await get_tree().create_timer(0.3).timeout
+	h_box_container.show()
 	panel_container.show()
 	showPanelAnim()
 	
@@ -36,9 +40,9 @@ func hideTitleScreenAnim():
 	labels.hide()
 	
 func showPanelAnim():
-	panel_container.set_pivot_offset(panel_container.get_size()/2)
+	h_box_container.set_pivot_offset(h_box_container.get_size()/2)
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(panel_container,"scale",Vector2.ONE, showProfileAnimSpeed)
+	tween.tween_property(h_box_container,"scale",Vector2.ONE, showProfileAnimSpeed)
 	await tween.finished
 	profiler.playAnimations()
 	
