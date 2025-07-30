@@ -104,6 +104,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_sblqn")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kslvq")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_slrr1")

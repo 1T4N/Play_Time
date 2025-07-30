@@ -26,6 +26,8 @@ func _process(_delta: float) -> void:
 
 
 func _gui_input(event):
+	if finished:
+		return
 	#takes the posistion of mouse, relative to the origin of node itself
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		set_value_from_mouse(event.position.x)

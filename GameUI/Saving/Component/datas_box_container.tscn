@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd6ix6qdhyq1w"]
+[gd_scene load_steps=6 format=3 uid="uid://cd6ix6qdhyq1w"]
+
+[ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="1_egydc"]
 
 [sub_resource type="GDScript" id="GDScript_5h1nf"]
 script/source = "extends Node2D
@@ -22,7 +24,7 @@ func save():
 	var saveDictionary = {
 		\"profile\": {
 			\"name\": name_text_box.text,
-			\"age\": age_text_box.value
+			\"age\": abs(int(age_text_box.value)) 
 			#,
 			#\"profileID\": profile.profileID
 		}
@@ -148,6 +150,7 @@ mouse_default_cursor_shape = 2
 min_value = 4.0
 max_value = 6.0
 value = 4.0
+rounded = true
 alignment = 1
 
 [node name="errorLabel" type="Label" parent="."]
@@ -162,5 +165,8 @@ mouse_default_cursor_shape = 2
 theme = SubResource("Theme_tihv1")
 text = "Confirm"
 script = SubResource("GDScript_eh4vp")
+
+[node name="animationUXComponent" parent="Button" instance=ExtResource("1_egydc")]
+hoverAnimationScale = 1.01
 
 [connection signal="pressed" from="Button" to="Button" method="save_game"]

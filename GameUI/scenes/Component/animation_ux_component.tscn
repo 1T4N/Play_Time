@@ -3,12 +3,36 @@
 [sub_resource type="GDScript" id="GDScript_rgrka"]
 resource_name = "animationUX"
 script/source = "extends Control
-
+@export var isPopIn:bool
+@export var hoverAnimationScale:float = 1.1
 func _ready() -> void:
 	#Sets the initials scale to zero since you cant do it if its not via tween
-	get_parent().set_pivot_offset(get_parent().get_size()/2)
+	playAnim.call_deferred()
+	
+	if get_parent() is Button:
+		get_parent().connect(\"mouse_entered\",scaleUp)
+		get_parent().connect(\"mouse_exited\",scaleDown)
+
+
+#region this is if the parent is a button, Add a scale up
+func scaleUp():
+	print(\"Test\")
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(get_parent(),\"scale\",Vector2.ZERO, 0.0)
+	tween.tween_property(get_parent(),\"scale\",Vector2(hoverAnimationScale, hoverAnimationScale), 0.3)
+func scaleDown():
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(get_parent(),\"scale\",Vector2.ONE, 0.3)
+#endregion
+
+
+func playAnim():
+	if isPopIn:
+		get_parent().set_pivot_offset(get_parent().get_size()/2)
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_property(get_parent(),\"scale\",Vector2.ZERO, 0.0)
+		
+		await tween.finished
+		popIn()
 
 func popIn():
 	get_parent().set_pivot_offset(get_parent().get_size()/2)
