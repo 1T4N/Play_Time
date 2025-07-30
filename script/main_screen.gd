@@ -15,3 +15,13 @@ func _on_matching_pressed() -> void:
 
 func _ready() -> void:
 	print(ProfileDataGlobals.saveData)
+
+
+func _on_shape_safari_pressed() -> void:
+	get_tree().change_scene_to_file("res://Game/Shape-Safari/scene/shape_safari.tscn")
+	pass # Replace with function body.
+
+
+func _on_sound_hunt_pressed() -> void:
+	get_tree().change_scene_to_file("res://Game/Letter-Sound-Hunt/scene/letter_sound_hunt.tscn")
+	pass # Replace with function body.

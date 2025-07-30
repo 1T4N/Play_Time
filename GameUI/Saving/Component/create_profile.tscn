@@ -13,6 +13,8 @@ var shown:bool = false
 
 var animSpeed:float = 0.2
 
+
+
 func _ready() -> void:
 	#show()
 	hide()

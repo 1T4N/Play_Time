@@ -76,6 +76,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_type_variation = &"buttonProfile"
 text = "Create Profile"
+alignment = 0
 script = ExtResource("2_rgrka")
 
 [node name="createProfile" parent="." instance=ExtResource("3_rgrka")]
@@ -96,6 +97,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_type_variation = &"buttonProfile"
 text = "Create Profile"
+alignment = 0
 script = ExtResource("2_rgrka")
 profileID = 1
 
@@ -119,6 +121,7 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_type_variation = &"buttonProfile"
 text = "Create Profile"
+alignment = 0
 script = ExtResource("2_rgrka")
 profileID = 2
 

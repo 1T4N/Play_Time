@@ -15,14 +15,14 @@ func save():
 [sub_resource type="GDScript" id="GDScript_2eq6d"]
 script/source = "extends GridContainer
 @onready var name_text_box: LineEdit = $nameTextBox
-@onready var age_text_box: LineEdit = $ageTextBox
+@onready var age_text_box: SpinBox = $ageTextBox
 @onready var profile: Control = $\".\"
 
 func save():
 	var saveDictionary = {
 		\"profile\": {
 			\"name\": name_text_box.text,
-			\"age\": age_text_box.text
+			\"age\": age_text_box.value
 			#,
 			#\"profileID\": profile.profileID
 		}
@@ -36,11 +36,19 @@ func save():
 resource_name = "savingScript"
 script/source = "extends Button
 @onready var profile: VBoxContainer
+@onready var age_text_box: SpinBox = $\"../Datas/ageTextBox\"
+@onready var name_text_box: LineEdit = $\"../Datas/nameTextBox\"
+@onready var error_label: Label = $\"../errorLabel\"
 
 func _ready() -> void:
 	profile = get_parent().get_parent().get_parent().get_parent()
 
 func save_game():
+	if name_text_box.text.is_empty():
+		error_label.show()
+		return
+	
+	
 	var save_file =  FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(profile.profileID) + \".json\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
 	if save_file == null:
 		print(FileAccess.get_open_error())
@@ -117,22 +125,40 @@ script = SubResource("GDScript_2eq6d")
 
 [node name="Name" type="Label" parent="Datas"]
 layout_mode = 2
+theme_type_variation = &"labelH4"
 text = "Name"
 
 [node name="nameTextBox" type="LineEdit" parent="Datas"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Enter Your Name"
 
 [node name="Age" type="Label" parent="Datas"]
 layout_mode = 2
+theme_type_variation = &"labelH4"
 text = "Age"
 
-[node name="ageTextBox" type="LineEdit" parent="Datas"]
+[node name="ageTextBox" type="SpinBox" parent="Datas"]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+tooltip_text = "Enter your age"
+mouse_default_cursor_shape = 2
+min_value = 4.0
+max_value = 6.0
+value = 4.0
+alignment = 1
+
+[node name="errorLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Please Enter Your Details"
+horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_tihv1")
 text = "Confirm"
 script = SubResource("GDScript_eh4vp")
