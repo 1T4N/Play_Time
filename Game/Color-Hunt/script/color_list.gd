@@ -2,12 +2,13 @@ extends Node
 
 @onready var color_rect = $Panel/MarginContainer2/ColorRect
 @onready var color_label = $Panel/MarginContainer2/ColorRect/Label
-@onready var countdown_label = $Panel/Timer/CountdownLabel
+@onready var countdown_label = $Panel/MarginContainer2/Timer/CountdownLabel
 @onready var exit_button: Button = $Panel/MarginContainer2/ExitButton
 @onready var next_button: Button = $Panel/MarginContainer2/NextButton
 @onready var score_label: Label = $Panel/MarginContainer2/ScoreLabel  
 @onready var menu_button: Button = $Panel/MarginContainer2/MenuButton
 @onready var margin_container: MarginContainer = $Menu/MarginContainer
+@onready var menu: Control = $Menu/Menu
 
 
 
@@ -57,14 +58,19 @@ func show_random_color():
 
 	countdown = 30.0
 	waiting_for_next = false
-	next_button.visible = false
+	next_button.visible = true
 
 # When "Next" is pressed
 func _on_next_button_pressed():
-	score += 1000  #Add 5 points for each correct by pressing NEXT 
+	score += 1000  #Add 1000 points for each correct by pressing NEXT 
 	update_score_label()
 	show_random_color()
 
 
 func update_score_label():
 	score_label.text = "Score: " + str(score)
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = true
+	menu.visible = true
