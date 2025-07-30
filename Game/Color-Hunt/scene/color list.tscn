@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dx0klmv80ca8e"]
+[gd_scene load_steps=46 format=3 uid="uid://dx0klmv80ca8e"]
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
@@ -123,6 +123,18 @@ func _on_pressed() -> void:
 [sub_resource type="GDScript" id="GDScript_vei67"]
 script/source = "extends Label
 "
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70skh"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
 bg_color = Color(0.65098, 0.894118, 0.894118, 1)
@@ -358,6 +370,11 @@ offset_bottom = 380.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Panel" type="Panel" parent="Menu/MarginContainer"]
+custom_minimum_size = Vector2(800, 1000)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_70skh")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
 custom_minimum_size = Vector2(550, 400)
 layout_mode = 2
@@ -367,10 +384,11 @@ theme = SubResource("Theme_3mro0")
 theme_override_constants/separation = 25
 
 [node name="Resume" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
 theme = ExtResource("8_einxs")
 theme_override_fonts/font = ExtResource("7_1218q")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -381,7 +399,7 @@ text = "Resume"
 layout_mode = 2
 theme = ExtResource("8_einxs")
 theme_override_fonts/font = ExtResource("7_1218q")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -392,7 +410,7 @@ text = "Sound"
 layout_mode = 2
 theme = ExtResource("8_einxs")
 theme_override_fonts/font = ExtResource("7_1218q")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -403,7 +421,7 @@ text = "Music"
 layout_mode = 2
 theme = ExtResource("8_einxs")
 theme_override_fonts/font = ExtResource("7_1218q")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -414,7 +432,7 @@ text = "Credits"
 layout_mode = 2
 theme = ExtResource("8_einxs")
 theme_override_fonts/font = ExtResource("7_1218q")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -424,8 +442,8 @@ text = "Back
 
 [connection signal="pressed" from="Panel/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="Panel/MarginContainer2/MenuButton" method="_on_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]

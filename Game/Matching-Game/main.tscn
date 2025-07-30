@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://btuehsrcekkv5"]
+[gd_scene load_steps=30 format=3 uid="uid://btuehsrcekkv5"]
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
@@ -70,6 +70,18 @@ bg_color = Color(0.537011, 0.537011, 0.537011, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh2q6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2judi"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
 bg_color = Color(0.65098, 0.894118, 0.894118, 1)
@@ -422,6 +434,21 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jh2q6")
 
+[node name="Panel" type="Panel" parent="Menu/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -500.0
+offset_right = 400.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2judi")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Panel"]
 custom_minimum_size = Vector2(550, 400)
 layout_mode = 2
@@ -436,10 +463,11 @@ theme = SubResource("Theme_3mro0")
 theme_override_constants/separation = 25
 
 [node name="Resume" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
 theme = ExtResource("8_5fsx7")
 theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -447,10 +475,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Resume"
 
 [node name="Sound" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
 theme = ExtResource("8_5fsx7")
 theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -458,10 +487,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Sound"
 
 [node name="Music" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
 theme = ExtResource("8_5fsx7")
 theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -469,10 +499,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Music"
 
 [node name="Credits" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
 theme = ExtResource("8_5fsx7")
 theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
@@ -480,10 +511,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Credits"
 
 [node name="Back" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
 theme = ExtResource("8_5fsx7")
 theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 125
 theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
