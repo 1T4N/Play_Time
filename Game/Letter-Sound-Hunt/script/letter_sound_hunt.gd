@@ -27,7 +27,7 @@ func _ready():
 	generate_round()
 
 func generate_round():
-	# ✅ Reset the feedback label at the start of each round
+	#Reset the feedback label at the start of each round
 	feedback_label.text = ""
 
 	# Get shuffled item keys

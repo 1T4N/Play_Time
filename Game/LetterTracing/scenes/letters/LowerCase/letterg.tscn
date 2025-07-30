@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://chnmvwbjoq4l3"]
+[gd_scene load_steps=6 format=3 uid="uid://chnmvwbjoq4l3"]
 
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_0j2ac"]
 [ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://Game/LetterTracing/scenes/components/Circle slider component.tscn" id="2_3ibp1"]
 [ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_yr1u6"]
 [ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="3_3ibp1"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="4_onwnp"]
 
 [node name="Label" type="Label"]
 clip_children = 2
@@ -20,8 +21,10 @@ offset_top = -106.0
 offset_right = 210.0
 offset_bottom = 138.0
 rotation = -0.00614957
-halfCircle = true
 debug = false
+
+[node name="hintComponent" parent="CircleSliderComponent" instance=ExtResource("4_onwnp")]
+points = PackedVector2Array(60.8549, 79.2395, 42.5415, 84.7245, 26.9432, 81.822, 10.6698, 64.1065, 9.69591, 35.2833, 15.8527, 24.5168, 27.7128, 15.388, 42.5822, 12.6825, 55.524, 13.9668)
 
 [node name="vertical slider Component" parent="." instance=ExtResource("3_3ibp1")]
 layout_mode = 1
@@ -31,6 +34,10 @@ offset_right = 88.0
 offset_bottom = 238.0
 orderID = 1
 
+[node name="hintComponent" parent="vertical slider Component" instance=ExtResource("4_onwnp")]
+position = Vector2(-8, 0)
+points = PackedVector2Array(11.6161, 186.906, 10.8543, 1.60091)
+
 [node name="vertical slider Component2" parent="." instance=ExtResource("3_3ibp1")]
 layout_mode = 1
 offset_left = 181.0
@@ -39,3 +46,6 @@ offset_right = 255.0
 offset_bottom = 449.0
 rotation = 1.28145
 orderID = 2
+
+[node name="hintComponent" parent="vertical slider Component2" instance=ExtResource("4_onwnp")]
+points = PackedVector2Array(5.47617, 111.121, 13.8075, 99.9468, 21.2917, 84.7496, 21.6231, 68.1498, 18.5301, 53.8194)

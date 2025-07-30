@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn7o47a6g1xpt"]
+[gd_scene load_steps=5 format=3 uid="uid://bn7o47a6g1xpt"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_mpaw2"]
 [ext_resource type="PackedScene" uid="uid://d30f47k1vhbih" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterX.tscn" id="2_mpaw2"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_fg2e6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -39,15 +40,23 @@ offset_bottom = 601.0
 theme_override_font_sizes/font_size = 750
 
 [node name="vertical slider Component" parent="LetterX" index="0"]
+visible = false
 offset_left = -196.5
 offset_top = -232.0
 offset_right = -130.5
 offset_bottom = 343.0
 
+[node name="hintComponent" parent="LetterX/vertical slider Component" index="2" instance=ExtResource("3_fg2e6")]
+points = PackedVector2Array(12.4526, 236.001, 10.8543, 1.60091)
+
 [node name="vertical slider Component2" parent="LetterX" index="1"]
+visible = false
 offset_left = 141.5
 offset_top = -273.0
 offset_right = 212.5
 offset_bottom = 307.0
+
+[node name="hintComponent" parent="LetterX/vertical slider Component2" index="2" instance=ExtResource("3_fg2e6")]
+points = PackedVector2Array(12.4542, 232.295, 14.9273, -0.806366)
 
 [editable path="LetterX"]
