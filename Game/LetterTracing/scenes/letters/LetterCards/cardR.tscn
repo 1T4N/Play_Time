@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dalvyek0dryst"]
+[gd_scene load_steps=5 format=3 uid="uid://dalvyek0dryst"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_xckcg"]
 [ext_resource type="PackedScene" uid="uid://dnk3p8rf74bsn" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterR.tscn" id="2_xckcg"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_u4qx0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -39,24 +40,37 @@ offset_bottom = 361.0
 theme_override_font_sizes/font_size = 750
 
 [node name="vertical slider Component" parent="LetterR" index="0"]
+visible = false
 offset_left = -159.0
 offset_top = -253.0
 offset_right = -92.0
 offset_bottom = 217.0
 
+[node name="hintComponent" parent="LetterR/vertical slider Component" index="2" instance=ExtResource("3_u4qx0")]
+points = PackedVector2Array(11.6161, 186.906, 10.8543, 1.60091)
+
 [node name="horizontal Slider Component" parent="LetterR" index="1"]
+visible = false
 offset_left = -95.0
 offset_top = -259.0
 offset_right = 47.0
 offset_bottom = -193.0
 
+[node name="hintComponent" parent="LetterR/horizontal Slider Component" index="2" instance=ExtResource("3_u4qx0")]
+points = PackedVector2Array(55.5724, 14.5447, 27.3965, 11.2737, -0.408447, 12.4061)
+
 [node name="CircleSliderComponent" parent="LetterR" index="2"]
+visible = false
 offset_left = -162.0
 offset_top = -258.0
 offset_right = 184.0
 offset_bottom = 36.0
 
+[node name="hintComponent" parent="LetterR/CircleSliderComponent" index="2" instance=ExtResource("3_u4qx0")]
+points = PackedVector2Array(70.8388, 106.46, 87.9772, 104.059, 100.165, 95.6543, 115.399, 68.8391, 114.256, 46.0261, 99.7837, 24.0136, 87.2155, 14.8084)
+
 [node name="horizontal Slider Component2" parent="LetterR" index="3"]
+visible = false
 anchors_preset = -1
 anchor_bottom = 0.517
 offset_left = 25.0
@@ -64,10 +78,17 @@ offset_top = 36.0
 offset_right = 144.0
 offset_bottom = 67.566
 
+[node name="hintComponent" parent="LetterR/horizontal Slider Component2" index="2" instance=ExtResource("3_u4qx0")]
+points = PackedVector2Array(44.179, 10.4058, 1.14258, 10.8061)
+
 [node name="vertical slider Component2" parent="LetterR" index="4"]
+visible = false
 offset_left = 0.999939
 offset_top = 34.0
 offset_right = 63.9999
 offset_bottom = 278.0
+
+[node name="hintComponent" parent="LetterR/vertical slider Component2" index="2" instance=ExtResource("3_u4qx0")]
+points = PackedVector2Array(11.6161, 186.906, 10.8543, 1.60091)
 
 [editable path="LetterR"]

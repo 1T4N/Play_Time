@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://be8uajyyxnix"]
+[gd_scene load_steps=5 format=3 uid="uid://be8uajyyxnix"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_afwgd"]
 [ext_resource type="PackedScene" uid="uid://bkpw3l1fc833c" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterO.tscn" id="2_afwgd"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_0aw86"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -39,9 +40,13 @@ offset_bottom = 601.0
 theme_override_font_sizes/font_size = 750
 
 [node name="CircleSliderComponent" parent="LetterO" index="0"]
+visible = false
 offset_left = -45.5
 offset_top = -383.0
 offset_right = 445.5
 offset_bottom = 140.0
+
+[node name="hintComponent" parent="LetterO/CircleSliderComponent" index="2" instance=ExtResource("3_0aw86")]
+points = PackedVector2Array(46.0655, 168.541, 20.2175, 121.627, 17.1585, 79.0533, 29.4298, 55.5049, 44.3083, 42.2319, 78.4544, 25.15, 98.6896, 28.428, 116.542, 34.416, 144.207, 58.0914, 162.774, 93.2644, 171.051, 119.863, 159.609, 160.826, 132.427, 183.548, 97.0002, 193.771, 68.9825, 186.422, 46.0655, 168.541)
 
 [editable path="LetterO"]

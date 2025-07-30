@@ -2,12 +2,13 @@ extends Node
 
 @onready var color_rect = $Panel/MarginContainer2/ColorRect
 @onready var color_label = $Panel/MarginContainer2/ColorRect/Label
-@onready var countdown_label = $Panel/MarginContainer2/Timer/CountdownLabel
+@onready var countdown_label = $Panel/Timer/CountdownLabel
 @onready var exit_button: Button = $Panel/MarginContainer2/ExitButton
 @onready var next_button: Button = $Panel/MarginContainer2/NextButton
 @onready var score_label: Label = $Panel/MarginContainer2/ScoreLabel  
 @onready var menu_button: Button = $Panel/MarginContainer2/MenuButton
 @onready var margin_container: MarginContainer = $Menu/MarginContainer
+
 
 
 

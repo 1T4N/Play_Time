@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://crrkwtr37dii0"]
+[gd_scene load_steps=5 format=3 uid="uid://crrkwtr37dii0"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_rxpgu"]
 [ext_resource type="PackedScene" uid="uid://bor7pfgegh10a" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterV.tscn" id="2_rxpgu"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_p6dmd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -44,10 +45,16 @@ offset_top = -244.0
 offset_right = -123.5
 offset_bottom = 260.0
 
+[node name="hintComponent" parent="LetterV/vertical slider Component" index="2" instance=ExtResource("3_p6dmd")]
+points = PackedVector2Array(21.7792, 206.308, 10.8543, 1.60091)
+
 [node name="vertical slider Component2" parent="LetterV" index="1"]
 offset_left = 83.5
 offset_top = 226.0
 offset_right = 181.5
 offset_bottom = 711.0
+
+[node name="hintComponent" parent="LetterV/vertical slider Component2" index="2" instance=ExtResource("3_p6dmd")]
+points = PackedVector2Array(13.9696, 191.638, 27.5053, -7.33069)
 
 [editable path="LetterV"]

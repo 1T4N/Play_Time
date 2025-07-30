@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://eoarerine843"]
+[gd_scene load_steps=7 format=3 uid="uid://eoarerine843"]
 
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="1_dymd8"]
 [ext_resource type="Script" uid="uid://dwcl3pmyi6rvl" path="res://Game/LetterTracing/scenes/letters/letters.gd" id="2_7txc0"]
 [ext_resource type="PackedScene" uid="uid://b5aji4m6788l3" path="res://Game/LetterTracing/scenes/components/horizontal slider Component.tscn" id="2_burte"]
 [ext_resource type="PackedScene" uid="uid://c4yxhounmxx8v" path="res://Game/LetterTracing/scenes/components/vertical slider Component.tscn" id="3_7txc0"]
 [ext_resource type="PackedScene" uid="uid://cikkfswae2ji1" path="res://Game/LetterTracing/scenes/components/Circle slider component.tscn" id="4_7w56d"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="4_px7jq"]
 
 [node name="Lettera" type="Label"]
 clip_children = 2
@@ -20,6 +21,9 @@ offset_top = -97.0
 offset_right = 79.5
 offset_bottom = -23.0
 
+[node name="hintComponent" parent="horizontal Slider Component" instance=ExtResource("4_px7jq")]
+points = PackedVector2Array(67.3602, 22.9784, 57.4803, 12.9484, 39.2082, 8.90129, 13.2907, 17.6427)
+
 [node name="vertical slider Component" parent="." instance=ExtResource("3_7txc0")]
 layout_mode = 1
 offset_left = 44.5
@@ -27,6 +31,9 @@ offset_top = -89.0
 offset_right = 82.5
 offset_bottom = 124.0
 orderID = 1
+
+[node name="hintComponent" parent="vertical slider Component" instance=ExtResource("4_px7jq")]
+points = PackedVector2Array(7.23622, 86.0489, 5.7128, 16.8095)
 
 [node name="horizontal Slider Component2" parent="." instance=ExtResource("2_burte")]
 layout_mode = 1
@@ -36,6 +43,9 @@ offset_right = 199.5
 offset_bottom = 184.0
 rotation = -3.14159
 orderID = 2
+
+[node name="hintComponent" parent="horizontal Slider Component2" instance=ExtResource("4_px7jq")]
+points = PackedVector2Array(63.9835, 26.8151, 53.3195, 12.4069, 37.8653, 8.10786, 30.4683, 7.20403, 14.4725, 11.6066)
 
 [node name="CircleSliderComponent" parent="." instance=ExtResource("4_7w56d")]
 layout_mode = 1
@@ -49,6 +59,9 @@ restart = false
 reverse = false
 debug = false
 
+[node name="hintComponent" parent="CircleSliderComponent" instance=ExtResource("4_px7jq")]
+points = PackedVector2Array(39.9895, 46.4265, 51.0343, 42.024, 57.5088, 28.8165)
+
 [node name="horizontal Slider Component3" parent="." instance=ExtResource("2_burte")]
 layout_mode = 1
 offset_left = -40.5
@@ -57,3 +70,6 @@ offset_right = 46.5
 offset_bottom = 35.0
 rotation = -0.0306312
 orderID = 4
+
+[node name="hintComponent" parent="horizontal Slider Component3" instance=ExtResource("4_px7jq")]
+points = PackedVector2Array(32.6331, 4.65451, 2.45477, 7.28651)

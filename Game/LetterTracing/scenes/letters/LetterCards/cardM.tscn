@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d37si2uiwafro"]
+[gd_scene load_steps=5 format=3 uid="uid://d37si2uiwafro"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_1a38f"]
 [ext_resource type="PackedScene" uid="uid://s6rgo0y4amoo" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterM.tscn" id="2_1a38f"]
+[ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_vdluv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -35,27 +36,43 @@ layout_mode = 1
 theme_override_font_sizes/font_size = 750
 
 [node name="vertical slider Component" parent="LetterM" index="0"]
+visible = false
 offset_left = -150.5
 offset_top = 214.0
 offset_right = -64.5
 offset_bottom = 698.0
 
+[node name="hintComponent" parent="LetterM/vertical slider Component" index="2" instance=ExtResource("3_vdluv")]
+points = PackedVector2Array(9.33139, 187.707, 21.1374, 0.400177)
+
 [node name="vertical slider Component2" parent="LetterM" index="1"]
+visible = false
 offset_left = -176.5
 offset_top = -250.0
 offset_right = -112.5
 offset_bottom = 152.0
 
+[node name="hintComponent" parent="LetterM/vertical slider Component2" index="2" instance=ExtResource("3_vdluv")]
+points = PackedVector2Array(15.396, 186.809, 10.2104, -0.634537)
+
 [node name="vertical slider Component3" parent="LetterM" index="2"]
+visible = false
 offset_left = 72.5
 offset_top = 118.0
 offset_right = 164.5
 offset_bottom = 509.0
 
+[node name="hintComponent" parent="LetterM/vertical slider Component3" index="2" instance=ExtResource("3_vdluv")]
+points = PackedVector2Array(5.45877, 150.528, 26.9281, 2.77615)
+
 [node name="vertical slider Component4" parent="LetterM" index="3"]
+visible = false
 offset_left = 153.5
 offset_top = -252.0
 offset_right = 245.5
 offset_bottom = 217.0
+
+[node name="hintComponent" parent="LetterM/vertical slider Component4" index="2" instance=ExtResource("3_vdluv")]
+points = PackedVector2Array(23.8034, 188.107, 8.18835, 0.800453)
 
 [editable path="LetterM"]
