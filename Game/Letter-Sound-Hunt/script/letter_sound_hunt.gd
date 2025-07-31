@@ -10,6 +10,7 @@ extends Control
 ]
 @onready var narrator = $AudioNarrator
 @onready var feedback_audio = $AudioFeedback
+@onready var menu: Control = $Menu
 
 var items_data = {
 	"Ball": preload("res://Game/Letter-Sound-Hunt/ui/ball.png"),
@@ -61,3 +62,8 @@ func _on_Item_pressed(button):
 func _on_item_1_pressed(): _on_Item_pressed($HBoxContainer/Item1)
 func _on_item_2_pressed(): _on_Item_pressed($HBoxContainer/Item2)
 func _on_item_3_pressed(): _on_Item_pressed($HBoxContainer/Item3)
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = true
+	menu.visible = true

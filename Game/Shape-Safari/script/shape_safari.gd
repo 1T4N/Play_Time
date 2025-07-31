@@ -7,6 +7,8 @@ extends Control
 @onready var shape1: Button = $Shape/Shape1
 @onready var shape2: Button = $Shape/Shape2
 @onready var shape3: Button = $Shape/Shape3
+@onready var menu: Control = $menu/Menu
+
 
 
 
@@ -64,3 +66,8 @@ func check_match(animal: Button):
 		show_instruction()
 	else:
 		feedback_label.text = "Try again!"
+
+
+func _on_menu_button_pressed() -> void:
+	get_tree().paused = true
+	menu.visible = true
