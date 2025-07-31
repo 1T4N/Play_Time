@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-TracingData="*res://Game/LetterTracing/TracingData.gd"
+globalGameData="*res://Game/globalGameData.gd"
 ProfileDataGlobals="*res://GameUI/Saving/profileDataGlobals.gd"
 
 [display]
@@ -28,6 +28,16 @@ window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/emulate_touch_from_mouse=true
+
+[file_customization]
+
+folder_colors={
+"res://Game/Color-Hunt/": "green",
+"res://Game/Letter-Sound-Hunt/": "green",
+"res://Game/LetterTracing/": "red",
+"res://Game/Matching-Game/": "green",
+"res://Game/Shape-Safari/": "green"
+}
 
 [input]
 

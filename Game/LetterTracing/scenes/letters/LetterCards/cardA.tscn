@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://di3se3b4q1syc"]
+[gd_scene load_steps=6 format=3 uid="uid://di3se3b4q1syc"]
 
 [ext_resource type="PackedScene" uid="uid://dqtssdfsvktw2" path="res://Game/LetterTracing/scenes/components/AnimationCard.tscn" id="1_ghx6j"]
+[ext_resource type="Script" uid="uid://b8snuv0yjkirc" path="res://Game/LetterTracing/scenes/letters/LetterCards/letterCard.gd" id="1_lsyg6"]
 [ext_resource type="PackedScene" uid="uid://dfreaefkqqael" path="res://Game/LetterTracing/scenes/letters/UpperCase/LetterA.tscn" id="1_usw5t"]
 [ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_upvfs"]
 
@@ -28,6 +29,7 @@ pivot_offset = Vector2(400, 700)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_tau6c")
+script = ExtResource("1_lsyg6")
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("1_ghx6j")]
 

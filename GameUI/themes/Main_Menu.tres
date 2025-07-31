@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://7wcilstcy6ie"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://7wcilstcy6ie"]
 
 [ext_resource type="Texture2D" uid="uid://dsm3nj3rh621s" path="res://GameUI/assets/Plus Icon w_BG.jpg" id="1_mevjs"]
+[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_mwpit"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mevjs"]
 
@@ -82,7 +83,14 @@ VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_ht067")
 buttonProfile/base_type = &"Button"
 buttonProfile/constants/h_separation = 10
 buttonProfile/icons/icon = SubResource("AtlasTexture_mwpit")
+labelH2/base_type = &"Label"
+labelH2/font_sizes/font_size = 120
+labelH2/fonts/font = ExtResource("2_mwpit")
+labelH3/base_type = &"Label"
+labelH3/font_sizes/font_size = 80
+labelH3/fonts/font = ExtResource("2_mwpit")
 labelH4/base_type = &"Label"
 labelH4/font_sizes/font_size = 40
+labelH4/fonts/font = ExtResource("2_mwpit")
 marginContainerProfile/base_type = &"MarginContainer"
 marginContainerProfile/constants/margin_right = 15

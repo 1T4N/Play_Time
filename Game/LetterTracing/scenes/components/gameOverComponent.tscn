@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://dufcdmyolk8xj"]
+
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_wtjm6"]
+[ext_resource type="Texture2D" uid="uid://baxpmcclqfaow" path="res://Game/LetterTracing/arts/house.png" id="2_xo16r"]
+[ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="3_cv2q7"]
+[ext_resource type="Texture2D" uid="uid://bxx0sa6qlop3w" path="res://Game/LetterTracing/arts/anticlockwise-rotation (2).png" id="3_jcjg7"]
+
+[sub_resource type="GDScript" id="GDScript_xo16r"]
+script/source = "extends Label
+func _process(delta: float) -> void:
+	text = str(globalGameData.currentGameScore) 
+"
+
+[sub_resource type="GDScript" id="GDScript_jcjg7"]
+script/source = "extends Button
+
+func _on_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_txkau"]
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().paused = false
+	print(get_tree().reload_current_scene())
+	pass # Replace with function body.
+"
+
+[sub_resource type="GDScript" id="GDScript_cv2q7"]
+script/source = "extends Node2D
+var start_time = Time.get_ticks_msec()
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"ui_accept\"):
+		save()
+	pass
+
+func save():
+	var elapsed_msec = Time.get_ticks_msec() - start_time
+	var time = elapsed_msec / 1000.0
+	print(time)
+	print(globalGameData.LetterTracingScore)
+	pass
+"
+
+[node name="GameOverComponent" type="PanelContainer"]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.0
+offset_top = -66.5
+offset_right = 127.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wtjm6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Score Text" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH3"
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH2"
+text = "10000!"
+horizontal_alignment = 1
+script = SubResource("GDScript_xo16r")
+
+[node name="Congrats" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Congratulation!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 50
+theme_override_icons/icon = ExtResource("2_xo16r")
+text = "Exit"
+script = SubResource("GDScript_jcjg7")
+
+[node name="animationUXComponent" parent="MarginContainer/VBoxContainer/HBoxContainer/exit" instance=ExtResource("3_cv2q7")]
+hoverAnimationScale = 1.05
+
+[node name="retry" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_constants/icon_max_width = 50
+theme_override_icons/icon = ExtResource("3_jcjg7")
+text = "Retry"
+script = SubResource("GDScript_txkau")
+
+[node name="animationUXComponent" parent="MarginContainer/VBoxContainer/HBoxContainer/retry" instance=ExtResource("3_cv2q7")]
+hoverAnimationScale = 1.05
+
+[node name="dataSavingComponent" type="Node2D" parent="."]
+script = SubResource("GDScript_cv2q7")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/exit" to="MarginContainer/VBoxContainer/HBoxContainer/exit" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/retry" to="MarginContainer/VBoxContainer/HBoxContainer/retry" method="_on_pressed"]

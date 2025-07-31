@@ -1,5 +1,6 @@
-[gd_scene load_steps=38 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=40 format=3 uid="uid://cpbmuhpms5prr"]
 
+[ext_resource type="Script" uid="uid://y15lrk3qdrq8" path="res://Game/LetterTracing/scenes/Compiled/alphabet_tracing_game.gd" id="1_hamko"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_oyvai"]
 [ext_resource type="PackedScene" uid="uid://hqrynq6ao2qm" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardD.tscn" id="3_e3qdd"]
@@ -29,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://crrkwtr37dii0" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardV.tscn" id="4_whd0p"]
 [ext_resource type="PackedScene" uid="uid://bn7o47a6g1xpt" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardX.tscn" id="4_x1xr6"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
+[ext_resource type="Script" uid="uid://b8snuv0yjkirc" path="res://Game/LetterTracing/scenes/letters/LetterCards/letterCard.gd" id="26_6o2um"]
+[ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="30_6clmv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qdd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -75,11 +78,11 @@ script/source = "extends Label
 @onready var timeDeductNotif:PackedScene = preload(\"res://Game/LetterTracing/scenes/components/timeDeductionLabelComponent.tscn\")
 @onready var label_pos_spawn: Marker2D = $labelPosSpawn
 
-var timeDeductionPerError = TracingData.timeDeduction
+var timeDeductionPerError = globalGameData.timeDeduction
 func _ready() -> void:
 	timer.start(100)
 	label_pos_spawn.position = get_size()/2
-	TracingData.retry.connect(deductTime)
+	globalGameData.retry.connect(deductTime)
 	
 func _process(_delta: float) -> void:
 	text = str(int(timer.get_time_left()))
@@ -97,27 +100,10 @@ func deductTime():
 [sub_resource type="GDScript" id="GDScript_v66mg"]
 script/source = "extends Label
 func _process(_delta: float) -> void:
-	text = str(TracingData.score)
+	text = str(globalGameData.currentGameScore)
 "
 
-[sub_resource type="GDScript" id="GDScript_5s7d8"]
-script/source = "extends Node2D
-var start_time = Time.get_ticks_msec()
-
-func _process(delta):
-	if Input.is_action_just_pressed(\"ui_accept\"):
-		save()
-	pass
-
-func save():
-	var elapsed_msec = Time.get_ticks_msec() - start_time
-	var time = elapsed_msec / 1000.0
-	print(time)
-	print(TracingData.score)
-	pass
-"
-
-[node name="AlphabetTracingGame_Aa" type="Control"]
+[node name="AlphabetTracingGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -126,6 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_hamko")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -208,12 +195,15 @@ layout_mode = 1
 
 [node name="LetterCardC" parent="." groups=["letterUpperCase"] instance=ExtResource("3_hw8sg")]
 layout_mode = 1
+script = ExtResource("26_6o2um")
+isLastCard = true
 
 [node name="LetterCardB" parent="." groups=["letterUpperCase"] instance=ExtResource("3_v66mg")]
 layout_mode = 1
 
 [node name="LetterCardA" parent="." groups=["letterUpperCase"] instance=ExtResource("3_fbvme")]
 layout_mode = 1
+script = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -295,7 +285,8 @@ offset_right = 300.0
 offset_bottom = 520.0
 size_flags_horizontal = 4
 
-[node name="dataSavingComponent" type="Node2D" parent="."]
-script = SubResource("GDScript_5s7d8")
+[node name="GameOverComponent" parent="." instance=ExtResource("30_6clmv")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="MarginContainer/Header/MenuButton" to="MarginContainer/Header/MenuButton" method="_on_pressed"]

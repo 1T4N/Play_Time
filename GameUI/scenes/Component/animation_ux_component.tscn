@@ -10,6 +10,7 @@ func _ready() -> void:
 	playAnim.call_deferred()
 	
 	if get_parent() is Button:
+		get_parent().set_pivot_offset(get_parent().size/2) 
 		get_parent().connect(\"mouse_entered\",scaleUp)
 		get_parent().connect(\"mouse_exited\",scaleDown)
 
