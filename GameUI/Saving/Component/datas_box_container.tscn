@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_5h1nf"]
 script/source = "extends Node2D
-func save():
+func saveee():
 	var saveDictionary = {
 		\"data\": {
 			\"Time\": 234,
@@ -118,6 +118,7 @@ offset_right = 695.0
 offset_bottom = 284.0
 
 [node name="Node2D" type="Node2D" parent="." groups=["Persist"]]
+visible = false
 script = SubResource("GDScript_5h1nf")
 
 [node name="Datas" type="GridContainer" parent="." groups=["Persist"]]

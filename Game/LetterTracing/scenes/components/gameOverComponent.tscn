@@ -33,14 +33,6 @@ func _on_pressed() -> void:
 script/source = "extends Node2D
 var start_time = Time.get_ticks_msec()
 
-func _process(_delta):
-	if Input.is_action_just_pressed(\"ui_accept\"):
-		
-		
-		#print(ProfileDataGlobals.saveData)
-		save()
-	pass
-
 func save():
 	var elapsed_msec = Time.get_ticks_msec() - start_time
 	var time = elapsed_msec / 1000.0
@@ -52,36 +44,67 @@ func save():
 	#insert the datas in dictionary and nest it in letterTracingData
 	#print()
 	
-	var tryDataCounts:Array =[9,4,6,7]
+	var tryDataCounts:Array
 	
 	var scoreData:Array
 	#if ProfileDataGlobals.saveData.letterTracingData.scores:
 		#scoreData = ProfileDataGlobals.saveData.letterTracingData.scores
 		
-	#this checks if the data is already in the savefile
-	if \"letterTracingData\" in ProfileDataGlobals.saveData:
-		scoreData = ProfileDataGlobals.saveData.letterTracingData.scores
-	scoreData.append(globalGameData.currentGameScore)
+	#this checks if the data is already in the savefile and retrieves it so we can update it.
+	#if \"letterTracingData\" in ProfileDataGlobals.saveData:
+		#scoreData = ProfileDataGlobals.saveData.letterTracingData.scores
+	#
+	#scoreData.append(globalGameData.currentGameScore)
+	#
+	#gameDatas[\"tries\"] = tryDataCounts
+	#gameDatas[\"scores\"] = scoreData
+	#
+	##print(gameDatas)
+	##this checks which game is currently running to save (It overwrites it) its data
+	#if globalGameData.currentGameID == 0:
+		#ProfileDataGlobals.saveData[\"letterTracingData\"] = gameDatas
+		#
 	
-	gameDatas[\"tries\"] = tryDataCounts
+	#this checks which game is currently running to save (It overwrites it) its data
+	var nameOfData:String
+	if globalGameData.currentGameID == 0:
+		#add an ifelse and change this base on the game (name of game)Data
+		nameOfData = \"letterTracingData\"
+		
+		#this checks if the save data already exist. if it is then we first add it in the array before appending the new score
+		if nameOfData in ProfileDataGlobals.saveData:
+			scoreData = ProfileDataGlobals.saveData[nameOfData][\"scores\"]
+			tryDataCounts = ProfileDataGlobals.saveData[nameOfData][\"tries\"]
+			tryDataCounts.append(tryDataCounts.max() + 1) 
+	
+	
+	
+	
+	scoreData.append(globalGameData.currentGameScore)
 	gameDatas[\"scores\"] = scoreData
 	
-	#print(gameDatas)
-	#this checks which game is currently running to save (It overwrites it) its data
-	if globalGameData.currentGameID == 0:
-		ProfileDataGlobals.saveData[\"letterTracingData\"] = gameDatas
-		
-		var json_string = JSON.stringify(ProfileDataGlobals.saveData)
+	if tryDataCounts.is_empty():
+		tryDataCounts.append(1) 
+	gameDatas[\"tries\"] = tryDataCounts
+	ProfileDataGlobals.saveData[nameOfData] = gameDatas
+	
+	
+	
+	
+	
+	
+	
+	#this saves the new data
+	var json_string = JSON.stringify(ProfileDataGlobals.saveData)
 
-		# Store the save dictionary as a new line in the save file.
-		#ProfileDataGlobals.saveFile.store_line(json_string)
-		#print(ProfileDataGlobals.saveData)
-		print(ProfileDataGlobals.savePath)
-		var saveFile = FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(ProfileDataGlobals.profileID) + \".json\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
-		saveFile.store_string(json_string)
-		saveFile.close()
-		#print(type_string(typeof(ProfileDataGlobals.saveFile)))
-		pass
+	# Store the save dictionary as a new line in the save file.
+	#ProfileDataGlobals.saveFile.store_line(json_string)
+	#print(ProfileDataGlobals.saveData)
+	#print(ProfileDataGlobals.savePath)
+	var saveFile = FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(ProfileDataGlobals.profileID) + \".json\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
+	saveFile.store_string(json_string)
+	saveFile.close()
+	#print(type_string(typeof(ProfileDataGlobals.saveFile)))
 	pass
 "
 
@@ -162,7 +185,7 @@ script = SubResource("GDScript_txkau")
 [node name="animationUXComponent" parent="MarginContainer/VBoxContainer/HBoxContainer/retry" instance=ExtResource("3_cv2q7")]
 hoverAnimationScale = 1.05
 
-[node name="dataSavingComponent" type="Node2D" parent="."]
+[node name="dataSavingComponent" type="Node2D" parent="." groups=["persist"]]
 script = SubResource("GDScript_cv2q7")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/exit" to="MarginContainer/VBoxContainer/HBoxContainer/exit" method="_on_pressed"]

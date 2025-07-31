@@ -1,0 +1,407 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8fv57om4an8h"]
+
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
+[ext_resource type="Texture2D" uid="uid://defpg8ecr7d68" path="res://icon.svg" id="2_ijym7"]
+
+[node name="ProfileDashboard" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovmwx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="pfp" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ijym7")
+stretch_mode = 3
+
+[node name="name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH2"
+text = "Hi! Kristene"
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="LetterTracing" type="TabBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Shape Safari" type="TabBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Color Hunt" type="TabBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Sound Hunt" type="TabBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Matching Game" type="TabBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Test Game" type="TabBar" parent="MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="bestTimes" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PanelContainerZ1"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"labelH3"
+theme_override_constants/outline_size = 4
+text = "My Best Times"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="bestScores" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"PanelContainerZ1"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_type_variation = &"labelH3"
+theme_override_constants/outline_size = 4
+text = "My Best Scores"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
