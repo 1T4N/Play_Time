@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=39 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Script" uid="uid://y15lrk3qdrq8" path="res://Game/LetterTracing/scenes/Compiled/alphabet_tracing_game.gd" id="1_hamko"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://crrkwtr37dii0" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardV.tscn" id="4_whd0p"]
 [ext_resource type="PackedScene" uid="uid://bn7o47a6g1xpt" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardX.tscn" id="4_x1xr6"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
-[ext_resource type="Script" uid="uid://b8snuv0yjkirc" path="res://Game/LetterTracing/scenes/letters/LetterCards/letterCard.gd" id="26_6o2um"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="30_6clmv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qdd"]
@@ -195,15 +194,13 @@ layout_mode = 1
 
 [node name="LetterCardC" parent="." groups=["letterUpperCase"] instance=ExtResource("3_hw8sg")]
 layout_mode = 1
-script = ExtResource("26_6o2um")
-isLastCard = true
 
 [node name="LetterCardB" parent="." groups=["letterUpperCase"] instance=ExtResource("3_v66mg")]
 layout_mode = 1
 
 [node name="LetterCardA" parent="." groups=["letterUpperCase"] instance=ExtResource("3_fbvme")]
 layout_mode = 1
-script = null
+isLastCard = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

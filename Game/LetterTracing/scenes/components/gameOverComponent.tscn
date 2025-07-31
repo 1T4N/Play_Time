@@ -7,7 +7,7 @@
 
 [sub_resource type="GDScript" id="GDScript_xo16r"]
 script/source = "extends Label
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = str(globalGameData.currentGameScore) 
 "
 
@@ -33,16 +33,55 @@ func _on_pressed() -> void:
 script/source = "extends Node2D
 var start_time = Time.get_ticks_msec()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed(\"ui_accept\"):
+		
+		
+		#print(ProfileDataGlobals.saveData)
 		save()
 	pass
 
 func save():
 	var elapsed_msec = Time.get_ticks_msec() - start_time
 	var time = elapsed_msec / 1000.0
-	print(time)
-	print(globalGameData.LetterTracingScore)
+	#print(time)
+	#print(globalGameData.currentGameScore)
+	
+	#make letter tracing dict
+	var gameDatas: Dictionary
+	#insert the datas in dictionary and nest it in letterTracingData
+	#print()
+	
+	var tryDataCounts:Array =[9,4,6,7]
+	
+	var scoreData:Array
+	#if ProfileDataGlobals.saveData.letterTracingData.scores:
+		#scoreData = ProfileDataGlobals.saveData.letterTracingData.scores
+		
+	#this checks if the data is already in the savefile
+	if \"letterTracingData\" in ProfileDataGlobals.saveData:
+		scoreData = ProfileDataGlobals.saveData.letterTracingData.scores
+	scoreData.append(globalGameData.currentGameScore)
+	
+	gameDatas[\"tries\"] = tryDataCounts
+	gameDatas[\"scores\"] = scoreData
+	
+	#print(gameDatas)
+	#this checks which game is currently running to save (It overwrites it) its data
+	if globalGameData.currentGameID == 0:
+		ProfileDataGlobals.saveData[\"letterTracingData\"] = gameDatas
+		
+		var json_string = JSON.stringify(ProfileDataGlobals.saveData)
+
+		# Store the save dictionary as a new line in the save file.
+		#ProfileDataGlobals.saveFile.store_line(json_string)
+		#print(ProfileDataGlobals.saveData)
+		print(ProfileDataGlobals.savePath)
+		var saveFile = FileAccess.open_encrypted_with_pass(\"user://profileID\" + str(ProfileDataGlobals.profileID) + \".json\",FileAccess.WRITE,ProfileDataGlobals.securityKey)
+		saveFile.store_string(json_string)
+		saveFile.close()
+		#print(type_string(typeof(ProfileDataGlobals.saveFile)))
+		pass
 	pass
 "
 

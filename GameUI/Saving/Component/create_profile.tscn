@@ -65,8 +65,10 @@ func loadProfile():
 		
 	var contents = save_file.get_as_text()
 	var datas = JSON.parse_string(contents)
+	save_file.close()
 	
-	ProfileDataGlobals.saveFile = save_file
+	ProfileDataGlobals.profileID = profileID
+	#ProfileDataGlobals.setSaveFilePath(profileID)
 	ProfileDataGlobals.saveData = datas
 	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
