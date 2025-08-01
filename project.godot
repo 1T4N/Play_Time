@@ -31,7 +31,7 @@ window/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/script_spliter/plugin.cfg")
+enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg", "res://addons/script_spliter/plugin.cfg")
 
 [file_customization]
 

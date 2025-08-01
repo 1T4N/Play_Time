@@ -88,6 +88,12 @@ func _process(_delta: float) -> void:
 	text = str(int(timer.get_time_left()))
 
 func deductTime():
+	var timeLeft = timer.get_time_left()
+	var newTimeLeft = timeLeft - timeDeductionPerError
+	if newTimeLeft < timeDeductionPerError:
+		text = \"0\"
+		timer.timeout.emit()
+	
 	timer.start(timer.get_time_left() - timeDeductionPerError) 
 	
 	var instance = timeDeductNotif.instantiate()
@@ -200,7 +206,6 @@ layout_mode = 1
 
 [node name="LetterCardB" parent="." groups=["letterUpperCase"] instance=ExtResource("3_v66mg")]
 layout_mode = 1
-script = ExtResource("28_hamko")
 
 [node name="LetterCardA" parent="." groups=["letterUpperCase"] instance=ExtResource("3_fbvme")]
 layout_mode = 1
