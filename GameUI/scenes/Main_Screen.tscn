@@ -71,7 +71,7 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
+	get_tree().change_scene_to_file(\"res://GameUI/scenes/profileDashboard.tscn\")
 "
 
 [node name="MainScreen" type="Control"]

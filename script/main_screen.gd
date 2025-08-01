@@ -14,7 +14,7 @@ func _on_matching_pressed() -> void:
 
 
 func _ready() -> void:
-	print(ProfileDataGlobals.saveData)
+	print(JSON.stringify(ProfileDataGlobals.saveData, "\t"))
 
 
 func _on_shape_safari_pressed() -> void:

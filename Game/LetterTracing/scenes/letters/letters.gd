@@ -59,8 +59,13 @@ func _process(_delta: float) -> void:
 			await tween.finished
 			child.retry = false
 			
+		
 		if child.finished == true:
 			print("Next")
+			var childrensOfChild = child.get_children()
+			for childrenOfChild in childrensOfChild:
+				if childrenOfChild is Line2D:
+					childrenOfChild.hide()
 			child.set_process_mode(PROCESS_MODE_DISABLED)
 			childPointer = childPointer + 1
 			showNextTrace()
@@ -71,8 +76,9 @@ func showNextTrace():
 	#This is the part that checks if the final trace is already finished
 	if lastTracingOrder < childPointer:
 		#Store the score in a global
-		TracingData.score = TracingData.score + addScore
+		globalGameData.currentGameScore = globalGameData.currentGameScore + addScore
 		
+		#this checks if the letter tracing is already finish which will make the card swipe out and hide itself
 		#plays the fade animation after finished
 		if animation_player == null:
 			return
@@ -83,7 +89,17 @@ func showNextTrace():
 			animation_player.play("letterCardFadeLeft")
 		
 		await animation_player.animation_finished
+		
+		#this shows the game over scene if it detects that there's a script letterCard.gd on the LetterCard(Letter)
+		if "isLastCard" in get_parent():
+			if not get_parent().isLastCard:
+				return
+			get_parent().hide()
+			get_parent().showGameOver()
+			get_tree().paused = true
+		
 		get_parent().hide()
+		
 		return
 #endregion
 		

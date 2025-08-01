@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_5h1nf"]
 script/source = "extends Node2D
-func save():
+func saveee():
 	var saveDictionary = {
 		\"data\": {
 			\"Time\": 234,
@@ -105,8 +105,9 @@ func loadProfile():
 	var contents = save_file.get_as_text()
 	var datas = JSON.parse_string(contents)
 	
-	ProfileDataGlobals.saveFile = save_file
+	#ProfileDataGlobals.saveFile = save_file
 	ProfileDataGlobals.saveData = datas
+	save_file.close()
 	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
 
@@ -117,6 +118,7 @@ offset_right = 695.0
 offset_bottom = 284.0
 
 [node name="Node2D" type="Node2D" parent="." groups=["Persist"]]
+visible = false
 script = SubResource("GDScript_5h1nf")
 
 [node name="Datas" type="GridContainer" parent="." groups=["Persist"]]
