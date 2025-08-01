@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cg8rrhcc1s7nq"]
+[gd_scene load_steps=23 format=3 uid="uid://cg8rrhcc1s7nq"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
@@ -67,6 +67,14 @@ corner_radius_bottom_left = 20
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmdo5"]
 
 [sub_resource type="GDScript" id="GDScript_himgm"]
+script/source = "extends Button
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_8m04k"]
 script/source = "extends Button
 
 
@@ -281,7 +289,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gmdo5")
-script = SubResource("GDScript_himgm")
+script = SubResource("GDScript_8m04k")
 
 [node name="animationUXComponent" parent="toProfileDashboard/Button" instance=ExtResource("8_gmdo5")]
 isPopIn = true
