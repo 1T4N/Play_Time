@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
-[ext_resource type="Texture2D" uid="uid://b45tyx4v2bd83" path="res://BG/BG_P2/background13.jpg" id="2_70skh"]
+[ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_70skh"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_d8s1t"]
 [ext_resource type="FontFile" uid="uid://3uaootdnyxb7" path="res://Game/Color-Hunt/Baloo_2/static/Baloo2-Bold.ttf" id="3_14o3a"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_70skh"]
@@ -11,7 +11,6 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3p6ol"]
 texture = ExtResource("2_70skh")
-modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8kg6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

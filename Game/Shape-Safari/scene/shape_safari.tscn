@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=21 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="4_tumoo"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
+[ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="7_tumoo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kjl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -84,6 +85,9 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
+texture = ExtResource("7_tumoo")
+
 [node name="ShapeSafari" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -144,6 +148,8 @@ offset_right = 275.0
 offset_bottom = 105.0
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 0
+size_flags_vertical = 8
 
 [node name="ShapeImage" type="TextureRect" parent="Shape/Shape1"]
 layout_mode = 1
@@ -169,15 +175,21 @@ offset_bottom = 105.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="ShapeImage" type="TextureRect" parent="Shape/Shape2"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -105.0
-offset_right = 205.0
-offset_bottom = 103.0
+offset_left = -102.5
+offset_top = -104.0
+offset_right = 102.5
+offset_bottom = 104.0
+grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 4
 stretch_mode = 5
@@ -211,6 +223,7 @@ stretch_mode = 5
 [node name="MenuButton" type="Button" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
@@ -345,6 +358,15 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
 text = "Back
 "
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yd0dp")
 
 [connection signal="pressed" from="Shape/Shape1" to="." method="_on_shape_1_pressed"]
 [connection signal="pressed" from="Shape/Shape2" to="." method="_on_shape_2_pressed"]

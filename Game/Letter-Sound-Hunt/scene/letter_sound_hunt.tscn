@@ -1,10 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=20 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
+[ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_3psay"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="3_3psay"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="4_oh4oa"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="5_tf5ll"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
+texture = ExtResource("2_3psay")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlqm0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -91,6 +95,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xj1oe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oh4oa")
 
 [node name="InstructionLabel" type="Label" parent="."]
 layout_mode = 1
@@ -185,6 +198,7 @@ offset_bottom = 23.0
 [node name="MenuButton" type="Button" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
