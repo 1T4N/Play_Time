@@ -8,30 +8,6 @@
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="7_tumoo"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kjl"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4p2sc"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4huo3"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j25r3"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svpsx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
@@ -87,6 +63,30 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
 texture = ExtResource("7_tumoo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumoo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd0dp"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrt5h"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kjl"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="ShapeSafari" type="Control"]
 layout_mode = 3
@@ -219,21 +219,6 @@ offset_bottom = 103.0
 grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
-
-[node name="MenuButton" type="Button" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
-theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_08kjl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4p2sc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4huo3")
-theme_override_styles/normal = SubResource("StyleBoxFlat_j25r3")
-text = "☰
-"
 
 [node name="menu" type="CanvasLayer" parent="."]
 
@@ -368,9 +353,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_yd0dp")
 
+[node name="MenuButton" type="Button" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 170.0
+offset_bottom = 170.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_tumoo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yd0dp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrt5h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_08kjl")
+text = "☰
+"
+
 [connection signal="pressed" from="Shape/Shape1" to="." method="_on_shape_1_pressed"]
 [connection signal="pressed" from="Shape/Shape2" to="." method="_on_shape_2_pressed"]
 [connection signal="pressed" from="Shape/Shape3" to="." method="_on_shape_3_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="menu/Menu" method="_on_back_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

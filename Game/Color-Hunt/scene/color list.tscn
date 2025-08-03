@@ -441,9 +441,58 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Back
 "
 
+[node name="ScorePopup" type="PopupPanel" parent="."]
+size = Vector2i(292, 208)
+
+[node name="FinishButton" type="Button" parent="ScorePopup"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -204.0
+offset_right = 142.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("2_3sg35")
+theme_override_colors/font_color = Color(0.27451, 0.27451, 1, 1)
+theme_override_fonts/font = ExtResource("3_14o3a")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_aagyk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_8m7lm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_im64j")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_0xoqm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7vqnq")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_ll2s5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r2a6m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_arbl7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_urjkt")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_kr5xh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h7hfj")
+text = "DONE"
+
+[node name="FinalScoreLabel" type="Label" parent="ScorePopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -100.0
+offset_right = 142.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="pressed" from="Panel/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="Menu/Menu" method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
+[connection signal="pressed" from="ScorePopup/FinishButton" to="." method="_on_finish_button_pressed"]

@@ -9,10 +9,11 @@ extends Node
 @onready var menu_button: Button = $Panel/MarginContainer2/MenuButton
 @onready var margin_container: MarginContainer = $Menu/MarginContainer
 @onready var menu: Control = $Menu/Menu
+@onready var score_popup: PopupPanel = $ScorePopup							# new popup node
+@onready var final_score_label: Label = $ScorePopup/FinalScoreLabel		# label inside popup
+@onready var finish_button: Button = $ScorePopup/FinishButton				# finish button inside popup
 
-
-
-
+var next_press_count = 0
 var paused = false
 
 #Add more color here if you need more color
@@ -29,7 +30,6 @@ var colors = [
 	{"name": "Black", "color": Color(0, 0, 0)}
 ]
 
-
 var countdown = 30.0						#here you can change the countdown
 var waiting_for_next = false
 var score = 0  # default score
@@ -37,6 +37,7 @@ var score = 0  # default score
 func _ready():
 	show_random_color()
 	update_score_label()
+	finish_button.pressed.connect(_on_finish_button_pressed)	# connect button handler
 
 func _process(delta):	
 	if not waiting_for_next:
@@ -60,16 +61,27 @@ func show_random_color():
 	waiting_for_next = false
 	next_button.visible = true
 
-# When "Next" is pressed
+# When "Next" is pressed   #Add 1000 points for each correct by pressing NEXT 
 func _on_next_button_pressed():
-	score += 1000  #Add 1000 points for each correct by pressing NEXT 
+	score += 1000
 	update_score_label()
-	show_random_color()
-
+	next_press_count += 1
+	
+	if next_press_count >= 20:
+		next_button.visible = false
+		show_score_popup()
+	else:
+		show_random_color()
 
 func update_score_label():
 	score_label.text = "Score: " + str(score)
 
+func show_score_popup():					# New function to display score
+	final_score_label.text = "Great job!\nYour final score is:\n" + str(score)
+	score_popup.popup_centered()
+
+func _on_finish_button_pressed():			# Called when Finish is pressed
+	get_tree().reload_current_scene()
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = true
