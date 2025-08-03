@@ -38,6 +38,11 @@ func _ready():
 	show_random_color()
 	update_score_label()
 	finish_button.pressed.connect(_on_finish_button_pressed)	# connect button handler
+	
+	
+	#this is for the gameoverComponent - fylart
+	globalGameData.resetData()
+	globalGameData.currentGameID = 1
 
 func _process(delta):	
 	if not waiting_for_next:
@@ -47,6 +52,9 @@ func _process(delta):
 			countdown_label.text = "Time left: 0s"
 			waiting_for_next = true
 			next_button.visible = true
+			
+			#you fucking moron Vertix, Use the timer node dipshit - fylart
+			showGameOver()
 			return
 		countdown_label.text = "Time left: " + str(int(ceil(countdown))) + "s"
 	
@@ -67,14 +75,34 @@ func _on_next_button_pressed():
 	update_score_label()
 	next_press_count += 1
 	
+	#this is the gameover popup - - fylart
 	if next_press_count >= 20:
-		next_button.visible = false
-		show_score_popup()
+		#next_button.visible = false
+		#show_score_popup()
+		showGameOver()
+		pass
 	else:
 		show_random_color()
 
+#region gameOverPopUP - fylart
+@onready var game_over_component: PanelContainer = $GameOverComponent
+func showGameOver():
+	get_tree().paused = true
+	game_over_component.show()
+	var childrens = game_over_component.get_children()
+	for child in childrens:
+		if child.is_in_group("persist"):
+			child.save()
+#you need to call this function after adding it 
+
+func onTimeEnd():
+	showGameOver()
+#endregion
+
+
 func update_score_label():
 	score_label.text = "Score: " + str(score)
+	globalGameData.currentGameScore = score
 
 func show_score_popup():					# New function to display score
 	final_score_label.text = "Great job!\nYour final score is:\n" + str(score)

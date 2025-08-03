@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dx0klmv80ca8e"]
+[gd_scene load_steps=47 format=3 uid="uid://dx0klmv80ca8e"]
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_70skh"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_1218q"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_einxs"]
+[ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="9_1218q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3p6ol"]
 texture = ExtResource("2_70skh")
@@ -451,10 +452,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -204.0
-offset_right = 142.0
-offset_bottom = -4.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 288.0
+offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 8
@@ -482,17 +483,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -142.0
-offset_top = -100.0
-offset_right = 142.0
-offset_bottom = 100.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 288.0
+offset_bottom = 204.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GameOverComponent" parent="." instance=ExtResource("9_1218q")]
+visible = false
+layout_mode = 1
+offset_left = -234.5
+offset_top = -286.0
+offset_right = 234.5
+offset_bottom = 286.0
 
 [connection signal="pressed" from="Panel/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/MenuButton" to="Menu/Menu" method="_on_menu_button_pressed"]
+[connection signal="timeout" from="Panel/MarginContainer2/Timer" to="." method="onTimeEnd"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
 [connection signal="pressed" from="ScorePopup/FinishButton" to="." method="_on_finish_button_pressed"]

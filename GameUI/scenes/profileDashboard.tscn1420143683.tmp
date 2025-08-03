@@ -1,17 +1,83 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8fv57om4an8h"]
+[gd_scene load_steps=9 format=3 uid="uid://c8fv57om4an8h"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
 [ext_resource type="Texture2D" uid="uid://defpg8ecr7d68" path="res://icon.svg" id="2_ijym7"]
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="3_ijym7"]
-[ext_resource type="Script" uid="uid://b6nwo6vd5kcvv" path="res://GameUI/scenes/Component/graphComponent.gd" id="3_lp0aq"]
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="4_k68s6"]
-[ext_resource type="Script" uid="uid://2w68gxf1ei8f" path="res://GameUI/scenes/Component/maxScores.gd" id="4_sij0v"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="5_sij0v"]
 
-[sub_resource type="GDScript" id="GDScript_lp0aq"]
-script/source = "extends Label
+[sub_resource type="GDScript" id="GDScript_uvli7"]
+resource_name = "letterTracingChart"
+script/source = "extends TabBar
+@onready var chart: Chart = $Chart
+var f1: Function
+@onready var no_data_label: Label = $noDataLabel
+
 func _ready() -> void:
-	text =\"Hi! \" + ProfileDataGlobals.saveData.profile.name
+	var gameName =  whatGame()
+	#checks if the data exist
+	if not ProfileDataGlobals.saveData.has(\"letterTracingData\"):
+		chart.hide()
+		no_data_label.show()
+		return
+
+	chart.show()
+	var x: Array = ProfileDataGlobals.saveData[gameName].tries
+	#print(x)
+	
+	# Let's create our @x values
+	# And our y values. It can be an n-size array of arrays.
+	# NOTE: `x.size() == y.size()` or `x.size() == y[n].size()`
+	var y: Array = ProfileDataGlobals.saveData[gameName].scores
+	#print(y)
+	
+	# Let's customize the chart properties, which specify how the chart
+	# should look, plus some additional elements like labels, the scale, etc...
+	var cp: ChartProperties = ChartProperties.new()
+	cp.colors.frame = Color(\"#161a1d\")
+	cp.colors.background = Color.TRANSPARENT
+	cp.colors.grid = Color(\"#283442\")
+	cp.colors.ticks = Color(\"#283442\")
+	cp.colors.text = Color.WHITE_SMOKE
+	cp.draw_bounding_box = false
+	#cp.title = \"Air Quality Monitoring\"
+	cp.x_label = \"PLAYED\"
+	cp.y_label = \"SCORE\"
+	cp.x_scale = 5
+	cp.y_scale = 10
+	cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
+	# and interecept clicks on the plot
+	
+	# Let's add values to our functions
+	f1 = Function.new(
+		x, y, \"Pressure\", # This will create a function with x and y values taken by the Arrays 
+						# we have created previously. This function will also be named \"Pressure\"
+						# as it contains 'pressure' values.
+						# If set, the name of a function will be used both in the Legend
+						# (if enabled thourgh ChartProperties) and on the Tooltip (if enabled).
+		# Let's also provide a dictionary of configuration parameters for this specific function.
+		{ 
+			color = Color(\"#36a2eb\"), 		# The color associated to this function
+			marker = Function.Marker.CIRCLE, 	# The marker that will be displayed for each drawn point (x,y)
+											# since it is `NONE`, no marker will be shown.
+			type = Function.Type.LINE, 		# This defines what kind of plotting will be used, 
+											# in this case it will be a Linear Chart.
+			interpolation = Function.Interpolation.LINEAR	# Interpolation mode, only used for 
+															# Line Charts and Area Charts.
+		}
+	)
+	
+	# Now let's plot our data
+	chart.plot([f1], cp)
+	
+	# Uncommenting this line will show how real time data plotting works
+	set_process(false)
+
+
+func whatGame():
+	if self.name == \"Letter Tracing\" or get_parent().get_parent().name == \"Letter Tracing\":
+		return \"letterTracingData\"
+		
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lp0aq"]
@@ -61,7 +127,6 @@ stretch_mode = 3
 layout_mode = 2
 theme_type_variation = &"labelH2"
 text = "Hi! Kristene"
-script = SubResource("GDScript_lp0aq")
 
 [node name="Graph" type="TabContainer" parent="MarginContainer/HBoxContainer/tab"]
 layout_mode = 2
@@ -70,7 +135,7 @@ current_tab = 0
 
 [node name="Letter Tracing" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 layout_mode = 2
-script = ExtResource("3_lp0aq")
+script = SubResource("GDScript_uvli7")
 metadata/_tab_index = 0
 
 [node name="Chart" parent="MarginContainer/HBoxContainer/tab/Graph/Letter Tracing" instance=ExtResource("3_ijym7")]
@@ -99,38 +164,12 @@ text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
 
-[node name="Color Hunt" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
+[node name="Shape Safari" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
 layout_mode = 2
-script = ExtResource("3_lp0aq")
 metadata/_tab_index = 1
 
-[node name="Chart" parent="MarginContainer/HBoxContainer/tab/Graph/Color Hunt" instance=ExtResource("3_ijym7")]
-visible = false
-layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="noDataLabel" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Color Hunt"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.5
-offset_top = -107.5
-offset_right = 348.5
-offset_bottom = 107.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_type_variation = &"labelH3"
-text = "No Data
-(Please play a game)"
-horizontal_alignment = 1
-
-[node name="Shape Safari" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
+[node name="Color Hunt" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
@@ -176,7 +215,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_type_variation = &"labelH3"
 theme_override_constants/outline_size = 4
-text = "My Best Scores"
+text = "My Best Times"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer"]
@@ -190,7 +229,6 @@ size_flags_horizontal = 3
 [node name="Letter Tracing" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-script = ExtResource("4_sij0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Letter Tracing"]
 layout_mode = 2
@@ -210,93 +248,89 @@ theme_type_variation = &"labelH4"
 text = "00:99"
 horizontal_alignment = 2
 
-[node name="Shape Safari" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-script = ExtResource("4_sij0v")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Shape Safari"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Shape Safari/MarginContainer"]
-layout_mode = 2
-theme_type_variation = &"labelH4"
-text = "Shape Safari"
-
-[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Shape Safari/MarginContainer"]
-layout_mode = 2
-theme_type_variation = &"labelH4"
-text = "00:99"
-horizontal_alignment = 2
-
-[node name="Color Hunt" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-script = ExtResource("4_sij0v")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Color Hunt"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Color Hunt/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
 text = "Color Hunt"
 
-[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Color Hunt/MarginContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
 text = "00:99"
 horizontal_alignment = 2
 
-[node name="Sound Hunt" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-script = ExtResource("4_sij0v")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Sound Hunt"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Sound Hunt/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
-text = "Sound Hunt"
+text = "Color Hunt"
 
-[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Sound Hunt/MarginContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
 text = "00:99"
 horizontal_alignment = 2
 
-[node name="Matching Game" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-script = ExtResource("4_sij0v")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Matching Game"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Matching Game/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
-text = "Matching Hunt"
+text = "Color Hunt"
 
-[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Matching Game/MarginContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "00:99"
+horizontal_alignment = 2
+
+[node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "Color Hunt"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
 text = "00:99"
