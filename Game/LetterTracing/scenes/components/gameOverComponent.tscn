@@ -73,6 +73,8 @@ func save():
 			pass
 		1: 
 			nameOfData = \"colorHuntData\"
+		2: 
+			nameOfData = \"matchingGameData\"
 	
 		
 	#this checks if the save data already exist. if it is then we first add it in the array before appending the new score

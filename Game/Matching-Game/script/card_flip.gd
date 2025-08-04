@@ -14,6 +14,13 @@ var score = 0                                             #Score variable
 
 # Called when the scene is loaded
 func _ready():
+	#this resets the data
+	globalGameData.resetData()
+	globalGameData.currentGameID = 2
+	
+	
+	
+	
 	score = 0                                              #nitialize score
 	score_label.text = "Score: 0"                          #et initial score display
 
@@ -69,6 +76,7 @@ func check_match():
 
 		#Increase score and update display
 		score += 1000
+		globalGameData.currentGameScore = score
 		score_label.text = "Score: " + str(score)
 		
 	# Flip them back over if no match
@@ -83,6 +91,20 @@ func check_match():
 	if all_cards_matched():
 		await get_tree().create_timer(0.5).timeout
 		win_popup.popup_centered()              # Show the win popup
+		#gameover
+		showGameOver()
+
+#region gameOverPopUP - fylart
+@onready var game_over_component: PanelContainer = $GameOverComponent
+func showGameOver():
+	get_tree().paused = true
+	game_over_component.show()
+	var childrens = game_over_component.get_children()
+	for child in childrens:
+		if child.is_in_group("persist"):
+			child.save()
+#you need to call this function after adding it 
+#endregion
 
 # Checks if all cards in the grid are matched
 func all_cards_matched() -> bool:
@@ -109,3 +131,8 @@ func _on_menu_button_pressed() -> void:
 func _on_menu_exit_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://GameUI/scenes/Main_Screen.tscn")
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		showGameOver()

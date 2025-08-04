@@ -293,8 +293,11 @@ offset_bottom = 520.0
 size_flags_horizontal = 4
 
 [node name="GameOverComponent" parent="." instance=ExtResource("30_6clmv")]
-visible = false
 layout_mode = 1
+offset_left = -234.5
+offset_top = -286.0
+offset_right = 234.5
+offset_bottom = 286.0
 
 [connection signal="pressed" from="MarginContainer/Header/MenuButton" to="MarginContainer/Header/MenuButton" method="_on_pressed"]
 [connection signal="timeout" from="MarginContainer/Header/Timer/Timer" to="LetterCardZ" method="_on_timer_timeout"]
