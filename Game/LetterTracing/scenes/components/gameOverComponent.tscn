@@ -67,15 +67,21 @@ func save():
 	
 	#this checks which game is currently running to save (It overwrites it) its data
 	var nameOfData:String
-	if globalGameData.currentGameID == 0:
-		#add an ifelse and change this base on the game (name of game)Data
-		nameOfData = \"letterTracingData\"
+	match globalGameData.currentGameID:
+		0:
+			nameOfData = \"letterTracingData\"
+			pass
+		1: 
+			nameOfData = \"colorHuntData\"
+		2: 
+			nameOfData = \"matchingGameData\"
+	
 		
-		#this checks if the save data already exist. if it is then we first add it in the array before appending the new score
-		if nameOfData in ProfileDataGlobals.saveData:
-			scoreData = ProfileDataGlobals.saveData[nameOfData][\"scores\"]
-			tryDataCounts = ProfileDataGlobals.saveData[nameOfData][\"tries\"]
-			tryDataCounts.append(tryDataCounts.max() + 1) 
+	#this checks if the save data already exist. if it is then we first add it in the array before appending the new score
+	if nameOfData in ProfileDataGlobals.saveData:
+		scoreData = ProfileDataGlobals.saveData[nameOfData][\"scores\"]
+		tryDataCounts = ProfileDataGlobals.saveData[nameOfData][\"tries\"]
+		tryDataCounts.append(tryDataCounts.max() + 1) 
 	
 	
 	

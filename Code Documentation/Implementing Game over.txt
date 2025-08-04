@@ -1,0 +1,34 @@
+1. add the game over component to the game. the component is located in letter tracing component folder
+
+2. in the root scene > ready function, add the following code:
+	func _ready() -> void:
+		#this resets the data
+		globalGameData.resetData()
+		#change the number base on the game
+		globalGameData.currentGameID = 0
+
+3. locate in the code where/when should the game over popup would appear
+
+4. add the following code in that script:
+	#region gameOverPopUP - fylart
+	@onready var game_over_component: PanelContainer = $GameOverComponent
+	func showGameOver():
+		get_tree().paused = true
+		game_over_component.show()
+		var childrens = game_over_component.get_children()
+		for child in childrens:
+			if child.is_in_group("persist"):
+				child.save()
+	#you need to call this function after adding it 
+
+	#if there's a timer to game over, connect that in this function
+	func onTimeEnd():
+		showGameOver()
+	#endregion
+
+5. find where the score is being incremented/added. add this code there:
+	globalGameData.currentGameScore = score
+
+6. head over to the saving component > data saving component > script > match case 
+
+7. add the number of the game (the first step in game id) and then write the name of the data
