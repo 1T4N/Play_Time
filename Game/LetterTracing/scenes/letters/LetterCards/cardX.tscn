@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_fg2e6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
+bg_color = Color(0.960784, 0.882353, 0.854902, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
