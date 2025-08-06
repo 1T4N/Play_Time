@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 			
 		
 		if child.finished == true:
-			print("Next")
+			#print("Next")
 			var childrensOfChild = child.get_children()
 			for childrenOfChild in childrensOfChild:
 				if childrenOfChild is Line2D:
@@ -80,6 +80,9 @@ func showNextTrace():
 		
 		#this checks if the letter tracing is already finish which will make the card swipe out and hide itself
 		#plays the fade animation after finished
+		
+		
+		
 		if animation_player == null:
 			return
 		var direction = randi_range(0,1)
@@ -89,6 +92,9 @@ func showNextTrace():
 			animation_player.play("letterCardFadeLeft")
 		
 		await animation_player.animation_finished
+		
+		
+		
 		
 		#this shows the game over scene if it detects that there's a script letterCard.gd on the LetterCard(Letter)
 		if "isLastCard" in get_parent():
@@ -107,4 +113,7 @@ func showNextTrace():
 		if child.orderID != childPointer:
 			continue
 		child.show()
+		child.set_process_mode(PROCESS_MODE_DISABLED)
+		await get_tree().create_timer(0.3).timeout  # Waits 1 second
+		child.set_process_mode(PROCESS_MODE_INHERIT)
 	

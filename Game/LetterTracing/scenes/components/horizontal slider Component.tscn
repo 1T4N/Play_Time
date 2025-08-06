@@ -18,11 +18,24 @@ var retry:bool = false
 @export var retryTraceDelay:float = 0.4
 @export var endThreshold:int = 5
 
+var isretryReady:bool = false
+func _ready() -> void:
+	await get_tree().create_timer(1).timeout  # Waits 1 second
+	isretryReady = true
+
 func _process(_delta: float) -> void:
 	if not debug:
 		theme = load(\"res://Game/LetterTracing/arts/UI/alphabet.tres\")
 	elif debug:
 		theme.clear()
+	if isMouseInside:
+		if Input.is_action_just_released(\"click\"):
+			if value >= max_value - endThreshold:
+				finished = true
+			if finished:
+				return
+			print(\"This is the value during retry: \", value)
+			retryTracing()
 
 
 func _gui_input(event):
@@ -34,12 +47,22 @@ func _gui_input(event):
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		set_value_from_mouse(event.position.x)
 		
-	if Input.is_action_just_released(\"click\") and not finished:
-		if finished:
-			return
-		globalGameData.retry.emit()
-		retry = true
 
+	
+
+func retryTracing():
+	if finished:
+		return	
+	set_mouse_filter(2)
+	print(\"Click just released\")
+	retry = true
+	timer.start(retryTraceDelay)
+	print(\"Retry\")
+	print(finished)
+	print(get_parent().get_parent().name) 
+	print(name) 
+	globalGameData.retry.emit()
+	
 func set_value_from_mouse(mouse_x):
 	#print(\"size x: \", size.x)
 	#print(\"mouse x: \", mouse_y)
@@ -68,23 +91,35 @@ func set_value_from_mouse(mouse_x):
 	#multiplying the difference to ratio we have, it will produce the exact value on 
 	#where its supposed to be
 	value = ratio * (max_value - min_value)
-	timer.start(retryTraceDelay)
+		
 
 
 
 
 
 func _on_timer_timeout() -> void:
+	if finished:
+		return
+	print(\"Retry timeout\")
 	var tween = create_tween()
 	tween.tween_property(self,\"value\",0,0.3)
+	await tween.finished
+	set_mouse_filter(0)
 
 func _on_value_changed(value: float) -> void:
 	if value >= max_value - endThreshold:
 		retry = false
+		finished = true
 		set_value(max_value)
 		#print(\"this is the value: \", value)
 		#print(\"this is the max value: \", max_value)
-		finished = true
+		print(\"Value change = \", value, \", finished = \", finished )
+
+var isMouseInside:bool = false
+func _on_mouse_entered() -> void:
+	isMouseInside = true
+func _on_mouse_exited() -> void:
+	isMouseInside = false
 "
 
 [node name="horizontal Slider Component" type="ProgressBar"]
@@ -106,8 +141,11 @@ script = SubResource("GDScript_8uh7m")
 debug = false
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="animationBarRetryColorComponent" parent="." instance=ExtResource("2_hbfpe")]
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

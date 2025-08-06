@@ -63,6 +63,7 @@ debug = true
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="animationUXComponent" parent="PanelContainer" instance=ExtResource("2_67g6x")]
 layout_mode = 2
@@ -73,6 +74,7 @@ theme_type_variation = &"marginContainerProfile"
 
 [node name="profile1" type="Button" parent="PanelContainer/MarginContainer" groups=["profilerButton"]]
 layout_mode = 2
+mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_type_variation = &"buttonProfile"
 text = "Create Profile"
@@ -84,9 +86,11 @@ hoverAnimationScale = 1.05
 
 [node name="createProfile" parent="." instance=ExtResource("3_rgrka")]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="animationUXComponent" parent="PanelContainer2" instance=ExtResource("2_67g6x")]
 layout_mode = 2
@@ -97,6 +101,7 @@ theme_type_variation = &"marginContainerProfile"
 
 [node name="profile2" type="Button" parent="PanelContainer2/MarginContainer" groups=["profilerButton"]]
 layout_mode = 2
+mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_type_variation = &"buttonProfile"
 text = "Create Profile"
@@ -110,10 +115,12 @@ hoverAnimationScale = 1.05
 [node name="createProfile2" parent="." instance=ExtResource("3_rgrka")]
 visible = false
 layout_mode = 2
+mouse_filter = 1
 profileID = 1
 
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 2
+mouse_filter = 1
 
 [node name="animationUXComponent" parent="PanelContainer3" instance=ExtResource("2_67g6x")]
 layout_mode = 2
@@ -124,6 +131,7 @@ theme_type_variation = &"marginContainerProfile"
 
 [node name="profile3" type="Button" parent="PanelContainer3/MarginContainer" groups=["profilerButton"]]
 layout_mode = 2
+mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_type_variation = &"buttonProfile"
 text = "Create Profile"
@@ -137,6 +145,7 @@ hoverAnimationScale = 1.05
 [node name="createProfile3" parent="." instance=ExtResource("3_rgrka")]
 visible = false
 layout_mode = 2
+mouse_filter = 1
 profileID = 2
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/profile1" to="." method="selectProfile1"]

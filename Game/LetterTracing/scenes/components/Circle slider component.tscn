@@ -22,14 +22,22 @@ var retry:bool = false
 
 @export var retryTraceDelay:float = 0.4
 
-@export var endThreshold:int = 2
+@export var endThreshold:int = 10
+
 
 func _process(_delta: float) -> void:
 	if not debug:
 		set_tint_under(Color(0,0,0,0))
 	elif debug:
 		set_tint_under(Color(0,0,0,0.3))
-	
+	if isMouseInside:
+		if Input.is_action_just_released(\"click\"):
+			if value >= max_value - endThreshold:
+				finished = true		
+			if finished:
+				return
+			print(\"This is the value during retry: \", value)
+			retryTracing()
 
 
 func _gui_input(event):
@@ -41,12 +49,21 @@ func _gui_input(event):
 		#set_value_from_mouse(event.position.y)
 		set_value_from_mouse(event.position)
 	
-	if Input.is_action_just_released(\"click\") and not finished:
-		if finished:
-			return
-		print(\"Retry\")
-		globalGameData.retry.emit()
-		retry = true
+
+	
+
+func retryTracing():
+	if finished:
+		return
+	set_mouse_filter(2)
+	print(\"Click just released\")
+	retry = true
+	timer.start(retryTraceDelay)
+	print(\"Retry\")
+	print(finished)
+	print(get_parent().get_parent().name) 
+	print(name) 
+	globalGameData.retry.emit()
 
 func set_value_from_mouse(mouse_pos):
 #region previous code
@@ -136,23 +153,34 @@ func set_value_from_mouse(mouse_pos):
 
 #reverts the letter tracing from the start
 func _on_timer_timeout() -> void:
+	if finished:
+		return
 	var tween = create_tween()
 	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished
+	set_mouse_filter(0)
 
 
 #checks if its already finished tracing 
 func _on_value_changed(value: float) -> void:
 	#stays the progress in the 100 if completed
-	if halfCircle == true and value == (max_value/2) - 5 :
+	if halfCircle == true and value >= (max_value/2) - endThreshold :
+		finished = true
 		retry = false
 		set_value(max_value/2)
-		finished = true
 		#self.set_process_mode(PROCESS_MODE_DISABLED)
-	elif value == max_value - 5 and halfCircle == false:
-		retry = false
+	elif value >= max_value - endThreshold and halfCircle == false:
 		set_value(max_value)
 		finished = true
+		retry = false
 		#self.set_process_mode(PROCESS_MODE_DISABLED)
+	print(\"Value change = \", value, \", finished = \", finished )
+	
+var isMouseInside:bool = false
+func _on_mouse_entered() -> void:
+	isMouseInside = true
+func _on_mouse_exited() -> void:
+	isMouseInside = false
 "
 
 [node name="CircleSliderComponent" type="TextureProgressBar"]
@@ -179,5 +207,7 @@ reverse = true
 
 [node name="AnimationRetryColor" parent="." instance=ExtResource("2_eeqxb")]
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
