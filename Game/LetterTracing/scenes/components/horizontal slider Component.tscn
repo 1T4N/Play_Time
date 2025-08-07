@@ -28,14 +28,8 @@ func _process(_delta: float) -> void:
 		theme = load(\"res://Game/LetterTracing/arts/UI/alphabet.tres\")
 	elif debug:
 		theme.clear()
-	if isMouseInside:
-		if Input.is_action_just_released(\"click\"):
-			if value >= max_value - endThreshold:
-				finished = true
-			if finished:
-				return
-			print(\"This is the value during retry: \", value)
-			retryTracing()
+
+
 
 
 func _gui_input(event):
@@ -47,7 +41,13 @@ func _gui_input(event):
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		set_value_from_mouse(event.position.x)
 		
-
+	if Input.is_action_just_released(\"click\"):
+		if value >= max_value - endThreshold:
+			finished = true
+		if finished:
+			return
+		print(\"This is the value during retry: \", value)
+		retryTracing()
 	
 
 func retryTracing():

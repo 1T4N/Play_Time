@@ -26,23 +26,23 @@ func _process(_delta: float) -> void:
 	elif debug and not theme == null:
 		theme.clear()
 		
-	if isMouseInside:
-		if Input.is_action_just_released(\"click\"):
-			if value >= max_value - endThreshold:
-				finished = true
-			if finished:
-				return
-			print(\"This is the value during retry: \", value)
-			retryTracing()
 
+	
+		
 func _gui_input(event):
 	#gui input - takes the posistion of mouse, relative to the origin of node itself
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		set_value_from_mouse(event.position.y)
 	elif event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT:
 		set_value_from_mouse(event.position.y)
-	
 
+	if Input.is_action_just_released(\"click\"):
+		if value >= max_value - endThreshold:
+			finished = true
+		if finished:
+			return
+		print(\"This is the value during retry: \", value)
+		retryTracing()
 	
 
 func retryTracing():

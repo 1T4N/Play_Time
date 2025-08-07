@@ -90,7 +90,7 @@ func check_match():
 	# Check if all cards are matched to show win popup
 	if all_cards_matched():
 		await get_tree().create_timer(0.5).timeout
-		win_popup.popup_centered()              # Show the win popup
+		#win_popup.popup_centered()              # Show the win popup
 		#gameover
 		showGameOver()
 
