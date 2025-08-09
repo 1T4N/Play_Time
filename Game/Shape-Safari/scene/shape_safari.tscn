@@ -356,6 +356,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_yd0dp")
 [node name="MenuButton" type="Button" parent="."]
 clip_contents = true
 custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 170.0

@@ -5,14 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://fx0e5lxb6tv5" path="res://Game/LetterTracing/scenes/components/hint_component.tscn" id="3_c7es3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tau6c"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
+bg_color = Color(0.847059, 0.811765, 0.917647, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="LetterCardB" type="Panel"]
-self_modulate = Color(0.988235, 0.623529, 1, 1)
 custom_minimum_size = Vector2(800, 700)
 anchors_preset = 8
 anchor_left = 0.5
