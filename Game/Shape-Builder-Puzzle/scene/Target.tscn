@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwuvub3x1tg64"]
+
+[ext_resource type="Script" uid="uid://dbyjhneqdl1qj" path="res://Game/Shape-Builder-Puzzle/script/Target.gd" id="1_72f7o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7d6b"]
+region = Rect2(517, 409, 266, 246)
+
+[node name="Target" type="Node2D"]
+script = ExtResource("1_72f7o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_w7d6b")
