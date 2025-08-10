@@ -1,12 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://hy61ksv3ufvn"]
 
 [ext_resource type="Script" uid="uid://br4uikeg3vl6b" path="res://Game/Shape-Builder-Puzzle/script/Piece.gd" id="1_yc1k5"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yc1k5"]
-load_path = "res://.godot/imported/Square.PNG-9e8d3f90eea7affe9821e287dc81a797.ctex"
+[ext_resource type="Texture2D" uid="uid://dn6jjeei6804l" path="res://Game/Shape-Builder-Puzzle/ui/Square.PNG" id="2_vpjoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxqa6"]
-atlas = SubResource("CompressedTexture2D_yc1k5")
+atlas = ExtResource("2_vpjoq")
 region = Rect2(517, 409, 266, 246)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpjoq"]
