@@ -83,7 +83,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yke1"]
 bg_color = Color(0.65098, 0.894118, 0.894118, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -94,7 +94,7 @@ corner_radius_bottom_left = 5
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/font_sizes/font_size = 50
 Label/fonts/font = ExtResource("7_3p24p")
-Label/styles/normal = SubResource("StyleBoxFlat_2jusw")
+Label/styles/normal = SubResource("StyleBoxFlat_3yke1")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

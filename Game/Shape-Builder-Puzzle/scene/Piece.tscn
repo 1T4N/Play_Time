@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://hy61ksv3ufvn"]
+
+[ext_resource type="Script" uid="uid://br4uikeg3vl6b" path="res://Game/Shape-Builder-Puzzle/script/Piece.gd" id="1_yc1k5"]
+[ext_resource type="Texture2D" uid="uid://dn6jjeei6804l" path="res://Game/Shape-Builder-Puzzle/ui/Square.PNG" id="2_vpjoq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxqa6"]
+atlas = ExtResource("2_vpjoq")
+region = Rect2(517, 409, 266, 246)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpjoq"]
+size = Vector2(262, 243)
+
+[node name="Piece" type="Area2D"]
+script = ExtResource("1_yc1k5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hxqa6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_vpjoq")

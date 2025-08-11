@@ -43,6 +43,10 @@ folder_colors={
 "res://Game/Shape-Safari/": "green"
 }
 
+[global_group]
+
+bins=""
+
 [input]
 
 click={
