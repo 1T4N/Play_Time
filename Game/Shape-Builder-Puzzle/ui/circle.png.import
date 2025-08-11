@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diem34mdq5pok"
-path="res://.godot/imported/icon.svg-d355067e4c1ce0215e8353334666ce8b.ctex"
+uid="uid://bowquf0ifhpqw"
+path="res://.godot/imported/circle.png-c4189b19917c4612093c2703cfd5d6c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Shape-Safari/ui/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-d355067e4c1ce0215e8353334666ce8b.ctex"]
+source_file="res://Game/Shape-Builder-Puzzle/ui/circle.png"
+dest_files=["res://.godot/imported/circle.png-c4189b19917c4612093c2703cfd5d6c0.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

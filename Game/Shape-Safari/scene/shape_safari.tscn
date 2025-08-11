@@ -1,12 +1,36 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=30 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
+[ext_resource type="Texture2D" uid="uid://b16258qcfd383" path="res://Game/Shape-Safari/ui/Circle.PNG" id="3_08kjl"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
+[ext_resource type="Texture2D" uid="uid://clxsangxgiwn6" path="res://Game/Shape-Safari/ui/Square.PNG" id="4_4p2sc"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="4_tumoo"]
+[ext_resource type="Texture2D" uid="uid://dqy7yio22camn" path="res://Game/Shape-Safari/ui/Triangle.PNG" id="5_4huo3"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="7_tumoo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
+texture = ExtResource("7_tumoo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08kjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j25r3"]
+atlas = ExtResource("3_08kjl")
+region = Rect2(843, 408, 249, 246)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p2sc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svpsx"]
+atlas = ExtResource("4_4p2sc")
+region = Rect2(517, 409, 266, 246)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4huo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gw3s1"]
+atlas = ExtResource("5_4huo3")
+region = Rect2(1120, 413, 276, 240)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svpsx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -61,9 +85,6 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
-texture = ExtResource("7_tumoo")
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumoo"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -96,6 +117,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y2sgv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yd0dp")
 
 [node name="InstructionLabel" type="Label" parent="."]
 layout_mode = 1
@@ -150,6 +180,17 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_styles/focus = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_08kjl")
 
 [node name="ShapeImage" type="TextureRect" parent="Shape/Shape1"]
 layout_mode = 1
@@ -160,6 +201,8 @@ offset_top = -105.0
 offset_right = 205.0
 offset_bottom = 103.0
 grow_vertical = 2
+texture = SubResource("AtlasTexture_j25r3")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Shape2" type="Button" parent="Shape"]
@@ -177,6 +220,17 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4p2sc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4p2sc")
 
 [node name="ShapeImage" type="TextureRect" parent="Shape/Shape2"]
 layout_mode = 1
@@ -191,7 +245,8 @@ offset_right = 102.5
 offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 4
+texture = SubResource("AtlasTexture_svpsx")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Shape3" type="Button" parent="Shape"]
@@ -207,6 +262,17 @@ offset_bottom = 105.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4huo3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4huo3")
 
 [node name="ShapeImage" type="TextureRect" parent="Shape/Shape3"]
 layout_mode = 1
@@ -217,7 +283,8 @@ offset_top = -105.0
 offset_right = 205.0
 offset_bottom = 103.0
 grow_vertical = 2
-expand_mode = 2
+texture = SubResource("AtlasTexture_gw3s1")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="menu" type="CanvasLayer" parent="."]
@@ -343,15 +410,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
 text = "Back
 "
-
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_yd0dp")
 
 [node name="MenuButton" type="Button" parent="."]
 clip_contents = true

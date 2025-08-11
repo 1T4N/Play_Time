@@ -1,0 +1,303 @@
+[gd_scene load_steps=21 format=3 uid="uid://p2k51ed4yu8"]
+
+[ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Main.gd" id="1_ts37j"]
+[ext_resource type="Texture2D" uid="uid://omww8akom4t" path="res://Game/Shape-Builder-Puzzle/ui/shapes_house1.jpg" id="2_fnnfl"]
+[ext_resource type="PackedScene" uid="uid://hy61ksv3ufvn" path="res://Game/Shape-Builder-Puzzle/scene/Piece.tscn" id="3_5p71i"]
+[ext_resource type="PackedScene" uid="uid://dwuvub3x1tg64" path="res://Game/Shape-Builder-Puzzle/scene/Target.tscn" id="4_5p71i"]
+[ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="5_5kwwf"]
+[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="6_drqlj"]
+[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="7_f1e12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p71i"]
+atlas = ExtResource("2_fnnfl")
+region = Rect2(33, 26, 467, 349)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmcih"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwtu8"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0p6h8"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8r6r"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8himh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfkhi"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_6qu37"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("6_drqlj")
+Label/styles/normal = SubResource("StyleBoxFlat_2jusw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2kwd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kopxx"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8prb"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nk8ow"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ts37j")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960.5, 537.5)
+scale = Vector2(4.09636, 3.08596)
+texture = SubResource("AtlasTexture_5p71i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="MenuButton" type="Button" parent="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_xmcih")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uwtu8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0p6h8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j8r6r")
+text = "☰
+"
+
+[node name="Pieces" type="Node2D" parent="."]
+
+[node name="Piece" parent="Pieces" instance=ExtResource("3_5p71i")]
+position = Vector2(200, 900)
+scale = Vector2(0.62, 0.65)
+piece_id = "window1"
+
+[node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
+position = Vector2(1800, 900)
+scale = Vector2(0.62, 0.65)
+piece_id = "window2"
+
+[node name="Targets" type="Node2D" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("4_5p71i")]
+position = Vector2(550, 615)
+scale = Vector2(0.62, 0.65)
+required_id = "window1"
+
+[node name="Target2" parent="Targets" instance=ExtResource("4_5p71i")]
+position = Vector2(760, 615)
+scale = Vector2(0.62, 0.65)
+required_id = "window2"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CongratsLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.5
+offset_top = -34.5
+offset_right = 344.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Congratulations! You built it!"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_right = -76.0
+offset_bottom = 69.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_5kwwf")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -380.0
+offset_right = 275.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8himh")
+
+[node name="Panel" type="Panel" parent="Menu/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -500.0
+offset_right = 400.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfkhi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Panel"]
+custom_minimum_size = Vector2(550, 400)
+layout_mode = 2
+offset_top = 180.0
+offset_right = 550.0
+offset_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_6qu37")
+theme_override_constants/separation = 25
+
+[node name="Resume" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 2
+theme = ExtResource("7_f1e12")
+theme_override_fonts/font = ExtResource("6_drqlj")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/focus = SubResource("StyleBoxFlat_y2kwd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kopxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8prb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nk8ow")
+text = "Resume"
+
+[node name="Sound" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 2
+theme = ExtResource("7_f1e12")
+theme_override_fonts/font = ExtResource("6_drqlj")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/focus = SubResource("StyleBoxFlat_y2kwd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kopxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8prb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nk8ow")
+text = "Sound"
+
+[node name="Music" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 2
+theme = ExtResource("7_f1e12")
+theme_override_fonts/font = ExtResource("6_drqlj")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/focus = SubResource("StyleBoxFlat_y2kwd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kopxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8prb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nk8ow")
+text = "Music"
+
+[node name="Credits" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 2
+theme = ExtResource("7_f1e12")
+theme_override_fonts/font = ExtResource("6_drqlj")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/focus = SubResource("StyleBoxFlat_y2kwd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kopxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8prb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nk8ow")
+text = "Credits"
+
+[node name="Back" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 2
+theme = ExtResource("7_f1e12")
+theme_override_fonts/font = ExtResource("6_drqlj")
+theme_override_font_sizes/font_size = 125
+theme_override_styles/focus = SubResource("StyleBoxFlat_y2kwd")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kopxx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m8prb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nk8ow")
+text = "Back
+"
+
+[connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
