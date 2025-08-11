@@ -12,7 +12,7 @@ var score: int = 0
 
 func _ready():
 	ui_congrats.visible = false
-	score_label.text = "Score: 0"  # Initialize label text
+	score_label.text = "Score: "  # Initialize label text
 
 func try_place_piece(piece):
 	# Try to place the piece into any matching vacant target within snap_distance
