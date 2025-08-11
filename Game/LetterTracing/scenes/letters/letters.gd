@@ -28,6 +28,12 @@ func _ready() -> void:
 			lastTracingOrder = child.orderID
 			#print(lastTracingOrder)
 #endregion
+		#call_deferred("centerTheCard")
+#
+#
+#func centerTheCard() -> void:
+	#get_parent().pivot_offset = get_parent().size/2
+	#get_parent().global_position = get_parent().get_parent().get_parent().size/2
 
 func _process(_delta: float) -> void:
 	#print(originalPos)
@@ -104,6 +110,7 @@ func showNextTrace():
 			get_parent().showGameOver()
 			get_tree().paused = true
 		
+		get_parent().get_parent().unPauseNextCard()
 		get_parent().hide()
 		
 		return
