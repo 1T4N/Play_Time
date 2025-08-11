@@ -10,3 +10,7 @@ var timeDeduction:int = 5
 func resetData():
 	globalGameData.currentGameScore = 0
 	globalGameData.LetterTracingTime = 0
+
+
+signal transition(pathToNextScene:String)
+var isTransitionPlayed:bool

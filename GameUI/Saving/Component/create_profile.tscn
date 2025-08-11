@@ -70,7 +70,8 @@ func loadProfile():
 	ProfileDataGlobals.profileID = profileID
 	#ProfileDataGlobals.setSaveFilePath(profileID)
 	ProfileDataGlobals.saveData = datas
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
+	globalGameData.emit_signal(\"transition\", \"res://GameUI/scenes/Main_Screen.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
 
 [node name="createProfile" type="Panel"]

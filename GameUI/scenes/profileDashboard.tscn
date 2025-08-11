@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8fv57om4an8h"]
+[gd_scene load_steps=12 format=3 uid="uid://c8fv57om4an8h"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
 [ext_resource type="Texture2D" uid="uid://defpg8ecr7d68" path="res://icon.svg" id="2_ijym7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="4_k68s6"]
 [ext_resource type="Script" uid="uid://2w68gxf1ei8f" path="res://GameUI/scenes/Component/maxScores.gd" id="4_sij0v"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="5_sij0v"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="8_72g2v"]
 
 [sub_resource type="GDScript" id="GDScript_lp0aq"]
 script/source = "extends Label
@@ -21,7 +22,8 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
+	globalGameData.emit_signal(\"transition\",\"res://GameUI/scenes/Main_Screen.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
 
 [node name="ProfileDashboard" type="PanelContainer"]
@@ -633,5 +635,9 @@ script = SubResource("GDScript_k68s6")
 
 [node name="animationUXComponent" parent="goBack/Button" instance=ExtResource("5_sij0v")]
 isPopIn = true
+
+[node name="SlideTransition" parent="." instance=ExtResource("8_72g2v")]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]

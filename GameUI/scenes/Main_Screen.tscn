@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg8rrhcc1s7nq"]
+[gd_scene load_steps=24 format=3 uid="uid://cg8rrhcc1s7nq"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="7_dnk5s"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="8_gmdo5"]
 [ext_resource type="Texture2D" uid="uid://b22ku07lvs3ni" path="res://GameUI/assets/baby-face (1).png" id="9_himgm"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="10_8m04k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
 texture = ExtResource("2_1bnt8")
@@ -70,7 +71,8 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
+	globalGameData.emit_signal(\"transition\",\"res://GameUI/scenes/Start_Screen.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_8m04k"]
@@ -78,7 +80,8 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/profileDashboard.tscn\")
+	globalGameData.emit_signal(\"transition\",\"res://GameUI/scenes/profileDashboard.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/profileDashboard.tscn\")
 "
 
 [node name="MainScreen" type="Control"]
@@ -156,6 +159,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
 text = "Alphabet Tracing"
 script = ExtResource("5_fvq50")
 
@@ -172,6 +176,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
 text = "Color Hunt"
 script = ExtResource("5_fvq50")
 
@@ -188,6 +193,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
 text = "Matching Game"
 script = ExtResource("5_fvq50")
 
@@ -211,6 +217,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
 text = "Shape-Safari"
 script = ExtResource("5_fvq50")
 
@@ -227,6 +234,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
 text = "Sound Hunt"
 script = ExtResource("5_fvq50")
 
@@ -292,6 +300,10 @@ script = SubResource("GDScript_8m04k")
 
 [node name="animationUXComponent" parent="toProfileDashboard/Button" instance=ExtResource("8_gmdo5")]
 isPopIn = true
+
+[node name="SlideTransition" parent="." instance=ExtResource("10_8m04k")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" method="_on_mouse_entered"]
