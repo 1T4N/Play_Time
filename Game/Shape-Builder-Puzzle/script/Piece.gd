@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var piece_id: String = ""    # set per-piece in Inspector
+@export var points: int = 0          # set per-piece in Inspector (500, 1000, 1500, etc.)
 
 var dragging := false
 var offset := Vector2.ZERO
@@ -28,7 +29,7 @@ func _input(event):
 				dragging = false
 				var main = get_tree().current_scene
 				if main and main.has_method("try_place_piece"):
-					main.try_place_piece(self)
+					main.try_place_piece(self)  # passes self so main can read points
 	elif event is InputEventMouseMotion and dragging:
 		global_position = get_global_mouse_position() + offset
 

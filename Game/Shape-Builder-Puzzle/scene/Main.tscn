@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://p2k51ed4yu8"]
 
-[ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Main.gd" id="1_ts37j"]
+[ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Shape-Builder-puzzle.gd" id="1_ts37j"]
 [ext_resource type="Texture2D" uid="uid://omww8akom4t" path="res://Game/Shape-Builder-Puzzle/ui/shapes_house1.jpg" id="2_fnnfl"]
 [ext_resource type="PackedScene" uid="uid://hy61ksv3ufvn" path="res://Game/Shape-Builder-Puzzle/scene/Piece.tscn" id="3_5p71i"]
 [ext_resource type="PackedScene" uid="uid://dwuvub3x1tg64" path="res://Game/Shape-Builder-Puzzle/scene/Target.tscn" id="4_5p71i"]
@@ -131,11 +131,13 @@ text = "☰
 position = Vector2(200, 900)
 scale = Vector2(0.62, 0.65)
 piece_id = "window1"
+points = 500
 
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
 position = Vector2(1800, 900)
 scale = Vector2(0.62, 0.65)
 piece_id = "window2"
+points = 500
 
 [node name="Targets" type="Node2D" parent="."]
 
@@ -172,12 +174,13 @@ text = "Congratulations! You built it!"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -270.0
-offset_right = -126.0
+offset_left = -340.0
+offset_right = -78.0
 offset_bottom = 140.0
 grow_horizontal = 0
 theme = ExtResource("5_drqlj")
 theme_override_font_sizes/font_size = 87
+text = "Score: "
 
 [node name="Menu" type="Control" parent="."]
 visible = false
@@ -299,6 +302,25 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nk8ow")
 text = "Back
 "
 
+[node name="GameOverPopup" type="Popup" parent="."]
+
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="GameTimer" type="Timer" parent="Timer"]
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="Timer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.0
+offset_right = 190.0
+offset_bottom = 146.0
+grow_horizontal = 2
+theme = ExtResource("5_drqlj")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
+[connection signal="timeout" from="Timer/GameTimer" to="." method="_on_game_timer_timeout"]
