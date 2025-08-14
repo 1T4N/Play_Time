@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2l70s22x23yq"
-path="res://.godot/imported/plane.jpg-e34e6a2c8acdad4f25e9ea4dcfc14618.ctex"
+uid="uid://ult32h70la8d"
+path="res://.godot/imported/Poseiden-9-250x250.jpg-cf6e8b8d6f49f98988359c7576d62a42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Letter-Sound-Hunt/ui/plane.jpg"
-dest_files=["res://.godot/imported/plane.jpg-e34e6a2c8acdad4f25e9ea4dcfc14618.ctex"]
+source_file="res://Game/Letter-Sound-Hunt/ui/Poseiden-9-250x250.jpg"
+dest_files=["res://.godot/imported/Poseiden-9-250x250.jpg-cf6e8b8d6f49f98988359c7576d62a42.ctex"]
 
 [params]
 
