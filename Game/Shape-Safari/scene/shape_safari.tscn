@@ -1,18 +1,42 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=34 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
-[ext_resource type="Texture2D" uid="uid://b16258qcfd383" path="res://Game/Shape-Safari/ui/Circle.PNG" id="3_08kjl"]
+[ext_resource type="Texture2D" uid="uid://b16258qcfd383" path="res://Game/Shape-Safari/ui/circle.png" id="3_08kjl"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
 [ext_resource type="Texture2D" uid="uid://clxsangxgiwn6" path="res://Game/Shape-Safari/ui/Square.PNG" id="4_4p2sc"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="4_tumoo"]
-[ext_resource type="Texture2D" uid="uid://dqy7yio22camn" path="res://Game/Shape-Safari/ui/Triangle.PNG" id="5_4huo3"]
+[ext_resource type="Texture2D" uid="uid://dqy7yio22camn" path="res://Game/Shape-Safari/ui/triangle.png" id="5_4huo3"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="7_tumoo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
 texture = ExtResource("7_tumoo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumoo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd0dp"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrt5h"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kjl"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08kjl"]
 
@@ -85,29 +109,46 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumoo"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="Animation" id="Animation_4p2sc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShapeImage:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd0dp"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="Animation" id="Animation_08kjl"]
+resource_name = "correct_pop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShapeImage:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrt5h"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="Animation" id="Animation_4huo3"]
+resource_name = "wrong_shape"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kjl"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4huo3"]
+_data = {
+&"RESET": SubResource("Animation_4p2sc"),
+&"correct_pop": SubResource("Animation_08kjl"),
+&"wrong_shape": SubResource("Animation_4huo3")
+}
 
 [node name="ShapeSafari" type="Control"]
 layout_mode = 3
@@ -118,6 +159,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y2sgv")
 
+[node name="Timer" type="CanvasLayer" parent="."]
+
+[node name="GameTimer" type="Timer" parent="Timer"]
+wait_time = 10.0
+autostart = true
+
+[node name="TimerLabel" type="Label" parent="Timer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.5
+offset_top = 96.0
+offset_right = 139.5
+offset_bottom = 242.0
+grow_horizontal = 2
+theme = ExtResource("3_b81qt")
+
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -127,37 +185,73 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_yd0dp")
 
-[node name="InstructionLabel" type="Label" parent="."]
+[node name="InstructionLabel" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -291.5
+offset_right = 291.5
+offset_bottom = 146.0
 grow_horizontal = 2
+theme = ExtResource("3_b81qt")
+text = "Find the Circle"
 
-[node name="FeedbackLabel" type="Label" parent="."]
+[node name="FeedbackLabel" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
+offset_left = -79.5
 offset_top = -23.0
-offset_right = 20.0
+offset_right = 79.5
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_b81qt")
 text = "You found the circle!"
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="ScoreLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -236.0
+offset_top = 19.0
+offset_right = -34.0
+offset_bottom = 165.0
+grow_horizontal = 0
+theme = ExtResource("3_b81qt")
+theme_override_font_sizes/font_size = 72
+text = "Score:"
+
+[node name="Background" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MenuButton" type="Button" parent="Panel"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 170.0
+offset_bottom = 170.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_tumoo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yd0dp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrt5h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_08kjl")
+text = "☰
+"
 
 [node name="narrator" type="AudioStreamPlayer2D" parent="."]
 visible = false
@@ -411,28 +505,32 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
 text = "Back
 "
 
-[node name="MenuButton" type="Button" parent="."]
-clip_contents = true
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 170.0
-offset_bottom = 170.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
-theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_tumoo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yd0dp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hrt5h")
-theme_override_styles/normal = SubResource("StyleBoxFlat_08kjl")
-text = "☰
-"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Shape/Shape1")
+libraries = {
+&"": SubResource("AnimationLibrary_4huo3")
+}
 
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over!"
+
+[connection signal="timeout" from="Timer/GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Shape/Shape1" to="." method="_on_shape_1_pressed"]
 [connection signal="pressed" from="Shape/Shape2" to="." method="_on_shape_2_pressed"]
 [connection signal="pressed" from="Shape/Shape3" to="." method="_on_shape_3_pressed"]
 [connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="menu/Menu" method="_on_back_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
