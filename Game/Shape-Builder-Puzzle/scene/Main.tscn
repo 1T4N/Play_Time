@@ -136,7 +136,7 @@ points = 500
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
 position = Vector2(1800, 900)
 scale = Vector2(0.62, 0.65)
-piece_id = "window2"
+piece_id = "window1"
 points = 500
 
 [node name="Targets" type="Node2D" parent="."]
@@ -149,7 +149,7 @@ required_id = "window1"
 [node name="Target2" parent="Targets" instance=ExtResource("4_5p71i")]
 position = Vector2(760, 615)
 scale = Vector2(0.62, 0.65)
-required_id = "window2"
+required_id = "window1"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
