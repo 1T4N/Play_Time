@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cu6qlm20xe5km"]
+[gd_scene load_steps=17 format=3 uid="uid://cu6qlm20xe5km"]
 
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="1_np6pp"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_sdpiv"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="1_ukuya"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="2_mwg2q"]
+[ext_resource type="Script" uid="uid://bu4xx3vuwy02f" path="res://components/credits.gd" id="5_yowbx"]
+[ext_resource type="FontFile" uid="uid://chpwqn55eflyd" path="res://Asap_Condensed,Baloo_2,Madimi_One/Asap_Condensed/AsapCondensed-Bold.ttf" id="6_ojatv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdpiv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -58,6 +60,20 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83co6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxylp"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [node name="Menu" type="Control"]
 process_mode = 3
 custom_minimum_size = Vector2(600, 850)
@@ -107,10 +123,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_yowbx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
 custom_minimum_size = Vector2(650, 550)
-layout_mode = 2
-offset_top = 180.0
-offset_right = 550.0
-offset_bottom = 580.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -439.0
+offset_right = 350.0
+offset_bottom = 439.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -165,6 +187,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Credits"
+script = ExtResource("5_yowbx")
 
 [node name="Back" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(700, 150)
@@ -179,5 +202,93 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Back
 "
 
+[node name="Credit Page" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_83co6")
+
+[node name="Panel" type="Panel" parent="MarginContainer/Credit Page"]
+custom_minimum_size = Vector2(800, 1000)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxylp")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Credit Page/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Credit Page/Panel/MarginContainer"]
+custom_minimum_size = Vector2(750, 950)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Title (Team)" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.5568, 0.344, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 100
+text = "Team"
+
+[node name="Game Development" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "🎮Game Development:"
+
+[node name="Game Developers" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "Crispatrick Suarez - Lead Game Developer
+Justine Saracanlao - Game Developer"
+
+[node name="Documentation" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "📝Documentation:"
+
+[node name="Documentator" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "       Czarlayne Rivera - Writer & Project 
+       Documentation"
+
+[node name="Art & Design" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "🎨Art & Design:"
+
+[node name="Artist" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "Kristian Sandaga - Artist & Visual Designer"
+
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Credits" to="MarginContainer/Panel/VBoxContainer/Credits" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Back" to="." method="_on_back_pressed"]
