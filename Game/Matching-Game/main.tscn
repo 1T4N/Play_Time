@@ -341,6 +341,7 @@ text = "Help"
 size = Vector2i(259, 238)
 
 [node name="Label" type="Label" parent="PopUp/HelpPopup"]
+visible = false
 offset_left = 5.0
 offset_top = 7.0
 offset_right = 259.0
@@ -536,9 +537,29 @@ offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("8_5fsx7")
+theme_type_variation = &"labelH2"
+text = "99"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="Panel/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="PopUp/WinPopUp/Panel/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PopUp/WinPopUp/Panel/MenuExitButton" to="." method="_on_menu_exit_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

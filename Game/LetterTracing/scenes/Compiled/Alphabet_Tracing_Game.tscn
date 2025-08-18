@@ -30,8 +30,28 @@
 [ext_resource type="PackedScene" uid="uid://crrkwtr37dii0" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardV.tscn" id="4_whd0p"]
 [ext_resource type="PackedScene" uid="uid://bn7o47a6g1xpt" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardX.tscn" id="4_x1xr6"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
-[ext_resource type="Script" uid="uid://b8snuv0yjkirc" path="res://Game/LetterTracing/scenes/letters/LetterCards/letterCard.gd" id="28_hamko"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="30_6clmv"]
+
+[sub_resource type="GDScript" id="GDScript_6o2um"]
+script/source = "extends Control
+var childrens
+var currentLetterCardPointer:int = -1
+
+func _ready() -> void:
+	childrens = get_children()
+	print(childrens)
+	for child in childrens:
+		child.hide()
+	unPauseNextCard()
+
+func unPauseNextCard():
+	#print(currentLetterCardPointer, childrens[currentLetterCardPointer])
+	childrens[currentLetterCardPointer].show()
+	currentLetterCardPointer -= 1
+	childrens[currentLetterCardPointer].show()
+	currentLetterCardPointer -= 1
+	
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qdd"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -129,85 +149,96 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_oyvai")
 
-[node name="LetterCardZ" parent="." groups=["letterUpperCase"] instance=ExtResource("4_6clmv")]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
-script = ExtResource("28_hamko")
-isLastCard = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_6o2um")
 
-[node name="LetterCardY" parent="." groups=["letterUpperCase"] instance=ExtResource("4_5s7d8")]
-layout_mode = 1
-
-[node name="LetterCardX" parent="." groups=["letterUpperCase"] instance=ExtResource("4_x1xr6")]
-layout_mode = 1
-
-[node name="LetterCardW" parent="." groups=["letterUpperCase"] instance=ExtResource("4_vbuyb")]
-layout_mode = 1
-
-[node name="LetterCardV" parent="." groups=["letterUpperCase"] instance=ExtResource("4_whd0p")]
+[node name="LetterCardZ" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_6clmv")]
 layout_mode = 1
 
-[node name="LetterCardU" parent="." groups=["letterUpperCase"] instance=ExtResource("4_luu5w")]
+[node name="LetterCardY" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_5s7d8")]
 layout_mode = 1
 
-[node name="LetterCardT" parent="." groups=["letterUpperCase"] instance=ExtResource("4_2y71p")]
+[node name="LetterCardX" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_x1xr6")]
 layout_mode = 1
 
-[node name="LetterCardS" parent="." groups=["letterUpperCase"] instance=ExtResource("4_j6cp2")]
+[node name="LetterCardW" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_vbuyb")]
+layout_mode = 1
+
+[node name="LetterCardV" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_whd0p")]
+layout_mode = 1
+
+[node name="LetterCardU" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_luu5w")]
+layout_mode = 1
+
+[node name="LetterCardT" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_2y71p")]
+layout_mode = 1
+
+[node name="LetterCardS" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_j6cp2")]
 visible = false
 layout_mode = 1
 
-[node name="LetterCardR" parent="." groups=["letterUpperCase"] instance=ExtResource("4_cn0o3")]
+[node name="LetterCardR" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_cn0o3")]
 layout_mode = 1
 
-[node name="LetterCardQ" parent="." groups=["letterUpperCase"] instance=ExtResource("4_floem")]
+[node name="LetterCardQ" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_floem")]
 layout_mode = 1
 
-[node name="LetterCardP" parent="." groups=["letterUpperCase"] instance=ExtResource("4_oyvai")]
+[node name="LetterCardP" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_oyvai")]
 layout_mode = 1
 
-[node name="LetterCardO" parent="." groups=["letterUpperCase"] instance=ExtResource("4_mqomt")]
+[node name="LetterCardO" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_mqomt")]
 layout_mode = 1
 
-[node name="LetterCardN" parent="." groups=["letterUpperCase"] instance=ExtResource("4_8p8rp")]
+[node name="LetterCardN" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_8p8rp")]
 layout_mode = 1
 
-[node name="LetterCardM" parent="." groups=["letterUpperCase"] instance=ExtResource("4_jvox4")]
+[node name="LetterCardM" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_jvox4")]
 layout_mode = 1
 
-[node name="LetterCardL" parent="." groups=["letterUpperCase"] instance=ExtResource("4_r8eln")]
+[node name="LetterCardL" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_r8eln")]
 layout_mode = 1
 
-[node name="LetterCardK" parent="." groups=["letterUpperCase"] instance=ExtResource("4_3sue6")]
+[node name="LetterCardK" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_3sue6")]
 layout_mode = 1
 
-[node name="LetterCardJ" parent="." groups=["letterUpperCase"] instance=ExtResource("4_eo08j")]
+[node name="LetterCardJ" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_eo08j")]
 layout_mode = 1
 
-[node name="LetterCardI" parent="." groups=["letterUpperCase"] instance=ExtResource("4_48jk6")]
+[node name="LetterCardI" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_48jk6")]
 layout_mode = 1
 
-[node name="LetterCardH" parent="." groups=["letterUpperCase"] instance=ExtResource("4_ob2u7")]
+[node name="LetterCardH" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_ob2u7")]
 layout_mode = 1
 
-[node name="LetterCardG" parent="." groups=["letterUpperCase"] instance=ExtResource("4_klref")]
+[node name="LetterCardG" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_klref")]
 layout_mode = 1
 
-[node name="LetterCardF" parent="." groups=["letterUpperCase"] instance=ExtResource("4_4m6or")]
+[node name="LetterCardF" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_4m6or")]
 layout_mode = 1
 
-[node name="LetterCardE" parent="." groups=["letterUpperCase"] instance=ExtResource("4_hptry")]
+[node name="LetterCardE" parent="Control" groups=["letterUpperCase"] instance=ExtResource("4_hptry")]
 layout_mode = 1
 
-[node name="LetterCardD" parent="." groups=["letterUpperCase"] instance=ExtResource("3_e3qdd")]
+[node name="LetterCardD" parent="Control" groups=["letterUpperCase"] instance=ExtResource("3_e3qdd")]
 layout_mode = 1
 
-[node name="LetterCardC" parent="." groups=["letterUpperCase"] instance=ExtResource("3_hw8sg")]
+[node name="LetterCardC" parent="Control" groups=["letterUpperCase"] instance=ExtResource("3_hw8sg")]
 layout_mode = 1
+script = null
 
-[node name="LetterCardB" parent="." groups=["letterUpperCase"] instance=ExtResource("3_v66mg")]
+[node name="LetterCardB" parent="Control" groups=["letterUpperCase"] instance=ExtResource("3_v66mg")]
 layout_mode = 1
+script = null
 
-[node name="LetterCardA" parent="." groups=["letterUpperCase"] instance=ExtResource("3_fbvme")]
+[node name="LetterCardA" parent="Control" groups=["letterUpperCase"] instance=ExtResource("3_fbvme")]
 layout_mode = 1
 script = null
 
@@ -301,4 +332,4 @@ offset_right = 234.5
 offset_bottom = 286.0
 
 [connection signal="pressed" from="MarginContainer/Header/MenuButton" to="MarginContainer/Header/MenuButton" method="_on_pressed"]
-[connection signal="timeout" from="MarginContainer/Header/Timer/Timer" to="LetterCardZ" method="_on_timer_timeout"]
+[connection signal="timeout" from="MarginContainer/Header/Timer/Timer" to="Control/LetterCardZ" method="_on_timer_timeout"]

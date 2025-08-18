@@ -1,6 +1,11 @@
 extends Panel
 @export var isLastCard:bool
-@onready var game_over_component: PanelContainer = $"../GameOverComponent"
+@onready var game_over_component: PanelContainer = $"../../GameOverComponent"
+
+#func _ready() -> void:
+	#pivot_offset = size/2
+	#position = size/2
+
 
 func showGameOver():
 	game_over_component.show()

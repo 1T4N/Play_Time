@@ -1,41 +1,105 @@
-[gd_scene load_steps=23 format=3 uid="uid://cg8rrhcc1s7nq"]
+[gd_scene load_steps=22 format=3 uid="uid://cg8rrhcc1s7nq"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
 [ext_resource type="Texture2D" uid="uid://b7e7056g6xsog" path="res://GameUI/assets/Start_Screen_BG.PNG" id="2_1bnt8"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
-[ext_resource type="Script" uid="uid://hxsi110jebf5" path="res://components/script/mainScreenTweenManager.gd" id="5_1bnt8"]
-[ext_resource type="Script" uid="uid://b7mcucfttj3xt" path="res://components/script/animationScalePopUp.gd" id="5_fvq50"]
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="7_dnk5s"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="8_gmdo5"]
 [ext_resource type="Texture2D" uid="uid://b22ku07lvs3ni" path="res://GameUI/assets/baby-face (1).png" id="9_himgm"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="10_8m04k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
 texture = ExtResource("2_1bnt8")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfu86"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="GDScript" id="GDScript_gmdo5"]
+script/source = "extends GridContainer
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwoif"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wonb4"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+const WhatGame = preload(\"res://GameUI/scenes/Component/whatGame.gd\")
+#@onready var score: Label = $MarginContainer/Score
+var unsortedMaxPlayCount:Array
+var gameAndScore:Dictionary
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkfq3"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+var sortedPlayCounts:Array
+
+func _ready() -> void:
+	call_deferred(\"initialize\")
+	
+func initialize():
+	for child in get_children():
+		var game = WhatGame.new(child.name)
+		#this means it has no game data so we continue (Not Terminate) the function
+		if not ProfileDataGlobals.saveData.has(game.gameName):
+			continue
+		var playCount:Array = ProfileDataGlobals.saveData[game.gameName].tries
+		gameAndScore[child.name] = playCount.max()
+		unsortedMaxPlayCount.append(playCount.max())
+		#score.text = str(scores.max())
+		pass
+
+	#print(\"okay\")
+	print(gameAndScore)
+	#print(unsortedMaxPlayCount)
+	sortedPlayCounts = merge_sort(unsortedMaxPlayCount)
+	#print(merge_sort(unsortedMaxPlayCount))
+	var sortedPlayCount = sortedPlayCounts.size() - 1
+	var topPlayedCount:int = 0
+	while sortedPlayCount >= 0:
+		#print(sortedPlayCounts[sortedPlayCount])
+		for key in gameAndScore:
+			#print(key)
+			if gameAndScore[key] == sortedPlayCounts[sortedPlayCount]: 
+				#print(\"Found key:\", key, \"for value:\", sortedPlayCount)
+				for child in get_children():
+					if not child.name == key:
+						continue
+					move_child(child, topPlayedCount) 
+					#print(child.name, \" = \", key)
+				break
+		sortedPlayCount -= 1
+		topPlayedCount += 1
+	pass
+
+#func _ready() -> void:
+	##var child = get_child(0)  
+	##move_child(child, 2) 
+	#pass
+
+# Call this function with your array to sort it
+func merge_sort(arr: Array) -> Array:
+	if arr.size() <= 1:
+		return arr
+	
+	var mid = arr.size() / 2
+	var left = merge_sort(arr.slice(0, mid))
+	var right = merge_sort(arr.slice(mid, arr.size()))
+
+	return merge(left, right)
+
+func merge(left: Array, right: Array) -> Array:
+	var result = []
+	var i = 0
+	var j = 0
+
+	while i < left.size() and j < right.size():
+		if left[i] <= right[j]:
+			result.append(left[i])
+			i += 1
+		else:
+			result.append(right[j])
+			j += 1
+
+	while i < left.size():
+		result.append(left[i])
+		i += 1
+
+	while j < right.size():
+		result.append(right[j])
+		j += 1
+
+	return result
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd8qc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -61,7 +125,29 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 20
 
-[sub_resource type="Theme" id="Theme_wbm3f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vfu86"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwoif"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wonb4"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkfq3"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmdo5"]
 
@@ -70,7 +156,8 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
+	globalGameData.emit_signal(\"transition\",\"res://GameUI/scenes/Start_Screen.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/Start_Screen.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_8m04k"]
@@ -78,7 +165,8 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/profileDashboard.tscn\")
+	globalGameData.emit_signal(\"transition\",\"res://GameUI/scenes/profileDashboard.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/profileDashboard.tscn\")
 "
 
 [node name="MainScreen" type="Control"]
@@ -110,6 +198,123 @@ grow_vertical = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 
+[node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 3
+script = SubResource("GDScript_gmdo5")
+
+[node name="Letter Tracing" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Alphabet Tracing"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Letter Tracing" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Color Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Color Hunt"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Color Hunt" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Matching Game" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Matching Game"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Matching Game" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Sound Hunt"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Sound Hunt" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Shape Safari" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Shape-Safari"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Shape Safari" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Puzzle Builder" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Puzzle Builder"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Puzzle Builder" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
 [node name="Button" type="Button" parent="Panel/MarginContainer1"]
 visible = false
 custom_minimum_size = Vector2(150, 150)
@@ -127,108 +332,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wonb4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dkfq3")
 text = "☰
 "
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer1"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="tweenManager" type="Node" parent="Panel/MarginContainer1/VBoxContainer"]
-script = ExtResource("5_1bnt8")
-
-[node name="gamesContainer1" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-
-[node name="Alphabet" type="Button" parent="Panel/MarginContainer1/VBoxContainer/gamesContainer1"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Alphabet Tracing"
-script = ExtResource("5_fvq50")
-
-[node name="Color" type="Button" parent="Panel/MarginContainer1/VBoxContainer/gamesContainer1"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Color Hunt"
-script = ExtResource("5_fvq50")
-
-[node name="Matching" type="Button" parent="Panel/MarginContainer1/VBoxContainer/gamesContainer1"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Matching Game"
-script = ExtResource("5_fvq50")
-
-[node name="featured" type="HBoxContainer" parent="Panel/MarginContainer1/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_wbm3f")
-theme_override_constants/separation = 50
-
-[node name="Shape-Safari" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Shape-Safari"
-script = ExtResource("5_fvq50")
-
-[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/VBoxContainer/featured"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(480, 350)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_dkfq3")
-theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
-theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
-theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
-text = "Sound Hunt"
-script = ExtResource("5_fvq50")
 
 [node name="goBack" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -293,14 +396,20 @@ script = SubResource("GDScript_8m04k")
 [node name="animationUXComponent" parent="toProfileDashboard/Button" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
+[node name="SlideTransition" parent="." instance=ExtResource("10_8m04k")]
+visible = false
+layout_mode = 1
+
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Letter Tracing" to="Panel/MarginContainer1/GridContainer/Letter Tracing" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Letter Tracing" to="." method="_on_alphabet_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Color Hunt" to="." method="_on_color_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Matching Game" to="." method="_on_matching_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Sound Hunt" to="Panel/MarginContainer1/GridContainer/Sound Hunt" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Sound Hunt" to="." method="_on_sound_hunt_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="Panel/MarginContainer1/GridContainer/Shape Safari" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="." method="_on_shape_safari_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="Panel/MarginContainer1/GridContainer/Puzzle Builder" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="." method="_on_shape_safari_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Alphabet" to="." method="_on_alphabet_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Color" to="." method="_on_color_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/gamesContainer1/Matching" to="." method="_on_matching_pressed"]
-[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" to="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/featured/Shape-Safari" to="." method="_on_shape_safari_pressed"]
-[connection signal="mouse_entered" from="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" to="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/VBoxContainer/featured/Sound Hunt" to="." method="_on_sound_hunt_pressed"]
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]
 [connection signal="pressed" from="toProfileDashboard/Button" to="toProfileDashboard/Button" method="_on_pressed"]

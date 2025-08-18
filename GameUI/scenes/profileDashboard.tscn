@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8fv57om4an8h"]
+[gd_scene load_steps=12 format=3 uid="uid://c8fv57om4an8h"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
 [ext_resource type="Texture2D" uid="uid://cv71pncgg3m46" path="res://icon.svg" id="2_ijym7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="4_k68s6"]
 [ext_resource type="Script" uid="uid://2w68gxf1ei8f" path="res://GameUI/scenes/Component/maxScores.gd" id="4_sij0v"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="5_sij0v"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="8_72g2v"]
 
 [sub_resource type="GDScript" id="GDScript_lp0aq"]
 script/source = "extends Label
@@ -21,7 +22,8 @@ script/source = "extends Button
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
+	globalGameData.emit_signal(\"transition\",\"res://GameUI/scenes/Main_Screen.tscn\")
+	#get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
 
 [node name="ProfileDashboard" type="PanelContainer"]
@@ -294,6 +296,7 @@ size_flags_horizontal = 3
 [node name="Letter Tracing" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("4_sij0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Letter Tracing"]
@@ -317,6 +320,7 @@ horizontal_alignment = 2
 [node name="Color Hunt" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("4_sij0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Color Hunt"]
@@ -340,6 +344,7 @@ horizontal_alignment = 2
 [node name="Matching Game" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("4_sij0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Matching Game"]
@@ -363,6 +368,7 @@ horizontal_alignment = 2
 [node name="Shape Safari" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("4_sij0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Shape Safari"]
@@ -386,6 +392,7 @@ horizontal_alignment = 2
 [node name="Sound Hunt" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("4_sij0v")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Sound Hunt"]
@@ -409,6 +416,7 @@ horizontal_alignment = 2
 [node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6"]
 layout_mode = 2
@@ -429,6 +437,7 @@ text = "00:99"
 horizontal_alignment = 2
 
 [node name="bestScores" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"PanelContainerZ1"
@@ -463,6 +472,7 @@ size_flags_horizontal = 3
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
@@ -485,6 +495,7 @@ horizontal_alignment = 2
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
@@ -507,6 +518,7 @@ horizontal_alignment = 2
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer3"]
 layout_mode = 2
@@ -529,6 +541,7 @@ horizontal_alignment = 2
 [node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer4"]
 layout_mode = 2
@@ -551,6 +564,7 @@ horizontal_alignment = 2
 [node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer5"]
 layout_mode = 2
@@ -573,6 +587,7 @@ horizontal_alignment = 2
 [node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestScores/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6"]
 layout_mode = 2
@@ -621,5 +636,9 @@ script = SubResource("GDScript_k68s6")
 
 [node name="animationUXComponent" parent="goBack/Button" instance=ExtResource("5_sij0v")]
 isPopIn = true
+
+[node name="SlideTransition" parent="." instance=ExtResource("8_72g2v")]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]

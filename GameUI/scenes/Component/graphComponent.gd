@@ -37,7 +37,7 @@ func _ready() -> void:
 	cp.y_label = "SCORE"
 	cp.x_scale = 5
 	cp.y_scale = 10
-	cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
+	#cp.interactive = true # false by default, it allows the chart to create a tooltip to show point values
 	# and interecept clicks on the plot
 	
 	# Let's add values to our functions

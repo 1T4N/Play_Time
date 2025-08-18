@@ -13,6 +13,8 @@ func _ready() -> void:
 		get_parent().set_pivot_offset(get_parent().size/2) 
 		get_parent().connect(\"mouse_entered\",scaleUp)
 		get_parent().connect(\"mouse_exited\",scaleDown)
+		get_parent().set_default_cursor_shape(Control.CURSOR_POINTING_HAND)
+
 
 
 #region this is if the parent is a button, Add a scale up

@@ -90,7 +90,7 @@ func check_match():
 	# Check if all cards are matched to show win popup
 	if all_cards_matched():
 		await get_tree().create_timer(0.5).timeout
-		win_popup.popup_centered()              # Show the win popup
+		#win_popup.popup_centered()              # Show the win popup
 		#gameover
 		showGameOver()
 
@@ -132,7 +132,16 @@ func _on_menu_exit_button_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://GameUI/scenes/Main_Screen.tscn")
 
+@onready var timer: Timer = $Timer
+@onready var time_label: Label = $TimeLabel
+
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		showGameOver()
+	time_label.text = str(int(timer.get_time_left()))
+	#print(timer.get_time_left())
+
+
+
+func _on_timer_timeout() -> void:
+	showGameOver()
+	pass # Replace with function body.
