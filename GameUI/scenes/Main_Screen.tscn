@@ -21,6 +21,8 @@ const WhatGame = preload(\"res://GameUI/scenes/Component/whatGame.gd\")
 var unsortedMaxPlayCount:Array
 var gameAndScore:Dictionary
 
+var sortedPlayCounts:Array
+
 func _ready() -> void:
 	call_deferred(\"initialize\")
 	
@@ -31,39 +33,55 @@ func initialize():
 		if not ProfileDataGlobals.saveData.has(game.gameName):
 			continue
 		var playCount:Array = ProfileDataGlobals.saveData[game.gameName].tries
-		gameAndScore[game.gameName] = playCount.max()
+		gameAndScore[child.name] = playCount.max()
 		unsortedMaxPlayCount.append(playCount.max())
 		#score.text = str(scores.max())
 		pass
-	print(\"okay\")
+
+	#print(\"okay\")
 	print(gameAndScore)
-	print(unsortedMaxPlayCount)
+	#print(unsortedMaxPlayCount)
+	sortedPlayCounts = merge_sort(unsortedMaxPlayCount)
+	#print(merge_sort(unsortedMaxPlayCount))
+	var sortedPlayCount = sortedPlayCounts.size() - 1
+	var topPlayedCount:int = 0
+	while sortedPlayCount >= 0:
+		#print(sortedPlayCounts[sortedPlayCount])
+		for key in gameAndScore:
+			#print(key)
+			if gameAndScore[key] == sortedPlayCounts[sortedPlayCount]: 
+				#print(\"Found key:\", key, \"for value:\", sortedPlayCount)
+				for child in get_children():
+					if not child.name == key:
+						continue
+					move_child(child, topPlayedCount) 
+					#print(child.name, \" = \", key)
+				break
+		sortedPlayCount -= 1
+		topPlayedCount += 1
 	pass
-
-
-
-
-
 
 #func _ready() -> void:
 	##var child = get_child(0)  
 	##move_child(child, 2) 
 	#pass
 
-
-func merge_sort(arr):
+# Call this function with your array to sort it
+func merge_sort(arr: Array) -> Array:
 	if arr.size() <= 1:
 		return arr
-
+	
 	var mid = arr.size() / 2
 	var left = merge_sort(arr.slice(0, mid))
-	var right = merge_sort(arr.slice(mid, arr.size() - mid))
+	var right = merge_sort(arr.slice(mid, arr.size()))
+
 	return merge(left, right)
 
-func merge(left, right):
+func merge(left: Array, right: Array) -> Array:
 	var result = []
 	var i = 0
 	var j = 0
+
 	while i < left.size() and j < right.size():
 		if left[i] <= right[j]:
 			result.append(left[i])
@@ -72,10 +90,10 @@ func merge(left, right):
 			result.append(right[j])
 			j += 1
 
-	# Add remaining elements, if any
 	while i < left.size():
 		result.append(left[i])
 		i += 1
+
 	while j < right.size():
 		result.append(right[j])
 		j += 1
@@ -243,6 +261,24 @@ text = "Matching Game"
 [node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Matching Game" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
+[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Sound Hunt"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Sound Hunt" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
 [node name="Shape Safari" type="Button" parent="Panel/MarginContainer1/GridContainer"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
@@ -261,7 +297,7 @@ text = "Shape-Safari"
 [node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Shape Safari" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
-[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+[node name="Puzzle Builder" type="Button" parent="Panel/MarginContainer1/GridContainer"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -274,9 +310,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
-text = "Sound Hunt"
+text = "Puzzle Builder"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Sound Hunt" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Puzzle Builder" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
 [node name="Button" type="Button" parent="Panel/MarginContainer1"]
@@ -368,10 +404,12 @@ layout_mode = 1
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Letter Tracing" to="." method="_on_alphabet_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Color Hunt" to="." method="_on_color_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Matching Game" to="." method="_on_matching_pressed"]
-[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="Panel/MarginContainer1/GridContainer/Shape Safari" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="." method="_on_shape_safari_pressed"]
 [connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Sound Hunt" to="Panel/MarginContainer1/GridContainer/Sound Hunt" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Sound Hunt" to="." method="_on_sound_hunt_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="Panel/MarginContainer1/GridContainer/Shape Safari" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="." method="_on_shape_safari_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="Panel/MarginContainer1/GridContainer/Puzzle Builder" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="." method="_on_shape_safari_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]
 [connection signal="pressed" from="toProfileDashboard/Button" to="toProfileDashboard/Button" method="_on_pressed"]
