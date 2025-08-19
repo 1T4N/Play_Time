@@ -13,3 +13,5 @@ func _init(nodeName:String):
 			gameName = "soundHuntData"
 		"Matching Game":
 			gameName = "matchingGameData"
+		"Puzzle Builder":
+			gameName = "puzzleBuilderData"

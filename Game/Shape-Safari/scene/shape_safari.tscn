@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=36 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="7_tumoo"]
+[ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_4p2sc"]
+[ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_4huo3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
 texture = ExtResource("7_tumoo")
@@ -158,23 +160,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y2sgv")
-
-[node name="Timer" type="CanvasLayer" parent="."]
-
-[node name="GameTimer" type="Timer" parent="Timer"]
-wait_time = 10.0
-autostart = true
-
-[node name="TimerLabel" type="Label" parent="Timer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -139.5
-offset_top = 96.0
-offset_right = 139.5
-offset_bottom = 242.0
-grow_horizontal = 2
-theme = ExtResource("3_b81qt")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -527,7 +512,24 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Game Over!"
 
-[connection signal="timeout" from="Timer/GameTimer" to="." method="_on_game_timer_timeout"]
+[node name="Timer" parent="." instance=ExtResource("11_4p2sc")]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 75.0
+offset_right = 2.0
+offset_bottom = 75.0
+waitTime = 10.0
+currentGameID = 4
+
+[node name="GameOverComponent" parent="." instance=ExtResource("12_4huo3")]
+visible = false
+z_index = 2
+layout_mode = 1
+offset_left = -234.5
+offset_top = -286.0
+offset_right = 234.5
+offset_bottom = 286.0
+
 [connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Shape/Shape1" to="." method="_on_shape_1_pressed"]
 [connection signal="pressed" from="Shape/Shape2" to="." method="_on_shape_2_pressed"]

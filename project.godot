@@ -40,6 +40,7 @@ folder_colors={
 "res://Game/Letter-Sound-Hunt/": "green",
 "res://Game/LetterTracing/": "red",
 "res://Game/Matching-Game/": "green",
+"res://Game/Shape-Builder-Puzzle/": "green",
 "res://Game/Shape-Safari/": "green"
 }
 

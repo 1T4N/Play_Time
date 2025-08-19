@@ -28,3 +28,7 @@ func _on_shape_safari_pressed() -> void:
 func _on_sound_hunt_pressed() -> void:
 	get_tree().change_scene_to_file("res://Game/Letter-Sound-Hunt/scene/letter_sound_hunt.tscn")
 	pass # Replace with function body.
+
+
+func _on_puzzle_builder_pressed() -> void:
+	get_tree().change_scene_to_file("res://Game/Shape-Builder-Puzzle/scene/Main.tscn")

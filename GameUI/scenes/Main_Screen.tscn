@@ -409,7 +409,7 @@ layout_mode = 1
 [connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="Panel/MarginContainer1/GridContainer/Shape Safari" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="." method="_on_shape_safari_pressed"]
 [connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="Panel/MarginContainer1/GridContainer/Puzzle Builder" method="_on_mouse_entered"]
-[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="." method="_on_shape_safari_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="." method="_on_puzzle_builder_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]
 [connection signal="pressed" from="toProfileDashboard/Button" to="toProfileDashboard/Button" method="_on_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=46 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
 [ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_3psay"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://du4nkcwcevfkw" path="res://Game/Letter-Sound-Hunt/ui/sun.png" id="5_31hr6"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="5_tf5ll"]
 [ext_resource type="Texture2D" uid="uid://ult32h70la8d" path="res://Game/Letter-Sound-Hunt/ui/Poseiden-9-250x250.jpg" id="6_1i0mh"]
+[ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_31hr6"]
+[ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_ly3wd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
 texture = ExtResource("2_3psay")
@@ -276,6 +278,7 @@ script = ExtResource("1_xj1oe")
 autostart = true
 
 [node name="TimerLabel" type="Label" parent="GameTimer"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -662,6 +665,23 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
 text = "Back
 "
+
+[node name="Timer" parent="." instance=ExtResource("11_31hr6")]
+layout_mode = 1
+offset_left = -5.0
+offset_top = 39.0
+offset_right = -5.0
+offset_bottom = 39.0
+waitTime = 10.0
+currentGameID = 3
+
+[node name="GameOverComponent" parent="." instance=ExtResource("12_ly3wd")]
+visible = false
+layout_mode = 1
+offset_left = -234.5
+offset_top = -286.0
+offset_right = 234.5
+offset_bottom = 286.0
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="pressed" from="HBoxContainer/Item1" to="." method="_on_item_1_pressed"]

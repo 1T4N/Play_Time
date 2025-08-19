@@ -7,11 +7,11 @@ extends Control
 @onready var menu_button: Button = $MarginContainer/MenuButton
 @onready var menu: Control = $Menu
 @onready var timer_label = $Timer/TimerLabel
-@onready var game_timer = $Timer/GameTimer
+@onready var game_timer:Timer = $Timer/GameTimer
 
 
 var score: int = 0                                      
-var time_left: int = 60							# Time remaining in seconds
+var time_left: int						# Time remaining in seconds
 
 # Points for each shape type
 var shape_points = {
@@ -26,11 +26,9 @@ func _ready():
 	update_score_label()                  # Show starting score
 
 	# Initialize and start timer instantly
-	time_left = 60
-	timer_label.text = "Timer: " + str(time_left)
-	game_timer.wait_time = 1.0
-	game_timer.one_shot = false
-	game_timer.start()
+
+
+
 
 # Attempts to place a piece on its matching target
 func try_place_piece(piece):
@@ -56,7 +54,10 @@ func _add_score(points: int):
 	update_score_label()
 
 func update_score_label():
+	globalGameData.currentGameScore = score
 	score_label.text = "Score: " + str(score)
+
+@onready var timer: Control = $Timer
 
 # Checks if all targets are filled
 func _check_completion():
@@ -64,8 +65,9 @@ func _check_completion():
 		if target.has_method("is_vacant") and target.is_vacant():
 			return  # If any target is still empty, game is not complete
 
-	ui_congrats.visible = true
-	game_timer.stop()
+	timer.showGameOver()
+	#ui_congrats.visible = true
+	#game_timer.stop()
 
 
 func _on_menu_button_pressed() -> void:
@@ -80,15 +82,5 @@ func _on_menu_exit_button_pressed() -> void:
 	menu.visible = false       
 
 
-func _on_time_up():
-	ui_congrats.visible = true
-	ui_congrats.text = "Time's Up!"  
 
-
-func _on_game_timer_timeout() -> void:
-	time_left -= 1                                      
-	timer_label.text = "Timer: " + str(time_left)      
-
-	if time_left <= 0:                                 
-		game_timer.stop()                               
-		_on_time_up()                                   
+							

@@ -225,19 +225,19 @@ text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
 
-[node name="Test Game" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
+[node name="Puzzle Builder" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
 layout_mode = 2
 script = ExtResource("3_lp0aq")
 metadata/_tab_index = 5
 
-[node name="Chart" parent="MarginContainer/HBoxContainer/tab/Graph/Test Game" instance=ExtResource("3_ijym7")]
+[node name="Chart" parent="MarginContainer/HBoxContainer/tab/Graph/Puzzle Builder" instance=ExtResource("3_ijym7")]
 visible = false
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="noDataLabel" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Test Game"]
+[node name="noDataLabel" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Puzzle Builder"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -413,24 +413,25 @@ theme_type_variation = &"labelH4"
 text = "00:99"
 horizontal_alignment = 2
 
-[node name="PanelContainer6" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Puzzle Builder" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 1
+script = ExtResource("4_sij0v")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Puzzle Builder"]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Puzzle Builder/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
-text = "Color Hunt"
+text = "Puzzle Builder"
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+[node name="Score" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Puzzle Builder/MarginContainer"]
 layout_mode = 2
 theme_type_variation = &"labelH4"
 text = "00:99"
