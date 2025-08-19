@@ -34,7 +34,7 @@
 
 [sub_resource type="GDScript" id="GDScript_6o2um"]
 script/source = "extends Control
-var childrens
+var childrens:Array
 var currentLetterCardPointer:int = -1
 
 func _ready() -> void:
@@ -46,9 +46,14 @@ func _ready() -> void:
 
 func unPauseNextCard():
 	#print(currentLetterCardPointer, childrens[currentLetterCardPointer])
+	if abs(currentLetterCardPointer) > childrens.size():
+		return
+	
 	childrens[currentLetterCardPointer].show()
+	print(\"First card pointer: \",currentLetterCardPointer, \" Card: \", childrens[currentLetterCardPointer])
 	currentLetterCardPointer -= 1
 	childrens[currentLetterCardPointer].show()
+	print(\"2nd card pointer: \",currentLetterCardPointer, \" Card: \", childrens[currentLetterCardPointer])
 	currentLetterCardPointer -= 1
 	
 "
@@ -151,11 +156,9 @@ texture = ExtResource("2_oyvai")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_6o2um")

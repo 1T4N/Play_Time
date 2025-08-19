@@ -1,5 +1,6 @@
 extends Button
 
+@onready var credit_page: PanelContainer = $"../../../Credit Page"
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://components/menu_component.tscn")
+	credit_page.show()

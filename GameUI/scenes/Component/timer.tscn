@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://clsw7nspkg4y7"]
+
+[ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_iyupd"]
+
+[sub_resource type="GDScript" id="GDScript_iyupd"]
+script/source = "extends Control
+@export var waitTime:float = 20
+@export var currentGameID:int
+
+func _ready() -> void:
+	#this resets the data
+	globalGameData.resetData()
+	#change the number base on the game
+	globalGameData.currentGameID = currentGameID
+
+	
+#region gameOverPopUP - fylart
+@onready var game_over_component: PanelContainer = $\"../GameOverComponent\"
+func showGameOver():
+	get_tree().paused = true
+	game_over_component.show()
+	var childrens = game_over_component.get_children()
+	for child in childrens:
+		if child.is_in_group(\"persist\"):
+			child.save()
+#you need to call this function after adding it 
+#endregion
+"
+
+[sub_resource type="GDScript" id="GDScript_drqlj"]
+script/source = "extends Timer
+@onready var timer_label: Label = $\"../TimerLabel\"
+
+func _ready() -> void:
+	start(get_parent().waitTime)
+	
+func _process(delta: float) -> void:
+	timer_label.text = \"Timer: \" + str(int(get_time_left()))
+	pass
+	
+func _on_game_timer_timeout() -> void:                                                           
+	print(\"Times up\")
+	#if there's a timer to game over, connect that in this function
+	get_parent().showGameOver()
+	pass
+"
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+script = SubResource("GDScript_iyupd")
+waitTime = 50.0
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+script = SubResource("GDScript_drqlj")
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.0
+offset_right = 190.0
+offset_bottom = 146.0
+grow_horizontal = 2
+theme = ExtResource("1_iyupd")
+text = "Timer: 99"
+
+[connection signal="timeout" from="GameTimer" to="GameTimer" method="_on_game_timer_timeout"]

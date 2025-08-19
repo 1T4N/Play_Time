@@ -13,7 +13,7 @@ extends Control
 @onready var narrator = $AudioNarrator
 @onready var feedback_audio = $AudioFeedback
 @onready var menu: Control = $Menu/Menu
-@onready var game_timer = $GameTimer
+#@onready var game_timer = $GameTimer
 @onready var game_over_label: Label = $GameOverPopup/GameOverLabel  #Label that shows "Game Over"
 
 # Game time in seconds
@@ -40,8 +40,8 @@ func start_game():
 	score = 0
 	update_score_label()
 	timer_label.text = "Time: " + str(game_duration)
-	game_timer.wait_time = game_duration
-	game_timer.start()
+	#game_timer.wait_time = game_duration
+	#game_timer.start()
 	get_tree().paused = false
 	game_over_label.visible = false
 	generate_round()
@@ -79,18 +79,19 @@ func _on_Item_pressed(button):
 		feedback_label.text = "Try again!"
 
 func update_score_label():
+	globalGameData.currentGameScore = score
 	score_label.text = "Score: " + str(score)
 
-func _process(delta):
-	if game_timer.is_stopped():
-		return
-	var remaining = int(game_timer.time_left)
-	timer_label.text = "Time: " + str(remaining)
-	if remaining <= 0:
-		game_over()
+#func _process(delta):
+	#if game_timer.is_stopped():
+		#return
+	#var remaining = int(game_timer.time_left)
+	#timer_label.text = "Time: " + str(remaining)
+	#if remaining <= 0:
+		#game_over()
 
 func game_over():
-	game_timer.stop()
+	#game_timer.stop()
 	get_tree().paused = true
 	game_over_label.visible = true  # Show only "Game Over" label
 

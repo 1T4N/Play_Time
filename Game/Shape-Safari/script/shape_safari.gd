@@ -10,8 +10,8 @@ extends Control
 @onready var menu: Control = $menu/Menu
 @onready var score_label = $Panel/ScoreLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var game_timer: Timer = $Timer/GameTimer
-@onready var timer_label: Label = $Timer/TimerLabel
+#@onready var game_timer: Timer = $Timer/GameTimer
+#@onready var timer_label: Label = $Timer/TimerLabel
 @onready var game_over_label: Label = $GameOverLabel
 
 var score: int = 0
@@ -32,11 +32,11 @@ func _ready():
 	score = 0
 	update_score()
 	
-	# Setup timer
-	time_left = 60  # or whatever starting time you want
-	timer_label.text = "Timer: " + str(time_left)  # <-- set immediately at start
-	game_timer.wait_time = 1.0
-	game_timer.start()
+	## Setup timer
+	#time_left = 60  # or whatever starting time you want
+	#timer_label.text = "Timer: " + str(time_left)  # <-- set immediately at start
+	#game_timer.wait_time = 1.0
+	#game_timer.start()
 
 func assign_shapes():
 	shapes.shuffle()
@@ -84,15 +84,16 @@ func check_match(animal: Button):
 		feedback_label.text = "Try again!"
 
 func update_score():
+	globalGameData.currentGameScore = score
 	score_label.text = "Score: " + str(score)
 
-func _on_game_timer_timeout():
-	time_left -= 1
-	timer_label.text = "Timer: " + str(time_left)
-	
-	if time_left <= 0:
-		game_timer.stop()
-		game_over_label.visible = true
+#func _on_game_timer_timeout():
+	#time_left -= 1
+	#timer_label.text = "Timer: " + str(time_left)
+	#
+	#if time_left <= 0:
+		#game_timer.stop()
+		#game_over_label.visible = true
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = true
