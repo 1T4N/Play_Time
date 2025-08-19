@@ -203,6 +203,7 @@ text = "Back
 "
 
 [node name="Credit Page" type="PanelContainer" parent="MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_83co6")
@@ -224,12 +225,15 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Credit Page/Panel/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Credit Page/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer"]
 custom_minimum_size = Vector2(750, 950)
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Title (Team)" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="Title (Team)" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -238,7 +242,7 @@ theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 100
 text = "Team"
 
-[node name="Game Development" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="Game Development" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
@@ -246,16 +250,43 @@ theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 45
 text = "🎮Game Development:"
 
-[node name="Game Developers" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 30
+columns = 2
+
+[node name="Game Developers2" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
 theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 45
-text = "Crispatrick Suarez - Lead Game Developer
-Justine Saracanlao - Game Developer"
+text = "Crispatrick Suarez "
 
-[node name="Documentation" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="Game Developers3" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "- Lead Game Developer"
+
+[node name="Game Developers4" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "Justine Saracanlao"
+
+[node name="Game Developers5" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
+theme_override_fonts/font = ExtResource("6_ojatv")
+theme_override_font_sizes/font_size = 45
+text = "- Game Developer"
+
+[node name="Documentation" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
@@ -263,7 +294,7 @@ theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 45
 text = "📝Documentation:"
 
-[node name="Documentator" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="Documentator" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -273,7 +304,7 @@ theme_override_font_sizes/font_size = 45
 text = "       Czarlayne Rivera - Writer & Project 
        Documentation"
 
-[node name="Art & Design" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="Art & Design" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
@@ -281,7 +312,7 @@ theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 45
 text = "🎨Art & Design:"
 
-[node name="Artist" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/VBoxContainer"]
+[node name="Artist" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
