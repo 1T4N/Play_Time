@@ -1,8 +1,8 @@
 [gd_scene load_steps=40 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Script" uid="uid://y15lrk3qdrq8" path="res://Game/LetterTracing/scenes/Compiled/alphabet_tracing_game.gd" id="1_hamko"]
+[ext_resource type="Texture2D" uid="uid://baohf60dwv604" path="res://GameUI/Game_Backgrounds/AlphabetTracing_Background2.PNG" id="2_6o2um"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="2_fbvme"]
-[ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_oyvai"]
 [ext_resource type="PackedScene" uid="uid://hqrynq6ao2qm" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardD.tscn" id="3_e3qdd"]
 [ext_resource type="PackedScene" uid="uid://di3se3b4q1syc" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardA.tscn" id="3_fbvme"]
 [ext_resource type="PackedScene" uid="uid://dcb5k3ul7so62" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardC.tscn" id="3_hw8sg"]
@@ -152,7 +152,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_oyvai")
+texture = ExtResource("2_6o2um")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
