@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
-[ext_resource type="Texture2D" uid="uid://cn2uuxgp41unm" path="res://GameUI/assets/Profile_Screen_BG.PNG" id="2_gmdo5"]
+[ext_resource type="Texture2D" uid="uid://bni7l5gxjs2ir" path="res://GameUI/assets/Game Selection BG2.PNG" id="2_gmdo5"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="7_dnk5s"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="8_gmdo5"]

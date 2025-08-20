@@ -1,6 +1,7 @@
 [gd_scene load_steps=36 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
+[ext_resource type="Texture2D" uid="uid://5fincbh4mk4w" path="res://GameUI/Game_Backgrounds/Shape_Safari_BG.PNG" id="2_4huo3"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
 [ext_resource type="Texture2D" uid="uid://b16258qcfd383" path="res://Game/Shape-Safari/ui/circle.png" id="3_08kjl"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
@@ -9,12 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dqy7yio22camn" path="res://Game/Shape-Safari/ui/triangle.png" id="5_4huo3"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
-[ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="7_tumoo"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_4p2sc"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_4huo3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
-texture = ExtResource("7_tumoo")
+texture = ExtResource("2_4huo3")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumoo"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,17 +40,17 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08kjl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j25r3"]
-atlas = ExtResource("3_08kjl")
-region = Rect2(843, 408, 249, 246)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p2sc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svpsx"]
 atlas = ExtResource("4_4p2sc")
 region = Rect2(517, 409, 266, 246)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08kjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j25r3"]
+atlas = ExtResource("3_08kjl")
+region = Rect2(843, 408, 249, 246)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4huo3"]
 
@@ -211,14 +211,6 @@ theme = ExtResource("3_b81qt")
 theme_override_font_sizes/font_size = 72
 text = "Score:"
 
-[node name="Background" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="MenuButton" type="Button" parent="Panel"]
 clip_contents = true
 custom_minimum_size = Vector2(150, 150)
@@ -247,56 +239,24 @@ stream = ExtResource("2_y2sgv")
 
 [node name="Shape" type="Node" parent="."]
 
-[node name="Shape1" type="Button" parent="Shape"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 70.0
-offset_top = -105.0
-offset_right = 275.0
-offset_bottom = 105.0
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme_override_styles/focus = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_08kjl")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_08kjl")
-
-[node name="ShapeImage" type="TextureRect" parent="Shape/Shape1"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -105.0
-offset_right = 205.0
-offset_bottom = 103.0
-grow_vertical = 2
-texture = SubResource("AtlasTexture_j25r3")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Shape2" type="Button" parent="Shape"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Shape"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -105.0
-offset_right = 102.5
-offset_bottom = 105.0
+offset_left = -500.0
+offset_top = -20.0
+offset_right = 500.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 500
+
+[node name="Shape2" type="Button" parent="Shape/HBoxContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4p2sc")
@@ -311,7 +271,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_4p2sc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4p2sc")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4p2sc")
 
-[node name="ShapeImage" type="TextureRect" parent="Shape/Shape2"]
+[node name="ShapeImage" type="TextureRect" parent="Shape/HBoxContainer/Shape2"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -328,19 +288,43 @@ texture = SubResource("AtlasTexture_svpsx")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Shape3" type="Button" parent="Shape"]
-anchors_preset = 6
-anchor_left = 1.0
+[node name="Shape1" type="Button" parent="Shape/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_08kjl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_08kjl")
+
+[node name="ShapeImage" type="TextureRect" parent="Shape/HBoxContainer/Shape1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -380.0
-offset_top = -105.0
-offset_right = -175.0
-offset_bottom = 105.0
-grow_horizontal = 0
+offset_left = -102.5
+offset_top = -104.0
+offset_right = 102.5
+offset_bottom = 104.0
+grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_j25r3")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Shape3" type="Button" parent="Shape/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4huo3")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4huo3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_4huo3")
@@ -353,14 +337,18 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_4huo3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_4huo3")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_4huo3")
 
-[node name="ShapeImage" type="TextureRect" parent="Shape/Shape3"]
+[node name="ShapeImage" type="TextureRect" parent="Shape/HBoxContainer/Shape3"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -105.0
-offset_right = 205.0
-offset_bottom = 103.0
+offset_left = -102.5
+offset_top = -104.0
+offset_right = 102.5
+offset_bottom = 104.0
+grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_gw3s1")
 expand_mode = 5
@@ -491,7 +479,7 @@ text = "Back
 "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Shape/Shape1")
+root_node = NodePath("../Shape/HBoxContainer/Shape1")
 libraries = {
 &"": SubResource("AnimationLibrary_4huo3")
 }
@@ -531,8 +519,8 @@ offset_right = 234.5
 offset_bottom = 286.0
 
 [connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Shape/Shape1" to="." method="_on_shape_1_pressed"]
-[connection signal="pressed" from="Shape/Shape2" to="." method="_on_shape_2_pressed"]
-[connection signal="pressed" from="Shape/Shape3" to="." method="_on_shape_3_pressed"]
+[connection signal="pressed" from="Shape/HBoxContainer/Shape2" to="." method="_on_shape_2_pressed"]
+[connection signal="pressed" from="Shape/HBoxContainer/Shape1" to="." method="_on_shape_1_pressed"]
+[connection signal="pressed" from="Shape/HBoxContainer/Shape3" to="." method="_on_shape_3_pressed"]
 [connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="menu/Menu" method="_on_back_pressed"]
