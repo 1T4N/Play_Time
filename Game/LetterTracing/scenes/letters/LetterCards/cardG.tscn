@@ -51,20 +51,24 @@ points = PackedVector2Array(143.391, 193.71, 114.447, 206.117, 72.9335, 201.314,
 
 [node name="vertical slider Component" parent="LetterG" index="1"]
 visible = false
-offset_left = 194.5
-offset_top = 161.0
-offset_right = 263.5
-offset_bottom = 310.0
+offset_left = 121.5
+offset_top = 1.0
+offset_right = 190.5
+offset_bottom = 166.0
+rotation = 0.00642927
+orderID = 2
 
 [node name="hintComponent" parent="LetterG/vertical slider Component" index="2" instance=ExtResource("3_fokh6")]
-points = PackedVector2Array(15.4244, 59.6339, 14.6629, 2.80164)
+points = PackedVector2Array(14.7029, 68.7412, 13.5225, 0.308884)
 
 [node name="horizontal Slider Component" parent="LetterG" index="2"]
 visible = false
-offset_left = 192.5
-offset_top = 15.0
-offset_right = 382.5
-offset_bottom = 68.0
+offset_left = -3.05176e-05
+offset_top = -38.0
+offset_right = 190.0
+offset_bottom = 15.0
+rotation = 6.27832
+orderID = 1
 
 [node name="hintComponent" parent="LetterG/horizontal Slider Component" index="2" instance=ExtResource("3_fokh6")]
 points = PackedVector2Array(83.3845, 10.2104, -7.25845, 9.98789)

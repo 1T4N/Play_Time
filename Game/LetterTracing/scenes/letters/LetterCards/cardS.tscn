@@ -39,8 +39,10 @@ theme_override_font_sizes/font_size = 750
 offset_left = 202.0
 offset_top = -272.0
 offset_right = 490.0
-offset_bottom = 96.0
+offset_bottom = 86.0
 halfCircle = false
+restart = true
+endThreshold = 30
 
 [node name="hintComponent" parent="LetterS/CircleSliderComponent" index="2" instance=ExtResource("3_iv2md")]
 points = PackedVector2Array(97.1179, 62.0349, 92.1669, 82.4465, 86.0733, 98.0554, 78.4563, 117.266, 56.7476, 129.273, 35.8007, 127.672, 23.2325, 114.065, 17.1387, 88.0499, 17.1386, 62.8356, 22.0897, 45.6258, 35.4195, 19.2108)
@@ -51,6 +53,8 @@ offset_top = -51.0
 offset_right = 180.0
 offset_bottom = 225.0
 halfCircle = false
+restart = true
+endThreshold = 40
 
 [node name="hintComponent" parent="LetterS/CircleSliderComponent2" index="2" instance=ExtResource("3_iv2md")]
 points = PackedVector2Array(13.3299, 72.4411, 44.179, 94.0534, 59.794, 96.0546, 81.8835, 94.8539, 100.545, 89.2507, 117.684, 78.4445, 124.539, 60.4343, 123.016, 40.8232, 118.065, 29.6168, 105.877, 18.4105, 92.9283, 13.2075)
