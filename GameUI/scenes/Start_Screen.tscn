@@ -54,31 +54,30 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_kslvq")
 
 [node name="Labels" type="VBoxContainer" parent="TitleScreen"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -120.0
-offset_right = 350.0
-offset_bottom = 11.0
+offset_top = -102.5
+offset_bottom = 102.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -50
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TitleScreen/Labels"]
-custom_minimum_size = Vector2(0, 146)
+custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
+size_flags_vertical = 6
 theme = ExtResource("1_348ot")
 theme_override_colors/default_color = Color(0.14902, 0.27451, 0.32549, 1)
 theme_override_font_sizes/bold_italics_font_size = 90
 theme_override_font_sizes/italics_font_size = 90
 theme_override_font_sizes/mono_font_size = 90
-theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/normal_font_size = 150
 theme_override_font_sizes/bold_font_size = 90
 bbcode_enabled = true
 text = "[wave]PLAY TIME![/wave]"
+scroll_active = false
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="TitleScreen/Labels"]
@@ -113,6 +112,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_q5oj5")
 theme_override_styles/normal = SubResource("StyleBoxFlat_sblqn")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
