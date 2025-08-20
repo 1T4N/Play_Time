@@ -37,12 +37,14 @@ theme_override_font_sizes/font_size = 750
 
 [node name="vertical slider Component" parent="LetterM" index="0"]
 visible = false
-offset_left = -150.5
-offset_top = 214.0
-offset_right = -64.5
-offset_bottom = 698.0
+offset_left = -233.0
+offset_top = -262.0
+offset_right = -147.0
+offset_bottom = 222.0
+rotation = -6.2257
 
 [node name="hintComponent" parent="LetterM/vertical slider Component" index="2" instance=ExtResource("3_vdluv")]
+rotation = -0.0564219
 points = PackedVector2Array(9.33139, 187.707, 21.1374, 0.400177)
 
 [node name="vertical slider Component2" parent="LetterM" index="1"]
