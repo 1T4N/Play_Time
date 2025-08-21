@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cpbmuhpms5prr"]
+[gd_scene load_steps=48 format=3 uid="uid://cpbmuhpms5prr"]
 
 [ext_resource type="Script" uid="uid://y15lrk3qdrq8" path="res://Game/LetterTracing/scenes/Compiled/alphabet_tracing_game.gd" id="1_hamko"]
 [ext_resource type="Texture2D" uid="uid://baohf60dwv604" path="res://GameUI/Game_Backgrounds/AlphabetTracing_Background2.PNG" id="2_6o2um"]
@@ -31,6 +31,13 @@
 [ext_resource type="PackedScene" uid="uid://bn7o47a6g1xpt" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardX.tscn" id="4_x1xr6"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="30_6clmv"]
+[ext_resource type="AudioStream" uid="uid://cbg4ifiotffq7" path="res://Game/LetterTracing/sfx/card/817551__silverdubloons__pickupcard05.wav" id="32_8gpyx"]
+[ext_resource type="AudioStream" uid="uid://d00a5y5gn5ld4" path="res://Game/LetterTracing/sfx/card/817577__silverdubloons__slidecard02.wav" id="33_3i3op"]
+[ext_resource type="AudioStream" uid="uid://bdfwxd1ofd4xm" path="res://Game/LetterTracing/sfx/card/817576__silverdubloons__slidecard01.wav" id="34_ypaqg"]
+[ext_resource type="AudioStream" uid="uid://dn8pp8s17xanf" path="res://Game/LetterTracing/sfx/card/571574__el_boss__playing-card-slide-left.wav" id="35_vs1e5"]
+[ext_resource type="AudioStream" uid="uid://de6viph64dvvd" path="res://Game/LetterTracing/sfx/UI/335908__littlerainyseasons__correct.mp3" id="36_vs1e5"]
+[ext_resource type="AudioStream" uid="uid://b74dwh55ljgf8" path="res://Game/LetterTracing/sfx/UI/701703__stavsounds__ui-mistake.wav" id="37_e3gx5"]
+[ext_resource type="AudioStream" uid="uid://bhxsnusijqkla" path="res://Game/LetterTracing/sfx/659889__blondpanda__short-elevator-music-loop.wav" id="38_jye3c"]
 
 [sub_resource type="GDScript" id="GDScript_6o2um"]
 script/source = "extends Control
@@ -133,6 +140,13 @@ script/source = "extends Label
 func _process(_delta: float) -> void:
 	text = str(globalGameData.currentGameScore)
 "
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ypaqg"]
+streams_count = 4
+stream_0/stream = ExtResource("32_8gpyx")
+stream_1/stream = ExtResource("33_3i3op")
+stream_2/stream = ExtResource("34_ypaqg")
+stream_3/stream = ExtResource("35_vs1e5")
 
 [node name="AlphabetTracingGame" type="Control"]
 layout_mode = 3
@@ -334,5 +348,20 @@ offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
 
+[node name="cardSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ypaqg")
+
+[node name="correctSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_vs1e5")
+
+[node name="errorSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("37_e3gx5")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("38_jye3c")
+volume_db = -20.0
+autoplay = true
+
 [connection signal="pressed" from="MarginContainer/Header/MenuButton" to="MarginContainer/Header/MenuButton" method="_on_pressed"]
 [connection signal="timeout" from="MarginContainer/Header/Timer/Timer" to="Control/LetterCardZ" method="_on_timer_timeout"]
+[connection signal="finished" from="music" to="." method="_on_music_finished"]

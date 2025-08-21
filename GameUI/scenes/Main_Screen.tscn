@@ -1,13 +1,23 @@
-[gd_scene load_steps=22 format=3 uid="uid://cg8rrhcc1s7nq"]
+[gd_scene load_steps=42 format=3 uid="uid://cg8rrhcc1s7nq"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_dkfq3"]
 [ext_resource type="Script" uid="uid://co26y0gv2dltk" path="res://script/main_screen.gd" id="1_l0b2r"]
 [ext_resource type="Texture2D" uid="uid://cn2uuxgp41unm" path="res://GameUI/assets/Profile_Screen_BG.PNG" id="2_gmdo5"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
+[ext_resource type="Texture2D" uid="uid://bqve1g43nkmqo" path="res://GameUI/assets/Game Logo/hover/hover state game name1.png" id="4_8m04k"]
+[ext_resource type="Texture2D" uid="uid://d2xhqw2m17tcc" path="res://GameUI/assets/Game Logo/normal state/normal state game name1.png" id="5_2b15q"]
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="7_dnk5s"]
+[ext_resource type="Texture2D" uid="uid://dueqdbv4jbbpx" path="res://GameUI/assets/Game Logo/hover/hover state game name2.png" id="7_hr2n0"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="8_gmdo5"]
+[ext_resource type="Texture2D" uid="uid://bn3mjpaps2rqq" path="res://GameUI/assets/Game Logo/normal state/normal state game name2.png" id="8_wqtuh"]
+[ext_resource type="Texture2D" uid="uid://bq612wbybmafj" path="res://GameUI/assets/Game Logo/hover/hover state game name3.png" id="9_ejbka"]
 [ext_resource type="Texture2D" uid="uid://b22ku07lvs3ni" path="res://GameUI/assets/baby-face (1).png" id="9_himgm"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="10_8m04k"]
+[ext_resource type="Texture2D" uid="uid://blvf28wrp6eb2" path="res://GameUI/assets/Game Logo/normal state/normal state game name3.png" id="10_8t8ul"]
+[ext_resource type="Texture2D" uid="uid://bksiqnpp5mj26" path="res://GameUI/assets/Game Logo/hover/hover state game name6.png" id="11_osckm"]
+[ext_resource type="Texture2D" uid="uid://b6hau8sbfqunh" path="res://GameUI/assets/Game Logo/normal state/normal state game name6.png" id="12_0pisb"]
+[ext_resource type="Texture2D" uid="uid://cup8fx5xy5vq5" path="res://GameUI/assets/Game Logo/hover/hover state game name5.png" id="13_wjp4k"]
+[ext_resource type="Texture2D" uid="uid://cn48dxeeal3or" path="res://GameUI/assets/Game Logo/normal state/normal state game name5.png" id="14_b6ehv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
 texture = ExtResource("2_gmdo5")
@@ -104,12 +114,35 @@ func merge(left: Array, right: Array) -> Array:
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd8qc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syvpi"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 20
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2ls0"]
+texture = ExtResource("4_8m04k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5y735"]
+texture = ExtResource("5_2b15q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_shff1"]
+texture = ExtResource("7_hr2n0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jvdtv"]
+texture = ExtResource("8_wqtuh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cm1g4"]
+texture = ExtResource("9_ejbka")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytxu4"]
+texture = ExtResource("10_8t8ul")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8w4qn"]
+texture = ExtResource("11_osckm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5fmx"]
+texture = ExtResource("12_0pisb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xx38"]
+texture = ExtResource("13_wjp4k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkukh"]
+texture = ExtResource("14_b6ehv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqd43"]
 bg_color = Color(0.784314, 0.482353, 0.243137, 1)
@@ -120,6 +153,12 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyjkw"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 20
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syvpi"]
 corner_radius_top_left = 50
 corner_radius_top_right = 20
 corner_radius_bottom_right = 50
@@ -216,16 +255,129 @@ theme = ExtResource("1_dkfq3")
 theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o2ls0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o2ls0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5y735")
+action_mode = 0
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Letter Tracing" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Color Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_shff1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_shff1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jvdtv")
+action_mode = 0
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Color Hunt" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Matching Game" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cm1g4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cm1g4")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ytxu4")
+action_mode = 0
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Matching Game" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8w4qn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8w4qn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_a5fmx")
+action_mode = 0
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Sound Hunt" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Shape Safari" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3xx38")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3xx38")
+theme_override_styles/normal = SubResource("StyleBoxTexture_xkukh")
+action_mode = 0
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Shape Safari" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="Puzzle Builder" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
+action_mode = 0
+text = "Puzzle Builder"
+
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Puzzle Builder" instance=ExtResource("8_gmdo5")]
+isPopIn = true
+
+[node name="GridContainer2" type="GridContainer" parent="Panel/MarginContainer1"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 3
+script = SubResource("GDScript_gmdo5")
+
+[node name="Letter Tracing" type="Button" parent="Panel/MarginContainer1/GridContainer2"]
+custom_minimum_size = Vector2(480, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_dkfq3")
+theme_override_colors/font_color = Color(0.956863, 0.635294, 0.380392, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_qd8qc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_syvpi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_lqd43")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
 text = "Alphabet Tracing"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Letter Tracing" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer2/Letter Tracing" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
-[node name="Color Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+[node name="Color Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer2"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -240,10 +392,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
 text = "Color Hunt"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Color Hunt" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer2/Color Hunt" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
-[node name="Matching Game" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+[node name="Matching Game" type="Button" parent="Panel/MarginContainer1/GridContainer2"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -258,10 +410,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
 text = "Matching Game"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Matching Game" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer2/Matching Game" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
-[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+[node name="Sound Hunt" type="Button" parent="Panel/MarginContainer1/GridContainer2"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -276,10 +428,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
 text = "Sound Hunt"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Sound Hunt" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer2/Sound Hunt" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
-[node name="Shape Safari" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+[node name="Shape Safari" type="Button" parent="Panel/MarginContainer1/GridContainer2"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -294,10 +446,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
 text = "Shape-Safari"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Shape Safari" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer2/Shape Safari" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
-[node name="Puzzle Builder" type="Button" parent="Panel/MarginContainer1/GridContainer"]
+[node name="Puzzle Builder" type="Button" parent="Panel/MarginContainer1/GridContainer2"]
 custom_minimum_size = Vector2(480, 350)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -312,7 +464,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_vyjkw")
 action_mode = 0
 text = "Puzzle Builder"
 
-[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer/Puzzle Builder" instance=ExtResource("8_gmdo5")]
+[node name="animationUXComponent" parent="Panel/MarginContainer1/GridContainer2/Puzzle Builder" instance=ExtResource("8_gmdo5")]
 isPopIn = true
 
 [node name="Button" type="Button" parent="Panel/MarginContainer1"]
@@ -410,6 +562,16 @@ layout_mode = 1
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Shape Safari" to="." method="_on_shape_safari_pressed"]
 [connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="Panel/MarginContainer1/GridContainer/Puzzle Builder" method="_on_mouse_entered"]
 [connection signal="pressed" from="Panel/MarginContainer1/GridContainer/Puzzle Builder" to="." method="_on_puzzle_builder_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer2/Letter Tracing" to="Panel/MarginContainer1/GridContainer2/Letter Tracing" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer2/Letter Tracing" to="." method="_on_alphabet_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer2/Color Hunt" to="." method="_on_color_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer2/Matching Game" to="." method="_on_matching_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer2/Sound Hunt" to="Panel/MarginContainer1/GridContainer2/Sound Hunt" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer2/Sound Hunt" to="." method="_on_sound_hunt_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer2/Shape Safari" to="Panel/MarginContainer1/GridContainer2/Shape Safari" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer2/Shape Safari" to="." method="_on_shape_safari_pressed"]
+[connection signal="mouse_entered" from="Panel/MarginContainer1/GridContainer2/Puzzle Builder" to="Panel/MarginContainer1/GridContainer2/Puzzle Builder" method="_on_mouse_entered"]
+[connection signal="pressed" from="Panel/MarginContainer1/GridContainer2/Puzzle Builder" to="." method="_on_puzzle_builder_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer1/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]
 [connection signal="pressed" from="toProfileDashboard/Button" to="toProfileDashboard/Button" method="_on_pressed"]
