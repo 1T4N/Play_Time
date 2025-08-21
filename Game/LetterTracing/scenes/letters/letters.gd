@@ -65,7 +65,7 @@ func _process(_delta: float) -> void:
 			await tween.finished
 			child.retry = false
 			
-		
+		#this show the next tracing line
 		if child.finished == true:
 			#print("Next")
 			var childrensOfChild = child.get_children()
@@ -75,6 +75,7 @@ func _process(_delta: float) -> void:
 			child.set_process_mode(PROCESS_MODE_DISABLED)
 			childPointer = childPointer + 1
 			showNextTrace()
+			get_tree().get_current_scene().playCorrectSFX()
 #endregion
 
 func showNextTrace():
@@ -86,9 +87,6 @@ func showNextTrace():
 		
 		#this checks if the letter tracing is already finish which will make the card swipe out and hide itself
 		#plays the fade animation after finished
-		
-		
-		
 		if animation_player == null:
 			return
 		var direction = randi_range(0,1)
@@ -97,6 +95,7 @@ func showNextTrace():
 		else: 
 			animation_player.play("letterCardFadeLeft")
 		
+		get_tree().get_current_scene().playCardSFX()
 		await animation_player.animation_finished
 		
 		

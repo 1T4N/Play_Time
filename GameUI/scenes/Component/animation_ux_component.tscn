@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c58x06nmajbxe"]
+[gd_scene load_steps=4 format=3 uid="uid://c58x06nmajbxe"]
+
+[ext_resource type="AudioStream" uid="uid://cnap7rtml2w3c" path="res://GameUI/assets/sfx/237422__plasterbrain__hover-1.ogg" id="1_0hyyv"]
+[ext_resource type="AudioStream" uid="uid://clxhnj26cx8df" path="res://GameUI/assets/sfx/608432__plasterbrain__pokemon-ui-selectenter.wav" id="2_0k0gt"]
 
 [sub_resource type="GDScript" id="GDScript_rgrka"]
 resource_name = "animationUX"
@@ -13,12 +16,18 @@ func _ready() -> void:
 		get_parent().set_pivot_offset(get_parent().size/2) 
 		get_parent().connect(\"mouse_entered\",scaleUp)
 		get_parent().connect(\"mouse_exited\",scaleDown)
+		get_parent().connect(\"pressed\",playButtonSelected)
 		get_parent().set_default_cursor_shape(Control.CURSOR_POINTING_HAND)
 
-
+@onready var selected_sfx: AudioStreamPlayer = $selectedSFX
+func playButtonSelected():
+	selected_sfx.play()
+	pass
 
 #region this is if the parent is a button, Add a scale up
+@onready var hover_sfx: AudioStreamPlayer = $hoverSFX
 func scaleUp():
+	hover_sfx.play()
 	print(\"Test\")
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(get_parent(),\"scale\",Vector2(hoverAnimationScale, hoverAnimationScale), 0.3)
@@ -47,3 +56,11 @@ func popIn():
 layout_mode = 3
 anchors_preset = 0
 script = SubResource("GDScript_rgrka")
+
+[node name="hoverSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_0hyyv")
+volume_db = -20.0
+
+[node name="selectedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0k0gt")
+volume_db = -20.0

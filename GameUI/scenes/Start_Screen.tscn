@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjfksj458accm"]
+[gd_scene load_steps=19 format=3 uid="uid://bjfksj458accm"]
 
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="1_348ot"]
 [ext_resource type="Script" uid="uid://brqiah76kcg2e" path="res://script/start_screen.gd" id="1_slrr1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://8vskfvfndhc0" path="res://GameUI/assets/Bunny_Pointing.PNG" id="5_e2dn6"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="5_r0aje"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="9_e2dn6"]
+[ext_resource type="AudioStream" uid="uid://bh00whsmw8rdp" path="res://GameUI/assets/sfx/243020__plasterbrain__game-start.ogg" id="10_ckp4p"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kslvq"]
 texture = ExtResource("2_vxt7c")
@@ -181,5 +182,9 @@ layout_mode = 2
 [node name="SlideTransition" parent="." instance=ExtResource("9_e2dn6")]
 visible = false
 layout_mode = 1
+
+[node name="startSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ckp4p")
+volume_db = -20.0
 
 [connection signal="pressed" from="TitleScreen/touch the screen" to="." method="_on_touch_the_screen_pressed"]
