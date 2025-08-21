@@ -18,16 +18,13 @@ var paused = false
 
 #Add more color here if you need more color
 var colors = [
-	{"name": "Red", "color": Color.RED},
-	{"name": "Green", "color": Color.GREEN},
-	{"name": "Blue", "color": Color.BLUE},
-	{"name": "Yellow", "color": Color(1, 1, 0)},
-	{"name": "Purple", "color": Color(0.5, 0, 0.5)},
-	{"name": "Pink", "color": Color(1, 0.75, 0.8)},
-	{"name": "Brown", "color": Color(0.6, 0.3, 0.1)},
-	{"name": "Orange", "color": Color(1, 0.5, 0)},
-	{"name": "White", "color": Color(1, 1, 1)},
-	{"name": "Black", "color": Color(0, 0, 0)}
+	{"name": "Red", "color": Color(1.0, 0.50, 0.50)},
+	{"name": "Blue", "color": Color(0.53, 0.81, 0.92)},
+	{"name": "Green", "color": Color(0.60, 1.0, 0.60)},
+	{"name": "Yellow", "color": Color(1.0, 0.98, 0.70)},
+	{"name": "Orange", "color": Color(1.0, 0.85, 0.73)},
+	{"name": "Pink", "color": Color(1.0, 0.75, 0.80)},
+	{"name": "Purple", "color": Color(0.90, 0.90, 0.98)}
 ]
 
 var countdown = 30.0						#here you can change the countdown
@@ -114,3 +111,5 @@ func _on_finish_button_pressed():			# Called when Finish is pressed
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = true
 	menu.visible = true
+	
+	

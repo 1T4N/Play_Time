@@ -340,6 +340,7 @@ size_flags_vertical = 8
 theme = ExtResource("2_d8s1t")
 theme_override_colors/font_color = Color(0.14902, 0.27451, 0.32549, 1)
 theme_override_font_sizes/font_size = 75
+text = "3213123"
 script = SubResource("GDScript_vei67")
 
 [node name="Menu" type="CanvasLayer" parent="."]

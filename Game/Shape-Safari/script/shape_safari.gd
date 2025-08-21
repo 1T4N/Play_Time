@@ -3,9 +3,9 @@ extends Control
 @onready var instruction_label = $Panel/InstructionLabel
 @onready var feedback_label = $Panel/FeedbackLabel
 @onready var clapping: AudioStreamPlayer2D = $Clapping
-@onready var shape1: Button = $Shape/Shape1
-@onready var shape2: Button = $Shape/Shape2
-@onready var shape3: Button = $Shape/Shape3
+@onready var shape1: Button = $Shape/HBoxContainer/Shape1
+@onready var shape2: Button = $Shape/HBoxContainer/Shape2
+@onready var shape3: Button = $Shape/HBoxContainer/Shape3
 @onready var menu_button: Control = $Panel/MenuButton
 @onready var menu: Control = $menu/Menu
 @onready var score_label = $Panel/ScoreLabel
