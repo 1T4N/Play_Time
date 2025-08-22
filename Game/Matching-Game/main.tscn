@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://c4h7r4c8st43m" path="res://BG/BG_P0/3.jpg" id="2_3p24p"]
+[ext_resource type="Texture2D" uid="uid://821ap30dh5e2" path="res://GameUI/Game_Backgrounds/Matching_Game_BG.PNG" id="2_5fsx7"]
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_u3sdp"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="6_3p24p"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_5fsx7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
-texture = ExtResource("2_3p24p")
+texture = ExtResource("2_5fsx7")
 
 [sub_resource type="Theme" id="Theme_7mycd"]
 
