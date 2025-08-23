@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr24oriqx4hrk"
-path="res://.godot/imported/AlphabetTracing_Background1.PNG-93b55e25ba1ff9b11f2c946a25a30517.ctex"
+uid="uid://bkegrl58qhmr"
+path="res://.godot/imported/Matching_Game_BG1.PNG-1b5021a2e9505e8b46345860f0cdae68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameUI/Game_Backgrounds/AlphabetTracing_Background1.PNG"
-dest_files=["res://.godot/imported/AlphabetTracing_Background1.PNG-93b55e25ba1ff9b11f2c946a25a30517.ctex"]
+source_file="res://GameUI/Game_Backgrounds/Matching_Game_BG1.PNG"
+dest_files=["res://.godot/imported/Matching_Game_BG1.PNG-1b5021a2e9505e8b46345860f0cdae68.ctex"]
 
 [params]
 
