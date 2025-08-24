@@ -118,11 +118,11 @@ func _on_pressed() -> void:
 	get_tree().paused = true
 "
 
-[sub_resource type="Theme" id="Theme_e0lox"]
-
 [sub_resource type="GDScript" id="GDScript_vei67"]
 script/source = "extends Label
 "
+
+[sub_resource type="Theme" id="Theme_e0lox"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70skh"]
 bg_color = Color(1, 0.909804, 0.713726, 1)
@@ -245,7 +245,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ut0v7")
 text = " Exit "
 
 [node name="NextButton" type="Button" parent="Panel/MarginContainer2"]
-visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -291,29 +290,6 @@ text = "☰
 "
 script = SubResource("GDScript_70skh")
 
-[node name="ColorRect" type="ColorRect" parent="Panel/MarginContainer2"]
-custom_minimum_size = Vector2(550, 650)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_e0lox")
-
-[node name="Label" type="Label" parent="Panel/MarginContainer2/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_d8s1t")
-theme_override_font_sizes/font_size = 75
-
 [node name="ScoreLabel" type="Label" parent="Panel/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -341,6 +317,42 @@ theme = ExtResource("2_d8s1t")
 theme_override_colors/font_color = Color(0.14902, 0.27451, 0.32549, 1)
 theme_override_font_sizes/font_size = 75
 script = SubResource("GDScript_vei67")
+
+[node name="BalloonImage" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(550, 650)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -526.0
+offset_right = 291.0
+offset_bottom = 368.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_e0lox")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="BalloonImage"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -103.5
+offset_right = 96.0003
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d8s1t")
+theme_override_font_sizes/font_size = 75
 
 [node name="Menu" type="CanvasLayer" parent="."]
 

@@ -58,6 +58,7 @@ func generate_round():
 		var texture_rect = item_buttons[i].get_node("TextureRect")
 		if items_data.has(choices[i]):
 			texture_rect.texture = items_data[choices[i]]
+			texture_rect.pivot_offset = texture_rect.texture.get_size() / 2
 		item_buttons[i].set_meta("name", choices[i])
 
 func _on_Item_pressed(button):
