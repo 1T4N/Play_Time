@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=47 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ult32h70la8d" path="res://Game/Letter-Sound-Hunt/ui/Poseiden-9-250x250.jpg" id="6_1i0mh"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_31hr6"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_ly3wd"]
+[ext_resource type="AudioStream" uid="uid://d4ecwysltxfqs" path="res://Game/Letter-Sound-Hunt/sound/BackgroundMusic.mp3" id="13_hw1eb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
 texture = ExtResource("3_ly3wd")
@@ -449,7 +450,6 @@ libraries = {
 }
 
 [node name="Item4" type="Button" parent="HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -672,7 +672,7 @@ offset_left = -5.0
 offset_top = 39.0
 offset_right = -5.0
 offset_bottom = 39.0
-waitTime = 10.0
+waitTime = 60.0
 currentGameID = 3
 
 [node name="GameOverComponent" parent="." instance=ExtResource("12_ly3wd")]
@@ -682,6 +682,10 @@ offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_hw1eb")
+autoplay = true
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="pressed" from="HBoxContainer/Item1" to="." method="_on_item_1_pressed"]

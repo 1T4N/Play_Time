@@ -1,43 +1,41 @@
 extends Node
 
-@onready var color_rect = $Panel/MarginContainer2/ColorRect
-@onready var color_label = $Panel/MarginContainer2/ColorRect/Label
+@onready var balloon_image: TextureRect = $BalloonImage
+@onready var color_label = $BalloonImage/Label
 @onready var countdown_label = $Panel/MarginContainer2/Timer/CountdownLabel
 @onready var exit_button: Button = $Panel/MarginContainer2/ExitButton
 @onready var next_button: Button = $Panel/MarginContainer2/NextButton
 @onready var score_label: Label = $Panel/MarginContainer2/ScoreLabel  
 @onready var menu_button: Button = $Panel/MarginContainer2/MenuButton
-@onready var margin_container: MarginContainer = $Menu/MarginContainer
+@onready var margin_container: MarginContainer = $Menu/Menu/MarginContainer
 @onready var menu: Control = $Menu/Menu
-@onready var score_popup: PopupPanel = $ScorePopup							# new popup node
-@onready var final_score_label: Label = $ScorePopup/FinalScoreLabel		# label inside popup
-@onready var finish_button: Button = $ScorePopup/FinishButton				# finish button inside popup
+@onready var score_popup: PopupPanel = $ScorePopup
+@onready var final_score_label: Label = $ScorePopup/FinalScoreLabel
+#@onready var finish_button: Button = $ScorePopup/FinishButton
 
 var next_press_count = 0
 var paused = false
 
-#Add more color here if you need more color
-var colors = [
-	{"name": "Red", "color": Color(1.0, 0.50, 0.50)},
-	{"name": "Blue", "color": Color(0.53, 0.81, 0.92)},
-	{"name": "Green", "color": Color(0.60, 1.0, 0.60)},
-	{"name": "Yellow", "color": Color(1.0, 0.98, 0.70)},
-	{"name": "Orange", "color": Color(1.0, 0.85, 0.73)},
-	{"name": "Pink", "color": Color(1.0, 0.75, 0.80)},
-	{"name": "Purple", "color": Color(0.90, 0.90, 0.98)}
+# Balloon data (filename + name)
+var balloons = [
+	{"name": "Purple", "path": "res://Game/Color-Hunt/ui/Purple2_Baloon.PNG"},
+	{"name": "Yellow", "path": "res://Game/Color-Hunt/ui/Yellow2_Baloon.PNG"}
+	#{"name": "Green", "path": "res://assets/balloons/balloon_green.png"},
+	#{"name": "Yellow", "path": "res://assets/balloons/balloon_yellow.png"},
+	#{"name": "Orange", "path": "res://assets/balloons/balloon_orange.png"},
+	#{"name": "Pink", "path": "res://assets/balloons/balloon_pink.png"},
+	#{"name": "Purple", "path": "res://assets/balloons/balloon_purple.png"}
 ]
 
-var countdown = 30.0						#here you can change the countdown
+var countdown = 30.0
 var waiting_for_next = false
-var score = 0  # default score
+var score = 0
 
 func _ready():
-	show_random_color()
+	show_random_balloon()
 	update_score_label()
-	finish_button.pressed.connect(_on_finish_button_pressed)	# connect button handler
+	#finish_button.pressed.connect(_on_finish_button_pressed)
 	
-	
-	#this is for the gameoverComponent - fylart
 	globalGameData.resetData()
 	globalGameData.currentGameID = 1
 
@@ -49,39 +47,32 @@ func _process(delta):
 			countdown_label.text = "Time left: 0s"
 			waiting_for_next = true
 			next_button.visible = true
-			
-			#you fucking moron Vertix, Use the timer node dipshit - fylart
 			showGameOver()
 			return
 		countdown_label.text = "Time left: " + str(int(ceil(countdown))) + "s"
-	
 
-# Pick and display a random color
-func show_random_color():
-	var random_color = colors[randi() % colors.size()]
-	color_rect.color = random_color["color"]
-	color_label.text = random_color["name"]
+# Pick and display a random balloon
+func show_random_balloon():
+	var random_balloon = balloons[randi() % balloons.size()]
+	balloon_image.texture = load(random_balloon["path"])
+	color_label.text = random_balloon["name"]
 
 	countdown = 30.0
 	waiting_for_next = false
 	next_button.visible = true
 
-# When "Next" is pressed   #Add 1000 points for each correct by pressing NEXT 
+# When "Next" is pressed
 func _on_next_button_pressed():
 	score += 1000
 	update_score_label()
 	next_press_count += 1
 	
-	#this is the gameover popup - - fylart
 	if next_press_count >= 20:
-		#next_button.visible = false
-		#show_score_popup()
 		showGameOver()
-		pass
 	else:
-		show_random_color()
+		show_random_balloon()
 
-#region gameOverPopUP - fylart
+#region gameOverPopUP
 @onready var game_over_component: PanelContainer = $GameOverComponent
 func showGameOver():
 	get_tree().paused = true
@@ -90,26 +81,22 @@ func showGameOver():
 	for child in childrens:
 		if child.is_in_group("persist"):
 			child.save()
-#you need to call this function after adding it 
 
 func onTimeEnd():
 	showGameOver()
 #endregion
 
-
 func update_score_label():
 	score_label.text = "Score: " + str(score)
 	globalGameData.currentGameScore = score
 
-func show_score_popup():					# New function to display score
+func show_score_popup():
 	final_score_label.text = "Great job!\nYour final score is:\n" + str(score)
 	score_popup.popup_centered()
 
-func _on_finish_button_pressed():			# Called when Finish is pressed
+func _on_finish_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = true
 	menu.visible = true
-	
-	

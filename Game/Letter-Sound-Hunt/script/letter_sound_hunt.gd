@@ -50,7 +50,7 @@ func generate_round():
 	feedback_label.text = ""
 	choices = items_data.keys().duplicate()
 	choices.shuffle()
-	choices = choices.slice(0, 3)
+	choices = choices.slice(0, 4)
 	target_word = choices[randi() % choices.size()]
 	var first_letter = target_word[0]
 	instruction_label.text = "Find the item that starts with " + first_letter + "."
@@ -58,6 +58,7 @@ func generate_round():
 		var texture_rect = item_buttons[i].get_node("TextureRect")
 		if items_data.has(choices[i]):
 			texture_rect.texture = items_data[choices[i]]
+			texture_rect.pivot_offset = texture_rect.texture.get_size() / 2
 		item_buttons[i].set_meta("name", choices[i])
 
 func _on_Item_pressed(button):

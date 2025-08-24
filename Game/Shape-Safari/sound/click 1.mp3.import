@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://h7dcw5k17j22"
+path="res://.godot/imported/click 1.mp3-5a4807e446c1b0583b647263b00bbeff.mp3str"
+
+[deps]
+
+source_file="res://Game/Shape-Safari/sound/click 1.mp3"
+dest_files=["res://.godot/imported/click 1.mp3-5a4807e446c1b0583b647263b00bbeff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
