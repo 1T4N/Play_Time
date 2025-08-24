@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr24oriqx4hrk"
-path="res://.godot/imported/AlphabetTracing_Background1.PNG-93b55e25ba1ff9b11f2c946a25a30517.ctex"
+uid="uid://c83wao0ajlo6q"
+path="res://.godot/imported/Puzzle_Builder_BG6.PNG-2a593f22c65ef064dba78fcd605535fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameUI/Game_Backgrounds/AlphabetTracing_Background1.PNG"
-dest_files=["res://.godot/imported/AlphabetTracing_Background1.PNG-93b55e25ba1ff9b11f2c946a25a30517.ctex"]
+source_file="res://GameUI/Game_Backgrounds/Puzzle_Builder_BG6.PNG"
+dest_files=["res://.godot/imported/Puzzle_Builder_BG6.PNG-2a593f22c65ef064dba78fcd605535fe.ctex"]
 
 [params]
 
