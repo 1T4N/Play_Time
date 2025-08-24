@@ -450,7 +450,6 @@ libraries = {
 }
 
 [node name="Item4" type="Button" parent="HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 0

@@ -50,7 +50,7 @@ func generate_round():
 	feedback_label.text = ""
 	choices = items_data.keys().duplicate()
 	choices.shuffle()
-	choices = choices.slice(0, 3)
+	choices = choices.slice(0, 4)
 	target_word = choices[randi() % choices.size()]
 	var first_letter = target_word[0]
 	instruction_label.text = "Find the item that starts with " + first_letter + "."
