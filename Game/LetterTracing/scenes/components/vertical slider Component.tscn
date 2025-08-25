@@ -56,6 +56,7 @@ func retryTracing():
 	print(finished)
 	print(get_parent().get_parent().name) 
 	print(name)  
+	print(globalGameData.get_signal_connection_list(\"retry\"))
 	globalGameData.retry.emit()
 	
 
@@ -117,14 +118,14 @@ func _on_timer_timeout() -> void:
 	var tween = create_tween()
 	tween.tween_property(self,\"value\",0,0.3).set_trans(Tween.TRANS_SINE)
 	await tween.finished
-	print(\"FInished tweening retry\")
+	#print(\"FInished tweening retry\")
 	retry = false
 	set_mouse_filter(0)
 
 
 func _on_value_changed(value: float) -> void:
 	#stays the progress in the 100 if completed
-	print(\"value changed: \", value)
+	#print(\"value changed: \", value)
 	if value >= max_value - endThreshold:
 		retry = false
 		finished = true
