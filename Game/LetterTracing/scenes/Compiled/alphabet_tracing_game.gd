@@ -15,6 +15,7 @@ func playCorrectSFX():
 	correctSFX.play()
 func playError():
 	error_sfx.play()
+
 	
 
 @onready var music: AudioStreamPlayer = $music

@@ -60,7 +60,6 @@ offset_left = -22.0
 offset_top = -258.0
 offset_right = 47.0
 offset_bottom = 243.0
-mouse_default_cursor_shape = 2
 
 [node name="hintComponent" parent="Letter A/vertical slider Component" index="2" instance=ExtResource("3_upvfs")]
 points = PackedVector2Array(12.8474, 184.83, 8.65967, 17.8859)

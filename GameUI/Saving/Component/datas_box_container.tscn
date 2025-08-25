@@ -54,7 +54,7 @@ script/source = "extends Button
 @onready var error_label: Label = $\"../errorLabel\"
 
 func _ready() -> void:
-	profile = get_parent().get_parent().get_parent().get_parent()
+	profile = get_parent().get_parent().get_parent().get_parent().get_parent()
 
 func save_game():
 	if name_text_box.text.is_empty():

@@ -21,7 +21,8 @@ func _ready() -> void:
 
 @onready var selected_sfx: AudioStreamPlayer = $selectedSFX
 func playButtonSelected():
-	selected_sfx.play()
+	if selected_sfx.is_inside_tree():
+		selected_sfx.play()
 	pass
 
 #region this is if the parent is a button, Add a scale up

@@ -13,12 +13,13 @@ config_version=5
 config/name="Play_Time"
 run/main_scene="uid://bjfksj458accm"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b1yfdjbda1usk"
 
 [autoload]
 
 globalGameData="*res://Game/globalGameData.gd"
 ProfileDataGlobals="*res://GameUI/Saving/profileDataGlobals.gd"
+SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
 
 [display]
 
@@ -31,7 +32,7 @@ window/emulate_touch_from_mouse=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg", "res://addons/script_spliter/plugin.cfg")
+enabled=PackedStringArray("res://addons/easy_charts/plugin.cfg", "res://addons/script_spliter/plugin.cfg", "res://addons/signal_lens/plugin.cfg")
 
 [file_customization]
 
