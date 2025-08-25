@@ -1,17 +1,19 @@
-[gd_scene load_steps=36 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=38 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="Texture2D" uid="uid://5fincbh4mk4w" path="res://GameUI/Game_Backgrounds/Shape_Safari_BG.PNG" id="2_4huo3"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
-[ext_resource type="Texture2D" uid="uid://b16258qcfd383" path="res://Game/Shape-Safari/ui/circle.png" id="3_08kjl"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
-[ext_resource type="Texture2D" uid="uid://clxsangxgiwn6" path="res://Game/Shape-Safari/ui/Square.PNG" id="4_4p2sc"]
+[ext_resource type="Texture2D" uid="uid://dun23ceps2k3p" path="res://Game/Shape-Safari/ui/Square.PNG" id="4_4p2sc"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="4_tumoo"]
-[ext_resource type="Texture2D" uid="uid://dqy7yio22camn" path="res://Game/Shape-Safari/ui/triangle.png" id="5_4huo3"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
+[ext_resource type="Texture2D" uid="uid://d3sjdyep48uj5" path="res://Game/Shape-Safari/ui/Circle.PNG" id="6_4huo3"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
+[ext_resource type="AudioStream" uid="uid://h7dcw5k17j22" path="res://Game/Shape-Safari/sound/click 1.mp3" id="6_svpsx"]
+[ext_resource type="Texture2D" uid="uid://c8s61plafeip5" path="res://Game/Shape-Safari/ui/Triangle.PNG" id="7_j25r3"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_4p2sc"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_4huo3"]
+[ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="13_j25r3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
 texture = ExtResource("2_4huo3")
@@ -44,19 +46,19 @@ corner_radius_bottom_left = 50
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svpsx"]
 atlas = ExtResource("4_4p2sc")
-region = Rect2(517, 409, 266, 246)
+region = Rect2(755, 167, 428, 541)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08kjl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j25r3"]
-atlas = ExtResource("3_08kjl")
-region = Rect2(843, 408, 249, 246)
+atlas = ExtResource("6_4huo3")
+region = Rect2(755, 181, 428, 527)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4huo3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw3s1"]
-atlas = ExtResource("5_4huo3")
-region = Rect2(1120, 413, 276, 240)
+atlas = ExtResource("7_j25r3")
+region = Rect2(757, 150, 438, 580)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svpsx"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -236,6 +238,14 @@ visible = false
 [node name="Clapping" type="AudioStreamPlayer2D" parent="."]
 visible = false
 stream = ExtResource("2_y2sgv")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_j25r3")
+autoplay = true
+playback_type = 1
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_svpsx")
 
 [node name="Shape" type="Node" parent="."]
 
@@ -506,7 +516,7 @@ offset_left = 2.0
 offset_top = 75.0
 offset_right = 2.0
 offset_bottom = 75.0
-waitTime = 10.0
+waitTime = 60.0
 currentGameID = 4
 
 [node name="GameOverComponent" parent="." instance=ExtResource("12_4huo3")]

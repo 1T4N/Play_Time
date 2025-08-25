@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://p2k51ed4yu8"]
+[gd_scene load_steps=25 format=3 uid="uid://p2k51ed4yu8"]
 
 [ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Shape-Builder-puzzle.gd" id="1_ts37j"]
 [ext_resource type="Texture2D" uid="uid://omww8akom4t" path="res://Game/Shape-Builder-Puzzle/ui/shapes_house1.jpg" id="2_fnnfl"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="6_f1e12"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="7_f1e12"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_xmcih"]
+[ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="11_uwtu8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5p71i"]
-atlas = ExtResource("2_fnnfl")
-region = Rect2(33, 26, 467, 349)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uwtu8"]
+texture = ExtResource("2_fnnfl")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmcih"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -100,10 +100,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ts37j")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(960.5, 537.5)
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1451.0
+offset_bottom = -730.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(4.09636, 3.08596)
-texture = SubResource("AtlasTexture_5p71i")
+theme_override_styles/panel = SubResource("StyleBoxTexture_uwtu8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -144,12 +151,12 @@ points = 500
 [node name="Targets" type="Node2D" parent="."]
 
 [node name="Target" parent="Targets" instance=ExtResource("4_5p71i")]
-position = Vector2(550, 615)
+position = Vector2(637, 650)
 scale = Vector2(0.62, 0.65)
 required_id = "window1"
 
 [node name="Target2" parent="Targets" instance=ExtResource("4_5p71i")]
-position = Vector2(760, 615)
+position = Vector2(834, 651)
 scale = Vector2(0.62, 0.65)
 required_id = "window1"
 
@@ -190,7 +197,7 @@ offset_left = -19.0
 offset_top = 14.0
 offset_right = -19.0
 offset_bottom = 14.0
-waitTime = 10.0
+waitTime = 60.0
 currentGameID = 5
 
 [node name="Menu" type="Control" parent="."]
@@ -322,6 +329,10 @@ offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_uwtu8")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
