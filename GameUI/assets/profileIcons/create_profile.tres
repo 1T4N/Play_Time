@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dkju6i6v6svgd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cmckx"]
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0dhl"]
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxFlat_cmckx")
+Button/styles/pressed = SubResource("StyleBoxFlat_p0dhl")
