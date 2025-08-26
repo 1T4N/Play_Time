@@ -22,6 +22,14 @@ func _ready() -> void:
 	
 	#print(contents)
 	text = "Name: " + datas.profile.name + "\nAge: " + str(int(datas.profile.age)) 
+	
+	var iconTexture
+	
+	if datas.profile.has("iconPath"):
+		iconTexture = load(datas.profile.iconPath)
+	else:
+		iconTexture = load("res://GameUI/assets/profileIcons/fixed/compressed_bunny.png")
+	set_button_icon(iconTexture)
 
 	##Sets the initials scale to zero since you cant do it if its not via tween
 	#var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)

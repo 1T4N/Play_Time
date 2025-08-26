@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8fv57om4an8h"]
+[gd_scene load_steps=13 format=3 uid="uid://c8fv57om4an8h"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
-[ext_resource type="Texture2D" uid="uid://cv71pncgg3m46" path="res://icon.svg" id="2_ijym7"]
+[ext_resource type="Texture2D" uid="uid://dle12abxix874" path="res://GameUI/assets/profileIcons/fixed/compressed_bunny.png" id="2_xncgm"]
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="3_ijym7"]
 [ext_resource type="Script" uid="uid://b6nwo6vd5kcvv" path="res://GameUI/scenes/Component/graphComponent.gd" id="3_lp0aq"]
+[ext_resource type="Script" uid="uid://dt7jnw5nndud4" path="res://GameUI/scenes/pfp.gd" id="3_wix2r"]
 [ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="4_k68s6"]
 [ext_resource type="Script" uid="uid://2w68gxf1ei8f" path="res://GameUI/scenes/Component/maxScores.gd" id="4_sij0v"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="5_sij0v"]
@@ -56,8 +57,9 @@ alignment = 1
 
 [node name="pfp" type="TextureRect" parent="MarginContainer/HBoxContainer/tab/Name"]
 layout_mode = 2
-texture = ExtResource("2_ijym7")
+texture = ExtResource("2_xncgm")
 stretch_mode = 3
+script = ExtResource("3_wix2r")
 
 [node name="name" type="Label" parent="MarginContainer/HBoxContainer/tab/Name"]
 layout_mode = 2
