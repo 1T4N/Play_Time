@@ -1,6 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd6ix6qdhyq1w"]
+[gd_scene load_steps=13 format=3 uid="uid://cd6ix6qdhyq1w"]
 
+[ext_resource type="Theme" uid="uid://dkju6i6v6svgd" path="res://GameUI/assets/profileIcons/create_profile.tres" id="1_7qbft"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="1_egydc"]
+[ext_resource type="Texture2D" uid="uid://dle12abxix874" path="res://GameUI/assets/profileIcons/fixed/compressed_bunny.png" id="2_oc5n8"]
+[ext_resource type="ButtonGroup" uid="uid://dmto0aw0wcbrp" path="res://GameUI/assets/profileIcons/createProfileIconButton.tres" id="3_tkpk0"]
+[ext_resource type="Texture2D" uid="uid://y7gyu1no561l" path="res://GameUI/assets/profileIcons/fixed/compressed_elephant.png" id="4_1nka3"]
+[ext_resource type="Texture2D" uid="uid://bstuqc6fo3fab" path="res://GameUI/assets/profileIcons/fixed/compressed_lion.png" id="5_2c58m"]
+[ext_resource type="Texture2D" uid="uid://c1hot32kfuc7y" path="res://GameUI/assets/profileIcons/fixed/compressed_panda.png" id="6_81pmf"]
 
 [sub_resource type="GDScript" id="GDScript_5h1nf"]
 script/source = "extends Node2D
@@ -20,12 +26,29 @@ script/source = "extends GridContainer
 @onready var age_text_box: SpinBox = $ageTextBox
 @onready var profile: Control = $\".\"
 @onready var option_button: OptionButton = $OptionButton
+@export var profileIcons:ButtonGroup
 
 func save():
+	var iconPressed = profileIcons.get_pressed_button()
+	var iconPath
+	
+	match iconPressed.name:
+		\"bunny\":
+			iconPath = \"res://GameUI/assets/profileIcons/fixed/compressed_bunny.png\"
+		\"elephant\":
+			iconPath = \"res://GameUI/assets/profileIcons/fixed/compressed_elephant.png\"
+		\"lion\":
+			iconPath = \"res://GameUI/assets/profileIcons/fixed/compressed_lion.png\"
+		\"panda\":
+			iconPath = \"res://GameUI/assets/profileIcons/fixed/compressed_panda.png\"
+		_:
+			iconPath = \"res://GameUI/assets/profileIcons/fixed/compressed_bunny.png\"
+	
 	var saveDictionary = {
 		\"profile\": {
 			\"name\": name_text_box.text,
-			\"age\": abs(int(option_button.get_selected_id())) 
+			\"age\": abs(int(option_button.get_selected_id())), 
+			\"iconPath\": iconPath
 			#\"age\": abs(int(age_text_box.value)) 
 			#,
 			#\"profileID\": profile.profileID
@@ -54,7 +77,7 @@ script/source = "extends Button
 @onready var error_label: Label = $\"../errorLabel\"
 
 func _ready() -> void:
-	profile = get_parent().get_parent().get_parent().get_parent().get_parent()
+	profile = get_parent().get_parent().get_parent().get_parent()
 
 func save_game():
 	if name_text_box.text.is_empty():
@@ -128,6 +151,51 @@ offset_top = 183.0
 offset_right = 695.0
 offset_bottom = 284.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="bunny" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_7qbft")
+theme_override_icons/icon = ExtResource("2_oc5n8")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_tkpk0")
+expand_icon = true
+
+[node name="elephant" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_7qbft")
+theme_override_icons/icon = ExtResource("4_1nka3")
+toggle_mode = true
+button_group = ExtResource("3_tkpk0")
+expand_icon = true
+
+[node name="lion" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_7qbft")
+theme_override_icons/icon = ExtResource("5_2c58m")
+toggle_mode = true
+button_group = ExtResource("3_tkpk0")
+expand_icon = true
+
+[node name="panda" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_7qbft")
+theme_override_icons/icon = ExtResource("6_81pmf")
+toggle_mode = true
+button_group = ExtResource("3_tkpk0")
+expand_icon = true
+
 [node name="Node2D" type="Node2D" parent="." groups=["Persist"]]
 visible = false
 script = SubResource("GDScript_5h1nf")
@@ -137,6 +205,7 @@ layout_mode = 2
 theme_override_constants/h_separation = 15
 columns = 4
 script = SubResource("GDScript_2eq6d")
+profileIcons = ExtResource("3_tkpk0")
 
 [node name="Name" type="Label" parent="Datas"]
 layout_mode = 2

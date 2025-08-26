@@ -1,10 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://475l58v4iqr8"]
+[gd_scene load_steps=3 format=3 uid="uid://475l58v4iqr8"]
 
-[ext_resource type="Texture2D" uid="uid://dle12abxix874" path="res://GameUI/assets/profileIcons/fixed/compressed_bunny.png" id="1_p0dhl"]
 [ext_resource type="PackedScene" uid="uid://cd6ix6qdhyq1w" path="res://GameUI/Saving/Component/datas_box_container.tscn" id="1_s0edj"]
-[ext_resource type="Texture2D" uid="uid://y7gyu1no561l" path="res://GameUI/assets/profileIcons/fixed/compressed_elephant.png" id="2_pnrt6"]
-[ext_resource type="Texture2D" uid="uid://bstuqc6fo3fab" path="res://GameUI/assets/profileIcons/fixed/compressed_lion.png" id="3_n6vtp"]
-[ext_resource type="Texture2D" uid="uid://c1hot32kfuc7y" path="res://GameUI/assets/profileIcons/fixed/compressed_panda.png" id="4_dbgu6"]
 
 [sub_resource type="GDScript" id="GDScript_rgrka"]
 script/source = "extends Panel
@@ -78,8 +74,6 @@ func loadProfile():
 	#get_tree().change_scene_to_file(\"res://GameUI/scenes/Main_Screen.tscn\")
 "
 
-[sub_resource type="Theme" id="Theme_p85sg"]
-
 [node name="createProfile" type="Panel"]
 script = SubResource("GDScript_rgrka")
 
@@ -94,41 +88,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-theme = SubResource("Theme_p85sg")
-theme_override_icons/icon = ExtResource("1_p0dhl")
-toggle_mode = true
-button_pressed = true
-expand_icon = true
-
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_icons/icon = ExtResource("2_pnrt6")
-expand_icon = true
-
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_icons/icon = ExtResource("3_n6vtp")
-expand_icon = true
-
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme_override_icons/icon = ExtResource("4_dbgu6")
-expand_icon = true
-
-[node name="DatasBoxContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_s0edj")]
+[node name="DatasBoxContainer" parent="MarginContainer" instance=ExtResource("1_s0edj")]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
