@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="3_3psay"]
 [ext_resource type="Texture2D" uid="uid://dq6f16tctbakn" path="res://Game/Letter-Sound-Hunt/ui/ball.png" id="3_hlqm0"]
-[ext_resource type="Texture2D" uid="uid://eqgucgvl4kwv" path="res://GameUI/Game_Backgrounds/Sound_Hunt_BG1.PNG" id="3_ly3wd"]
+[ext_resource type="Texture2D" uid="uid://blurjfs14iggg" path="res://GameUI/Game_Backgrounds/Sound_Hunt_BG2.PNG" id="3_hw1eb"]
 [ext_resource type="Texture2D" uid="uid://0rphpw7ewta1" path="res://Game/Letter-Sound-Hunt/ui/cat.jpeg" id="4_1i0mh"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="4_oh4oa"]
 [ext_resource type="Texture2D" uid="uid://du4nkcwcevfkw" path="res://Game/Letter-Sound-Hunt/ui/sun.png" id="5_31hr6"]
@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://d4ecwysltxfqs" path="res://Game/Letter-Sound-Hunt/sound/BackgroundMusic.mp3" id="13_hw1eb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
-texture = ExtResource("3_ly3wd")
+texture = ExtResource("3_hw1eb")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3psay"]
 
