@@ -137,13 +137,13 @@ text = "☰
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Piece" parent="Pieces" instance=ExtResource("3_5p71i")]
-position = Vector2(200, 900)
+position = Vector2(109, 970)
 scale = Vector2(0.62, 0.65)
 piece_id = "window1"
 points = 500
 
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
-position = Vector2(1800, 900)
+position = Vector2(109, 791)
 scale = Vector2(0.62, 0.65)
 piece_id = "window1"
 points = 500

@@ -1,5 +1,5 @@
 extends Control
-@export var snap_distance: float = 48.0   # How close a piece must be to a target to snap into place
+@export var snap_distance: float = 48.0
 @onready var ui_congrats = $CanvasLayer/CongratsLabel
 @onready var targets = $Targets 
 @onready var pieces_container = $Pieces
@@ -11,7 +11,7 @@ extends Control
 
 
 var score: int = 0                                      
-var time_left: int						# Time remaining in seconds
+var time_left: int
 
 # Points for each shape type
 var shape_points = {
@@ -22,12 +22,8 @@ var shape_points = {
 
 # Called when the scene is ready
 func _ready():
-	ui_congrats.visible = false           # Hide congratulations message at start
-	update_score_label()                  # Show starting score
-
-	# Initialize and start timer instantly
-
-
+	ui_congrats.visible = false           
+	update_score_label()                  
 
 
 # Attempts to place a piece on its matching target
@@ -35,9 +31,11 @@ func try_place_piece(piece):
 	for target in targets.get_children():
 		if not target.has_method("is_vacant"):
 			continue
+			
 		# Skip if target is already occupied
 		if not target.is_vacant():
 			continue
+			
 		# If IDs match and piece is close enough, snap it into place
 		if target.required_id == piece.piece_id and piece.global_position.distance_to(target.global_position) <= snap_distance:
 			piece.snap_to(target.global_position)
@@ -45,10 +43,9 @@ func try_place_piece(piece):
 			_add_score(piece.points)
 			_check_completion()
 			return
-	# If no valid target found, reset piece to original position
+
 	piece.reset_position()
 
-# Adds points to the player's score
 func _add_score(points: int):
 	score += points
 	update_score_label()
@@ -63,7 +60,7 @@ func update_score_label():
 func _check_completion():
 	for target in targets.get_children():
 		if target.has_method("is_vacant") and target.is_vacant():
-			return  # If any target is still empty, game is not complete
+			return  
 
 	timer.showGameOver()
 	#ui_congrats.visible = true
