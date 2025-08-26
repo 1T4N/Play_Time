@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://p2k51ed4yu8"]
 
 [ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Shape-Builder-puzzle.gd" id="1_ts37j"]
-[ext_resource type="Texture2D" uid="uid://omww8akom4t" path="res://Game/Shape-Builder-Puzzle/ui/shapes_house1.jpg" id="2_fnnfl"]
+[ext_resource type="Texture2D" uid="uid://c83wao0ajlo6q" path="res://GameUI/Game_Backgrounds/Puzzle_Builder_BG6.PNG" id="2_uwtu8"]
 [ext_resource type="PackedScene" uid="uid://hy61ksv3ufvn" path="res://Game/Shape-Builder-Puzzle/scene/Piece.tscn" id="3_5p71i"]
 [ext_resource type="PackedScene" uid="uid://dwuvub3x1tg64" path="res://Game/Shape-Builder-Puzzle/scene/Target.tscn" id="4_5p71i"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="5_5kwwf"]
@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="11_uwtu8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uwtu8"]
-texture = ExtResource("2_fnnfl")
+texture = ExtResource("2_uwtu8")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmcih"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
