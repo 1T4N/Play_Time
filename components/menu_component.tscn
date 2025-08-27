@@ -203,7 +203,6 @@ text = "Back
 "
 
 [node name="Credit Page" type="PanelContainer" parent="MarginContainer"]
-visible = false
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_83co6")
@@ -301,8 +300,8 @@ size_flags_vertical = 8
 theme_override_colors/font_color = Color(0.8, 0.556863, 0.345098, 1)
 theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 45
-text = "       Czarlayne Rivera - Writer & Project 
-       Documentation"
+text = "     Czarlayne Rivera - Writer & Project 
+       			                                               Documentation"
 
 [node name="Art & Design" type="Label" parent="MarginContainer/Credit Page/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -320,6 +319,31 @@ theme_override_fonts/font = ExtResource("6_ojatv")
 theme_override_font_sizes/font_size = 45
 text = "Kristian Sandaga - Artist & Visual Designer"
 
+[node name="Back" type="Button" parent="MarginContainer/Credit Page/Panel"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -140.0
+offset_right = 150.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_mwg2q")
+theme_override_fonts/font = ExtResource("1_np6pp")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
+text = "Back
+"
+
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Credits" to="MarginContainer/Panel/VBoxContainer/Credits" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/Credit Page/Panel/Back" to="." method="_on_back_pressed"]
