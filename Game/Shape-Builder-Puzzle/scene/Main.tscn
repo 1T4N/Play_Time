@@ -114,10 +114,13 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_uwtu8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 0.0859375
+anchor_bottom = 0.152778
+offset_right = -125.0
+offset_bottom = -125.0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuButton" type="Button" parent="MarginContainer"]
 clip_contents = true
@@ -137,13 +140,13 @@ text = "☰
 [node name="Pieces" type="Node2D" parent="."]
 
 [node name="Piece" parent="Pieces" instance=ExtResource("3_5p71i")]
-position = Vector2(200, 900)
+position = Vector2(109, 970)
 scale = Vector2(0.62, 0.65)
 piece_id = "window1"
 points = 500
 
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
-position = Vector2(1800, 900)
+position = Vector2(109, 791)
 scale = Vector2(0.62, 0.65)
 piece_id = "window1"
 points = 500

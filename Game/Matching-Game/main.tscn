@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://btuehsrcekkv5"]
+[gd_scene load_steps=32 format=3 uid="uid://btuehsrcekkv5"]
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_3p24p"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_5fsx7"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_5fsx7"]
+[ext_resource type="AudioStream" uid="uid://dfic3l21keuw5" path="res://Game/Matching-Game/ui/sound/matching_game.wav" id="11_wevum"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
 texture = ExtResource("2_5fsx7")
@@ -555,6 +556,10 @@ theme = ExtResource("8_5fsx7")
 theme_type_variation = &"labelH2"
 text = "99"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_wevum")
+autoplay = true
 
 [connection signal="pressed" from="Panel/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]

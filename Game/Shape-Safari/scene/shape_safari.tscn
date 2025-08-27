@@ -288,10 +288,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -104.0
-offset_right = 102.5
-offset_bottom = 104.0
+offset_left = -200.0
+offset_top = -316.004
+offset_right = 200.0
+offset_bottom = 316.004
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_svpsx")
@@ -321,10 +321,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -104.0
-offset_right = 102.5
-offset_bottom = 104.0
+offset_left = -200.0
+offset_top = -307.827
+offset_right = 200.0
+offset_bottom = 307.827
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_j25r3")
@@ -349,20 +349,16 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_4huo3")
 
 [node name="ShapeImage" type="TextureRect" parent="Shape/HBoxContainer/Shape3"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -104.0
-offset_right = 102.5
-offset_bottom = 104.0
+offset_left = -200.0
+offset_top = -331.05
+offset_right = 200.0
+offset_bottom = 331.05
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_gw3s1")
 expand_mode = 5
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="menu" type="CanvasLayer" parent="."]
 

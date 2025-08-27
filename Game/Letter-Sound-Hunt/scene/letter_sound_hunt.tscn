@@ -1,193 +1,22 @@
-[gd_scene load_steps=47 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=50 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="3_3psay"]
-[ext_resource type="Texture2D" uid="uid://dq6f16tctbakn" path="res://Game/Letter-Sound-Hunt/ui/ball.png" id="3_hlqm0"]
 [ext_resource type="Texture2D" uid="uid://blurjfs14iggg" path="res://GameUI/Game_Backgrounds/Sound_Hunt_BG2.PNG" id="3_hw1eb"]
-[ext_resource type="Texture2D" uid="uid://0rphpw7ewta1" path="res://Game/Letter-Sound-Hunt/ui/cat.jpeg" id="4_1i0mh"]
+[ext_resource type="Texture2D" uid="uid://c0jo7ke7hx15y" path="res://Game/Letter-Sound-Hunt/ui/Apple.PNG" id="4_1ilkn"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="4_oh4oa"]
-[ext_resource type="Texture2D" uid="uid://du4nkcwcevfkw" path="res://Game/Letter-Sound-Hunt/ui/sun.png" id="5_31hr6"]
+[ext_resource type="Texture2D" uid="uid://ci3x6w4cw1112" path="res://Game/Letter-Sound-Hunt/ui/Kite.PNG" id="5_jtt8k"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="5_tf5ll"]
-[ext_resource type="Texture2D" uid="uid://ult32h70la8d" path="res://Game/Letter-Sound-Hunt/ui/Poseiden-9-250x250.jpg" id="6_1i0mh"]
+[ext_resource type="Texture2D" uid="uid://i7j144odjrn5" path="res://Game/Letter-Sound-Hunt/ui/Pizza.PNG" id="6_38bw0"]
+[ext_resource type="Texture2D" uid="uid://cj4fg2itgkjdd" path="res://Game/Letter-Sound-Hunt/ui/Slide.PNG" id="7_fi3c8"]
+[ext_resource type="Texture2D" uid="uid://cfu35y5do2vsw" path="res://Game/Letter-Sound-Hunt/ui/Tree1.PNG" id="8_o2m8f"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_31hr6"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_ly3wd"]
 [ext_resource type="AudioStream" uid="uid://d4ecwysltxfqs" path="res://Game/Letter-Sound-Hunt/sound/BackgroundMusic.mp3" id="13_hw1eb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
 texture = ExtResource("3_hw1eb")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3psay"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly3wd"]
-atlas = ExtResource("3_hlqm0")
-region = Rect2(12, 12, 224, 226)
-
-[sub_resource type="Animation" id="Animation_31hr6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/Item1/TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1i0mh"]
-resource_name = "correct_pop"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/Item1/TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly3wd"]
-_data = {
-&"RESET": SubResource("Animation_31hr6"),
-&"correct_pop": SubResource("Animation_1i0mh")
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh4oa"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hw1eb"]
-atlas = ExtResource("4_1i0mh")
-region = Rect2(0, 0, 256, 197)
-
-[sub_resource type="Animation" id="Animation_hw1eb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ly3wd"]
-resource_name = "correct_pop"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ilkn"]
-_data = {
-&"RESET": SubResource("Animation_hw1eb"),
-&"correct_pop": SubResource("Animation_ly3wd")
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf5ll"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1ilkn"]
-atlas = ExtResource("5_31hr6")
-region = Rect2(9, 19, 264, 241)
-
-[sub_resource type="Animation" id="Animation_jtt8k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1ilkn"]
-resource_name = "correct_pop"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_38bw0"]
-_data = {
-&"RESET": SubResource("Animation_jtt8k"),
-&"correct_pop": SubResource("Animation_1ilkn")
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlqm0"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31hr6"]
-atlas = ExtResource("6_1i0mh")
-region = Rect2(0, 0, 250, 250)
-
-[sub_resource type="Animation" id="Animation_o2m8f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_fi3c8"]
-resource_name = "correct_pop"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.2, 1.2)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmxla"]
-_data = {
-&"RESET": SubResource("Animation_o2m8f"),
-&"correct_pop": SubResource("Animation_fi3c8")
-}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlqm0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -266,6 +95,184 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3psay"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmxla"]
+atlas = ExtResource("4_1ilkn")
+region = Rect2(101, 50, 819, 900)
+
+[sub_resource type="Animation" id="Animation_31hr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Item1/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1i0mh"]
+resource_name = "correct_pop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Item1/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly3wd"]
+_data = {
+&"RESET": SubResource("Animation_31hr6"),
+&"correct_pop": SubResource("Animation_1i0mh")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oh4oa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4vdn"]
+atlas = ExtResource("5_jtt8k")
+region = Rect2(260, 9, 699, 983)
+
+[sub_resource type="Animation" id="Animation_hw1eb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ly3wd"]
+resource_name = "correct_pop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ilkn"]
+_data = {
+&"RESET": SubResource("Animation_hw1eb"),
+&"correct_pop": SubResource("Animation_ly3wd")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tf5ll"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qicx6"]
+atlas = ExtResource("6_38bw0")
+region = Rect2(103, 299, 838, 445)
+
+[sub_resource type="Animation" id="Animation_jtt8k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1ilkn"]
+resource_name = "correct_pop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_38bw0"]
+_data = {
+&"RESET": SubResource("Animation_jtt8k"),
+&"correct_pop": SubResource("Animation_1ilkn")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlqm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ojqg"]
+atlas = ExtResource("7_fi3c8")
+region = Rect2(98, 105, 818, 821)
+
+[sub_resource type="Animation" id="Animation_o2m8f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fi3c8"]
+resource_name = "correct_pop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmxla"]
+_data = {
+&"RESET": SubResource("Animation_o2m8f"),
+&"correct_pop": SubResource("Animation_fi3c8")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ilkn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtt8k"]
+atlas = ExtResource("8_o2m8f")
+region = Rect2(154, 9, 693, 962)
+
 [node name="LetterSoundHunt" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -338,147 +345,6 @@ offset_bottom = 196.0
 grow_horizontal = 0
 theme = ExtResource("2_encgt")
 theme_override_font_sizes/font_size = 75
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -606.0
-offset_top = -150.0
-offset_right = 606.0
-offset_bottom = 150.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 88
-alignment = 1
-
-[node name="Item1" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_3psay")
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Item1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_ly3wd")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Item1"]
-root_node = NodePath("../../..")
-libraries = {
-&"": SubResource("AnimationLibrary_ly3wd")
-}
-
-[node name="Item2" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_oh4oa")
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Item2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_hw1eb")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Item2"]
-libraries = {
-&"": SubResource("AnimationLibrary_1ilkn")
-}
-
-[node name="Item3" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_tf5ll")
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Item3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_1ilkn")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Item3"]
-libraries = {
-&"": SubResource("AnimationLibrary_38bw0")
-}
-
-[node name="Item4" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_hlqm0")
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Item4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_31hr6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Item4"]
-libraries = {
-&"": SubResource("AnimationLibrary_vmxla")
-}
 
 [node name="AudioNarrator" type="AudioStreamPlayer2D" parent="."]
 
@@ -687,13 +553,213 @@ offset_bottom = 286.0
 stream = ExtResource("13_hw1eb")
 autoplay = true
 
+[node name="Item1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0776042
+anchor_top = 0.556481
+anchor_right = 0.155729
+anchor_bottom = 0.708333
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3psay")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item1"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_vmxla")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ly3wd")
+}
+
+[node name="Item2" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.557813
+anchor_top = 0.182407
+anchor_right = 0.687959
+anchor_bottom = 0.507485
+offset_right = 0.118408
+offset_bottom = -0.0842285
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000337115
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oh4oa")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_v4vdn")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item2"]
+libraries = {
+&"": SubResource("AnimationLibrary_1ilkn")
+}
+
+[node name="Item3" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439063
+anchor_top = 0.577778
+anchor_right = 0.543229
+anchor_bottom = 0.762963
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tf5ll")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_qicx6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item3"]
+libraries = {
+&"": SubResource("AnimationLibrary_38bw0")
+}
+
+[node name="Item4" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729167
+anchor_top = 0.463889
+anchor_right = 0.885417
+anchor_bottom = 0.741667
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hlqm0")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_2ojqg")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item4"]
+libraries = {
+&"": SubResource("AnimationLibrary_vmxla")
+}
+
+[node name="Item5" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.216146
+anchor_top = 0.281481
+anchor_right = 0.398438
+anchor_bottom = 0.605556
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ilkn")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_jtt8k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item5"]
+libraries = {
+&"": SubResource("AnimationLibrary_vmxla")
+}
+
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
-[connection signal="pressed" from="HBoxContainer/Item1" to="." method="_on_item_1_pressed"]
-[connection signal="pressed" from="HBoxContainer/Item2" to="." method="_on_item_2_pressed"]
-[connection signal="pressed" from="HBoxContainer/Item3" to="." method="_on_item_3_pressed"]
-[connection signal="pressed" from="HBoxContainer/Item4" to="." method="_on_item_4_pressed"]
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="GameOverPopup/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverPopup/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
+[connection signal="pressed" from="Item1" to="." method="_on_item_1_pressed"]
+[connection signal="pressed" from="Item2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="Item3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="Item4" to="." method="_on_item_4_pressed"]
+[connection signal="pressed" from="Item5" to="." method="_on_item_5_pressed"]

@@ -19,12 +19,13 @@ var paused = false
 # Balloon data (filename + name)
 var balloons = [
 	{"name": "Purple", "path": "res://Game/Color-Hunt/ui/Purple2_Baloon.PNG"},
-	{"name": "Yellow", "path": "res://Game/Color-Hunt/ui/Yellow2_Baloon.PNG"}
-	#{"name": "Green", "path": "res://assets/balloons/balloon_green.png"},
-	#{"name": "Yellow", "path": "res://assets/balloons/balloon_yellow.png"},
-	#{"name": "Orange", "path": "res://assets/balloons/balloon_orange.png"},
-	#{"name": "Pink", "path": "res://assets/balloons/balloon_pink.png"},
-	#{"name": "Purple", "path": "res://assets/balloons/balloon_purple.png"}
+	{"name": "Yellow", "path": "res://Game/Color-Hunt/ui/Yellow2_Baloon.PNG"},
+	{"name": "Green", "path": "res://Game/Color-Hunt/ui/Green_Baloon.PNG"},
+	{"name": "Blue", "path": "res://Game/Color-Hunt/ui/Blue_Baloon..PNG"},
+	{"name": "Red", "path": "res://Game/Color-Hunt/ui/Red_Baloon.PNG"},
+	{"name": "Orange", "path": "res://Game/Color-Hunt/ui/Orange_Baloon.PNG.PNG"},
+	{"name": "Pink", "path": "res://Game/Color-Hunt/ui/Pink_Baloon.PNG"}
+
 ]
 
 var countdown = 30.0
