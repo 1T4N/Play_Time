@@ -1,18 +1,19 @@
-[gd_scene load_steps=38 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=31 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="Texture2D" uid="uid://5fincbh4mk4w" path="res://GameUI/Game_Backgrounds/Shape_Safari_BG.PNG" id="2_4huo3"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
 [ext_resource type="Texture2D" uid="uid://dun23ceps2k3p" path="res://Game/Shape-Safari/ui/Square.PNG" id="4_4p2sc"]
-[ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="4_tumoo"]
-[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="5_yd0dp"]
 [ext_resource type="Texture2D" uid="uid://d3sjdyep48uj5" path="res://Game/Shape-Safari/ui/Circle.PNG" id="6_4huo3"]
-[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="6_hrt5h"]
-[ext_resource type="AudioStream" uid="uid://h7dcw5k17j22" path="res://Game/Shape-Safari/sound/click 1.mp3" id="6_svpsx"]
+[ext_resource type="AudioStream" uid="uid://644kil0p7a6g" path="res://Game/Matching-Game/ui/sound/click_matching_game.wav" id="6_hy7v6"]
+[ext_resource type="AudioStream" uid="uid://w2rgf56yfw7g" path="res://Game/Shape-Safari/sound/wrong_sound.mp3" id="7_gw3s1"]
 [ext_resource type="Texture2D" uid="uid://c8s61plafeip5" path="res://Game/Shape-Safari/ui/Triangle.PNG" id="7_j25r3"]
+[ext_resource type="AudioStream" uid="uid://b8c6lusxg0yvf" path="res://Game/Shape-Safari/sound/correct_sound.mp3" id="8_hy7v6"]
+[ext_resource type="AudioStream" uid="uid://bmcqn3iw6u2n3" path="res://Game/Shape-Safari/sound/wrong_click.mp3" id="9_ibo0j"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_4p2sc"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_4huo3"]
+[ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="13_gw3s1"]
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="13_j25r3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
@@ -59,59 +60,6 @@ region = Rect2(755, 181, 428, 527)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw3s1"]
 atlas = ExtResource("7_j25r3")
 region = Rect2(757, 150, 438, 580)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svpsx"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-draw_center = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw3s1"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jusw"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_hy7v6"]
-Label/colors/font_color = Color(1, 1, 1, 1)
-Label/font_sizes/font_size = 50
-Label/fonts/font = ExtResource("5_yd0dp")
-Label/styles/normal = SubResource("StyleBoxFlat_2jusw")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibo0j"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_by7ey"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fidor"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpba2"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [sub_resource type="Animation" id="Animation_4p2sc"]
 length = 0.001
@@ -201,17 +149,18 @@ text = "You found the circle!"
 
 [node name="ScoreLabel" type="Label" parent="Panel"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -236.0
-offset_top = 19.0
-offset_right = -34.0
-offset_bottom = 165.0
+anchors_preset = -1
+anchor_left = 0.877083
+anchor_top = 0.0546296
+anchor_right = 0.982292
+anchor_bottom = 0.189815
+offset_top = 22.0
+offset_bottom = 22.0
 grow_horizontal = 0
 theme = ExtResource("3_b81qt")
 theme_override_font_sizes/font_size = 72
 text = "Score:"
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuButton" type="Button" parent="Panel"]
 clip_contents = true
@@ -232,11 +181,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_08kjl")
 text = "☰
 "
 
-[node name="narrator" type="AudioStreamPlayer2D" parent="."]
-visible = false
+[node name="Narrator" type="AudioStreamPlayer2D" parent="."]
+volume_db = 6.181
 
 [node name="Clapping" type="AudioStreamPlayer2D" parent="."]
-visible = false
 stream = ExtResource("2_y2sgv")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
@@ -245,7 +193,18 @@ autoplay = true
 playback_type = 1
 
 [node name="ClickSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_svpsx")
+stream = ExtResource("6_hy7v6")
+
+[node name="Wrong_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gw3s1")
+volume_db = 6.1
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_hy7v6")
+volume_db = 6.1
+
+[node name="wrong_click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ibo0j")
 
 [node name="Shape" type="Node" parent="."]
 
@@ -362,127 +321,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="menu" type="CanvasLayer" parent="."]
 
-[node name="Menu" type="Control" parent="menu"]
-process_mode = 3
+[node name="Menu" parent="menu" instance=ExtResource("13_gw3s1")]
 visible = false
-custom_minimum_size = Vector2(600, 850)
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -425.0
-offset_right = 275.0
-offset_bottom = 425.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_b81qt")
-script = ExtResource("4_tumoo")
-
-[node name="MarginContainer" type="MarginContainer" parent="menu/Menu"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -380.0
-offset_right = 275.0
-offset_bottom = 380.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="menu/Menu/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_svpsx")
-
-[node name="Panel" type="Panel" parent="menu/Menu/MarginContainer/Panel"]
-custom_minimum_size = Vector2(800, 1000)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gw3s1")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="menu/Menu/MarginContainer/Panel"]
-custom_minimum_size = Vector2(650, 550)
-layout_mode = 2
-offset_top = 180.0
-offset_right = 550.0
-offset_bottom = 580.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_hy7v6")
-theme_override_constants/separation = 12
-
-[node name="Resume" type="Button" parent="menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("6_hrt5h")
-theme_override_fonts/font = ExtResource("5_yd0dp")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_ibo0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_by7ey")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
-text = "Resume"
-
-[node name="Sound" type="Button" parent="menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("6_hrt5h")
-theme_override_fonts/font = ExtResource("5_yd0dp")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_ibo0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_by7ey")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
-text = "Sound"
-
-[node name="Music" type="Button" parent="menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("6_hrt5h")
-theme_override_fonts/font = ExtResource("5_yd0dp")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_ibo0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_by7ey")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
-text = "Music"
-
-[node name="Credits" type="Button" parent="menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("6_hrt5h")
-theme_override_fonts/font = ExtResource("5_yd0dp")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_ibo0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_by7ey")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
-text = "Credits"
-
-[node name="Back" type="Button" parent="menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("6_hrt5h")
-theme_override_fonts/font = ExtResource("5_yd0dp")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_ibo0j")
-theme_override_styles/hover = SubResource("StyleBoxFlat_by7ey")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fidor")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mpba2")
-text = "Back
-"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Shape/HBoxContainer/Shape1")
@@ -528,5 +368,5 @@ offset_bottom = 286.0
 [connection signal="pressed" from="Shape/HBoxContainer/Shape2" to="." method="_on_shape_2_pressed"]
 [connection signal="pressed" from="Shape/HBoxContainer/Shape1" to="." method="_on_shape_1_pressed"]
 [connection signal="pressed" from="Shape/HBoxContainer/Shape3" to="." method="_on_shape_3_pressed"]
-[connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="menu/Menu" method="_on_resume_pressed"]
-[connection signal="pressed" from="menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="menu/Menu" method="_on_back_pressed"]
+
+[editable path="menu/Menu"]

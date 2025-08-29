@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8s61plafeip5"
-path="res://.godot/imported/Triangle.PNG-bfa124f132c8b005f15e2f9955aaceb3.ctex"
+uid="uid://cyilnvy3wyw2d"
+path="res://.godot/imported/House2 (1).PNG-3bc33d0908a3d1b700fda6dba6318220.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Shape-Safari/ui/Triangle.PNG"
-dest_files=["res://.godot/imported/Triangle.PNG-bfa124f132c8b005f15e2f9955aaceb3.ctex"]
+source_file="res://Game/Shape-Builder-Puzzle/ui/House2 (1).PNG"
+dest_files=["res://.godot/imported/House2 (1).PNG-3bc33d0908a3d1b700fda6dba6318220.ctex"]
 
 [params]
 

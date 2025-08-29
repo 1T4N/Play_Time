@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://btuehsrcekkv5"]
+[gd_scene load_steps=25 format=3 uid="uid://btuehsrcekkv5"]
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_u3sdp"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="6_3p24p"]
-[ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="6_uwrbs"]
-[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="7_3p24p"]
+[ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="7_jh2q6"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="8_5fsx7"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_5fsx7"]
 [ext_resource type="AudioStream" uid="uid://dfic3l21keuw5" path="res://Game/Matching-Game/ui/sound/matching_game.wav" id="11_wevum"]
+[ext_resource type="AudioStream" uid="uid://644kil0p7a6g" path="res://Game/Matching-Game/ui/sound/click_matching_game.wav" id="12_jh2q6"]
+[ext_resource type="AudioStream" uid="uid://bjmbi63e8nhvv" path="res://Game/Matching-Game/ui/sound/match_sound.wav" id="13_8r4ip"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
 texture = ExtResource("2_5fsx7")
@@ -68,58 +69,6 @@ corner_radius_bottom_left = 20
 bg_color = Color(0.537011, 0.537011, 0.537011, 1)
 
 [sub_resource type="Theme" id="Theme_1t1lt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh2q6"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2judi"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yke1"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_3mro0"]
-Label/colors/font_color = Color(1, 1, 1, 1)
-Label/font_sizes/font_size = 50
-Label/fonts/font = ExtResource("7_3p24p")
-Label/styles/normal = SubResource("StyleBoxFlat_3yke1")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cvai"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -410,125 +359,9 @@ offset_right = 452.0
 offset_bottom = 251.0
 text = "Menu"
 
-[node name="Menu" type="Control" parent="."]
+[node name="Menu" parent="." instance=ExtResource("7_jh2q6")]
 visible = false
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("6_uwrbs")
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -380.0
-offset_right = 275.0
-offset_bottom = 380.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="Menu/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jh2q6")
-
-[node name="Panel" type="Panel" parent="Menu/MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -500.0
-offset_right = 400.0
-offset_bottom = 500.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2judi")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/Panel"]
-custom_minimum_size = Vector2(550, 400)
-layout_mode = 2
-offset_top = 180.0
-offset_right = 550.0
-offset_bottom = 580.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_3mro0")
-theme_override_constants/separation = 25
-
-[node name="Resume" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("8_5fsx7")
-theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Resume"
-
-[node name="Sound" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("8_5fsx7")
-theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Sound"
-
-[node name="Music" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("8_5fsx7")
-theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Music"
-
-[node name="Credits" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("8_5fsx7")
-theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Credits"
-
-[node name="Back" type="Button" parent="Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("8_5fsx7")
-theme_override_fonts/font = ExtResource("7_3p24p")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Back
-"
 
 [node name="GameOverComponent" parent="." instance=ExtResource("10_5fsx7")]
 visible = false
@@ -539,7 +372,7 @@ offset_right = 234.5
 offset_bottom = 286.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 100.0
 one_shot = true
 autostart = true
 
@@ -561,10 +394,16 @@ horizontal_alignment = 1
 stream = ExtResource("11_wevum")
 autoplay = true
 
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_jh2q6")
+
+[node name="match_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_8r4ip")
+
 [connection signal="pressed" from="Panel/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="PopUp/WinPopUp/Panel/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PopUp/WinPopUp/Panel/MenuExitButton" to="." method="_on_menu_exit_button_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
-[connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Menu"]

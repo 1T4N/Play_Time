@@ -1,19 +1,26 @@
-[gd_scene load_steps=25 format=3 uid="uid://p2k51ed4yu8"]
+[gd_scene load_steps=32 format=3 uid="uid://p2k51ed4yu8"]
 
 [ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Shape-Builder-puzzle.gd" id="1_ts37j"]
-[ext_resource type="Texture2D" uid="uid://c83wao0ajlo6q" path="res://GameUI/Game_Backgrounds/Puzzle_Builder_BG6.PNG" id="2_uwtu8"]
+[ext_resource type="Texture2D" uid="uid://c83wao0ajlo6q" path="res://GameUI/Game_Backgrounds/Puzzle_Builder_BG6.PNG" id="2_mfkhi"]
 [ext_resource type="PackedScene" uid="uid://hy61ksv3ufvn" path="res://Game/Shape-Builder-Puzzle/scene/Piece.tscn" id="3_5p71i"]
+[ext_resource type="Texture2D" uid="uid://dxiwx5f7h3ota" path="res://Game/Shape-Builder-Puzzle/ui/house.PNG" id="3_8himh"]
 [ext_resource type="PackedScene" uid="uid://dwuvub3x1tg64" path="res://Game/Shape-Builder-Puzzle/scene/Target.tscn" id="4_5p71i"]
+[ext_resource type="Texture2D" uid="uid://bi6pjrl471d5h" path="res://Game/Shape-Builder-Puzzle/ui/new ui/IMG_6647.PNG" id="4_mfkhi"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="5_5kwwf"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_drqlj"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="6_drqlj"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="6_f1e12"]
+[ext_resource type="Texture2D" uid="uid://dginrqicd2u0r" path="res://Game/Shape-Builder-Puzzle/ui/Circle1.PNG" id="6_mfkhi"]
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="7_f1e12"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_xmcih"]
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="11_uwtu8"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uwtu8"]
-texture = ExtResource("2_uwtu8")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8prb"]
+texture = ExtResource("2_mfkhi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfkhi"]
+atlas = ExtResource("3_8himh")
+region = Rect2(64, 84, 901, 849)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmcih"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -38,6 +45,17 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8himh"]
+atlas = ExtResource("4_mfkhi")
+region = Rect2(88, 139, 850, 741)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aphbt"]
+atlas = ExtResource("6_mfkhi")
+region = Rect2(137, 139, 739, 739)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mfkhi"]
+radius = 203.249
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8himh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -99,18 +117,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ts37j")
+metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1451.0
-offset_bottom = -730.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4.09636, 3.08596)
-theme_override_styles/panel = SubResource("StyleBoxTexture_uwtu8")
+theme_override_styles/panel = SubResource("StyleBoxTexture_m8prb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -346.0
+offset_right = 275.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_mfkhi")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -138,30 +170,62 @@ text = "☰
 "
 
 [node name="Pieces" type="Node2D" parent="."]
+position = Vector2(0, -34)
 
 [node name="Piece" parent="Pieces" instance=ExtResource("3_5p71i")]
-position = Vector2(109, 970)
-scale = Vector2(0.62, 0.65)
-piece_id = "window1"
-points = 500
+position = Vector2(964, 945)
+piece_id = "1"
+points = 1000
+
+[node name="Sprite2D" parent="Pieces/Piece" index="0"]
+position = Vector2(0.499999, 0.99999)
+scale = Vector2(0.321176, 0.340081)
+texture = SubResource("AtlasTexture_8himh")
+
+[node name="CollisionShape2D" parent="Pieces/Piece" index="1"]
+visible = false
+position = Vector2(1, 0)
 
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
-position = Vector2(109, 791)
-scale = Vector2(0.62, 0.65)
-piece_id = "window1"
+position = Vector2(472, 948)
+piece_id = "2"
 points = 500
 
+[node name="Sprite2D" parent="Pieces/Piece2" index="0"]
+position = Vector2(0, -9.53674e-06)
+scale = Vector2(0.894737, 1.02033)
+
+[node name="CollisionShape2D" parent="Pieces/Piece2" index="1"]
+visible = false
+position = Vector2(-0.5, 0)
+
+[node name="Piece3" parent="Pieces" instance=ExtResource("3_5p71i")]
+position = Vector2(1456, 945)
+scale = Vector2(0.62, 0.65)
+points = 500
+
+[node name="Sprite2D" parent="Pieces/Piece3" index="0"]
+position = Vector2(-0.000225067, 1.53851)
+scale = Vector2(0.562601, 0.543445)
+texture = SubResource("AtlasTexture_aphbt")
+
+[node name="CollisionShape2D" parent="Pieces/Piece3" index="1"]
+visible = false
+position = Vector2(-0.000164032, 1.52588e-05)
+shape = SubResource("CircleShape2D_mfkhi")
+
 [node name="Targets" type="Node2D" parent="."]
+position = Vector2(6, -34)
 
 [node name="Target" parent="Targets" instance=ExtResource("4_5p71i")]
-position = Vector2(637, 650)
+position = Vector2(949.9, 374)
 scale = Vector2(0.62, 0.65)
-required_id = "window1"
+required_id = "1"
 
 [node name="Target2" parent="Targets" instance=ExtResource("4_5p71i")]
-position = Vector2(834, 651)
+position = Vector2(951, 630)
 scale = Vector2(0.62, 0.65)
-required_id = "window1"
+required_id = "2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -340,3 +404,7 @@ autoplay = true
 [connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu" method="_on_back_pressed"]
+
+[editable path="Pieces/Piece"]
+[editable path="Pieces/Piece2"]
+[editable path="Pieces/Piece3"]

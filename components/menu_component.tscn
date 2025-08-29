@@ -203,6 +203,7 @@ text = "Back
 "
 
 [node name="Credit Page" type="PanelContainer" parent="MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_83co6")

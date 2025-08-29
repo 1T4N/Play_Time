@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkbs6l6frvx1r"]
+[gd_scene load_steps=8 format=3 uid="uid://bkbs6l6frvx1r"]
 
 [ext_resource type="Script" uid="uid://1osftkuf7ulf" path="res://Game/Matching-Game/script/card.gd" id="1_7p64d"]
+[ext_resource type="AudioStream" uid="uid://644kil0p7a6g" path="res://Game/Matching-Game/ui/sound/click_matching_game.wav" id="2_smhrj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vd6q0"]
 
@@ -73,3 +74,6 @@ stretch_mode = 6
 libraries = {
 &"": SubResource("AnimationLibrary_6kx4b")
 }
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_smhrj")
