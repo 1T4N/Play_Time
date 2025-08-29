@@ -12,6 +12,7 @@ extends Node
 @onready var score_popup: PopupPanel = $ScorePopup
 @onready var final_score_label: Label = $ScorePopup/FinalScoreLabel
 #@onready var finish_button: Button = $ScorePopup/FinishButton
+@onready var click_sound: AudioStreamPlayer2D = $Click_sound
 
 var next_press_count = 0
 var paused = false
@@ -64,6 +65,8 @@ func show_random_balloon():
 
 # When "Next" is pressed
 func _on_next_button_pressed():
+	if click_sound:  
+		click_sound.play()
 	score += 1000
 	update_score_label()
 	next_press_count += 1

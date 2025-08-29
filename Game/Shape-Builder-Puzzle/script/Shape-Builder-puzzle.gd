@@ -1,4 +1,5 @@
 extends Control
+
 @export var snap_distance: float = 48.0
 @onready var ui_congrats = $CanvasLayer/CongratsLabel
 @onready var targets = $Targets 
@@ -7,40 +8,53 @@ extends Control
 @onready var menu_button: Button = $MarginContainer/MenuButton
 @onready var menu: Control = $Menu
 @onready var timer_label = $Timer/TimerLabel
-@onready var game_timer:Timer = $Timer/GameTimer
+@onready var game_timer: Timer = $Timer/GameTimer
+@onready var timer: Control = $Timer
+@onready var click_sound: AudioStreamPlayer2D = $click_sound
 
-
-var score: int = 0                                      
+var score: int = 0
 var time_left: int
 
-# Points for each shape type
-var shape_points = {
-	"Square": 500,
-	"Triangle": 1000,
-	"Circle": 1500
-}
+# Store initial positions of shapes
+var original_positions: Array = []
 
-# Called when the scene is ready
 func _ready():
-	ui_congrats.visible = false           
-	update_score_label()                  
+	ui_congrats.visible = false
+	update_score_label()
+	randomize() # Ensure randomness
 
+	# Save original positions of shapes
+	for piece in pieces_container.get_children():
+		original_positions.append(piece.position)
+
+	# Shuffle their positions
+	randomize_pieces()
+
+# Shuffle the positions of shapes
+func randomize_pieces():
+	var shuffled_positions = original_positions.duplicate()
+	shuffled_positions.shuffle()
+	var pieces = pieces_container.get_children()
+	for i in range(pieces.size()):
+		pieces[i].position = shuffled_positions[i]
 
 # Attempts to place a piece on its matching target
 func try_place_piece(piece):
 	for target in targets.get_children():
 		if not target.has_method("is_vacant"):
 			continue
-			
-		# Skip if target is already occupied
 		if not target.is_vacant():
 			continue
-			
+
 		# If IDs match and piece is close enough, snap it into place
 		if target.required_id == piece.piece_id and piece.global_position.distance_to(target.global_position) <= snap_distance:
 			piece.snap_to(target.global_position)
 			target.occupy(piece)
-			_add_score(piece.points)
+
+			# Randomize score between 500 and 2000 each placement
+			var random_points = randi_range(500, 2000)
+			_add_score(random_points)
+
 			_check_completion()
 			return
 
@@ -54,30 +68,21 @@ func update_score_label():
 	globalGameData.currentGameScore = score
 	score_label.text = "Score: " + str(score)
 
-@onready var timer: Control = $Timer
-
 # Checks if all targets are filled
 func _check_completion():
 	for target in targets.get_children():
 		if target.has_method("is_vacant") and target.is_vacant():
 			return  
-
 	timer.showGameOver()
 	#ui_congrats.visible = true
 	#game_timer.stop()
 
-
 func _on_menu_button_pressed() -> void:
-	get_tree().paused = true   
-	game_timer.stop()         
-	menu.visible = true       
-
+	get_tree().paused = true
+	game_timer.stop()
+	menu.visible = true
 
 func _on_menu_exit_button_pressed() -> void:
-	get_tree().paused = false  
-	game_timer.start()         
-	menu.visible = false       
-
-
-
-							
+	get_tree().paused = false
+	game_timer.start()
+	menu.visible = false

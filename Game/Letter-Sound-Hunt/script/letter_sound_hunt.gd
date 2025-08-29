@@ -15,6 +15,7 @@ extends Control
 @onready var feedback_audio = $AudioFeedback
 @onready var menu: Control = $Menu/Menu
 @onready var game_over_label: Label = $GameOverPopup/GameOverLabel  # Label that shows "Game Over"
+@onready var click_sound: AudioStreamPlayer2D = $click_sound
 
 # Game time in seconds
 var game_duration = 60
@@ -71,6 +72,7 @@ func _on_Item_pressed(button):
 		update_score_label()
 		feedback_label.text = name + " starts with " + name[0] + "!"
 		feedback_audio.play()
+		
 
 		# Play animation on the clicked button's AnimationPlayer
 		var local_anim_player = button.get_node("AnimationPlayer")
@@ -108,3 +110,6 @@ func _on_restart_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://GameUI/scenes/Main_Screen.tscn")
+
+
+#can you help me fix my problem in our Letter_sound_hunt game my problem is that the pivot offset of all texture is not centered can you help me make it center 

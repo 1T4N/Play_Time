@@ -6,6 +6,8 @@ extends Control
 @onready var score_label: Label = $Panel/MarginContainer/ScoreLabel             # Label to display the score
 @onready var menu_button: Button = $Panel/MarginContainer/MenuButton
 @onready var menu: Control = $Menu
+@onready var click_sound: AudioStreamPlayer2D = $click_sound
+@onready var match_sound: AudioStreamPlayer2D = $match_sound
 
 # Variables to keep track of selected cards and image resources
 var selected_cards = []                               
@@ -51,6 +53,8 @@ func load_card_images():
 
 # Called when a card is pressed
 func _on_card_pressed(card):
+	if click_sound:
+		click_sound.play()
 	# Ignore the card if already flipped, matched, flipping, or two cards are already selected
 	if card.is_flipped or card.is_matched or card.flipping or selected_cards.size() >= 2:  # New: prevent interrupting animation
 		return
@@ -71,6 +75,8 @@ func check_match():
 	
 	# Mark both cards as matched
 	if card1.image_texture == card2.image_texture:
+		if match_sound:
+			match_sound.play()
 		card1.is_matched = true                  
 		card2.is_matched = true
 
