@@ -10,7 +10,7 @@ extends Control
 @onready var timer_label = $Timer/TimerLabel
 @onready var game_timer: Timer = $Timer/GameTimer
 @onready var timer: Control = $Timer
-@onready var click_sound: AudioStreamPlayer2D = $click_sound
+#@onready var click_sound: AudioStreamPlayer2D = $ClickSound
 
 var score: int = 0
 var time_left: int

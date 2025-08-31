@@ -1,10 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=52 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
 [ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="3_3psay"]
 [ext_resource type="Texture2D" uid="uid://blurjfs14iggg" path="res://GameUI/Game_Backgrounds/Sound_Hunt_BG2.PNG" id="3_hw1eb"]
 [ext_resource type="Texture2D" uid="uid://c0jo7ke7hx15y" path="res://Game/Letter-Sound-Hunt/ui/Apple.PNG" id="4_1ilkn"]
+[ext_resource type="AudioStream" uid="uid://b8c6lusxg0yvf" path="res://Game/Shape-Safari/sound/correct_sound.mp3" id="4_38bw0"]
 [ext_resource type="AudioStream" uid="uid://h7dcw5k17j22" path="res://Game/Shape-Safari/sound/click 1.mp3" id="4_jtt8k"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="4_oh4oa"]
 [ext_resource type="Texture2D" uid="uid://ci3x6w4cw1112" path="res://Game/Letter-Sound-Hunt/ui/Kite.PNG" id="5_jtt8k"]
@@ -18,83 +19,6 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
 texture = ExtResource("3_hw1eb")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlqm0"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i0mh"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31hr6"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3wd"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdpiv"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-draw_center = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yowbx"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_encgt"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_3mro0"]
-Label/colors/font_color = Color(1, 1, 1, 1)
-Label/font_sizes/font_size = 50
-Label/fonts/font = ExtResource("4_oh4oa")
-Label/styles/normal = SubResource("StyleBoxFlat_encgt")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cvai"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3psay"]
 
@@ -274,6 +198,83 @@ _data = {
 atlas = ExtResource("8_o2m8f")
 region = Rect2(154, 9, 693, 962)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlqm0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i0mh"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31hr6"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3wd"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdpiv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yowbx"]
+bg_color = Color(1, 0.909804, 0.713726, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_encgt"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_3mro0"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("4_oh4oa")
+Label/styles/normal = SubResource("StyleBoxFlat_encgt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cvai"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [node name="LetterSoundHunt" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -282,6 +283,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xj1oe")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oh4oa")
 
 [node name="GameTimer" type="Timer" parent="."]
 autostart = true
@@ -298,14 +308,219 @@ offset_bottom = 217.0
 grow_horizontal = 2
 theme = ExtResource("2_encgt")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Item1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0776042
+anchor_top = 0.556481
+anchor_right = 0.155729
+anchor_bottom = 0.708333
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3psay")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3psay")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item1"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -82.4176
+offset_right = 75.0
+offset_bottom = 82.4176
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 81)
+texture = SubResource("AtlasTexture_vmxla")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item1"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ly3wd")
+}
+
+[node name="Item2" type="Button" parent="."]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.557813
+anchor_top = 0.182407
+anchor_right = 0.687959
+anchor_bottom = 0.507485
+offset_left = -0.000610352
+offset_right = 0.119019
+offset_bottom = -0.0842285
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000337115
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oh4oa")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oh4oa")
+
+[node name="TextureRect" type="TextureRect" parent="Item2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_oh4oa")
+pivot_offset = Vector2(125, 170)
+texture = SubResource("AtlasTexture_v4vdn")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item2"]
+libraries = {
+&"": SubResource("AnimationLibrary_1ilkn")
+}
+
+[node name="Item3" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439063
+anchor_top = 0.577778
+anchor_right = 0.543229
+anchor_bottom = 0.762963
+offset_right = 0.00134277
+offset_bottom = 0.000183105
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tf5ll")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tf5ll")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 100)
+texture = SubResource("AtlasTexture_qicx6")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item3"]
+libraries = {
+&"": SubResource("AnimationLibrary_38bw0")
+}
+
+[node name="Item4" type="Button" parent="."]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.729167
+anchor_top = 0.463889
+anchor_right = 0.885417
+anchor_bottom = 0.741667
+offset_bottom = -0.000183105
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hlqm0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hlqm0")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(151, 151)
+texture = SubResource("AtlasTexture_2ojqg")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item4"]
+libraries = {
+&"": SubResource("AnimationLibrary_vmxla")
+}
+
+[node name="Item5" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216146
+anchor_top = 0.281481
+anchor_right = 0.398438
+anchor_bottom = 0.605556
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ilkn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ilkn")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Item5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(174, 174)
+texture = SubResource("AtlasTexture_jtt8k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Item5"]
+libraries = {
+&"": SubResource("AnimationLibrary_vmxla")
+}
 
 [node name="InstructionLabel" type="Label" parent="."]
 layout_mode = 1
@@ -351,10 +566,21 @@ theme_override_font_sizes/font_size = 75
 
 [node name="AudioFeedback" type="AudioStreamPlayer2D" parent="."]
 
+[node name="correct_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_38bw0")
+volume_db = -44.571
+
 [node name="click_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_jtt8k")
 
 [node name="wrong_sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_hw1eb")
+volume_db = -2.971
+autoplay = true
 
 [node name="MenuButton" type="Button" parent="."]
 clip_contents = true
@@ -541,9 +767,9 @@ text = "Back
 [node name="Timer" parent="." instance=ExtResource("11_31hr6")]
 layout_mode = 1
 offset_left = -5.0
-offset_top = 39.0
+offset_top = 59.0
 offset_right = -5.0
-offset_bottom = 39.0
+offset_bottom = 59.0
 waitTime = 60.0
 currentGameID = 3
 
@@ -555,219 +781,14 @@ offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_hw1eb")
-autoplay = true
-
-[node name="Item1" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0776042
-anchor_top = 0.556481
-anchor_right = 0.155729
-anchor_bottom = 0.708333
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_3psay")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_3psay")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Item1"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_vmxla")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Item1"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_ly3wd")
-}
-
-[node name="Item2" type="Button" parent="."]
-custom_minimum_size = Vector2(250, 250)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.557813
-anchor_top = 0.182407
-anchor_right = 0.687959
-anchor_bottom = 0.507485
-offset_right = 0.118408
-offset_bottom = -0.0842285
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.000337115
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oh4oa")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_oh4oa")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Item2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_v4vdn")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Item2"]
-libraries = {
-&"": SubResource("AnimationLibrary_1ilkn")
-}
-
-[node name="Item3" type="Button" parent="."]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.439063
-anchor_top = 0.577778
-anchor_right = 0.543229
-anchor_bottom = 0.762963
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_tf5ll")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_tf5ll")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Item3"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_qicx6")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Item3"]
-libraries = {
-&"": SubResource("AnimationLibrary_38bw0")
-}
-
-[node name="Item4" type="Button" parent="."]
-custom_minimum_size = Vector2(300, 300)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.729167
-anchor_top = 0.463889
-anchor_right = 0.885417
-anchor_bottom = 0.741667
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_styles/focus = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hlqm0")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_hlqm0")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Item4"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_2ojqg")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Item4"]
-libraries = {
-&"": SubResource("AnimationLibrary_vmxla")
-}
-
-[node name="Item5" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 0.216146
-anchor_top = 0.281481
-anchor_right = 0.398438
-anchor_bottom = 0.605556
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ilkn")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1ilkn")
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Item5"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("AtlasTexture_jtt8k")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Item5"]
-libraries = {
-&"": SubResource("AnimationLibrary_vmxla")
-}
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
-
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="GameOverPopup/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="GameOverPopup/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
-[connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
 [connection signal="pressed" from="Item1" to="." method="_on_item_1_pressed"]
 [connection signal="pressed" from="Item2" to="." method="_on_item_2_pressed"]
 [connection signal="pressed" from="Item3" to="." method="_on_item_3_pressed"]
 [connection signal="pressed" from="Item4" to="." method="_on_item_4_pressed"]
 [connection signal="pressed" from="Item5" to="." method="_on_item_5_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GameOverPopup/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOverPopup/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
+[connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
