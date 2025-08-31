@@ -181,6 +181,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_08kjl")
 text = "☰
 "
 
+[node name="menu" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="menu" instance=ExtResource("13_gw3s1")]
+visible = false
+
 [node name="Narrator" type="AudioStreamPlayer2D" parent="."]
 volume_db = 6.181
 
@@ -189,6 +194,7 @@ stream = ExtResource("2_y2sgv")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_j25r3")
+volume_db = -3.962
 autoplay = true
 playback_type = 1
 
@@ -318,11 +324,6 @@ texture = SubResource("AtlasTexture_gw3s1")
 expand_mode = 5
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
-
-[node name="menu" type="CanvasLayer" parent="."]
-
-[node name="Menu" parent="menu" instance=ExtResource("13_gw3s1")]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Shape/HBoxContainer/Shape1")

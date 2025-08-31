@@ -183,7 +183,6 @@ scale = Vector2(0.321176, 0.340081)
 texture = SubResource("AtlasTexture_8himh")
 
 [node name="CollisionShape2D" parent="Pieces/Piece" index="1"]
-visible = false
 position = Vector2(1, 0)
 
 [node name="Piece2" parent="Pieces" instance=ExtResource("3_5p71i")]
@@ -196,7 +195,6 @@ position = Vector2(0, -9.53674e-06)
 scale = Vector2(0.894737, 1.02033)
 
 [node name="CollisionShape2D" parent="Pieces/Piece2" index="1"]
-visible = false
 position = Vector2(-0.5, 0)
 
 [node name="Piece3" parent="Pieces" instance=ExtResource("3_5p71i")]
@@ -210,7 +208,6 @@ scale = Vector2(0.562601, 0.543445)
 texture = SubResource("AtlasTexture_aphbt")
 
 [node name="CollisionShape2D" parent="Pieces/Piece3" index="1"]
-visible = false
 position = Vector2(-0.000164032, 1.52588e-05)
 shape = SubResource("CircleShape2D_mfkhi")
 
