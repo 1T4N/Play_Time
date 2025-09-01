@@ -1,20 +1,18 @@
-[gd_scene load_steps=52 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=42 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
-[ext_resource type="Script" uid="uid://csrp7at13ab0t" path="res://script/menu_component.gd" id="3_3psay"]
 [ext_resource type="Texture2D" uid="uid://blurjfs14iggg" path="res://GameUI/Game_Backgrounds/Sound_Hunt_BG2.PNG" id="3_hw1eb"]
 [ext_resource type="Texture2D" uid="uid://c0jo7ke7hx15y" path="res://Game/Letter-Sound-Hunt/ui/Apple.PNG" id="4_1ilkn"]
 [ext_resource type="AudioStream" uid="uid://b8c6lusxg0yvf" path="res://Game/Shape-Safari/sound/correct_sound.mp3" id="4_38bw0"]
 [ext_resource type="AudioStream" uid="uid://h7dcw5k17j22" path="res://Game/Shape-Safari/sound/click 1.mp3" id="4_jtt8k"]
-[ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="4_oh4oa"]
 [ext_resource type="Texture2D" uid="uid://ci3x6w4cw1112" path="res://Game/Letter-Sound-Hunt/ui/Kite.PNG" id="5_jtt8k"]
-[ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="5_tf5ll"]
 [ext_resource type="Texture2D" uid="uid://i7j144odjrn5" path="res://Game/Letter-Sound-Hunt/ui/Pizza.PNG" id="6_38bw0"]
 [ext_resource type="Texture2D" uid="uid://cj4fg2itgkjdd" path="res://Game/Letter-Sound-Hunt/ui/Slide.PNG" id="7_fi3c8"]
 [ext_resource type="Texture2D" uid="uid://cfu35y5do2vsw" path="res://Game/Letter-Sound-Hunt/ui/Tree1.PNG" id="8_o2m8f"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_31hr6"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_ly3wd"]
+[ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="13_1ilkn"]
 [ext_resource type="AudioStream" uid="uid://d4ecwysltxfqs" path="res://Game/Letter-Sound-Hunt/sound/BackgroundMusic.mp3" id="13_hw1eb"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
@@ -221,59 +219,6 @@ corner_radius_top_left = 50
 corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdpiv"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-draw_center = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yowbx"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_encgt"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_3mro0"]
-Label/colors/font_color = Color(1, 1, 1, 1)
-Label/font_sizes/font_size = 50
-Label/fonts/font = ExtResource("4_oh4oa")
-Label/styles/normal = SubResource("StyleBoxFlat_encgt")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cvai"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
-bg_color = Color(0.65098, 0.894118, 0.894118, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
 
 [node name="LetterSoundHunt" type="Control"]
 layout_mode = 3
@@ -563,24 +508,31 @@ theme = ExtResource("2_encgt")
 theme_override_font_sizes/font_size = 75
 
 [node name="AudioNarrator" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
 
 [node name="AudioFeedback" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
 
 [node name="correct_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_38bw0")
 volume_db = -44.571
+bus = &"sfx"
 
 [node name="click_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_jtt8k")
+bus = &"sfx"
 
 [node name="wrong_sound" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_hw1eb")
 volume_db = -2.971
 autoplay = true
+bus = &"music"
 
 [node name="MenuButton" type="Button" parent="."]
 clip_contents = true
@@ -640,142 +592,23 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Menu" type="CanvasLayer" parent="."]
+[node name="menu" type="CanvasLayer" parent="."]
 
-[node name="Menu" type="Control" parent="Menu"]
-process_mode = 3
-visible = false
-custom_minimum_size = Vector2(600, 850)
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -425.0
-offset_right = 275.0
-offset_bottom = 425.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_encgt")
-script = ExtResource("3_3psay")
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Menu"]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -380.0
-offset_right = 275.0
-offset_bottom = 380.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="Menu/Menu/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_sdpiv")
-
-[node name="Panel" type="Panel" parent="Menu/Menu/MarginContainer/Panel"]
-custom_minimum_size = Vector2(800, 1000)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yowbx")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Menu/MarginContainer/Panel"]
-custom_minimum_size = Vector2(650, 550)
-layout_mode = 2
-offset_top = 180.0
-offset_right = 550.0
-offset_bottom = 580.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = SubResource("Theme_3mro0")
-theme_override_constants/separation = 12
-
-[node name="Resume" type="Button" parent="Menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("5_tf5ll")
-theme_override_fonts/font = ExtResource("4_oh4oa")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Resume"
-
-[node name="Sound" type="Button" parent="Menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("5_tf5ll")
-theme_override_fonts/font = ExtResource("4_oh4oa")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Sound"
-
-[node name="Music" type="Button" parent="Menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("5_tf5ll")
-theme_override_fonts/font = ExtResource("4_oh4oa")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Music"
-
-[node name="Credits" type="Button" parent="Menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("5_tf5ll")
-theme_override_fonts/font = ExtResource("4_oh4oa")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Credits"
-
-[node name="Back" type="Button" parent="Menu/Menu/MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(700, 150)
-layout_mode = 2
-theme = ExtResource("5_tf5ll")
-theme_override_fonts/font = ExtResource("4_oh4oa")
-theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3mro0")
-text = "Back
-"
-
-[node name="Timer" parent="." instance=ExtResource("11_31hr6")]
-layout_mode = 1
-offset_left = -5.0
-offset_top = 59.0
-offset_right = -5.0
-offset_bottom = 59.0
+[node name="Timer" parent="menu" instance=ExtResource("11_31hr6")]
+offset_left = 2.0
+offset_top = 75.0
+offset_right = 2.0
+offset_bottom = 75.0
 waitTime = 60.0
-currentGameID = 3
+currentGameID = 4
 
-[node name="GameOverComponent" parent="." instance=ExtResource("12_ly3wd")]
+[node name="Menu" parent="menu" instance=ExtResource("13_1ilkn")]
 visible = false
-layout_mode = 1
+z_index = 1
+
+[node name="GameOverComponent" parent="menu" instance=ExtResource("12_ly3wd")]
+visible = false
+z_index = 2
 offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
@@ -790,5 +623,5 @@ offset_bottom = 286.0
 [connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="GameOverPopup/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOverPopup/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
-[connection signal="pressed" from="Menu/Menu/MarginContainer/Panel/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
+
+[editable path="menu/Menu"]

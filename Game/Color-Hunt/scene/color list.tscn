@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dx0klmv80ca8e"]
+[gd_scene load_steps=50 format=3 uid="uid://dx0klmv80ca8e"]
 
 [ext_resource type="Script" uid="uid://cp8l355e8uhqa" path="res://Game/Color-Hunt/script/color_list.gd" id="1_jkuuy"]
 [ext_resource type="Theme" uid="uid://cyx1ngbtbpcvo" path="res://Game/LetterTracing/arts/UI/alphabet.tres" id="2_3sg35"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="9_1218q"]
 [ext_resource type="AudioStream" uid="uid://c71ywytqr0gn3" path="res://Game/Color-Hunt/ui/sound/color_hunt.wav" id="10_einxs"]
 [ext_resource type="AudioStream" uid="uid://btbs7smnmw2b1" path="res://Game/Color-Hunt/ui/sound/click_color_hunt.wav" id="11_kyiet"]
+[ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="12_86grf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3p6ol"]
 texture = ExtResource("2_einxs")
@@ -518,9 +519,25 @@ offset_bottom = 286.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_einxs")
 autoplay = true
+bus = &"music"
 
 [node name="Click_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_kyiet")
+bus = &"sfx"
+
+[node name="menu" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="menu" instance=ExtResource("12_86grf")]
+visible = false
+z_index = 1
+
+[node name="GameOverComponent" parent="menu" instance=ExtResource("9_1218q")]
+visible = false
+z_index = 2
+offset_left = -234.5
+offset_top = -286.0
+offset_right = 234.5
+offset_bottom = 286.0
 
 [connection signal="pressed" from="Panel/MarginContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer2/NextButton" to="." method="_on_next_button_pressed"]
@@ -530,3 +547,5 @@ stream = ExtResource("11_kyiet")
 [connection signal="pressed" from="Menu/Menu/MarginContainer/VBoxContainer/Resume" to="Menu/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="Menu/Menu/MarginContainer/VBoxContainer/Back" to="Menu/Menu" method="_on_back_pressed"]
 [connection signal="pressed" from="ScorePopup/FinishButton" to="." method="_on_finish_button_pressed"]
+
+[editable path="menu/Menu"]
