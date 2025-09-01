@@ -61,7 +61,9 @@ script = SubResource("GDScript_rgrka")
 [node name="hoverSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_0hyyv")
 volume_db = -20.0
+bus = &"sfx"
 
 [node name="selectedSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0k0gt")
 volume_db = -20.0
+bus = &"sfx"

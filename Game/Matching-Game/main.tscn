@@ -269,6 +269,9 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("5_u3sdp")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 text = "Score:"
 
 [node name="HelpButton" type="Button" parent="."]
@@ -387,6 +390,9 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme = ExtResource("8_5fsx7")
 theme_type_variation = &"labelH2"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "99"
 horizontal_alignment = 1
 
