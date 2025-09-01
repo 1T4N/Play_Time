@@ -42,7 +42,7 @@ var narrator_audio = {
 
 # Feedback audio files
 var feedback_audio_dict = {
-	"Apple": preload("res://Game/Letter-Sound-Hunt/sound/Apple.mp3"),
+	"Apple": preload("res://Game/Letter-Sound-Hunt/sound/apple.mp3"),
 	"Kite": preload("res://Game/Letter-Sound-Hunt/sound/kite.mp3"),
 	"Pizza": preload("res://Game/Letter-Sound-Hunt/sound/pizza.mp3"),
 	"Slide": preload("res://Game/Letter-Sound-Hunt/sound/slide.mp3"),

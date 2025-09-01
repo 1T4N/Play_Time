@@ -7,7 +7,7 @@ extends Control
 @onready var shape2: Button = $Shape/HBoxContainer/Shape2  
 @onready var shape3: Button = $Shape/HBoxContainer/Shape3  
 @onready var menu_button: Control = $Panel/MenuButton     
-@onready var menu: Control = $menu/Menu                    
+@onready var menu: Control = $menu/Menu                  
 @onready var score_label = $Panel/ScoreLabel               
 @onready var animation_player: AnimationPlayer = $AnimationPlayer 
 @onready var game_over_label: Label = $GameOverLabel       

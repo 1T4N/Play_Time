@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://7wcilstcy6ie"]
+[gd_resource type="Theme" load_steps=20 format=3 uid="uid://7wcilstcy6ie"]
 
+[ext_resource type="Texture2D" uid="uid://bx3olukumwp6q" path="res://GameUI/assets/On Button.PNG" id="1_8o28y"]
 [ext_resource type="Texture2D" uid="uid://dsm3nj3rh621s" path="res://GameUI/assets/Plus Icon w_BG.jpg" id="1_mevjs"]
+[ext_resource type="Texture2D" uid="uid://cvttrfpus5l46" path="res://GameUI/assets/Off Button.PNG" id="2_ht067"]
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_mwpit"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mevjs"]
@@ -10,6 +12,30 @@ bg_color = Color(0.501961, 0.392157, 0.294118, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3mro0"]
 bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5cvai"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu20k"]
+bg_color = Color(0.65098, 0.894118, 0.894118, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktm1y"]
 bg_color = Color(0.921569, 0.639216, 0.4, 1)
@@ -49,6 +75,20 @@ Button/styles/focus = SubResource("StyleBoxEmpty_mevjs")
 Button/styles/hover = SubResource("StyleBoxFlat_g5a8k")
 Button/styles/normal = SubResource("StyleBoxFlat_3mro0")
 Button/styles/pressed = SubResource("StyleBoxFlat_g5a8k")
+CheckButton/constants/icon_max_width = 200
+CheckButton/icons/checked = ExtResource("1_8o28y")
+CheckButton/icons/checked_disabled = ExtResource("1_8o28y")
+CheckButton/icons/checked_disabled_mirrored = ExtResource("1_8o28y")
+CheckButton/icons/checked_mirrored = ExtResource("1_8o28y")
+CheckButton/icons/unchecked = ExtResource("2_ht067")
+CheckButton/icons/unchecked_disabled = ExtResource("2_ht067")
+CheckButton/icons/unchecked_disabled_mirrored = ExtResource("2_ht067")
+CheckButton/icons/unchecked_mirrored = ExtResource("2_ht067")
+CheckButton/styles/focus = SubResource("StyleBoxFlat_domf7")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_tu7k8")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_5cvai")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_bu20k")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_5cvai")
 LineEdit/colors/font_color = Color(1, 1, 1, 1)
 LineEdit/font_sizes/font_size = 40
 MarginContainer/constants/margin_bottom = 5

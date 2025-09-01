@@ -186,5 +186,6 @@ layout_mode = 1
 [node name="startSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ckp4p")
 volume_db = -20.0
+bus = &"sfx"
 
 [connection signal="pressed" from="TitleScreen/touch the screen" to="." method="_on_touch_the_screen_pressed"]
