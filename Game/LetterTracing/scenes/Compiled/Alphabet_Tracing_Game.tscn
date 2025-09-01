@@ -350,17 +350,21 @@ offset_bottom = 286.0
 
 [node name="cardSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_ypaqg")
+bus = &"sfx"
 
 [node name="correctSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("36_vs1e5")
+bus = &"sfx"
 
 [node name="errorSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("37_e3gx5")
+bus = &"sfx"
 
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("38_jye3c")
 volume_db = -20.0
 autoplay = true
+bus = &"music"
 
 [connection signal="pressed" from="MarginContainer/Header/MenuButton" to="MarginContainer/Header/MenuButton" method="_on_pressed"]
 [connection signal="timeout" from="MarginContainer/Header/Timer/Timer" to="Control/LetterCardZ" method="_on_timer_timeout"]
