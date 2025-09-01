@@ -40,15 +40,15 @@ func _ready():
 # add more image here copy and paste the load code then input the location of the image
 func load_card_images():
 	return [
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Apple.jpg"),
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Banana.jpg"), 
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Coconut.jpg"),
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Dalandan.jpg"),
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Kiwi.jpg"),  
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Lemon.jpg"), 
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Mango.jpg"),
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Melon.jpg"),
-		load("res://Game/Matching-Game/ui/Fruits_Original_Image/Strawberry.jpg")
+		load("res://Game/Matching-Game/ui/Fruits_New/Apple.PNG"),
+		load("res://Game/Matching-Game/ui/Fruits_New/Banana.PNG"), 
+		load("res://Game/Matching-Game/ui/Fruits_New/Coconut.PNG"),
+		load("res://Game/Matching-Game/ui/Fruits_New/Dalandan.PNG"),
+		load("res://Game/Matching-Game/ui/Fruits_New/Kiwi.PNG"),  
+		load("res://Game/Matching-Game/ui/Fruits_New/Lemon.PNG"), 
+		load("res://Game/Matching-Game/ui/Fruits_New/Mango.PNG"),
+		load("res://Game/Matching-Game/ui/Fruits_New/Melon.PNG"),
+		load("res://Game/Matching-Game/ui/Fruits_New/Strawberry.PNG")
 	]
 
 # Called when a card is pressed
