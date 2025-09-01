@@ -5,7 +5,7 @@ extends Control
 @onready var win_popup = $PopUp/WinPopUp                  
 @onready var score_label: Label = $Panel/MarginContainer/ScoreLabel             # Label to display the score
 @onready var menu_button: Button = $Panel/MarginContainer/MenuButton
-@onready var menu: Control = $Menu
+@onready var menu: Control = $menu/Menu
 @onready var click_sound: AudioStreamPlayer2D = $click_sound
 @onready var match_sound: AudioStreamPlayer2D = $match_sound
 

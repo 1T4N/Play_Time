@@ -6,10 +6,10 @@ extends Control
 @onready var pieces_container = $Pieces
 @onready var score_label = $CanvasLayer/ScoreLabel
 @onready var menu_button: Button = $MarginContainer/MenuButton
-@onready var menu: Control = $Menu
-@onready var timer_label = $Timer/TimerLabel
-@onready var game_timer: Timer = $Timer/GameTimer
-@onready var timer: Control = $Timer
+@onready var menu: Control = $menu/Menu
+#@onready var timer_label = $Timer/TimerLabel
+#@onready var game_timer: Timer = $Timer/GameTimer
+@onready var timer: Control = $menu/Timer
 #@onready var click_sound: AudioStreamPlayer2D = $ClickSound
 
 var score: int = 0
@@ -79,10 +79,9 @@ func _check_completion():
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = true
-	game_timer.stop()
 	menu.visible = true
 
 func _on_menu_exit_button_pressed() -> void:
 	get_tree().paused = false
-	game_timer.start()
-	menu.visible = false
+	#game_timer.start()
+	#menu.visible = false

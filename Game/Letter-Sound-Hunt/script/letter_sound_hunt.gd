@@ -13,7 +13,7 @@ extends Control
 ]
 @onready var narrator: AudioStreamPlayer2D = $AudioNarrator
 @onready var feedback_audio: AudioStreamPlayer2D = $AudioFeedback
-@onready var menu: Control = $Menu/Menu
+@onready var menu: Control = $menu/Menu
 @onready var game_over_label: Label = $GameOverPopup/GameOverLabel
 @onready var click_sound: AudioStreamPlayer2D = $click_sound
 @onready var correct_sound: AudioStreamPlayer2D = $correct_sound
