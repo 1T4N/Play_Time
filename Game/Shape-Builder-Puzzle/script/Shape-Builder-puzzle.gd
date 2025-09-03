@@ -28,15 +28,15 @@ func _ready():
 		original_positions.append(piece.position)
 
 	# Shuffle their positions
-	randomize_pieces()
+	#randomize_pieces()
 
-# Shuffle the positions of shapes
-func randomize_pieces():
-	var shuffled_positions = original_positions.duplicate()
-	shuffled_positions.shuffle()
-	var pieces = pieces_container.get_children()
-	for i in range(pieces.size()):
-		pieces[i].position = shuffled_positions[i]
+## Shuffle the positions of shapes
+#func randomize_pieces():
+	#var shuffled_positions = original_positions.duplicate()
+	#shuffled_positions.shuffle()
+	#var pieces = pieces_container.get_children()
+	#for i in range(pieces.size()):
+		#pieces[i].position = shuffled_positions[i]
 
 # Attempts to place a piece on its matching target
 func try_place_piece(piece):
