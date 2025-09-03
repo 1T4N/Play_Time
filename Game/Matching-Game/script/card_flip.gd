@@ -101,7 +101,7 @@ func check_match():
 		showGameOver()
 
 #region gameOverPopUP - fylart
-@onready var game_over_component: PanelContainer = $GameOverComponent
+@onready var game_over_component: PanelContainer = $menu/GameOverComponent
 func showGameOver():
 	get_tree().paused = true
 	game_over_component.show()
