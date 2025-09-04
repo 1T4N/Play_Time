@@ -54,15 +54,22 @@ var score = 0
 var input_locked = false  #Prevents clicking during narration/feedback
 
 func _ready():
+	globalGameData.resetData()
+	#change the number base on the game
+	globalGameData.currentGameID = 3
+	
 	randomize()
 	update_score_label()
 	game_over_label.visible = false
+	
 
 
 	narrator.finished.connect(_on_audio_finished)
 	feedback_audio.finished.connect(_on_audio_finished)
 
 	start_game()
+	
+	
 
 func start_game():
 	score = 0

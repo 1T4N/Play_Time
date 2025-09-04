@@ -33,6 +33,11 @@ var shape_sounds = {
 }
 
 func _ready():
+	globalGameData.resetData()
+	#change the number base on the game
+	globalGameData.currentGameID = 4
+	
+	
 	# Assign textures to each shape type from the scene
 	shape_textures = {
 		"Circle": shape1.get_node("ShapeImage").texture,
@@ -43,6 +48,7 @@ func _ready():
 	show_instruction()
 	score = 0
 	update_score()
+
 
 # Assign random shapes to the buttons 
 func assign_shapes():

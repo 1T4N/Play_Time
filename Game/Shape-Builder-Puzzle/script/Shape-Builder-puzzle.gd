@@ -19,6 +19,10 @@ var time_left: int
 var original_positions: Array = []
 
 func _ready():
+	globalGameData.resetData()
+	#change the number base on the game
+	globalGameData.currentGameID = 5
+	
 	ui_congrats.visible = false
 	update_score_label()
 	randomize() # Ensure randomness
