@@ -41,10 +41,18 @@ script/source = "extends HBoxContainer
 
 var busName:String
 var busIndex:int
+
+@onready var sfx: CheckButton = $sfx
+@onready var music: CheckButton = $music
+
+func _ready() -> void:
+	sfx.button_pressed = globalGameData.soundToggles[\"sfx\"]
+	music.button_pressed = globalGameData.soundToggles[\"music\"]
+	
+
 func _on_sfx_toggled(toggled_on: bool) -> void:
 	busName = \"sfx\"
 	setNewDb(busName,toggled_on)
-
 
 func _on_music_toggled(toggled_on: bool) -> void:
 	busName = \"music\"
@@ -52,10 +60,13 @@ func _on_music_toggled(toggled_on: bool) -> void:
 	
 func setNewDb(busName,toggled_on):
 	busIndex = AudioServer.get_bus_index(busName)
+	
 	if toggled_on:
 		AudioServer.set_bus_volume_db(busIndex,linear_to_db(1.0))
 	else:
 		AudioServer.set_bus_volume_db(busIndex,linear_to_db(0.0))
+	
+	globalGameData.soundToggles[busName] = toggled_on
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
@@ -88,9 +99,10 @@ bg_color = Color(1, 0.909804, 0.713726, 1)
 [sub_resource type="GDScript" id="GDScript_ojatv"]
 script/source = "extends Button
 
+@onready var credit_page: PanelContainer = $\"../../../../..\"
 
 func _on_pressed() -> void:
-	get_parent().get_parent().hide()
+	credit_page.hide()
 "
 
 [node name="Menu" type="Control"]
@@ -154,22 +166,23 @@ script = SubResource("GDScript_83co6")
 [node name="sfx" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_font_sizes/font_size = 125
-button_pressed = true
 text = "SFX"
 
 [node name="music" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_font_sizes/font_size = 125
-button_pressed = true
 text = "Music"
 
 [node name="Resume" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 125
@@ -182,6 +195,7 @@ text = "Resume"
 [node name="Credits" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 125
@@ -195,6 +209,7 @@ script = ExtResource("5_yowbx")
 [node name="Back" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(700, 150)
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 125

@@ -7,6 +7,7 @@ var LetterTracingTime:int
 signal retry
 var timeDeduction:int = 5
 
+
 func resetData():
 	globalGameData.currentGameScore = 0
 	globalGameData.LetterTracingTime = 0
@@ -14,3 +15,9 @@ func resetData():
 
 signal transition(pathToNextScene:String)
 var isTransitionPlayed:bool
+
+
+var soundToggles = {
+	"sfx": true,
+	"music": true
+}

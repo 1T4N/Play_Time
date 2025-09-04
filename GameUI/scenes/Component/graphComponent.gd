@@ -14,13 +14,15 @@ func _ready() -> void:
 		return
 
 	chart.show()
-	var x: Array = ProfileDataGlobals.saveData[game.gameName].tries
+	var x: Array = [0]
+	x.append_array(ProfileDataGlobals.saveData[game.gameName].tries) 
 	#print(x)
 	
 	# Let's create our @x values
 	# And our y values. It can be an n-size array of arrays.
 	# NOTE: `x.size() == y.size()` or `x.size() == y[n].size()`
-	var y: Array = ProfileDataGlobals.saveData[game.gameName].scores
+	var y: Array = [0]
+	y.append_array(ProfileDataGlobals.saveData[game.gameName].scores)
 	#print(y)
 	
 	# Let's customize the chart properties, which specify how the chart
