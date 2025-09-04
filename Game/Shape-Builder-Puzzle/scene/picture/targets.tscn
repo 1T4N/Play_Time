@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b71s0740bdmb0"]
+
+[ext_resource type="Texture2D" uid="uid://dxiwx5f7h3ota" path="res://Game/Shape-Builder-Puzzle/ui/house.PNG" id="1_t4xjq"]
+[ext_resource type="PackedScene" uid="uid://dwuvub3x1tg64" path="res://Game/Shape-Builder-Puzzle/scene/Target.tscn" id="2_wfqfs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfkhi"]
+atlas = ExtResource("1_t4xjq")
+region = Rect2(64, 84, 901, 849)
+
+[node name="Targets" type="TextureRect"]
+custom_minimum_size = Vector2(520, 520)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -260.0
+offset_right = 260.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_mfkhi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Target" parent="." instance=ExtResource("2_wfqfs")]
+position = Vector2(266, 148)
+scale = Vector2(0.62, 0.65)
+required_id = "1"
+
+[node name="Target2" parent="." instance=ExtResource("2_wfqfs")]
+position = Vector2(272, 385)
+scale = Vector2(0.62, 0.65)
+required_id = "2"
