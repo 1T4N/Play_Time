@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://5fincbh4mk4w" path="res://GameUI/Game_Backgrounds/Shape_Safari_BG.PNG" id="2_4huo3"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
-[ext_resource type="Texture2D" uid="uid://dun23ceps2k3p" path="res://Game/Shape-Safari/ui/Square.PNG" id="4_4p2sc"]
-[ext_resource type="Texture2D" uid="uid://d3sjdyep48uj5" path="res://Game/Shape-Safari/ui/circle.png" id="6_4huo3"]
 [ext_resource type="AudioStream" uid="uid://644kil0p7a6g" path="res://Game/Matching-Game/ui/sound/click_matching_game.wav" id="6_hy7v6"]
 [ext_resource type="AudioStream" uid="uid://w2rgf56yfw7g" path="res://Game/Shape-Safari/sound/wrong_sound.mp3" id="7_gw3s1"]
-[ext_resource type="Texture2D" uid="uid://c8s61plafeip5" path="res://Game/Shape-Safari/ui/triangle.png" id="7_j25r3"]
 [ext_resource type="AudioStream" uid="uid://b8c6lusxg0yvf" path="res://Game/Shape-Safari/sound/correct_sound.mp3" id="8_hy7v6"]
 [ext_resource type="AudioStream" uid="uid://bmcqn3iw6u2n3" path="res://Game/Shape-Safari/sound/wrong_click.mp3" id="9_ibo0j"]
+[ext_resource type="Texture2D" uid="uid://c7k707erm2glh" path="res://Game/Shape-Safari/ui/new/Elephant_Square.PNG" id="10_hy7v6"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_4p2sc"]
+[ext_resource type="Texture2D" uid="uid://0jwciwwdh80b" path="res://Game/Shape-Safari/ui/new/Monkey_Circle.PNG" id="11_ibo0j"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_4huo3"]
+[ext_resource type="Texture2D" uid="uid://cnh5dcyrokdg" path="res://Game/Shape-Safari/ui/new/Lion_Triangle.PNG" id="12_by7ey"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="13_gw3s1"]
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="13_j25r3"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="16_hy7v6"]
@@ -47,20 +47,20 @@ corner_radius_bottom_left = 50
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p2sc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svpsx"]
-atlas = ExtResource("4_4p2sc")
-region = Rect2(755, 167, 428, 541)
+atlas = ExtResource("10_hy7v6")
+region = Rect2(135, 20, 754, 977)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08kjl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j25r3"]
-atlas = ExtResource("6_4huo3")
-region = Rect2(755, 181, 428, 527)
+atlas = ExtResource("11_ibo0j")
+region = Rect2(135, 31, 754, 966)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4huo3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw3s1"]
-atlas = ExtResource("7_j25r3")
-region = Rect2(757, 150, 438, 580)
+atlas = ExtResource("12_by7ey")
+region = Rect2(135, 29, 754, 968)
 
 [sub_resource type="Animation" id="Animation_4p2sc"]
 length = 0.001
@@ -373,6 +373,7 @@ offset_right = 234.5
 offset_bottom = 286.0
 
 [node name="SlideTransition" parent="menu" instance=ExtResource("16_hy7v6")]
+visible = false
 
 [connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Shape/HBoxContainer/Shape2" to="." method="_on_shape_2_pressed"]
