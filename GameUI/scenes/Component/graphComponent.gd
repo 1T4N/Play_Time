@@ -65,7 +65,17 @@ func _ready() -> void:
 	chart.plot([f1], cp)
 	
 	# Uncommenting this line will show how real time data plotting works
+	improvement.calculate_improvement_against_previous_average(y)
 	set_process(false)
+
+@onready var improvement: Label = $improvement
+
+
+
+
+
+
+
 
 
 #func whatGame():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0kq5wq3sj4h"]
+[gd_scene load_steps=32 format=3 uid="uid://b0kq5wq3sj4h"]
 
 [ext_resource type="Script" uid="uid://nma7aa31td1r" path="res://Game/Shape-Safari/script/shape_safari.gd" id="1_y2sgv"]
 [ext_resource type="Texture2D" uid="uid://5fincbh4mk4w" path="res://GameUI/Game_Backgrounds/Shape_Safari_BG.PNG" id="2_4huo3"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_4huo3"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="13_gw3s1"]
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="13_j25r3"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="16_hy7v6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
 texture = ExtResource("2_4huo3")
@@ -370,6 +371,8 @@ offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
+
+[node name="SlideTransition" parent="menu" instance=ExtResource("16_hy7v6")]
 
 [connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Shape/HBoxContainer/Shape2" to="." method="_on_shape_2_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfph5jjewhhpx"]
+
+[ext_resource type="AudioStream" uid="uid://d2iubm6nhqki2" path="res://GameUI/assets/sfx/37633__hello_flowers__vexst_sofunky_11obpm_new-bassie-again-amigo.wav" id="1_pkg0i"]
+
+[node name="mainBGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_pkg0i")
+volume_db = -19.173
+bus = &"music"

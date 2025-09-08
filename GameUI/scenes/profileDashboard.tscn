@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8fv57om4an8h"]
+[gd_scene load_steps=14 format=3 uid="uid://c8fv57om4an8h"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
 [ext_resource type="Texture2D" uid="uid://dle12abxix874" path="res://GameUI/assets/profileIcons/fixed/compressed_bunny.png" id="2_xncgm"]
@@ -14,6 +14,32 @@
 script/source = "extends Label
 func _ready() -> void:
 	text =\"Hi! \" + ProfileDataGlobals.saveData.profile.name
+"
+
+[sub_resource type="GDScript" id="GDScript_xncgm"]
+script/source = "extends Label
+func _ready() -> void:
+	hide()
+
+func calculate_improvement_against_previous_average(score):
+	show()
+	var latest_score = score[score.size() - 1]
+	var previous_scores = score.slice(0, score.size() - 1)
+	var average_prev_score = 0
+	for s in previous_scores:
+		average_prev_score += s
+	average_prev_score /= previous_scores.size()
+
+	var improvement = int(((latest_score - average_prev_score) / average_prev_score) * 100) 
+	
+	if is_inf(improvement) or improvement < -100 or improvement > 100:
+		text = \"Please keep playing~\"
+		return
+	if improvement<0:
+		text = \"Your child's latest got worse by: \" + str(improvement) + \"%\"
+		return
+	
+	text = \"Your child's latest score improved by: \" + str(improvement) + \"%\"
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lp0aq"]
@@ -78,7 +104,6 @@ script = ExtResource("3_lp0aq")
 metadata/_tab_index = 0
 
 [node name="Chart" parent="MarginContainer/HBoxContainer/tab/Graph/Letter Tracing" instance=ExtResource("3_ijym7")]
-visible = false
 layout_mode = 1
 grow_horizontal = 2
 grow_vertical = 2
@@ -102,6 +127,18 @@ theme_type_variation = &"labelH3"
 text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
+
+[node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Letter Tracing"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "test"
+horizontal_alignment = 2
+script = SubResource("GDScript_xncgm")
 
 [node name="Color Hunt" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
@@ -134,6 +171,18 @@ text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
 
+[node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Color Hunt"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "test"
+horizontal_alignment = 2
+script = SubResource("GDScript_xncgm")
+
 [node name="Matching Game" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
 layout_mode = 2
@@ -164,6 +213,18 @@ theme_type_variation = &"labelH3"
 text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
+
+[node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Matching Game"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "test"
+horizontal_alignment = 2
+script = SubResource("GDScript_xncgm")
 
 [node name="Shape Safari" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
@@ -196,6 +257,18 @@ text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
 
+[node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Shape Safari"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "test"
+horizontal_alignment = 2
+script = SubResource("GDScript_xncgm")
+
 [node name="Sound Hunt" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
 layout_mode = 2
@@ -227,6 +300,18 @@ text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
 
+[node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Sound Hunt"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "test"
+horizontal_alignment = 2
+script = SubResource("GDScript_xncgm")
+
 [node name="Puzzle Builder" type="TabBar" parent="MarginContainer/HBoxContainer/tab/Graph"]
 visible = false
 layout_mode = 2
@@ -257,6 +342,18 @@ theme_type_variation = &"labelH3"
 text = "No Data
 (Please play a game)"
 horizontal_alignment = 1
+
+[node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Puzzle Builder"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "test"
+horizontal_alignment = 2
+script = SubResource("GDScript_xncgm")
 
 [node name="scores" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

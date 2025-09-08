@@ -99,7 +99,7 @@ bg_color = Color(1, 0.909804, 0.713726, 1)
 [sub_resource type="GDScript" id="GDScript_ojatv"]
 script/source = "extends Button
 
-@onready var credit_page: PanelContainer = $\"../../../../..\"
+@onready var credit_page: PanelContainer = $\"../../../..\"
 
 func _on_pressed() -> void:
 	credit_page.hide()
@@ -240,17 +240,21 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer"]
 layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Team" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Team" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("6_ojatv")
@@ -258,201 +262,196 @@ theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 100
 text = "Team"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 45
 
-[node name="Game Devs" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="Game Devs" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 60
 text = "🎮 Game Developers:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = " "
 
-[node name="Suarez" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Suarez" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Suarez Crispatrick"
 
-[node name="Suarez_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Suarez_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = " Lead Game Developer"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 55
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Saracanlao" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Saracanlao" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "   Saracanlao Justine"
 
-[node name="Saracanlao_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="Saracanlao_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Game Developer"
 
-[node name="Documentator" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="Documentator" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 60
 text = "📝 Documentation:"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Rivera" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="Rivera" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Rivera Czarlayne"
 
-[node name="Rivera_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="Rivera_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "    Documentator"
 
-[node name="Art and Des" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="Art and Des" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 60
 text = "🎨 Artist:"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Sandaga" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="Sandaga" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Sandaga Kristian"
 
-[node name="Sandaga_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="Sandaga_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "   Art and Design"
 
-[node name="Reference" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-visible = false
+[node name="Reference" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 60
 text = "📋 Reference:"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-visible = false
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Reference1" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+[node name="Reference1" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Delapouite "
 
-[node name="Reference1_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
+[node name="Reference1_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "                Baby face icon"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-visible = false
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Reference2" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+[node name="Reference2" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Delapouite "
 
-[node name="Reference2_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+[node name="Reference2_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "                Entry door icon "
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-visible = false
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer7"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Reference3" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer7"]
+[node name="Reference3" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Delapouite "
 
-[node name="Reference3_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer7"]
+[node name="Reference3_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer7"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "                Anticlockwise 
 				rotation icon"
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-visible = false
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 70
 
-[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer8"]
+[node name="Space" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 
-[node name="Reference4" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer8"]
+[node name="Reference4" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Delapouite "
 
-[node name="Reference4_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer8"]
+[node name="Reference4_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer8"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "                House icon"
 
-[node name="Back2" type="Button" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Back2" type="Button" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -473,4 +472,4 @@ script = SubResource("GDScript_ojatv")
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Credits" to="MarginContainer/Panel/VBoxContainer/Credits" method="_on_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/Back2" to="MarginContainer/CREDIT PAGE/Panel/MarginContainer/ScrollContainer/VBoxContainer/Back2" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/Back2" to="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/Back2" method="_on_pressed"]
