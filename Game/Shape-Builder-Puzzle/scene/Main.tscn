@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://p2k51ed4yu8"]
+[gd_scene load_steps=21 format=3 uid="uid://p2k51ed4yu8"]
 
 [ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Shape-Builder-puzzle.gd" id="1_ts37j"]
 [ext_resource type="Texture2D" uid="uid://c83wao0ajlo6q" path="res://GameUI/Game_Backgrounds/Puzzle_Builder_BG6.PNG" id="2_mfkhi"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_xmcih"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="11_0p6h8"]
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="11_uwtu8"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="12_0p6h8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8prb"]
 texture = ExtResource("2_mfkhi")
@@ -229,6 +230,8 @@ offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
+
+[node name="SlideTransition" parent="menu" instance=ExtResource("12_0p6h8")]
 
 [connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 

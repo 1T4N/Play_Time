@@ -20,6 +20,7 @@ config/icon="uid://b1yfdjbda1usk"
 globalGameData="*res://Game/globalGameData.gd"
 ProfileDataGlobals="*res://GameUI/Saving/profileDataGlobals.gd"
 SignalLens="*res://addons/signal_lens/autoload/signal_lens_autoload.gd"
+MainBgm="*res://GameUI/scenes/main_bgm.tscn"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://btuehsrcekkv5"]
+[gd_scene load_steps=26 format=3 uid="uid://btuehsrcekkv5"]
 
 [ext_resource type="Script" uid="uid://dljg3riu8208r" path="res://Game/Matching-Game/script/card_flip.gd" id="1_0xm2m"]
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_5fsx7"]
 [ext_resource type="AudioStream" uid="uid://dfic3l21keuw5" path="res://Game/Matching-Game/ui/sound/matching_game.wav" id="11_wevum"]
 [ext_resource type="AudioStream" uid="uid://644kil0p7a6g" path="res://Game/Matching-Game/ui/sound/click_matching_game.wav" id="12_jh2q6"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="13_2judi"]
 [ext_resource type="AudioStream" uid="uid://bjmbi63e8nhvv" path="res://Game/Matching-Game/ui/sound/match_sound.wav" id="13_8r4ip"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u3sdp"]
@@ -410,6 +411,8 @@ offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
+
+[node name="SlideTransition" parent="menu" instance=ExtResource("13_2judi")]
 
 [connection signal="pressed" from="Panel/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]

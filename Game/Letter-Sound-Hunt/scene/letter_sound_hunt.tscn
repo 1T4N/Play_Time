@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b0jpy3nh58hfj"]
+[gd_scene load_steps=43 format=3 uid="uid://b0jpy3nh58hfj"]
 
 [ext_resource type="Script" uid="uid://bvrf4muyb03ae" path="res://Game/Letter-Sound-Hunt/script/letter_sound_hunt.gd" id="1_xj1oe"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="2_encgt"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_ly3wd"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="13_1ilkn"]
 [ext_resource type="AudioStream" uid="uid://d4ecwysltxfqs" path="res://Game/Letter-Sound-Hunt/sound/BackgroundMusic.mp3" id="13_hw1eb"]
+[ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="15_jtt8k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
 texture = ExtResource("3_hw1eb")
@@ -613,6 +614,8 @@ offset_left = -234.5
 offset_top = -286.0
 offset_right = 234.5
 offset_bottom = 286.0
+
+[node name="SlideTransition" parent="menu" instance=ExtResource("15_jtt8k")]
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="pressed" from="Item1" to="." method="_on_item_1_pressed"]
