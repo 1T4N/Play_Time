@@ -4,7 +4,11 @@ var f1: Function
 @onready var no_data_label: Label = $noDataLabel
 const WhatGame = preload("res://GameUI/scenes/Component/whatGame.gd")
 
+var displayText
+
 func _ready() -> void:
+	#self.tab_clicked.connect(changeDisplayedTextAnalysis)
+	#get_parent().connect("tab_selected",changeDisplayedTextAnalysis)
 	var game = WhatGame.new(self.name)
 	#var gameName =  whatGame()
 	#checks if the data exist
@@ -65,12 +69,19 @@ func _ready() -> void:
 	chart.plot([f1], cp)
 	
 	# Uncommenting this line will show how real time data plotting works
-	improvement.calculate_improvement_against_previous_average(y)
-	set_process(false)
+	
+	displayText = improvement.calculate_improvement_against_previous_average(y)
+
+	
+	#set_process(false)
 
 @onready var improvement: Label = $improvement
+@onready var label: Label = $"../../../scores/bestTimes/MarginContainer/VBoxContainer/PanelContainer/Label"
 
-
+#func changeDisplayedTextAnalysis(test):
+	#if displayText:
+		#label.text = displayText
+	##print(test)
 
 
 

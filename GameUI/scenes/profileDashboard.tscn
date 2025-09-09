@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8fv57om4an8h"]
+[gd_scene load_steps=17 format=3 uid="uid://c8fv57om4an8h"]
 
 [ext_resource type="Theme" uid="uid://7wcilstcy6ie" path="res://GameUI/themes/Main_Menu.tres" id="1_ovmwx"]
 [ext_resource type="Texture2D" uid="uid://dle12abxix874" path="res://GameUI/assets/profileIcons/fixed/compressed_bunny.png" id="2_xncgm"]
@@ -19,10 +19,11 @@ func _ready() -> void:
 [sub_resource type="GDScript" id="GDScript_xncgm"]
 script/source = "extends Label
 func _ready() -> void:
+	text = \"\"
 	hide()
 
 func calculate_improvement_against_previous_average(score):
-	show()
+	#show()
 	var latest_score = score[score.size() - 1]
 	var previous_scores = score.slice(0, score.size() - 1)
 	var average_prev_score = 0
@@ -39,7 +40,45 @@ func calculate_improvement_against_previous_average(score):
 		text = \"Your child's latest got worse by: \" + str(improvement) + \"%\"
 		return
 	
-	text = \"Your child's latest score improved by: \" + str(improvement) + \"%\"
+	var display = \"Your child's latest score improved by: \" + str(improvement) + \"%\"
+	#text = display
+	return display
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wix2r"]
+bg_color = Color(0.972549, 0.917647, 0.733333, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xncgm"]
+bg_color = Color(0.921569, 0.639216, 0.4, 1)
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+
+[sub_resource type="GDScript" id="GDScript_wix2r"]
+script/source = "extends Label
+
+@onready var graph: TabContainer = $\"../../../../../../tab/Graph\"
+
+
+func _on_graph_tab_selected(tab: int) -> void:
+	if graph:
+		var tabSelected = graph.get_child(tab)
+		if tabSelected.displayText:
+			text = tabSelected.displayText
+			return
+		text = \"Please keep playing~\"
+		#print(tabSelected.name)
+		return
+	else:
+		call_deferred(\"initializedSelected\")
+
+func initializedSelected():
+	_on_graph_tab_selected(0)
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lp0aq"]
@@ -129,6 +168,7 @@ text = "No Data
 horizontal_alignment = 1
 
 [node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Letter Tracing"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -136,7 +176,6 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "test"
 horizontal_alignment = 2
 script = SubResource("GDScript_xncgm")
 
@@ -172,6 +211,7 @@ text = "No Data
 horizontal_alignment = 1
 
 [node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Color Hunt"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -215,6 +255,7 @@ text = "No Data
 horizontal_alignment = 1
 
 [node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Matching Game"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -258,6 +299,7 @@ text = "No Data
 horizontal_alignment = 1
 
 [node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Shape Safari"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -301,6 +343,7 @@ text = "No Data
 horizontal_alignment = 1
 
 [node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Sound Hunt"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -344,6 +387,7 @@ text = "No Data
 horizontal_alignment = 1
 
 [node name="improvement" type="Label" parent="MarginContainer/HBoxContainer/tab/Graph/Puzzle Builder"]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -364,6 +408,7 @@ theme_override_constants/separation = 50
 layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"PanelContainerZ1"
+theme_override_styles/panel = SubResource("StyleBoxFlat_wix2r")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes"]
 layout_mode = 2
@@ -535,6 +580,19 @@ layout_mode = 2
 theme_type_variation = &"labelH4"
 text = "00:99"
 horizontal_alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xncgm")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_type_variation = &"labelH4"
+text = "You've improved by: 100% on"
+horizontal_alignment = 1
+autowrap_mode = 3
+script = SubResource("GDScript_wix2r")
 
 [node name="bestScores" type="PanelContainer" parent="MarginContainer/HBoxContainer/scores"]
 visible = false
@@ -741,4 +799,5 @@ isPopIn = true
 visible = false
 layout_mode = 2
 
+[connection signal="tab_selected" from="MarginContainer/HBoxContainer/tab/Graph" to="MarginContainer/HBoxContainer/scores/bestTimes/MarginContainer/VBoxContainer/PanelContainer/Label" method="_on_graph_tab_selected"]
 [connection signal="pressed" from="goBack/Button" to="goBack/Button" method="_on_pressed"]
