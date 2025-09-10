@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://5fincbh4mk4w" path="res://GameUI/Game_Backgrounds/Shape_Safari_BG.PNG" id="2_4huo3"]
 [ext_resource type="AudioStream" uid="uid://cf7v8ip5e6pmi" path="res://Game/Shape-Safari/sound/clapping.mp3" id="2_y2sgv"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="3_b81qt"]
+[ext_resource type="Texture2D" uid="uid://cmxc5lhljjmim" path="res://GameUI/assets/menu/Clicked.PNG" id="4_by7ey"]
+[ext_resource type="Texture2D" uid="uid://4wsvb5na2ncb" path="res://GameUI/assets/menu/Default.PNG" id="5_fidor"]
 [ext_resource type="AudioStream" uid="uid://644kil0p7a6g" path="res://Game/Matching-Game/ui/sound/click_matching_game.wav" id="6_hy7v6"]
 [ext_resource type="AudioStream" uid="uid://w2rgf56yfw7g" path="res://Game/Shape-Safari/sound/wrong_sound.mp3" id="7_gw3s1"]
 [ext_resource type="AudioStream" uid="uid://b8c6lusxg0yvf" path="res://Game/Shape-Safari/sound/correct_sound.mp3" id="8_hy7v6"]
@@ -20,29 +22,11 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yd0dp"]
 texture = ExtResource("2_4huo3")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tumoo"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpba2"]
+texture = ExtResource("4_by7ey")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd0dp"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrt5h"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08kjl"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wjca"]
+texture = ExtResource("5_fidor")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4p2sc"]
 
@@ -175,12 +159,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_tumoo")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yd0dp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hrt5h")
-theme_override_styles/normal = SubResource("StyleBoxFlat_08kjl")
-text = "☰
-"
+theme_override_styles/focus = SubResource("StyleBoxTexture_mpba2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mpba2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mpba2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4wjca")
 
 [node name="Narrator" type="AudioStreamPlayer2D" parent="."]
 volume_db = 6.181
@@ -373,7 +355,6 @@ offset_right = 234.5
 offset_bottom = 286.0
 
 [node name="SlideTransition" parent="menu" instance=ExtResource("16_hy7v6")]
-visible = false
 
 [connection signal="pressed" from="Panel/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Shape/HBoxContainer/Shape2" to="." method="_on_shape_2_pressed"]

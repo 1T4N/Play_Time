@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://7nu5cn1q4tva" path="res://Game/Matching-Game/Baloo2-ExtraBold.ttf" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://pfvfstq5jvd0" path="res://GameUI/Game_Backgrounds/Matching_Game_BG2.PNG" id="2_5fsx7"]
 [ext_resource type="PackedScene" uid="uid://bkbs6l6frvx1r" path="res://Game/Matching-Game/scene/card.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://cmxc5lhljjmim" path="res://GameUI/assets/menu/Clicked.PNG" id="4_3yke1"]
+[ext_resource type="Texture2D" uid="uid://4wsvb5na2ncb" path="res://GameUI/assets/menu/Default.PNG" id="5_d6imx"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_u3sdp"]
 [ext_resource type="Theme" uid="uid://dselprtvqt18x" path="res://Game/LetterTracing/arts/UI/LetteringUI.tres" id="6_3p24p"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="7_jh2q6"]
@@ -19,29 +21,11 @@ texture = ExtResource("2_5fsx7")
 
 [sub_resource type="Theme" id="Theme_7mycd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t1lt"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3dfmo"]
+texture = ExtResource("4_3yke1")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3sdp"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6igo8"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3namh"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3jsg"]
+texture = ExtResource("5_d6imx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p24p"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -124,12 +108,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_1t1lt")
-theme_override_styles/hover = SubResource("StyleBoxFlat_u3sdp")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6igo8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3namh")
-text = "☰
-"
+theme_override_styles/focus = SubResource("StyleBoxTexture_3dfmo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3dfmo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3dfmo")
+theme_override_styles/normal = SubResource("StyleBoxTexture_x3jsg")
 
 [node name="GridContainer" type="GridContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
