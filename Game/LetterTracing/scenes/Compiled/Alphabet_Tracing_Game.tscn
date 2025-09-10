@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://bn7o47a6g1xpt" path="res://Game/LetterTracing/scenes/letters/LetterCards/cardX.tscn" id="4_x1xr6"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="5_o6nc1"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="30_6clmv"]
+[ext_resource type="Texture2D" uid="uid://cmxc5lhljjmim" path="res://GameUI/assets/menu/Clicked.PNG" id="30_w3l7d"]
+[ext_resource type="Texture2D" uid="uid://4wsvb5na2ncb" path="res://GameUI/assets/menu/Default.PNG" id="31_6npuv"]
 [ext_resource type="AudioStream" uid="uid://cbg4ifiotffq7" path="res://Game/LetterTracing/sfx/card/817551__silverdubloons__pickupcard05.wav" id="32_8gpyx"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="32_xc2ie"]
 [ext_resource type="AudioStream" uid="uid://d00a5y5gn5ld4" path="res://Game/LetterTracing/sfx/card/817577__silverdubloons__slidecard02.wav" id="33_3i3op"]
@@ -66,29 +68,11 @@ func unPauseNextCard():
 	
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3qdd"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hl8jw"]
+texture = ExtResource("30_w3l7d")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ti7av"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptry"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m6or"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpbiw"]
+texture = ExtResource("31_6npuv")
 
 [sub_resource type="GDScript" id="GDScript_hw8sg"]
 script/source = "extends Button
@@ -283,11 +267,11 @@ size_flags_vertical = 0
 theme = ExtResource("2_fbvme")
 theme_type_variation = &"menuButton"
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_e3qdd")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ti7av")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hptry")
-theme_override_styles/normal = SubResource("StyleBoxFlat_4m6or")
-text = "☰
+theme_override_styles/focus = SubResource("StyleBoxTexture_hl8jw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hl8jw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hl8jw")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hpbiw")
+text = "
 "
 script = SubResource("GDScript_hw8sg")
 

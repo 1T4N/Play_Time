@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cj4fg2itgkjdd" path="res://Game/Letter-Sound-Hunt/ui/Slide.PNG" id="7_fi3c8"]
 [ext_resource type="Texture2D" uid="uid://cfu35y5do2vsw" path="res://Game/Letter-Sound-Hunt/ui/Tree1.PNG" id="8_o2m8f"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="11_31hr6"]
+[ext_resource type="Texture2D" uid="uid://cmxc5lhljjmim" path="res://GameUI/assets/menu/Clicked.PNG" id="12_fi3c8"]
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="12_ly3wd"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="13_1ilkn"]
 [ext_resource type="AudioStream" uid="uid://d4ecwysltxfqs" path="res://Game/Letter-Sound-Hunt/sound/BackgroundMusic.mp3" id="13_hw1eb"]
+[ext_resource type="Texture2D" uid="uid://4wsvb5na2ncb" path="res://GameUI/assets/menu/Default.PNG" id="13_o2m8f"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="15_jtt8k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oh4oa"]
@@ -197,29 +199,11 @@ _data = {
 atlas = ExtResource("8_o2m8f")
 region = Rect2(154, 9, 693, 962)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlqm0"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vmxla"]
+texture = ExtResource("12_fi3c8")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i0mh"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31hr6"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ly3wd"]
-bg_color = Color(1, 0.909804, 0.713726, 1)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4vdn"]
+texture = ExtResource("13_o2m8f")
 
 [node name="LetterSoundHunt" type="Control"]
 layout_mode = 3
@@ -547,12 +531,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_hlqm0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1i0mh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_31hr6")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ly3wd")
-text = "☰
-"
+theme_override_styles/focus = SubResource("StyleBoxTexture_vmxla")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vmxla")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vmxla")
+theme_override_styles/normal = SubResource("StyleBoxTexture_v4vdn")
 
 [node name="GameOverPopup" type="Popup" parent="."]
 initial_position = 1
