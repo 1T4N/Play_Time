@@ -6,12 +6,10 @@
 [ext_resource type="FontFile" uid="uid://dwxderbtno7vv" path="res://Asap_Condensed,Baloo_2,Madimi_One/Madimi_One/MadimiOne-Regular.ttf" id="2_wbm3f"]
 [ext_resource type="Texture2D" uid="uid://bqve1g43nkmqo" path="res://GameUI/assets/Game Logo/hover/hover state game name1.png" id="4_8m04k"]
 [ext_resource type="Texture2D" uid="uid://d2xhqw2m17tcc" path="res://GameUI/assets/Game Logo/normal state/normal state game name1.png" id="5_2b15q"]
-[ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="7_dnk5s"]
 [ext_resource type="Texture2D" uid="uid://dueqdbv4jbbpx" path="res://GameUI/assets/Game Logo/hover/hover state game name2.png" id="7_hr2n0"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="8_gmdo5"]
 [ext_resource type="Texture2D" uid="uid://bn3mjpaps2rqq" path="res://GameUI/assets/Game Logo/normal state/normal state game name2.png" id="8_wqtuh"]
 [ext_resource type="Texture2D" uid="uid://bq612wbybmafj" path="res://GameUI/assets/Game Logo/hover/hover state game name3.png" id="9_ejbka"]
-[ext_resource type="Texture2D" uid="uid://b22ku07lvs3ni" path="res://GameUI/assets/baby-face (1).png" id="9_himgm"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="10_8m04k"]
 [ext_resource type="Texture2D" uid="uid://blvf28wrp6eb2" path="res://GameUI/assets/Game Logo/normal state/normal state game name3.png" id="10_8t8ul"]
 [ext_resource type="Texture2D" uid="uid://bksiqnpp5mj26" path="res://GameUI/assets/Game Logo/hover/hover state game name6.png" id="11_osckm"]
@@ -20,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://cn48dxeeal3or" path="res://GameUI/assets/Game Logo/normal state/normal state game name5.png" id="14_b6ehv"]
 [ext_resource type="Texture2D" uid="uid://c8ub6vmk2og6x" path="res://GameUI/assets/Game Logo/hover/hover state game name7.png" id="15_ejbka"]
 [ext_resource type="Texture2D" uid="uid://cttxabffxdjb3" path="res://GameUI/assets/Game Logo/normal state/normal state game name7.png" id="16_8t8ul"]
+[ext_resource type="Texture2D" uid="uid://cppcfh6tgaavx" path="res://GameUI/assets/New original game icons/Home Button - Default.PNG" id="18_ejbka"]
+[ext_resource type="Texture2D" uid="uid://j10u7r165iyb" path="res://GameUI/assets/New original game icons/Face Icon - Default.PNG" id="19_8t8ul"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0b2r"]
 texture = ExtResource("2_gmdo5")
@@ -504,7 +504,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 140
-theme_override_icons/icon = ExtResource("7_dnk5s")
+theme_override_icons/icon = ExtResource("18_ejbka")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_gmdo5")
@@ -537,7 +537,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 140
-theme_override_icons/icon = ExtResource("9_himgm")
+theme_override_icons/icon = ExtResource("19_8t8ul")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gmdo5")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_gmdo5")

@@ -229,6 +229,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bu20k")
 text = "Exit"
 
 [node name="CREDIT PAGE" type="PanelContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="MarginContainer/CREDIT PAGE"]
