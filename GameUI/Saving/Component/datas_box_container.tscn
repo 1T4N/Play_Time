@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd6ix6qdhyq1w"]
+[gd_scene load_steps=14 format=3 uid="uid://cd6ix6qdhyq1w"]
 
 [ext_resource type="Theme" uid="uid://dkju6i6v6svgd" path="res://GameUI/assets/profileIcons/create_profile.tres" id="1_7qbft"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="1_egydc"]
@@ -55,6 +55,60 @@ func save():
 		}
 	}
 	return saveDictionary
+"
+
+[sub_resource type="GDScript" id="GDScript_7qbft"]
+script/source = "extends LineEdit
+#@export var textViewer:LineEdit
+const PREVIEW_TEXT = preload(\"res://GameUI/scenes/Component/previewText.tscn\")
+var previewLineEdit:LineEdit
+
+func _ready() -> void:
+	call_deferred(\"addKeyboardPreview\")
+	
+
+func addKeyboardPreview():
+	var root_node = get_tree().get_current_scene()
+	var instance = PREVIEW_TEXT.instantiate()
+	root_node.add_child(instance)
+	previewLineEdit = instance.get_child(0)
+	instance.hide()
+	#print(previewLineEdit.text)
+
+
+func _process(delta: float) -> void:
+	print(is_virtual_keyboard_shown())
+	
+	#if is_virtual_keyboard_shown():
+		#print(\"is visibile \", previewLineEdit.get_parent().visible)
+		#text = previewLineEdit.text
+#
+		#if previewLineEdit.get_parent().visible:
+			#return
+		#_on_editing_toggled(true)
+		
+	if not previewLineEdit.has_focus() or Input.is_action_just_pressed(\"ui_accept\"):
+		if is_virtual_keyboard_shown():
+			text = previewLineEdit.text
+		previewLineEdit.get_parent().hide()
+
+func _on_editing_toggled(toggled_on: bool) -> void:
+	#if not toggled_on:
+		#previewLineEdit.get_parent().hide()
+		#return
+	
+	await get_tree().create_timer(0.5).timeout  
+	if not is_virtual_keyboard_shown():
+		return
+
+	previewLineEdit.get_parent().show()
+	if previewLineEdit.has_focus():
+		return
+	previewLineEdit.grab_focus()
+
+	
+func is_virtual_keyboard_shown():
+	return DisplayServer.virtual_keyboard_get_height() != OK
 "
 
 [sub_resource type="GDScript" id="GDScript_egydc"]
@@ -217,6 +271,7 @@ custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Enter Your Name"
+script = SubResource("GDScript_7qbft")
 
 [node name="Age" type="Label" parent="Datas"]
 layout_mode = 2
@@ -259,4 +314,5 @@ script = SubResource("GDScript_eh4vp")
 [node name="animationUXComponent" parent="Button" instance=ExtResource("1_egydc")]
 hoverAnimationScale = 1.01
 
+[connection signal="editing_toggled" from="Datas/nameTextBox" to="Datas/nameTextBox" method="_on_editing_toggled"]
 [connection signal="pressed" from="Button" to="Button" method="save_game"]
