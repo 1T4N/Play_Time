@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="3_ijym7"]
 [ext_resource type="Script" uid="uid://b6nwo6vd5kcvv" path="res://GameUI/scenes/Component/graphComponent.gd" id="3_lp0aq"]
 [ext_resource type="Script" uid="uid://dt7jnw5nndud4" path="res://GameUI/scenes/pfp.gd" id="3_wix2r"]
-[ext_resource type="Texture2D" uid="uid://dt655e740sci0" path="res://GameUI/assets/entry-door (1).png" id="4_k68s6"]
 [ext_resource type="Script" uid="uid://2w68gxf1ei8f" path="res://GameUI/scenes/Component/maxScores.gd" id="4_sij0v"]
 [ext_resource type="PackedScene" uid="uid://c58x06nmajbxe" path="res://GameUI/scenes/Component/animation_ux_component.tscn" id="5_sij0v"]
+[ext_resource type="Texture2D" uid="uid://b30nm8vnykikp" path="res://GameUI/assets/New original game icons/Back Button - Default.PNG" id="7_xncgm"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="8_72g2v"]
 
 [sub_resource type="GDScript" id="GDScript_lp0aq"]
@@ -778,7 +778,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme_override_constants/icon_max_width = 140
-theme_override_icons/icon = ExtResource("4_k68s6")
+theme_override_icons/icon = ExtResource("7_xncgm")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_lp0aq")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_lp0aq")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lp0aq")
