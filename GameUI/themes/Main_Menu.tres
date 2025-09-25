@@ -68,6 +68,7 @@ region = Rect2(38, 38, 206, 188)
 [resource]
 Button/colors/font_color = Color(0.921569, 0.639216, 0.4, 1)
 Button/colors/font_focus_color = Color(0.921569, 0.639216, 0.4, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
 Button/colors/font_pressed_color = Color(0.921569, 0.639216, 0.4, 1)
 Button/constants/h_separation = 10
 Button/font_sizes/font_size = 50

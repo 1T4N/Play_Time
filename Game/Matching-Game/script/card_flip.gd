@@ -40,15 +40,15 @@ func _ready():
 # add more image here copy and paste the load code then input the location of the image
 func load_card_images():
 	return [
-		load("res://Game/Matching-Game/ui/Fruits_New/Apple.PNG"),
-		load("res://Game/Matching-Game/ui/Fruits_New/Banana.PNG"), 
-		load("res://Game/Matching-Game/ui/Fruits_New/Coconut.PNG"),
-		load("res://Game/Matching-Game/ui/Fruits_New/Dalandan.PNG"),
-		load("res://Game/Matching-Game/ui/Fruits_New/Kiwi.PNG"),  
-		load("res://Game/Matching-Game/ui/Fruits_New/Lemon.PNG"), 
-		load("res://Game/Matching-Game/ui/Fruits_New/Mango.PNG"),
-		load("res://Game/Matching-Game/ui/Fruits_New/Melon.PNG"),
-		load("res://Game/Matching-Game/ui/Fruits_New/Strawberry.PNG")
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Apple_Reworked.PNG"),
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Banana_Reworked.PNG"), 
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Coconut_Reworked.PNG"),
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Dalandan_Reworked.PNG"),
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Kiwi_Reworked.PNG"),  
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Lemon_Reworked.PNG"), 
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Mango_Reworked.PNG"),
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Melon_Reworked.PNG"),
+		load("res://Game/Matching-Game/ui/Reworked Art Assets (Fruits)/Strawberry_Reworked.PNG")
 	]
 
 # Called when a card is pressed
