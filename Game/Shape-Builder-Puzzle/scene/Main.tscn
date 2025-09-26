@@ -1,11 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://p2k51ed4yu8"]
+[gd_scene load_steps=27 format=3 uid="uid://p2k51ed4yu8"]
 
 [ext_resource type="Script" uid="uid://b0v0l5pylnlqt" path="res://Game/Shape-Builder-Puzzle/script/Shape-Builder-puzzle.gd" id="1_ts37j"]
 [ext_resource type="Texture2D" uid="uid://c83wao0ajlo6q" path="res://GameUI/Game_Backgrounds/Puzzle_Builder_BG6.PNG" id="2_mfkhi"]
 [ext_resource type="PackedScene" uid="uid://hy61ksv3ufvn" path="res://Game/Shape-Builder-Puzzle/scene/Piece.tscn" id="3_5p71i"]
 [ext_resource type="PackedScene" uid="uid://b71s0740bdmb0" path="res://Game/Shape-Builder-Puzzle/scene/picture/targets.tscn" id="3_uwtu8"]
+[ext_resource type="Texture2D" uid="uid://binn3hn0rh1bq" path="res://Game/Shape-Builder-Puzzle/ui/final_ui/House_Art_Asset.PNG" id="4_6qu37"]
 [ext_resource type="Texture2D" uid="uid://cmxc5lhljjmim" path="res://GameUI/assets/menu/Clicked.PNG" id="4_8himh"]
 [ext_resource type="Texture2D" uid="uid://bi6pjrl471d5h" path="res://Game/Shape-Builder-Puzzle/ui/new ui/IMG_6647.PNG" id="4_mfkhi"]
+[ext_resource type="Texture2D" uid="uid://c7y8e7uk1fwci" path="res://Game/Shape-Builder-Puzzle/ui/final_ui/Person_Art_Asset.PNG" id="4_y2kwd"]
 [ext_resource type="Theme" uid="uid://br70tphagchtl" path="res://GameUI/themes/GAME TIME.tres" id="5_drqlj"]
 [ext_resource type="Texture2D" uid="uid://4wsvb5na2ncb" path="res://GameUI/assets/menu/Default.PNG" id="5_mfkhi"]
 [ext_resource type="PackedScene" uid="uid://clsw7nspkg4y7" path="res://GameUI/scenes/Component/timer.tscn" id="6_f1e12"]
@@ -13,10 +15,19 @@
 [ext_resource type="PackedScene" uid="uid://dufcdmyolk8xj" path="res://Game/LetterTracing/scenes/components/gameOverComponent.tscn" id="10_xmcih"]
 [ext_resource type="PackedScene" uid="uid://cu6qlm20xe5km" path="res://components/menu_component.tscn" id="11_0p6h8"]
 [ext_resource type="AudioStream" uid="uid://2j6lh0njanrm" path="res://Game/Shape-Safari/sound/BackgroundMusic.wav" id="11_uwtu8"]
+[ext_resource type="Texture2D" uid="uid://dugnf4v1b3aun" path="res://Game/Shape-Builder-Puzzle/ui/new ui/IMG_6646.PNG" id="11_y2kwd"]
 [ext_resource type="PackedScene" uid="uid://dwif208wf8raa" path="res://GameUI/scenes/Component/slideTransition.tscn" id="12_0p6h8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8prb"]
 texture = ExtResource("2_mfkhi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2kwd"]
+atlas = ExtResource("4_y2kwd")
+region = Rect2(27, 28, 969, 968)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kopxx"]
+atlas = ExtResource("4_6qu37")
+region = Rect2(27, 28, 969, 968)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qu37"]
 texture = ExtResource("4_8himh")
@@ -28,12 +39,16 @@ texture = ExtResource("5_mfkhi")
 atlas = ExtResource("4_mfkhi")
 region = Rect2(88, 139, 850, 741)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8prb"]
+atlas = ExtResource("11_y2kwd")
+region = Rect2(141, 143, 736, 735)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_aphbt"]
 atlas = ExtResource("6_mfkhi")
 region = Rect2(137, 139, 739, 739)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mfkhi"]
-radius = 179.138
+radius = 159.685
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -54,8 +69,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_m8prb")
 
+[node name="Targets2" parent="." instance=ExtResource("3_uwtu8")]
+layout_mode = 1
+texture = SubResource("AtlasTexture_y2kwd")
+
+[node name="Target" parent="Targets2" index="0"]
+position = Vector2(261, 153)
+required_id = "4"
+
+[node name="Target2" parent="Targets2" index="1"]
+position = Vector2(263, 362)
+required_id = "3"
+
 [node name="Targets" parent="." instance=ExtResource("3_uwtu8")]
 layout_mode = 1
+texture = SubResource("AtlasTexture_kopxx")
+
+[node name="Target" parent="Targets" index="0"]
+position = Vector2(264, 153)
+
+[node name="Target2" parent="Targets" index="1"]
+position = Vector2(263, 365)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -80,6 +114,84 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_6qu37")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_6qu37")
 theme_override_styles/normal = SubResource("StyleBoxTexture_y2kwd")
 
+[node name="Pieces2" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Control" type="Control" parent="Pieces2"]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.239583
+anchor_right = 0.239583
+offset_top = -131.5
+offset_bottom = 131.5
+metadata/_edit_use_anchors_ = true
+
+[node name="Piece" parent="Pieces2/Control" instance=ExtResource("3_5p71i")]
+points = 1000
+
+[node name="Sprite2D" parent="Pieces2/Control/Piece" index="0"]
+position = Vector2(-1.99936, 0.5)
+scale = Vector2(0.28, 0.279005)
+texture = SubResource("AtlasTexture_8himh")
+
+[node name="CollisionShape2D" parent="Pieces2/Control/Piece" index="1"]
+position = Vector2(-4.25, -1)
+
+[node name="Control2" type="Control" parent="Pieces2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -127.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Piece" parent="Pieces2/Control2" instance=ExtResource("3_5p71i")]
+position = Vector2(1.00064, 0.5)
+piece_id = "3"
+points = 1000
+
+[node name="Sprite2D" parent="Pieces2/Control2/Piece" index="0"]
+position = Vector2(-1.99936, 0.5)
+scale = Vector2(0.28, 0.279005)
+texture = SubResource("AtlasTexture_m8prb")
+
+[node name="CollisionShape2D" parent="Pieces2/Control2/Piece" index="1"]
+position = Vector2(-4.25, -1)
+
+[node name="Control3" type="Control" parent="Pieces2"]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.760417
+anchor_right = 0.760417
+offset_top = -131.5
+offset_bottom = 131.5
+metadata/_edit_use_anchors_ = true
+
+[node name="Piece3" parent="Pieces2/Control3" instance=ExtResource("3_5p71i")]
+scale = Vector2(0.62, 0.65)
+piece_id = "4"
+points = 500
+
+[node name="Sprite2D" parent="Pieces2/Control3/Piece3" index="0"]
+position = Vector2(-0.000976563, -0.769287)
+scale = Vector2(0.438692, 0.420278)
+texture = SubResource("AtlasTexture_aphbt")
+
+[node name="CollisionShape2D" parent="Pieces2/Control3/Piece3" index="1"]
+position = Vector2(-1.61385, 0.769223)
+shape = SubResource("CircleShape2D_mfkhi")
+
 [node name="Pieces" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -90,45 +202,50 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Control" type="Control" parent="Pieces"]
-layout_mode = 2
-anchors_preset = 0
-anchor_left = 0.239583
-anchor_right = 0.239583
-offset_top = -131.5
-offset_bottom = 131.5
-metadata/_edit_use_anchors_ = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -263.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Piece" parent="Pieces/Control" instance=ExtResource("3_5p71i")]
+position = Vector2(3.00003, 131)
 piece_id = "1"
 points = 1000
 
 [node name="Sprite2D" parent="Pieces/Control/Piece" index="0"]
-position = Vector2(-9.4625, -8.48499)
-scale = Vector2(0.297559, 0.3144)
+position = Vector2(-1.99936, 0.5)
+scale = Vector2(0.28, 0.279005)
 texture = SubResource("AtlasTexture_8himh")
 
 [node name="CollisionShape2D" parent="Pieces/Control/Piece" index="1"]
 position = Vector2(-4.25, -1)
 
 [node name="Control2" type="Control" parent="Pieces"]
-layout_mode = 2
-anchors_preset = 0
-anchor_left = 0.5
-anchor_right = 0.5
+layout_mode = 1
+anchor_left = 0.239583
+anchor_right = 0.239583
 offset_top = -131.5
 offset_bottom = 131.5
-metadata/_edit_use_anchors_ = true
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Piece2" parent="Pieces/Control2" instance=ExtResource("3_5p71i")]
+[node name="Piece" parent="Pieces/Control2" instance=ExtResource("3_5p71i")]
+position = Vector2(1.00064, 0.5)
 piece_id = "2"
-points = 500
+points = 1000
 
-[node name="Sprite2D" parent="Pieces/Control2/Piece2" index="0"]
-position = Vector2(-14.5, -5.49999)
-scale = Vector2(0.838346, 0.955284)
+[node name="Sprite2D" parent="Pieces/Control2/Piece" index="0"]
+position = Vector2(-1.99936, 0.5)
+scale = Vector2(0.28, 0.279005)
+texture = SubResource("AtlasTexture_m8prb")
 
-[node name="CollisionShape2D" parent="Pieces/Control2/Piece2" index="1"]
-position = Vector2(-15, -4.625)
+[node name="CollisionShape2D" parent="Pieces/Control2/Piece" index="1"]
+position = Vector2(-4.25, -1)
 
 [node name="Control3" type="Control" parent="Pieces"]
 layout_mode = 2
@@ -144,8 +261,8 @@ scale = Vector2(0.62, 0.65)
 points = 500
 
 [node name="Sprite2D" parent="Pieces/Control3/Piece3" index="0"]
-position = Vector2(-5.55345, -11.9398)
-scale = Vector2(0.547572, 0.506968)
+position = Vector2(-0.807467, -12.3077)
+scale = Vector2(0.434327, 0.435099)
 texture = SubResource("AtlasTexture_aphbt")
 
 [node name="CollisionShape2D" parent="Pieces/Control3/Piece3" index="1"]
@@ -214,11 +331,16 @@ offset_right = 234.5
 offset_bottom = 286.0
 
 [node name="SlideTransition" parent="menu" instance=ExtResource("12_0p6h8")]
+visible = false
 
 [connection signal="pressed" from="MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 
+[editable path="Targets2"]
 [editable path="Targets"]
+[editable path="Pieces2/Control/Piece"]
+[editable path="Pieces2/Control2/Piece"]
+[editable path="Pieces2/Control3/Piece3"]
 [editable path="Pieces/Control/Piece"]
-[editable path="Pieces/Control2/Piece2"]
+[editable path="Pieces/Control2/Piece"]
 [editable path="Pieces/Control3/Piece3"]
 [editable path="menu/Menu"]
