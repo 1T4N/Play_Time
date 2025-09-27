@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=6 format=3 uid="uid://dselprtvqt18x"]
 
-[ext_resource type="FontFile" uid="uid://cb7ub7sykaqrj" path="res://Game/Color-Hunt/Madimi_One/MadimiOne-Regular.ttf" id="1_2xbgq"]
+[ext_resource type="FontFile" uid="uid://cb7ub7sykaqrj" path="res://Game/LetterTracing/arts/UI/Madimi_One/MadimiOne-Regular.ttf" id="1_2xbgq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7c0x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

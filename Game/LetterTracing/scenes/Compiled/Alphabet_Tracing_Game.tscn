@@ -319,11 +319,8 @@ script = SubResource("GDScript_v66mg")
 visible = false
 z_index = 1
 layout_mode = 1
-offset_left = -300.0
 offset_top = -520.0
-offset_right = 300.0
 offset_bottom = 520.0
-size_flags_horizontal = 4
 
 [node name="GameOverComponent" parent="." instance=ExtResource("30_6clmv")]
 visible = false
