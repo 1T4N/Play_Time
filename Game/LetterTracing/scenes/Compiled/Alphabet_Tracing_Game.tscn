@@ -68,11 +68,11 @@ func unPauseNextCard():
 	
 "
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hl8jw"]
-texture = ExtResource("30_w3l7d")
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hpbiw"]
 texture = ExtResource("31_6npuv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hl8jw"]
+texture = ExtResource("30_w3l7d")
 
 [sub_resource type="GDScript" id="GDScript_hw8sg"]
 script/source = "extends Button
@@ -267,10 +267,10 @@ size_flags_vertical = 0
 theme = ExtResource("2_fbvme")
 theme_type_variation = &"menuButton"
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxTexture_hl8jw")
-theme_override_styles/hover = SubResource("StyleBoxTexture_hl8jw")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_hl8jw")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hpbiw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hl8jw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hl8jw")
+theme_override_styles/focus = SubResource("StyleBoxTexture_hl8jw")
 text = "
 "
 script = SubResource("GDScript_hw8sg")

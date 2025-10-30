@@ -36,11 +36,8 @@ Label/font_sizes/font_size = 50
 Label/fonts/font = ExtResource("1_np6pp")
 Label/styles/normal = SubResource("StyleBoxFlat_2jusw")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu20k"]
+bg_color = Color(0.921569, 0.639216, 0.4, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -53,12 +50,15 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bu20k"]
-bg_color = Color(0.921569, 0.639216, 0.4, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu7k8"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_domf7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="GDScript" id="GDScript_83co6"]
 script/source = "extends HBoxContainer
@@ -93,11 +93,8 @@ func setNewDb(busName,toggled_on):
 	globalGameData.soundToggles[busName] = toggled_on
 "
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxylp"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1vyi"]
-bg_color = Color(0.784314, 0.482353, 0.243137, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoo6s"]
+bg_color = Color(0.921569, 0.639216, 0.4, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -110,12 +107,15 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoo6s"]
-bg_color = Color(0.921569, 0.639216, 0.4, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1vyi"]
+bg_color = Color(0.784314, 0.482353, 0.243137, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxylp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru2hw"]
 bg_color = Color(0.921569, 0.639216, 0.4, 1)
@@ -189,6 +189,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_sdpiv")
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+
 [node name="Panel" type="Panel" parent="MarginContainer/Panel"]
 custom_minimum_size = Vector2(1050, 1000)
 layout_mode = 2
@@ -202,11 +205,8 @@ size_flags_vertical = 4
 theme = SubResource("Theme_3mro0")
 theme_override_constants/separation = 25
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/VBoxContainer"]
-layout_mode = 2
-
 [node name="Resume" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(800, 200)
+custom_minimum_size = Vector2(990, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -215,10 +215,10 @@ theme = ExtResource("2_mwg2q")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu20k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 text = "Resume"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
@@ -235,11 +235,17 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_xxylp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_m1vyi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1c57v")
 theme_override_styles/normal = SubResource("StyleBoxFlat_eoo6s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1c57v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m1vyi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xxylp")
 text = "SFX"
 
 [node name="music" type="CheckButton" parent="MarginContainer/Panel/VBoxContainer/HBoxContainer"]
@@ -249,15 +255,21 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_mwg2q")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_xxylp")
-theme_override_styles/hover = SubResource("StyleBoxFlat_m1vyi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1c57v")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ru2hw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1c57v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m1vyi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xxylp")
 text = "Music"
 
 [node name="Credits" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(800, 200)
+custom_minimum_size = Vector2(990, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -266,15 +278,15 @@ theme = ExtResource("2_mwg2q")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu20k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 text = "Credits"
 script = ExtResource("5_yowbx")
 
 [node name="Back" type="Button" parent="MarginContainer/Panel/VBoxContainer"]
-custom_minimum_size = Vector2(800, 200)
+custom_minimum_size = Vector2(990, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -283,10 +295,10 @@ theme = ExtResource("2_mwg2q")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 125
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu20k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 text = "Exit"
 
 [node name="CREDIT PAGE" type="PanelContainer" parent="MarginContainer"]
@@ -329,6 +341,7 @@ theme_override_constants/separation = 10
 [node name="Team" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 theme = ExtResource("6_ojatv")
 theme_override_colors/font_color = Color(0.784314, 0.482353, 0.243137, 1)
 theme_override_font_sizes/font_size = 100
@@ -370,7 +383,7 @@ text = "   -"
 [node name="Suarez_Role" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_ojatv")
-text = " Lead Game Developer"
+text = "Lead Game Developer  "
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -490,7 +503,6 @@ theme = ExtResource("6_ojatv")
 text = "Voice Talent"
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 theme_override_constants/separation = 40
@@ -500,16 +512,19 @@ layout_mode = 2
 theme = ExtResource("6_ojatv")
 
 [node name="Reference2" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+visible = false
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Delapouite "
 
 [node name="-" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+visible = false
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "                   -"
 
 [node name="Reference2_Desc" type="Label" parent="MarginContainer/CREDIT PAGE/Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer6"]
+visible = false
 layout_mode = 2
 theme = ExtResource("6_ojatv")
 text = "Entry door icon "
@@ -573,10 +588,10 @@ theme = ExtResource("2_mwg2q")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_np6pp")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bu20k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5cvai")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tu7k8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_domf7")
 text = "Back
 "
 script = SubResource("GDScript_ojatv")
